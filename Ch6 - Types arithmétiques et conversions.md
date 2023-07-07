@@ -1,5 +1,8 @@
 # Ch6 - Types arithmétiques et conversions
 
+[2.8 - Evaluation d'expressions](#2.8---evaluation-d'expressions)
+[2.9 - Conversions implicites](#2.9---Conversions-implicites)
+
 ## 2.8 - Evaluation d'expressions 
 
 Que va afficher le programme ci-dessous ? Expliquer les résultats obtenus.
