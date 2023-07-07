@@ -1,9 +1,9 @@
-# Ch6 - Types arithmétiques et conversions
+# Chapitre 6 - Types arithmétiques et conversions
 
-[2.8 - Evaluation d'expressions](#2.8---evaluation-d'expressions)
-[2.9 - Conversions implicites](#2.9---Conversions-implicites)
+- [2.8 - Evaluation d'expressions](#28-evaluation-dexpressions)
+- [2.9 - Conversions implicites](#29-conversions-implicites)
 
-## 2.8 - Evaluation d'expressions 
+## 2.8 Evaluation d'expressions
 
 Que va afficher le programme ci-dessous ? Expliquer les résultats obtenus.
 
@@ -39,15 +39,16 @@ int main() {
 ~~~
 
 ### Explications
-1) Résultat faux car multiplication entière induisant un débordement
+1) Résultat indéfini car multiplication entière induisant un débordement. Le résultat affiché est probable pour un entier codé en complément à 2. 
 2) Résultat juste car multiplications successives réelles
-3) Résultat faux car la première multiplication s'effectue sur les entiers => débordement 4) Résultat juste car multiplications successives réelles
+3) Résultat indéfini car la première multiplication s'effectue sur les entiers => débordement. Le résultat affiché est probable pour un entier codé en complément à 2.
+4) Résultat juste car multiplications successives réelles
 5) Résultat juste.
 6) Résultat juste.
 7) Résultat juste.
-8) Résultat faux dû à la précision insuffisante des calculs avec le type float
+8) Résultat arrondi (en base 2) dû à la précision insuffisante des calculs avec le type float
 
-## 2.9 - Conversions implicites
+## 2.9 Conversions implicites
 
 Soient les déclarations suivantes :
 ~~~cpp
@@ -85,4 +86,3 @@ Au final, on obtient la valeur 72 de type int.
 4) 1 conversion implicite : z est tout d'abord converti en float (cast), ce qui donne 5.5.
 La division entière n / 2 est ensuite effectuée; on obtient la valeur 3. Cette valeur (3) est ensuite convertie en float, avant d'être ajoutée à 5.5. Au final, on obtient la valeur 8.5 de type float.
 5) 1 conversion implicite (de type ajustement de type) de int en unsigned int. Au final, on obtient UINT_MAX (soit 4'294'967'295).
-   
