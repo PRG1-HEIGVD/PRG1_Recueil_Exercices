@@ -27,7 +27,8 @@ int main() {
 }
 ~~~
 
-### Solution 
+<details><summary>Solution</summary>
+
 ~~~
 1) -1294967296
 2) 3000000000
@@ -48,6 +49,8 @@ int main() {
 6) Résultat juste.
 7) Résultat juste.
 8) Résultat arrondi (en base 2) dû à la précision insuffisante des calculs avec le type `float`
+
+</details>
 
 ## 2.9 Conversions implicites
 
@@ -72,7 +75,8 @@ Pour chacune des variables `r1` à `r5`, indiquez :
 - combien de conversions implicites sont mises en œuvre et lesquelles
 - ce qu'elle vaut et quel est sont type
 
-### Solution 
+<details><summary>Solution</summary>
+
 Rappel Les promotions numériques : `bool → int`, `char → int` et `short → int`
 
 ~~~cpp
@@ -125,6 +129,8 @@ unsigned int r5 = numeric_limits<unsigned>::max(); // probablement 4'294'967'295
  */
 ~~~
 
+</details>
+
 ## 2.10 Evaluations d'expressions (3)
 
 Soient les déclarations suivantes :
@@ -140,7 +146,7 @@ double x5 = (int)( j + .5) / i;
 
 Que valent les variables x1 à x5 ? 
 
-### Solution 
+<details><summary>Solution</summary>
 
 ~~~cpp
 x1 = 2.2;  // division réelle
@@ -149,3 +155,5 @@ x3 = 2.5;
 x4 = 2.7;  // division réelle
 x5 = 2.0;  // division entière 
 ~~~
+
+</details>
