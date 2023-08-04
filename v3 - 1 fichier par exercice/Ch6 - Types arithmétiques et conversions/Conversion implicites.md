@@ -19,7 +19,7 @@ auto r5 a + b;
 
 Pour chacune des variables `r1` à `r5`, indiquez :
 - combien de conversions implicites sont mises en œuvre et lesquelles
-- ce qu'elle vaut et quel est sont type
+- ce qu'elle vaut et quel est son type
 
 
 <details><summary>Solution</summary>
