@@ -1,4 +1,4 @@
-# 6.2 - Conversions implicites
+# Conversions implicites
 
 Soient les déclarations suivantes :
 ~~~cpp

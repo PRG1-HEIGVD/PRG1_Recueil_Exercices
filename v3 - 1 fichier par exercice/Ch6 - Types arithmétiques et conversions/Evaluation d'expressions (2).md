@@ -1,4 +1,4 @@
-# 6.3 Evaluations d'expressions (3)
+# Evaluations d'expressions (2)
 
 Soient les déclarations suivantes :
 ~~~cpp
