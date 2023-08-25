@@ -1,7 +1,7 @@
 # Erreur de syntaxe
 Le programme ci-dessous contient plusieurs erreurs de syntaxe.
 
-Proposez un correctif en regard de chaque ligne fautive.
+Corriger ce code afin qu'il passe la compilation.
 
 ~~~cpp
 /* programme avec erreurs
