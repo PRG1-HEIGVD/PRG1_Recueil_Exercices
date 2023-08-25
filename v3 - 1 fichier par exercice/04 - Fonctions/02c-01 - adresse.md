@@ -5,8 +5,8 @@
 - *ptrEntier* est stocké à l'adresse 0x7ff7bfeff3a0
 
 ~~~cpp
-#include <cstdlib>      // EXIT_SUCCESS
-#include <iostream>     // cout et cin
+#include <cstdlib>
+#include <iostream>
 
 using namespace std;
 
