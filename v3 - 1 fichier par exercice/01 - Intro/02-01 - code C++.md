@@ -19,7 +19,7 @@ int main()                                  // 3
 
 1. Ajouter des librairies utiles au programme
     - *iostream*  : pour *cout*, *cin*, ...
-    - *cstdlib*   : pour *EXIT_SUCCESS *
+    - *cstdlib*   : pour *EXIT_SUCCESS*
 2. Utilise l'espace de nommage *std*. Sans quoi, il faudrait écrire
     - *std::cout*
     - *std::endl*
