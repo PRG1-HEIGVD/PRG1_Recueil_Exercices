@@ -44,5 +44,5 @@ int main() {
 10. end n'est pas une instruction
 11. manque l' "}" fermante
 
-*Sans doute écrite trop top le matin ;)*
+*Sans doute écrit trop top le matin ;)*
 </details>
