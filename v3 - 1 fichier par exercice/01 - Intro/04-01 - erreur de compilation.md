@@ -1,5 +1,6 @@
 # Erreur de syntaxe
 Le programme ci-dessous contient plusieurs erreurs de syntaxe.
+
 Proposez un correctif en regard de chaque ligne fautive.
 
 ~~~cpp
