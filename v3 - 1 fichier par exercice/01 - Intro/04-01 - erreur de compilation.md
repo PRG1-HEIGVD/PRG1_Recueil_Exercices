@@ -17,7 +17,7 @@ end;
 <summary>Solution</summary>
 
 ~~~cpp
-// programme sans erreurs
+// programme sans erreurs ... ou
 /* programme sans erreurs */
 #include <iostream>
 using namespace std;
