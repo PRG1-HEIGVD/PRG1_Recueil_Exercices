@@ -32,6 +32,7 @@ int main() {
    // return EXIT_SUCCESS;
 }
 ~~~
+### Explications
 1. un commentaire "/*" doit être fermé
 1. manque un # => **#include** ...
 1. use spacename => us**ing** **name**space
