@@ -33,16 +33,15 @@ int main() {
 }
 ~~~
 1. un commentaire "/*" doit être fermé
-2. manque un # => **#include** ...
-3. use => using
-4. spacename => namespace
-5. Main => main
-6. manque l' "}" fermante
-7. out => cout
-8. 'Hello' => "Hello"
-9. Return => return + valeur
-10. end n'est pas une instruction
-11. manque l' "}" fermante
+1. manque un # => **#include** ...
+1. use spacename => us**ing** **name**space
+1. Main => main
+1. manque une "}" ouvrante
+1. out => **c**out
+1. 'Hello' => "Hello" ( *serait ok pour un caractère : 'a'* )
+1. Return => **r**eturn + valeur
+1. end n'est pas une instruction
+1. manque une "}" fermante
 
 *Sans doute écrit trop top le matin ;)*
 </details>
