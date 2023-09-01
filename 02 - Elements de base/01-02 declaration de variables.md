@@ -28,6 +28,19 @@ Pour chaque séquence d'instructions suivante, déterminez si elle est correcte 
     n = 2 * n - 1;
     m = n + 1;
     ~~~
+ 5. 
+    ~~~cpp
+    int n = 5, m = 0;
+    const int nb_produit = 10;
+    m = n * nb_produit - 1;    
+    ~~~
+ 6. 
+    ~~~cpp
+    int n = 5, m = 0;
+    const int nb_produit = 10;
+    m = n * nb_produit--;    
+    ~~~
+
 <details>
 <summary>Solution</summary>
 
@@ -35,5 +48,7 @@ Pour chaque séquence d'instructions suivante, déterminez si elle est correcte 
 2. Non ce n'est pas correcte. La variable `n` est déclarée deux fois.
 3. Non ce n'est pas correcte. La variable `k` n'est psa déclarée.
 4. Non ce n'est pas correcte. La variable `n` n'est pas initialisé (donc indéfini)
+5. `m = 49`
+6. Non ce n'est pas correcte. La variable `nb_produit` est défini comme const et ne peux pas être modifiée `nb_produit--`.
 
 </details>
