@@ -1,4 +1,4 @@
-# Déclaration de variables
+# Division entière et réelle
 
 Soient les déclarations suivantes :
 

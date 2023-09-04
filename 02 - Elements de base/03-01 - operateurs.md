@@ -1,4 +1,4 @@
-# Déclaration de variables
+# Opérateurs
 
 Que va afficher le programme C++ suivant ?
 
