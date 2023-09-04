@@ -1,4 +1,4 @@
-# Division et modulo
+# Modulo
 
 Soient les déclarations suivantes :
 
