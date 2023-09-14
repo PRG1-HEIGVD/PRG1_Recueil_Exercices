@@ -5,10 +5,7 @@
 - Demandez à l'utilisateur de saisir du texte au clavier.
 - Enregistrez le texte saisi dans un fichier texte dont le nom est spécifié par l'utilisateur.
 - Assurez-vous que le programme gère les erreurs d'ouverture de fichier.
-- pour terminer la saisie, l'utilisateur pourra :
-  - Ctrl+D pour les systèmes Unix, 
-  - Ctrl+Z pour Windows, 
-  - ou tapez #exit# dans une ligne séprée.
+- pour terminer la saisie, l'utilisateur pourra tapez #exit# dans une ligne séprée ou utiliser Ctrl+D.
 
 Ps. Ctrl+D et Ctrl+Z simule le EOF pour les systèmes Unix et Windows, respectivement.   
 
@@ -40,7 +37,7 @@ int main() {
     const std::string terminer = "#exit#";
 
     // Demandez à l'utilisateur de saisir du texte
-    std::cout << "Entrez le texte à enregistrer dans le fichier (Ctrl+D Unix, Ctrl+Z Win ou #exit# pour terminer la saisie) :\n";
+    std::cout << "Entrez le texte à enregistrer dans le fichier (Ctrl+D ou #exit# pour terminer la saisie) :\n";
     while (std::getline(std::cin, texte)) {
         if (texte == terminer) break;
         // Écrivez le texte dans le fichier
@@ -52,7 +49,7 @@ int main() {
 
     std::cout << "Le texte a été enregistré avec succès dans le fichier." << std::endl;
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 ~~~
