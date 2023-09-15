@@ -1,10 +1,10 @@
 # Lecture et ajout de texte dans un fichier
 
-Modifiez le programme en C++ de l'exercice 01-01 pour faire ce qui suit :
+Modifiez le programme en C++ de l'exercice 01-02 pour faire ce qui suit :
 
-- Demander à l'utilisateur de saisir du texte au clavier.
-- Lire le contenu du fichier, s'il existe et l'afficher sur la console.
-- Ajouter (append) le texte saisi dans un fichier texte dont le nom est spécifié par l'utilisateur. Si le fichier existe déjà, il ne doit pas être écrasé.
+- Demander à l'utilisateur de saisir le nom du fichier de sortie.
+- Lire le contenu du fichier de sortie, s'il existe et l'afficher sur la console.
+- Demandez à l'utilisateur de saisir du text et ajouter (append) le texte saisi dans le fichier de sortie. Si le fichier existe déjà, il ne doit pas être écrasé.
 - Assurez-vous que le programme gère les erreurs d'ouverture de fichier.
 - pour terminer la saisie, l'utilisateur pourra tapez #exit# dans une ligne séprée ou utiliser Ctrl+D.
 

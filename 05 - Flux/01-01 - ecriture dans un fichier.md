@@ -2,8 +2,8 @@
 
 Écrivez un programme en C++ qui fait ce qui suit :
 
-- Demandez à l'utilisateur de saisir du texte au clavier.
-- Enregistrez le texte saisi dans un fichier texte dont le nom est spécifié par l'utilisateur.
+- Demander à l'utilisateur de saisir le nom du fichier de sortie.
+- Demandez à l'utilisateur de saisir du text et enregistrez le texte saisi dans le fichier de sortie. Si le fichier existe déjà, il ne doit pas être écrasé.
 - Assurez-vous que le programme gère les erreurs d'ouverture de fichier.
 - pour terminer la saisie, l'utilisateur pourra tapez #exit# dans une ligne séprée ou utiliser Ctrl+D.
 
