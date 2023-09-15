@@ -1,6 +1,6 @@
 # Lecture et ajout de texte dans un fichier
 
-Modifiez le programme en C++ de l'exercice 01-02 pour faire ce qui suit :
+Modifiez le programme en C++ de l'exercice 01-01 pour faire ce qui suit :
 
 - Demander à l'utilisateur de saisir le nom du fichier de sortie.
 - Lire le contenu du fichier de sortie, s'il existe et l'afficher sur la console.
