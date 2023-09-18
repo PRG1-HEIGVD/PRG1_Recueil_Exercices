@@ -82,7 +82,7 @@ void afficher_resultat(const std::string & nom, const int & age, const double & 
     std::cout << "Résultat : " << (admis ? "Admis" : "Non admis") << std::endl;
 }
 
-void saisir_resultat(std::string & nom, int & age, double & note_math, double & note_prg1){
+void saisir_infos(std::string & nom, int & age, double & note_math, double & note_prg1){
     // Demandez à l'utilisateur de saisir les données
     std::cout << "Entrez le nom de l'étudiant : ";
     std::getline(std::cin, nom);
@@ -111,7 +111,7 @@ int main() {
     double note_math, note_prg1;
     bool admis;
 
-    saisir_resultat(nom, age, note_math, note_prg1);
+    saisir_infos(nom, age, note_math, note_prg1);
 
     double moyenne = 0;
     admis = calculer_moyenne(note_math, note_prg1, moyenne);
