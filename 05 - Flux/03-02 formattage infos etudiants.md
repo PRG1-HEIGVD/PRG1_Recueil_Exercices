@@ -28,7 +28,7 @@ Moyenne : 5.25
 Résultat : Admis
 ~~~
 
-Ps. Utilisez les fonctions de formatage et privilégiez l'utilisation de fonctions pour organiser votre code.  
+Ps. Utilisez les fonctions de formatage et privilégiez l'utilisation des fonctions pour organiser votre code.  
 
 
 
