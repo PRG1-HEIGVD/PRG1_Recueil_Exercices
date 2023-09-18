@@ -49,6 +49,9 @@ const int setw_col5 = 9;
 const int setw_total = setw_col1 + setw_col2 + setw_col3 + setw_col4 + setw_col5;
 
 void afficher_entete(){
+    std::ios etat(nullptr);
+    etat.copyfmt(std::cout); // enregistrer le formatage actuel
+
     std::cout << std::left << std::setw(setw_col1) << "Nom"
               << std::right << std::setw(setw_col2) << "Age"
               << std::right << std::setw(setw_col3) << "Note Math"
@@ -57,7 +60,8 @@ void afficher_entete(){
               << std::endl;
 
     std::cout << std::right << std::setw(setw_total) << std::setfill('-') << "" << "\n";
-    std::cout << std::setfill(' ');
+
+    std::cout.copyfmt(etat); // restaurer le formatage précédent
 }
 
 void afficher_resultat(const std::string & nom, const int & age, const double & note_math, const double & note_prg1, const double & moyenne, const bool & admis){
