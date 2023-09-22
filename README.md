@@ -2,4 +2,4 @@
 
 Les exercices sont organisés par chapitre
 
-Il seront rendu disponibles au fur et à mesure du semestre
+Il seront rendu disponibles au fur et à mesure du semestre par les professeurs
