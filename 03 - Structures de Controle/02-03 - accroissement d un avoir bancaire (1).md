@@ -1,4 +1,4 @@
-# Accroissement d'un avoir bancaire
+# Accroissement d'un avoir bancaire (1)
 
 Ecrire un programme C++ qui, après avoir demandé à l'utilisateur de saisir 
 - un montant initial 
