@@ -2,13 +2,13 @@
 
 Lorsqu'une balle tombe d'une hauteur initiale , sa vitesse d'impact au sol est
 $v_0 = \sqrt{2 \cdot g \cdot h_0}$ (où $g = 9.81 m/s2$, la constante de gravité terrestre).
-Immédiatement après le rebond, sa vitesse est $v_1 = \espilon \cdot v_0$ (où $\espilon$  est le coefficient de rebond de la balle). 
+Immédiatement après le rebond, sa vitesse est $v_1 = \epsilon \cdot v_0$ (où $\epsilon$  est le coefficient de rebond de la balle). 
 Elle remonte alors à la hauteur $h_1 = \frac{v_1^2}{2 \cdot g}$ .
 
 
 Ecrire un programme C++ qui calcule et affiche la hauteur à laquelle la balle remonte après un nombre donné de rebonds.
 Les données suivantes seront entrées par l'utilisateur et le programme devra vérifier la validité partielle de ces données (partielle… car on supposera que l'utilisateur entre bien une valeur numérique) : 
-- $\espilon$, le coefficient de rebond, tel que $0 \leq \espilon < 1$ 
+- $\epsilon$, le coefficient de rebond, tel que $0 \leq \epsilon < 1$ 
 - $h_0$. la hauteur initiale, telle que $h_0 \geq 0$
 - $n$ , le nombre de rebonds, tel que $n \geq 0$
 
