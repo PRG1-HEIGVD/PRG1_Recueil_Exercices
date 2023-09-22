@@ -1,7 +1,7 @@
 # Balle qui rebondit
 
 Lorsqu'une balle tombe d'une hauteur initiale , sa vitesse d'impact au sol est
-$v_0 = \sqrt{2 \cdot g \cdot h_0}$ (où $g = 9.81 m/s2$, la constante de gravité terrestre).
+$v_0 = \sqrt{2 \cdot g \cdot h_0}$ (où $g = 9.81 m/s^2$, la constante de gravité terrestre).
 Immédiatement après le rebond, sa vitesse est $v_1 = \epsilon \cdot v_0$ (où $\epsilon$  est le coefficient de rebond de la balle). 
 Elle remonte alors à la hauteur $h_1 = \frac{v_1^2}{2 \cdot g}$ .
 
