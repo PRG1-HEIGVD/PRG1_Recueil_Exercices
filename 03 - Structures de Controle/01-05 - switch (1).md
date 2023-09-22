@@ -12,12 +12,39 @@ switch (a) {
 }
 ~~~
 
+<details>
+<summary>Solution</summary>
+
+~~~cpp 
+if (a == 0) {
+   cout << "A";
+} else if (a == 1) {
+   cout << "Z";
+} else if (a == 2) {
+   cout << "a";
+} else {
+   cout << "b";
+}          
+~~~
+</details>
+
 ~~~cpp 
 switch (a) {
    case 0 : cout << "0"; 
    default : cout << "D"; break;
 }
 ~~~
+
+<details>
+<summary>Solution</summary>
+
+~~~cpp 
+if (a == 0) {
+   cout << "0";
+}
+cout << "D";    
+~~~
+</details>
 
 ~~~cpp 
 switch (a) {
@@ -35,25 +62,6 @@ switch (a) {
 
 <details>
 <summary>Solution</summary>
-
-~~~cpp 
-if (a == 0) {
-   cout << "A";
-} else if (a == 1) {
-   cout << "Z";
-} else if (a == 2) {
-   cout << "a";
-} else {
-   cout << "b";
-}          
-~~~
-
-~~~cpp 
-if (a == 0) {
-   cout << "0";
-}
-cout << "D";    
-~~~
 
 ~~~cpp 
 if (a >= 0 and a <= 5) {

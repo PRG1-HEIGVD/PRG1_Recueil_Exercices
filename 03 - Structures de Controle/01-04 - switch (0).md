@@ -24,21 +24,68 @@ int main() {
 
 Que va-t-il afficher lorsque l'utilisateur entre comme valeur 
 
-- 0
-- 1
-- 2
-- 4
-- 6
-- -1
-
+~~~
+0
+~~~
 <details>
 <summary>Solution</summary>
 
-- AB
-- B
-- B
-- CD
-- D
-- D
+~~~
+AB
+~~~
+</details>
 
+~~~
+1
+~~~
+<details>
+<summary>Solution</summary>
+
+~~~
+B
+~~~
+</details>
+
+~~~
+2
+~~~
+<details>
+<summary>Solution</summary>
+
+~~~
+B
+~~~
+</details>
+
+~~~
+4
+~~~
+<details>
+<summary>Solution</summary>
+
+~~~
+CD
+~~~
+</details>
+
+~~~
+6
+~~~
+<details>
+<summary>Solution</summary>
+
+~~~
+D
+~~~
+</details>
+
+~~~
+-1
+~~~
+<details>
+<summary>Solution</summary>
+
+~~~
+D
+~~~
 </details>
