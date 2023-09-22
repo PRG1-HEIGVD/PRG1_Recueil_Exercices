@@ -26,6 +26,7 @@ Pour chacun des cas ci-dessous, indiquez le type de la variable après chaque in
 
 <details>
 <summary>Solution</summary>
+
 |  #  | Déclaration | Type |
 | --- | -------------- | --------- |
 | 1 | `auto var1 = 10;` | int |
