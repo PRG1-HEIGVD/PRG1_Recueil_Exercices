@@ -69,10 +69,8 @@ void afficher_ligne(const string & s_col1,
 }
 
 void afficher_resume(double moyenne, bool admis){
-    // Affichez la moyenne
     cout << "Moyenne : " << moyenne << endl;
 
-    // Affichez le résultat
     cout << "Résultat : " << (admis ? "Admis" : "Non admis") << endl;
 }
 
@@ -127,7 +125,6 @@ int main() {
 
     return 0;
 }
-
 ~~~
 
 
