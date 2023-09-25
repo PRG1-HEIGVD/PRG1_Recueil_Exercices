@@ -8,7 +8,7 @@ using namespace std;
 
 int main() {
    cout << "Entrez un no de mois (1-12) : ";
-   unsigned no_mois; cin >> no_mois;
+   int no_mois; cin >> no_mois;
    
    cout << "Ce mois comporte ";
    
