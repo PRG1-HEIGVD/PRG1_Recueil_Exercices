@@ -13,7 +13,7 @@ Quel est le résultat d'évaluation des expressions suivantes ? en cas d'erreur,
 |---| ---------- |---|
 | 1 | `j % i` | |
 | 2 | `n % i`  | |
-| 3 | `z % x`  | |
+| 3 | `y % x`  | |
 | 4 | `y % i` | |
 | 5 | `-j % i` | |
 | 6 | `n % ++i` | |
