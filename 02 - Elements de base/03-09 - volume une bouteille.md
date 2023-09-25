@@ -2,7 +2,7 @@
 
 Comme illustré ci-dessous, la forme d'une bouteille peut s'approximer par deux cylindres, de rayons r1 et r2 et de hauteurs h1 et h2, joints par un cône tronqué de hauteur h3.
 
-Ecrire un programme C++ qui, après avoir demandé à l'utilisateur de saisir (en centimètres) les cinq paramètres ci-dessus, calcule puis affiche (avec un chiffre après la virgule) la contenance en litres de la bouteille.
+Ecrire un programme C++ qui, après avoir demandé à l'utilisateur de saisir (en centimètres) les cinq paramètres ci-dessus, calcule puis affiche la contenance en litres de la bouteille.
 
 ![bouteille](../assets/02-10_bouteille.jpg)
 
