@@ -12,9 +12,6 @@ switch (a) {
 }
 ~~~
 
-<textarea style="font-size: 15pt" cols="80" rows="10"> // Ecrivez votre réponse ici avant de lire la solution
-</textarea>
-
 <details>
 <summary>Solution</summary>
 
@@ -38,8 +35,6 @@ switch (a) {
 }
 ~~~
 
-<textarea style="font-size: 15pt" cols="80" rows="5"> // Ecrivez votre réponse ici avant de lire la solution
-</textarea>
 
 <details>
 <summary>Solution</summary>
@@ -65,9 +60,6 @@ switch (a) {
    default : cout << "D"; 
 }
 ~~~
-
-<textarea style="font-size: 15pt" cols="80" rows="10"> // Ecrivez votre réponse ici avant de lire la solution
-</textarea>
 
 <details>
 <summary>Solution</summary>

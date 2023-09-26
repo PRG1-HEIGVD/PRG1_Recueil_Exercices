@@ -10,8 +10,6 @@ if (i < 1) {
 }
 ~~~
 
-Votre réponse : <textarea cols="40" rows="1" style="font-size: 15pt"></textarea>
-
 <details>
 <summary>Solution</summary>
 
@@ -31,8 +29,6 @@ if (j == 0) {
    }
 }
 ~~~
-
-Votre réponse : <textarea cols="40" rows="1" style="font-size: 15pt"></textarea>
 
 <details>
 <summary>Solution</summary>
@@ -54,8 +50,6 @@ if (j == 0) {
    }
 }
 ~~~
-
-Votre réponse : <textarea cols="40" rows="1" style="font-size: 15pt"></textarea>
 
 <details>
 <summary>Solution</summary>

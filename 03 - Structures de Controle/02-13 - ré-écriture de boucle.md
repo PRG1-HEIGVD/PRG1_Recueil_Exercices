@@ -9,8 +9,6 @@ for (; i < 10; ++i) {
 }
 ~~~
 
-<textarea cols="40" rows="4" style="font-size: 15pt"></textarea>
-
 <details>
 <summary>Solution</summary>
 
@@ -29,8 +27,6 @@ for (; i < 10; ++i) {
    cout << i << endl;
 }
 ~~~
-
-<textarea cols="40" rows="6" style="font-size: 15pt"></textarea>
 
 <details>
 <summary>Solution</summary>
@@ -55,8 +51,6 @@ while (i-- > 10) {
 }
 ~~~
 
-<textarea cols="40" rows="4" style="font-size: 15pt"></textarea>
-
 <details>
 <summary>Solution</summary>
 
@@ -74,8 +68,6 @@ while (i-- > 10) {
    cout << i << endl;
 }
 ~~~
-
-<textarea cols="40" rows="7" style="font-size: 15pt"></textarea>
 
 <details>
 <summary>Solution</summary>
@@ -102,8 +94,6 @@ do {
 } while (i < 10);   
 ~~~
 
-<textarea cols="40" rows="4" style="font-size: 15pt"></textarea>
-
 <details>
 <summary>Solution</summary>
 
@@ -123,8 +113,6 @@ do {
   ++i; 
 } while (i < 10);   
 ~~~
-
-<textarea cols="40" rows="6" style="font-size: 15pt"></textarea>
 
 <details>
 <summary>Solution</summary>

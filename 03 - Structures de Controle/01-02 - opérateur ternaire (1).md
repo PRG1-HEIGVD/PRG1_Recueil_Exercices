@@ -10,8 +10,6 @@ if (a > 0) {
 }
 ~~~
 
-Votre réponse : <textarea style="font-size: 15pt" cols="80" rows="1"></textarea>
-
 <details>
 <summary>Solution</summary>
 
@@ -30,9 +28,6 @@ if (d == 0.) {
    r = n/d; 
 }
 ~~~
-
-Votre réponse : <textarea style="font-size: 15pt" cols="80" rows="1"></textarea>
-
 
 <details>
 <summary>Solution</summary>
@@ -56,8 +51,6 @@ if (a > 0) {
    b *= 2;
 }
 ~~~
-
-Votre réponse : <textarea style="font-size: 15pt" cols="80" rows="1"></textarea>
 
 <details>
 <summary>Solution</summary>

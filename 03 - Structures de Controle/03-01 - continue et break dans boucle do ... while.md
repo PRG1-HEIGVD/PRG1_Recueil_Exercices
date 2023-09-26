@@ -31,8 +31,6 @@ int main() {
 
 Conseil : essayer de trouver la réponse "à la main", puis vérifier votre réponse en l'exécutant pas à pas dans un debugger.
 
-Votre réponse : <textarea cols="40" rows="1" style="font-size: 15pt"></textarea>
-
 <details>
 <summary>Solution</summary>
 
