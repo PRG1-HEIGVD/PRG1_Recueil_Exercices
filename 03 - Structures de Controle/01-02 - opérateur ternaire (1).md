@@ -1,5 +1,5 @@
-# if ... else -> ?: 
- 
+# if ... else -> ?:
+
 Réécrivez les extraits de code suivants en une seule ligne en utilisant un ou des opérateurs ternaires 
 
 ~~~cpp 
@@ -9,6 +9,8 @@ if (a > 0) {
    b -= 2*a; 
 }
 ~~~
+
+Votre réponse : <textarea style="font-size: 15pt" cols="80" rows="1"></textarea>
 
 <details>
 <summary>Solution</summary>
@@ -28,6 +30,8 @@ if (d == 0.) {
    r = n/d; 
 }
 ~~~
+
+Votre réponse : <textarea style="font-size: 15pt" cols="80" rows="1"></textarea>
 
 
 <details>
@@ -52,6 +56,8 @@ if (a > 0) {
    b *= 2;
 }
 ~~~
+
+Votre réponse : <textarea style="font-size: 15pt" cols="80" rows="1"></textarea>
 
 <details>
 <summary>Solution</summary>

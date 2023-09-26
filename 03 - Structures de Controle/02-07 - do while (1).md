@@ -11,6 +11,8 @@ do {
 } while (i < 10); 
 ~~~
 
+Votre réponse : <textarea cols="20" rows="1" style="font-size: 15pt"></textarea>
+
 <details>
 <summary>Solution</summary>
 
@@ -28,6 +30,8 @@ do {
    ++i;
 } while (i < 0); 
 ~~~
+
+Votre réponse : <textarea cols="20" rows="1" style="font-size: 15pt"></textarea>
 
 <details>
 <summary>Solution</summary>
@@ -47,6 +51,8 @@ do {
 } while (i < 10); 
 ~~~
 
+Votre réponse : <textarea cols="20" rows="1" style="font-size: 15pt"></textarea>
+
 <details>
 <summary>Solution</summary>
 
@@ -64,6 +70,8 @@ do {
 } while (i > 0); 
 ~~~
 
+Votre réponse : <textarea cols="20" rows="1" style="font-size: 15pt"></textarea>
+
 <details>
 <summary>Solution</summary>
 
@@ -80,6 +88,8 @@ do {
    i /= 2;
 } while (i < 0); 
 ~~~
+
+Votre réponse : <textarea cols="20" rows="1" style="font-size: 15pt"></textarea>
 
 <details>
 <summary>Solution</summary>

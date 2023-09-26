@@ -27,6 +27,8 @@ Que va-t-il afficher lorsque l'utilisateur entre comme valeur
 ~~~
 0
 ~~~
+
+Votre réponse : <textarea cols="5" rows="1" style="font-size: 15pt"></textarea>
 <details>
 <summary>Solution</summary>
 
@@ -38,6 +40,9 @@ AB
 ~~~
 1
 ~~~
+
+Votre réponse : <textarea cols="5" rows="1" style="font-size: 15pt"></textarea>
+
 <details>
 <summary>Solution</summary>
 
@@ -49,6 +54,9 @@ B
 ~~~
 2
 ~~~
+
+Votre réponse : <textarea cols="5" rows="1" style="font-size: 15pt"></textarea>
+
 <details>
 <summary>Solution</summary>
 
@@ -60,6 +68,9 @@ B
 ~~~
 4
 ~~~
+
+Votre réponse : <textarea cols="5" rows="1" style="font-size: 15pt"></textarea>
+
 <details>
 <summary>Solution</summary>
 
@@ -71,6 +82,9 @@ CD
 ~~~
 6
 ~~~
+
+Votre réponse : <textarea cols="5" rows="1" style="font-size: 15pt"></textarea>
+
 <details>
 <summary>Solution</summary>
 
@@ -82,6 +96,9 @@ D
 ~~~
 -1
 ~~~
+
+Votre réponse : <textarea cols="5" rows="1" style="font-size: 15pt"></textarea>
+
 <details>
 <summary>Solution</summary>
 

@@ -14,6 +14,9 @@ if (a == 1) {
 }        
 ~~~
 
+<textarea style="font-size: 15pt" cols="80" rows="6"> // Ecrivez votre réponse ici avant de lire la solution
+</textarea>
+
 <details>
 <summary>Solution</summary>
 
@@ -37,6 +40,9 @@ if (a < 0 or a >= 5) {
    cout << "B";
 }  
 ~~~
+
+<textarea style="font-size: 15pt" cols="80" rows="9"> // Ecrivez votre réponse ici avant de lire la solution
+</textarea>
 
 <details>
 <summary>Solution</summary>

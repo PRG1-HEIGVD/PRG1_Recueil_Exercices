@@ -1,6 +1,7 @@
 # Ré-écriture de boucles
 
-1. Réécrire la boucle suivante 
+1. Réécrire la boucle suivante avec une boucle `while`
+   Attention, votre code doit être valide quelque soit la valeur de départ de `i` et quelque soit l'utilisation subséquente de la valeur de `i` en sortie de la boucle
 
 ~~~cpp 
 for (; i < 10; ++i) {
@@ -8,13 +9,10 @@ for (; i < 10; ++i) {
 }
 ~~~
 
-- avec une boucle `while`
-- avec une boucle `do ... while`
-
-Attention, votre code doit être valide quelque soit la valeur de départ de `i` et quelque soit l'utilisation subséquente de la valeur de `i` en sortie de la boucle
+<textarea cols="40" rows="4" style="font-size: 15pt"></textarea>
 
 <details>
-<summary>Solution avec while</summary>
+<summary>Solution</summary>
 
 ~~~cpp
 while (i < 10) {
@@ -24,8 +22,18 @@ while (i < 10) {
 ~~~
 </details>
 
+2. Réécrire la boucle suivante avec une boucle `do ... while`
+
+~~~cpp 
+for (; i < 10; ++i) {
+   cout << i << endl;
+}
+~~~
+
+<textarea cols="40" rows="6" style="font-size: 15pt"></textarea>
+
 <details>
-<summary>Solution avec do ... while</summary>
+<summary>Solution</summary>
 
 ~~~cpp
 if (i < 10) {
@@ -39,7 +47,7 @@ if (i < 10) {
 
 ---
 
-2. Réécrire la boucle suivante
+3. Réécrire la boucle suivante avec une boucle `for`
 
 ~~~cpp 
 while (i-- > 10) {
@@ -47,12 +55,10 @@ while (i-- > 10) {
 }
 ~~~
 
-
-- avec une boucle `for`
-- avec une boucle `do ... while`
+<textarea cols="40" rows="4" style="font-size: 15pt"></textarea>
 
 <details>
-<summary>Solution avec for</summary>
+<summary>Solution</summary>
 
 ~~~cpp
 for (; i-- > 10;) {
@@ -61,8 +67,18 @@ for (; i-- > 10;) {
 ~~~
 </details>
 
+4. Réécrire la boucle suivante avec une boucle `do ... while`
+
+~~~cpp 
+while (i-- > 10) {
+   cout << i << endl;
+}
+~~~
+
+<textarea cols="40" rows="7" style="font-size: 15pt"></textarea>
+
 <details>
-<summary>Solution avec do ... while</summary>
+<summary>Solution</summary>
 
 ~~~cpp
 if (i > 10) {
@@ -77,7 +93,7 @@ if (i > 10) {
 
 ---
 
-3. Réécrire la boucle suivante
+5. Réécrire la boucle suivante avec une boucle `for`
 
 ~~~cpp 
 do {
@@ -86,11 +102,10 @@ do {
 } while (i < 10);   
 ~~~
 
-- avec une boucle `for`
-- avec une boucle `while`
+<textarea cols="40" rows="4" style="font-size: 15pt"></textarea>
 
 <details>
-<summary>Solution avec for</summary>
+<summary>Solution</summary>
 
 ~~~cpp
 cout << i << endl; 
@@ -100,8 +115,19 @@ for (++i; i < 10; ++i) {
 ~~~
 </details>
 
+6. Réécrire la boucle suivante avec une boucle `while`
+
+~~~cpp 
+do {
+  cout << i << endl;
+  ++i; 
+} while (i < 10);   
+~~~
+
+<textarea cols="40" rows="6" style="font-size: 15pt"></textarea>
+
 <details>
-<summary>Solution avec while</summary>
+<summary>Solution</summary>
 
 ~~~cpp
 cout << i << endl; 
