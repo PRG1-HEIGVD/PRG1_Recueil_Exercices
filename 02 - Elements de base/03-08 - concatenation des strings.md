@@ -27,7 +27,7 @@ s += 'C';
 5. 
 ~~~cpp
 string s = "AB";
-s += 5;
+string ss = s + 5;
 ~~~
     
 6. 
