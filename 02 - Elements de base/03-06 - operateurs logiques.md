@@ -16,10 +16,9 @@ Ecrire la condition permettant de tester :
 <details>
 <summary>Solution</summary>
 
-1. `x == 0 && y == 0`
-2. `x == 0 || y == 0`
-3. `(x == 0 && y != 0) || (x != 0 && y == 0)`
-4. `x != 0 || y != 0`   `!(x == 0 && y == 0)`
-
+1. `x == 0 && y == 0` ou `x == 0 and y == 0`
+2. `x == 0 || y == 0` ou `x == 0 or y == 0`
+3. `(x == 0) != (y == 0)` ou `(x == 0 && y != 0) || (x != 0 && y == 0)`. Notons que `(x == 0) xor (y == 0)` existe mais le `xor` n'est pas un opérateur booléen mais un opérateur bit à bit (vu en PRG2) et que la représentation binaire du type `bool` n'étant pas standardisée, son utilisation n'est pas correcte dans ce contexte
+4. `x != 0 || y != 0` ou `!(x == 0 && y == 0)` en appliquant la loi de Morgan
 
 </details>
