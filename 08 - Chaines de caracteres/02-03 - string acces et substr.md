@@ -4,12 +4,6 @@ Indiquer ce que va afficher chacune des séquences d'instructions suivantes :
 
 _Il se peut qu'une séquence provoque une erreur à la compilation ou à l'exécution, voire ait un comportement indéfini. Le cas échéant, répondez "Erreur à la compilation", "Erreur à l'exécution" ou "Comportement indéfini"_
 
-
-
-
-
-
-
 1.	
 ~~~cpp
 string s = "ABC";
