@@ -21,8 +21,6 @@ Votre acronyme est : ADS
 <summary>Solution</summary>
 
 ~~~cpp
-#include <algorithm>
-#include <cstdlib>
 #include <iostream>
 #include <string>
 #include <cctype>
