@@ -31,7 +31,7 @@ using namespace std;
 string toupper_str(string_view input){
     string result(input);
     for (char& c : result) {
-        c = std::toupper(c);
+        c = toupper(c);
     }
     return result;
 }
