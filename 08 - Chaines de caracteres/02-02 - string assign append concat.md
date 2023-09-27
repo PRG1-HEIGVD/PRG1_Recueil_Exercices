@@ -1,4 +1,4 @@
-# assign, '+', '+=' et appendg
+# assign, '+', '+=' et append
 
 Indiquer ce que va afficher chacune des séquences d'instructions suivantes : 
 
