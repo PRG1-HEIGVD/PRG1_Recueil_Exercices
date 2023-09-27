@@ -14,13 +14,14 @@ Exemples
 ~~~cpp
 #include <iostream>
 #include <string_view>
+using namespace std;
 
-std::string milieu(std::string_view str) {
+string milieu(string_view str) {
     const size_t str_taille = str.length();
 
     if (str_taille == 0) return "";
 
-    std::string str_milieu;
+    string str_milieu;
     if(str_taille % 2 == 0){ // pair
         str_milieu = str.substr(str_taille / 2 - 1, 2);
     }else{ // impair
@@ -30,10 +31,10 @@ std::string milieu(std::string_view str) {
 }
 
 int main() {
-    std::cout << "Merci de saisir une chaîne de caractères : \n";
-    std::string str; std::cin >> str;
+    cout << "Merci de saisir une chaîne de caractères : \n";
+    string str; cin >> str;
 
-    std::cout << "\"" << str << "\" - Milieu = \"" << milieu(str) << "\"\n";
+    cout << "\"" << str << "\" - Milieu = \"" << milieu(str) << "\"\n";
 
     return 0;
 }
