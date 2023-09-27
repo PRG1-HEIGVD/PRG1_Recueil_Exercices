@@ -12,6 +12,7 @@ Pour chacun des cas ci-dessous, indiquez le type de la variable après chaque in
 | 7 | `auto var7 = 25.0;` | |
 | 8 | `auto var8 = 3;` | |
 | 9 | `auto var9 = var1 / var8;` | |
+| 10 | `auto var10 = var1 / var4;` | |
 
 
 
@@ -38,6 +39,7 @@ Pour chacun des cas ci-dessous, indiquez le type de la variable après chaque in
 | 7 | `auto var7 = 25.0;` | double |
 | 8 | `auto var8 = 3;` | int |
 | 9 | `auto var9 = var1 / var8;` | int |
+| 10 | `auto var10 = var1 / var4;` | double |
 
 
 </details>
