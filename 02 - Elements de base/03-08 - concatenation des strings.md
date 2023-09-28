@@ -10,7 +10,7 @@ string s = string("A") + "BC";
 
 2. 
 ~~~cpp
-string s = string("A") + "BC";
+string s = string("AB") + 'C';
 ~~~
 
 3. 
