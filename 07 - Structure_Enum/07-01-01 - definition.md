@@ -11,7 +11,7 @@ struct Date {
 
 <details>
 <summary> Solution </summary>
-faux : manque un `;` après `}`
+> **faux** : manque un `;` après `}`
 </details>
 
 2.
