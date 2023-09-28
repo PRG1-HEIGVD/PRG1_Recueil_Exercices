@@ -1,6 +1,6 @@
 # Concaténation 
 
-Indiquer la valeur de la variable `s` après chacune des séquences d'instructions suivantes : (si erruer, indiquez la)
+Indiquer la valeur de la variable `s` après chacune des séquences d'instructions suivantes : (si erreur, indiquez la)
 
 
 1. 
@@ -43,7 +43,7 @@ s += s1[6];
 
 1. ABC
 2. ABC
-3. erruer
+3. erreur
 4. ABC
 5. erreur
 6. PRG-1
