@@ -6,10 +6,10 @@ Soient les déclarations suivantes :
 int i = 5;
 const int j = 10;
 
-int *ptr_i = &i;
-const int *ptr_j = &j;
+int* ptr_i = &i;
+const int* ptr_j = &j;
 
-const int *ptr_i_1 = &i;
+const int* ptr_i_1 = &i;
 int* const ptr_i_2 = &i;
 ~~~
 
