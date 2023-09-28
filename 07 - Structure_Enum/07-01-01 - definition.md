@@ -46,8 +46,7 @@ struct {
 6.
 
 ~~~cpp
-struct Vide {
-} date;
+struct Vide {};
 ~~~
 
 7.
