@@ -43,6 +43,6 @@ Les instructions sont-elles correctes ?
 | 7  | correct   | `cercle.cord` pour descendre dans `Coord` puis `.x` pour accéder au membre `x`.                                     |
 | 8  | faux      | il faut déréférencer le `ptr`puis descendre dans la structure</br>`(*ptr).coord.x` ou `ptr->coord.x;`               |
 | 9  | correct   | `cercle.coord` est utilisée pour initialiser `coord`                                                                |
-| 10 | correct   | `cercle.coord` pointée par `ptr`est utilisée pour initialiser `coord`                                               |
+| 10 | correct   | `cercle.coord` pointée par `ptr` est utilisée pour initialiser `coord`                                               |
 
 </details>
