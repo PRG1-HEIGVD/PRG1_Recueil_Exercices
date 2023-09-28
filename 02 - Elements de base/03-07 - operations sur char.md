@@ -3,7 +3,7 @@
 Que va afficher le programme C++ suivant ?
 
 ~~~cpp
-char x = 'A'; // 64
+char x = 'A'; // 65
 char y = '0'; // 48
 char z;
 

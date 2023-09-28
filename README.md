@@ -1,3 +1,5 @@
 # PRG1 - Recueil d'exercices
 
-Work in progress pour la ré-organisation et ré-écriture des exercices de PRG1.
+Les exercices sont organisés par chapitre, et numérotés par section
+
+Il seront rendu disponibles au fur et à mesure du semestre par les professeurs

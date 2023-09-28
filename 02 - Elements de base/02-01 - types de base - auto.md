@@ -1,5 +1,5 @@
 # Types de base - auto
-Pour chacun des cas ci-dessous, indiquez s'il s'agit d'un identificateur C++ légal ou non. Justifiez votre réponse si celle-ci est "Non"
+Pour chacun des cas ci-dessous, indiquez le type de la variable après chaque initialisation avec le mot clé auto.
 
 |  #  | Déclaration | Type |
 | --- | -------------- | --------- |
@@ -26,6 +26,7 @@ Pour chacun des cas ci-dessous, indiquez s'il s'agit d'un identificateur C++ lé
 
 <details>
 <summary>Solution</summary>
+  
 |  #  | Déclaration | Type |
 | --- | -------------- | --------- |
 | 1 | `auto var1 = 10;` | int |

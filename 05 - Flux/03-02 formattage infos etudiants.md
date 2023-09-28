@@ -22,7 +22,7 @@ Entrez la note en mathématiques (max. 6): 5.2
 Entrez la note en PRG1 (max. 6): 5.3
 Nom               Age  Note Math     Note PRG1    Admis
 -------------------------------------------------------
-Fouad Hanna        19        5.2           5.3     true
+Fouad Hanna        19        5.2           5.3     Oui
 -------------------------------------------------------
 Moyenne : 5.25
 Résultat : Admis
@@ -39,93 +39,92 @@ Ps. Utilisez les fonctions de formatage et privilégiez l'utilisation des foncti
 #include <iostream>
 #include <iomanip>
 #include <string>
+using namespace std;
 
-const int setw_col1 = 15;
-const int setw_col2 = 6;
-const int setw_col3 = 11;
-const int setw_col4 = 14;
-const int setw_col5 = 9;
+void afficher_ligne(const string & s_col1,
+                    const string & s_col2,
+                    const string & s_col3,
+                    const string & s_col4,
+                    const string & s_col5) {
+    ios backup(nullptr);
+    backup.copyfmt(cout); // enregistrer le formatage actuel
 
-const int setw_total = setw_col1 + setw_col2 + setw_col3 + setw_col4 + setw_col5;
+    const int w_col1 = 15;
+    const int w_col2 = 6;
+    const int w_col3 = 11;
+    const int w_col4 = 14;
+    const int w_col5 = 9;
+    const int w_total = w_col1 + w_col2 + w_col3 + w_col4 + w_col5;
 
-void afficher_entete(){
-    std::ios etat(nullptr);
-    etat.copyfmt(std::cout); // enregistrer le formatage actuel
+    cout << left << setw(w_col1) << s_col1
+         << right << setw(w_col2) << s_col2
+         << right << setw(w_col3) << s_col3
+         << right << setw(w_col4) << s_col4
+         << right << setw(w_col5) << s_col5
+         << endl;
 
-    std::cout << std::left << std::setw(setw_col1) << "Nom"
-              << std::right << std::setw(setw_col2) << "Age"
-              << std::right << std::setw(setw_col3) << "Note Math"
-              << std::right << std::setw(setw_col4) << "Note PRG1"
-              << std::right << std::setw(setw_col5) << "Admis"
-              << std::endl;
+    cout << right << setw(w_total) << setfill('-') << "" << "\n";
 
-    std::cout << std::right << std::setw(setw_total) << std::setfill('-') << "" << "\n";
-
-    std::cout.copyfmt(etat); // restaurer le formatage précédent
+    cout.copyfmt(backup); // restaurer le formatage précédent
 }
 
-void afficher_resultat(const std::string & nom, const int & age, const double & note_math, const double & note_prg1, const double & moyenne, const bool & admis){
-    // Affichez les données de l'étudiant avec le formatage
-    std::cout << std::left << std::setw(setw_col1) << nom
-              << std::right << std::setw(setw_col2) << age
-              << std::right << std::setw(setw_col3) << note_math
-              << std::right << std::setw(setw_col4) << note_prg1
-              << std::right << std::setw(setw_col5) << std::boolalpha << admis
-              << std::endl;
+void afficher_resume(double moyenne, bool admis){
+    cout << "Moyenne : " << moyenne << endl;
 
-    std::cout << std::right << std::setw(setw_total) << std::setfill('-') << "" << "\n";
-
-    // Affichez la moyenne
-    std::cout << "Moyenne : " << moyenne << std::endl;
-
-    // Affichez le résultat de la réussite
-    std::cout << "Résultat : " << (admis ? "Admis" : "Non admis") << std::endl;
+    cout << "Résultat : " << (admis ? "Admis" : "Non admis") << endl;
 }
 
-void saisir_infos(std::string & nom, int & age, double & note_math, double & note_prg1){
-    // Demandez à l'utilisateur de saisir les données
-    std::cout << "Entrez le nom de l'étudiant : ";
-    std::getline(std::cin, nom);
-    std::cout << "Entrez l'âge de l'étudiant : ";
-    std::cin >> age;
-    std::cout << "Entrez la note en mathématiques (max. 6): ";
-    std::cin >> note_math;
-    std::cout << "Entrez la note en PRG1 (max. 6): ";
-    std::cin >> note_prg1;
+string lire_string(const string& message) {
+    cout << message;
+    string s;
+    getline(cin, s);
+    return s;
 }
 
-bool calculer_moyenne(const double & note_math, const double & note_prg1, double & moyenne){
-    // Calculez la moyenne des notes
-    moyenne = (note_math + note_prg1) / 2.0;
+int lire_int(const string& message) {
+    cout << message;
+    int i;
+    cin >> i;
+    return i;
+}
 
+double lire_double(const string& message) {
+    cout << message;
+    double d;
+    cin >> d;
+    return d;
+}
+
+double calculer_moyenne(double note_math, double note_prg1) {
+    return (note_math + note_prg1) / 2.0;
+}
+
+bool est_admis(double moyenne) {
     const double min_admis = 3.8;
-
-    // Déterminez si l'étudiant est admis (moyenne supérieure ou égale à 60)
     return (moyenne >= min_admis);
+}
+
+string double_to_str(double value){
+    stringstream out_str;
+    out_str << value;
+    return out_str.str();
 }
 
 int main() {
 
-    std::string nom;
-    int age;
-    double note_math, note_prg1;
-    bool admis;
+    string nom = lire_string("Entrez le nom de l'étudiant : ");;
+    int age = lire_int("Entrez l'âge de l'étudiant : ");
+    double note_math = lire_double("Entrez la note en mathématiques (max. 6): ");
+    double note_prg1 = lire_double("Entrez la note en PRG1 (max. 6): ");
+    double moyenne = calculer_moyenne(note_math, note_prg1);
+    bool admis = est_admis(moyenne);
 
-    saisir_infos(nom, age, note_math, note_prg1);
-
-    double moyenne = 0;
-    admis = calculer_moyenne(note_math, note_prg1, moyenne);
-
-    afficher_entete();
-    afficher_resultat(nom, age, note_math, note_prg1, moyenne, admis);
-
-
-
-
+    afficher_ligne("Nom", "Age", "Note Math", "Note PRG1", "Admis");
+    afficher_ligne(nom, to_string(age), double_to_str(note_math), double_to_str(note_prg1), admis ? "Oui" : "Non");
+    afficher_resume(moyenne, admis);
 
     return 0;
 }
-
 ~~~
 
 
