@@ -9,6 +9,11 @@ struct Date {
 }
 ~~~
 
+<details>
+<summary> Solution </summary>
+faux : manque un `;` après `}`
+</details>
+
 2.
 
 ~~~cpp
@@ -19,6 +24,11 @@ struct Date {
 };
 ~~~
 
+<details>
+<summary> Solution </summary>
+correct : chaque type est spécifié 
+</details>
+
 3.
 
 ~~~cpp
@@ -26,6 +36,12 @@ struct Date {
    int jour, mois, annee;
 };
 ~~~
+
+<details>
+<summary> Solution </summary>
+correct : le type est commun à tous les membres
+faux : les identifications sont séparés par des `;`
+</details>
 
 4.
 
@@ -35,6 +51,10 @@ struct Date {
 };
 ~~~
 
+<details>
+<summary> Solution </summary>
+</details>
+
 5.
 
 ~~~cpp
@@ -43,12 +63,22 @@ struct {
 } date;
 ~~~
 
+<details>
+<summary> Solution </summary>
+correct : type *anonyme* et une variable `date`est créée
+</details>
+
 6.
 
 ~~~cpp
 struct Vide {
 } date;
 ~~~
+
+<details>
+<summary> Solution </summary>
+faux : un `struct` doit avoir au moins un membre 
+</details>
 
 7.
 
@@ -59,6 +89,11 @@ struct Struct {
 };
 ~~~
 
+<details>
+<summary> Solution </summary>
+correct : le `ptr`est initialisé ce qui est une bonne chose
+</details>
+
 8.
 
 ~~~cpp
@@ -66,6 +101,11 @@ struct Struct {
    string text;
 };
 ~~~
+
+<details>
+<summary> Solution </summary>
+correct : un `struc` peut contenir un `string`
+</details>
 
 9.
 
@@ -80,6 +120,11 @@ struct Struct {
 };
 ~~~
 
+<details>
+<summary> Solution </summary>
+correct : un `struc` peut contenir un autre `struct`
+</details>
+
 10.
 
 ~~~cpp
@@ -87,6 +132,11 @@ struct const Struct {
    int  valeur;
 };
 ~~~
+
+<details>
+<summary> Solution </summary>
+faux : un `struc` n'est pas constant globalement
+</details>
 
 11.
 
@@ -96,22 +146,7 @@ struct Struct {
 };
 ~~~
 
-
 <details>
 <summary>Solutions</summary>
-
-| no | Réponse 	| Commentaire                                         |
-|--- |---        | ---                                                 |
-|  1 | faux      | manque un `;` après `}`                             |
-|  2 | correct   | chaque type est spécifié                            |
-|  3 | correct   | le type est commun à tous les membres               |
-|  4 | faux      | les identifications sont séparés par des `;`        |
-|  5 | correct   | type *anonyme* et une variable `date`est créée      |
-|  6 | faux      | un `struct` doit avoir au moins un membre           |
-|  7 | correct   | le `ptr`est initialisé ce qui est une bonne chose   |
-|  8 | correct   | un `struc` peut contenir un `string`                |
-|  9 | correct   | un `struc` peut contenir un autre `struct`          |
-| 10 | faux      | un `struc` n'est pas constant globalement           |
-| 11 | correct   | un membre d'un `struc` peut être constant           |
-
+correct : un membre d'un `struc` peut être constant
 </details>
