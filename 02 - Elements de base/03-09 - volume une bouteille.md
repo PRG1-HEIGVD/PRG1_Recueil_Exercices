@@ -14,13 +14,13 @@ $$(r1^2 + r2^2 + r1 * r2) * h * \pi / 3$$
 
 Exemple d'exécution :
 ~~~
-// Entrez le rayon du cylindre 1 [cm]      : 4
-// Entrez le rayon du cylindre 2 [cm]      : 1
-// Entrez la hauteur du cylindre 1 [cm]    : 12
-// Entrez la hauteur du cylindre 2 [cm]    : 1
-// Entrez la hauteur du tronc de cone [cm] : 3
-// 
-// La contenance de la bouteille est de 0.7 litre.
+Entrez le rayon du cylindre 1 [cm]      : 4
+Entrez le rayon du cylindre 2 [cm]      : 1
+Entrez la hauteur du cylindre 1 [cm]    : 12
+Entrez la hauteur du cylindre 2 [cm]    : 1
+Entrez la hauteur du tronc de cone [cm] : 3
+
+La contenance de la bouteille est de 0.7 litre.
 ~~~
 
 <details>
