@@ -6,10 +6,10 @@ Soient les déclarations suivantes :
 int i = 5;
 const int j = 10;
 
-int *ptr_i = &i;
-const int *ptr_j = &j;
+int* ptr_i = &i;
+const int* ptr_j = &j;
 
-const int *ptr_i_1 = &i;
+const int* ptr_i_1 = &i;
 int* const ptr_i_2 = &i;
 ~~~
 
@@ -43,7 +43,7 @@ int* const ptr_i_2 = &i;
 | 4 | `*ptr_i_1 = 25;` | non | un pointeur vers une valeur constante | |
 | 5 | `*ptr_i_2 = 30;` | oui | const pointer vers non const lvalue | i=30, j=10 |
 | 6 | `ptr_i_1 = &j;` | oui | ptr_i_1 est modifiable (non cost) | i=5, j=10 |
-| 7 | `ptr_i_2 = &j;` | non | ptr_i_2 est un pointeur constant | |
+| 7 | `ptr_i_2 = &j;` | non | ptr_i_2 est un pointeur constant et serait lié à une constante | |
 
 
 </details>

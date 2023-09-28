@@ -4,7 +4,7 @@ Comme illustré ci-dessous, la forme d'une bouteille peut s'approximer par deux 
 
 Ecrire un programme C++ qui, après avoir demandé à l'utilisateur de saisir (en centimètres) les cinq paramètres ci-dessus, calcule puis affiche la contenance en litres de la bouteille.
 
-![bouteille](../assets/02-10_bouteille.jpg)
+![bouteille](assets/03-10_bouteille.jpg)
 
 **Volume d'un cylindre**
 $$ \pi * r^2 * h $$
