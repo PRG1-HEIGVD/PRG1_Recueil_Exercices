@@ -16,7 +16,7 @@ Cercle cercle = {1, {2, 3, 4}};
 Cercle* ptr = &cercle;
 ~~~
 
-Que valent les déclarations proposées ?
+Les instructions sont-elles correctes ?
 
 1. `cout << cercle.rayon;`
 2. `cout << cercle->rayon;`

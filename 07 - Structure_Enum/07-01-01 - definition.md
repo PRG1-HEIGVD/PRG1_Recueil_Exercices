@@ -1,5 +1,5 @@
 # struct - définition
-Indiquer si les définitions proposées sont correctes ou non
+Indiquer si les définitions proposées sont correctes ou non.
 
 1.
 
