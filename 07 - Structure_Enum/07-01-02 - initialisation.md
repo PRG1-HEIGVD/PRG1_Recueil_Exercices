@@ -5,7 +5,9 @@ Soient les `struct` ci-dessous.
 struct Coord {
    int x, y, z;
 }
+~~~
 
+~~~cpp
 struct Cercle {
    Coord centre;
    int   rayon;
