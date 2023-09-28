@@ -20,7 +20,7 @@ Entrez la hauteur du cylindre 1 [cm]    : 12
 Entrez la hauteur du cylindre 2 [cm]    : 1
 Entrez la hauteur du tronc de cone [cm] : 3
 
-La contenance de la bouteille est de 0.7 litre.
+La contenance de la bouteille est de 0.67196 litre.
 ~~~
 
 <details>
