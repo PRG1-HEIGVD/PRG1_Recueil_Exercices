@@ -7,10 +7,10 @@ Ecrire un programme C++ qui, après avoir demandé à l'utilisateur de saisir (e
 ![bouteille](assets/03-10_bouteille.jpg)
 
 **Volume d'un cylindre**
-$ \pi * r^2 * h $
+$` \pi * r^2 * h `$
 
 **Volume d'un cône tronqué**
-$ (r1^2 + r2^2 + r1 * r2) * h * \pi / 3 $
+$` (r1^2 + r2^2 + r1 * r2) * h * \pi / 3 `$
 
 <details>
 <summary>Solution</summary>
