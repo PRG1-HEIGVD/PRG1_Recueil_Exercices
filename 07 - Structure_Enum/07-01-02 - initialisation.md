@@ -36,7 +36,7 @@ Que valent les déclarations proposées ?
 | 5  | 1   | 2   | 3   | 4   | tout est renseigné en séquence                      |
 | 6  | X   | X   | X   | X   | erreur de syntaxe, manque les `.`  exemple : `.x=1` |
 | 7  | -   | 1   | 2   | 3   | tout est renseigné par nom                          |
-| 8  | -   | 1   | 0   | 3   | la valeur manquant déterminée et vaut `0`           |
+| 8  | -   | 1   | 0   | 3   | la valeur manquante déterminée et vaut `0`          |
 | 9  | ?   | ?   | ?   | ?   | les valeurs sont indéterminées.                     |
 
 </details>
