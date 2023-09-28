@@ -11,7 +11,7 @@ struct Date {
 
 <details>
 <summary> Solution </summary>
-faux : manque un `;` après `}`
+**faux** : manque un `;` après `}`
 </details>
 
 2.
@@ -26,7 +26,7 @@ struct Date {
 
 <details>
 <summary> Solution </summary>
-correct : chaque type est spécifié 
+**correct** : chaque type est spécifié 
 </details>
 
 3.
@@ -39,8 +39,7 @@ struct Date {
 
 <details>
 <summary> Solution </summary>
-correct : le type est commun à tous les membres
-faux : les identifications sont séparés par des `;`
+**correct** : le type est commun à tous les membres
 </details>
 
 4.
@@ -53,6 +52,7 @@ struct Date {
 
 <details>
 <summary> Solution </summary>
+**faux** : les identifications sont séparés par des `;`
 </details>
 
 5.
@@ -65,7 +65,7 @@ struct {
 
 <details>
 <summary> Solution </summary>
-correct : type *anonyme* et une variable `date`est créée
+**correct** : type *anonyme* et une variable `date`est créée
 </details>
 
 6.
@@ -77,7 +77,7 @@ struct Vide {
 
 <details>
 <summary> Solution </summary>
-faux : un `struct` doit avoir au moins un membre 
+**faux** : un `struct` doit avoir au moins un membre 
 </details>
 
 7.
@@ -91,7 +91,7 @@ struct Struct {
 
 <details>
 <summary> Solution </summary>
-correct : le `ptr`est initialisé ce qui est une bonne chose
+**correct** : le `ptr`est initialisé ce qui est une bonne chose
 </details>
 
 8.
@@ -104,7 +104,7 @@ struct Struct {
 
 <details>
 <summary> Solution </summary>
-correct : un `struc` peut contenir un `string`
+**correct** : un `struc` peut contenir un `string`
 </details>
 
 9.
@@ -122,7 +122,7 @@ struct Struct {
 
 <details>
 <summary> Solution </summary>
-correct : un `struc` peut contenir un autre `struct`
+**correct** : un `struc` peut contenir un autre `struct`
 </details>
 
 10.
@@ -135,7 +135,7 @@ struct const Struct {
 
 <details>
 <summary> Solution </summary>
-faux : un `struc` n'est pas constant globalement
+**faux** : un `struc` n'est pas constant globalement
 </details>
 
 11.
@@ -148,5 +148,5 @@ struct Struct {
 
 <details>
 <summary>Solutions</summary>
-correct : un membre d'un `struc` peut être constant
+**correct** : un membre d'un `struc` peut être constant
 </details>
