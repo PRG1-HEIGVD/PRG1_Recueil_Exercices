@@ -1,6 +1,6 @@
 # switch -> if ... else 
  
-Réécrivez les extraits de code suivants en replaçant le `switch` par des instructions `if else`. Notez que 
+Réécrivez les extraits de code suivants en remplaçant le `switch` par des instructions `if else`. Notez que 
 la variable `a` est de type `int`. 
 
 ~~~cpp 
