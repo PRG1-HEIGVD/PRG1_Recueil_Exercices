@@ -23,6 +23,7 @@ Entrez le nombre de metres a convertir (entier > 0) : 1000
 
 ~~~cpp
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 int main() {
@@ -41,11 +42,7 @@ int main() {
     << "= " << nb_metres * metres_en_ft << " [ft]" << endl
     << "= " << nb_metres * metres_en_inch << " [inch]" << endl;
 
-
-    return 0;
-
-
-
+    return EXIT_SUCCESS;
 }
 ~~~
    
