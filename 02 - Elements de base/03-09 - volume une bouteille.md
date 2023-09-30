@@ -28,6 +28,7 @@ La contenance de la bouteille est de 0.67196 litre.
 
 ~~~cpp
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 int main() {
@@ -65,7 +66,7 @@ int main() {
          << volume_total << " litre"
          << (volume_total < 2 ? "" : "s") << "." << endl;
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 ~~~
    
