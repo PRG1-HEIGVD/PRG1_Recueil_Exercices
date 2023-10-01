@@ -105,7 +105,7 @@ struct Struct {
 | 3  | correct   | le type est commun à tous les membres                        |
 | 4  | faux      | les identifications sont séparés par des `;`                 |
 | 5  | correct   | type *anonyme* et une variable `date`est créée               |
-| 6  |  faux     | un `struct` doit avoir au moins un membre                    |
+| 6  | correct   | un `struct` peut être vide                                   |
 | 7  | correct   | `ptr`est initialisé ce qui est une bonne chose               |
 | 8  | correct   | un `struc` peut contenir un `string`                         |
 | 9  | correct   | un `struc` peut contenir un autre `struct`                   |
