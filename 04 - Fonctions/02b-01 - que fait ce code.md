@@ -30,6 +30,6 @@ void mystere(int& a, int& b) {
 x = 4
 y = 3
  
-Ce code permet d'échanger les valeurs a et b
+Ce code permet d'échanger les valeurs a et b, mais ne fonctionne pas si on cherche à échanger une variable avec elle-même
 ~~~
 </details>
