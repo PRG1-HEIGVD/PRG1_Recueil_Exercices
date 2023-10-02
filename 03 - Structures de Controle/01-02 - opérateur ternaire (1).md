@@ -16,7 +16,7 @@ if (a > 0) {
 ~~~cpp 
 b += a > 0 ? a : -2*a; 
 // plus propre que 
-b = a > 0 ? b + a : b - 2a; 
+b = a > 0 ? b + a : b - 2*a; 
 ~~~
 
 </details>
