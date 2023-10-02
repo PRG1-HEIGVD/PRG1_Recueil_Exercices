@@ -12,8 +12,6 @@ for (int i = 1; i <= 3; ++i) {
 }
 ~~~   
 
-Votre réponse : <textarea cols="20" rows="4" style="font-size: 15pt"></textarea>
-
 <details>
 <summary>Solution</summary>
 
@@ -33,8 +31,6 @@ for (int i = 0; i < 4; ++i) {
    cout << endl;
 }
 ~~~   
-
-Votre réponse : <textarea cols="20" rows="4" style="font-size: 15pt"></textarea>
 
 <details>
 <summary>Solution</summary>
@@ -56,8 +52,6 @@ for (int i = 1; i <= 4; ++i) {
    cout << endl;
 }
 ~~~   
-
-Votre réponse : <textarea cols="20" rows="4" style="font-size: 15pt"></textarea>
 
 <details>
 <summary>Solution</summary>
@@ -84,8 +78,6 @@ for (int i = 1; i <= 3; ++i) {
 }
 ~~~   
 
-Votre réponse : <textarea cols="20" rows="4" style="font-size: 15pt"></textarea>
-
 <details>
 <summary>Solution</summary>
 
@@ -108,9 +100,6 @@ for (int i = 1; i <= 3; ++i) {
    cout << endl;
 }
 ~~~
-
-
-Votre réponse : <textarea cols="20" rows="4" style="font-size: 15pt"></textarea>
 
 <details>
 <summary>Solution</summary>
