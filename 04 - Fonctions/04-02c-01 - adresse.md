@@ -1,38 +1,61 @@
-# Que produit ce code
+# Paramètre par adresse
 
-... sachant que
-- *entier*    est stocké à l'adresse 0x7ff7bfeff3a8
-- *ptrEntier* est stocké à l'adresse 0x7ff7bfeff3a0
+Que produit le code ci-dessous ?
+
+| Element          | Affichage |
+|---               |---        |
+| entier           |           |
+| adr entier       |           |
+| param            |           |
+| adr param        |           |
+| valeur pointee   |           |
+| entier           |           |
+| adr entier       |           |
 
 ~~~cpp
-#include <cstdlib>
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
+//-------------------------------------------------------
+void adresse(int* param) {
+
+   *param += 1;				// à l'adresse 0x16eea3648
+
+   cout << "param          : " <<  param << endl;
+   cout << "adr param      : " << &param << endl;
+   cout << "valeur pointee : " << *param << endl;
+}
+
+//-------------------------------------------------------
 int main() {
-   int   entier   = 17;
-   int* ptrEntier = &entier;
-   
-   cout << "entier           : " <<  entier           << endl;
-   cout << "adr entier       : " << &entier           << endl;
-   cout << "ptrEntier        : " <<  ptrEntier        << endl;
-   cout << "adr ptrEntier    : " << &ptrEntier        << endl;
-   cout << "valeur pointee   : " << *ptrEntier        << endl;
+   int entier = 17;			// à l'adresse 0x16eea3698
+
+   cout << "entier         : " <<  entier << endl;
+   cout << "adr entier     : " << &entier << endl;
+
+   adresse(&entier);
+
+   cout << "entier         : " <<  entier << endl;
+   cout << "adr entier     : " << &entier << endl;
 
    return EXIT_SUCCESS;
 }
+
 ~~~
 
 <details>
 <summary>Solution</summary>
 
-~~~cpp
-//      entier           : 17
-//      adr entier       : 0x7ff7bfeff3a8
-//      ptrEntier        : 0x7ff7bfeff3a8
-//      adr ptrEntier    : 0x7ff7bfeff3a0
-//      valeur pointee   : 17
-~~~
+| Element          | Affichage    |
+|---               |---           |
+| entier           | 17           |
+| adr entier       | 0x16eea3698  |
+| param            | 0x16eea3698  |
+| adr param        | 0x16eea3648  |
+| valeur pointee   | 18           |
+| entier           | 18           |
+| adr entier       | 0x16eea3698  |
 
 </details>
