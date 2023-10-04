@@ -2,23 +2,11 @@
 
 Que produit le code ci-dessous ?
 
-| Element          | Affichage |
-|---               |---        |
-| entier           |           |
-| adr entier       |           |
-| param            |           |
-| adr param        |           |
-| valeur pointee   |           |
-| entier           |           |
-| adr entier       |           |
-
 ~~~cpp
 #include <iostream>
 #include <cstdlib>
-
 using namespace std;
 
-//-------------------------------------------------------
 void adresse(int* param) {
 
    *param += 1;				// à l'adresse 0x16eea3648
@@ -28,10 +16,8 @@ void adresse(int* param) {
    cout << "valeur pointee : " << *param << endl;
 }
 
-//-------------------------------------------------------
 int main() {
    int entier = 17;			// à l'adresse 0x16eea3698
-
    cout << "entier         : " <<  entier << endl;
    cout << "adr entier     : " << &entier << endl;
 
@@ -42,8 +28,18 @@ int main() {
 
    return EXIT_SUCCESS;
 }
-
 ~~~
+
+| Element          | Affichage |
+|---               |---        |
+| entier           |           |
+| adr entier       |           |
+| param            |           |
+| adr param        |           |
+| valeur pointee   |           |
+| entier           |           |
+| adr entier       |           |
+
 
 <details>
 <summary>Solution</summary>
