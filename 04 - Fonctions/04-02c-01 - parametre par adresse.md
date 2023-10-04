@@ -9,7 +9,7 @@ using namespace std;
 
 void adresse(int* param) {
 
-   *param += 1;				// à l'adresse 0x16eea3648
+   *param += 1;            // à l'adresse 0x16eea3648
 
    cout << "param          : " <<  param << endl;
    cout << "adr param      : " << &param << endl;
@@ -17,7 +17,7 @@ void adresse(int* param) {
 }
 
 int main() {
-   int entier = 17;			// à l'adresse 0x16eea3698
+   int entier = 17;        // à l'adresse 0x16eea3698
    cout << "entier         : " <<  entier << endl;
    cout << "adr entier     : " << &entier << endl;
 
