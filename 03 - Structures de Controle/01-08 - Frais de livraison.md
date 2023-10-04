@@ -13,8 +13,6 @@ Complétez le programme qui suit pour qu'il détermine et affiche le tarif de li
 
 using namespace std;
 
-// définir des constantes ici serait une bonne idée
-
 int main() {
    cout << "Livraison en Suisse ? (O/N) ";
    char reponse1; cin >> reponse1;
@@ -31,12 +29,13 @@ int main() {
 
 using namespace std;
 
-const double frais_suisse_sauf_exception = 5.;
-const double frais_tessin_grison = 7.;
-const double frais_liechtenstein = 7.;
-const double frais_international = 10.;
-
 int main() {
+
+   const double frais_suisse_sauf_exception =  5.00;
+   const double frais_tessin_grison         =  7.00;
+   const double frais_liechtenstein         =  7.00;
+   const double frais_international         = 10.00;
+
    double frais = -1.;
    // valeur incorrecte signalant éventuellement une erreur
 
