@@ -117,6 +117,7 @@ Que peut-on dire de cette valeur ?
 
 <details>
 <summary>Réponse</summary>
+
 Pas possible, un `int*` (avec droit RW) ne peut pas pointer sur une constante 
 
 `const int ...`
