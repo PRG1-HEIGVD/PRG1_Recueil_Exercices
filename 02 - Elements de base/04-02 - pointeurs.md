@@ -6,7 +6,9 @@ Coder en C++ les questions suivantes
 
 <details>
 <summary>Réponse</summary>
+
 `int var1 = 1;`
+
 </details>
 
 2) Créer une variable `var2` initialisée 2
