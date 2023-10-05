@@ -2,9 +2,9 @@
 
 Une société suisse tarife ses frais de livraison comme suit :
 
-- 5 CHF si livraison en Suisse, à l'exception des cantons des Grisons et du Tessin où les frais de livraison se monte à 7 CHF
-- 7 CHF si livraison au Liechtenstein. 
-- 10 CHF partout ailleurs dans le monde
+- 5.00 CHF si livraison en Suisse, à l'exception des cantons des Grisons et du Tessin où les frais de livraison se monte à 7.00 CHF
+- 7.00 CHF si livraison au Liechtenstein. 
+- 10.00 CHF partout ailleurs dans le monde
 
 Complétez le programme qui suit pour qu'il détermine et affiche le tarif de livraison. Il ne peut poser que des questions auxquelles l'utilisateur répond que par "O" (oui) ou "N" (non)
 
@@ -36,8 +36,7 @@ int main() {
    const double frais_liechtenstein         =  7.00;
    const double frais_international         = 10.00;
 
-   double frais = -1.;
-   // valeur incorrecte signalant éventuellement une erreur
+   double frais; // frais calculés
 
    cout << "Livraison en Suisse ? (O/N) ";
    char reponse1; cin >> reponse1;
