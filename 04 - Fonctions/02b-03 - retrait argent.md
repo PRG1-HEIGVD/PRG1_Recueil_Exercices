@@ -1,6 +1,8 @@
 # Retrait d'argent
 Ecrire un programme C++ mettant à disposition une fonction permettant de retirer un certain montant sur un compte bancaire.
+
 La fonction :
+
 - doit prendre 2 paramètres : le solde courant du compte et le montant du retrait (que l'on
 supposera tous deux ≥ 0)
 - doit vérifier les contraintes métier suivantes :
@@ -10,6 +12,7 @@ supposera tous deux ≥ 0)
 - doit retourner le montant du retrait effectif réalisé
 
 Vérifier le bon fonctionnement de la fonction en appliquant le scénario de test suivant :
+
 - Solde initial du compte = 500
 - Premier retrait = 300
 - Afficher le montant du retrait effectif et le solde courant du compte
@@ -27,7 +30,7 @@ Vérifier le bon fonctionnement de la fonction en appliquant le scénario de tes
 
 using namespace std;
 
-double retrait(double montantRetrait,
+double retrait(double  montantRetrait,
                double& soldeCourant);
                
 void afficher(const string& texte,
@@ -79,6 +82,7 @@ void afficher(const string& texte, double valeur, int precision) {
 // Solde courant            = 0.0
 
 ~~~
+
 **NB** La fonction retrait peut s'écrire sans déclaration de variable locale et de façon plus compacte en utilisant <cmath> :
 ~~~cpp
 double retrait(double montantRetrait, double& soldeCourant) {
