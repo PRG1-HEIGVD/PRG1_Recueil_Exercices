@@ -45,8 +45,9 @@ bool operation(double operandeGauche,
       case '+': resultat = operandeGauche + operandeDroite; break;
       case '-': resultat = operandeGauche - operandeDroite; break;
       case '*': resultat = operandeGauche * operandeDroite; break;
-      case '/': resultat = operandeGauche / operandeDroite; // pas d'erreur si division
-      break; default:
+      case '/': resultat = operandeGauche / operandeDroite; break; 
+      default: OK = false; break;
+
    }
   return OK;
 }
