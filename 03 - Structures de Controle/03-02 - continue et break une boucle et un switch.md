@@ -1,4 +1,4 @@
-# continue et break dans boucle do… while^
+# continue et break dans boucle do… while
 
 Qu'affiche le programme suivant ? 
 
