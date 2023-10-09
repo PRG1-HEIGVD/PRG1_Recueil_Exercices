@@ -70,7 +70,7 @@ int main() {
    double montant = montant_initial;
    int nb_annees = 0;
    while (montant < montant_cible) {
-      nb_annees++;
+      ++nb_annees;
       montant = montant * (1.0 + taux_interet_annuel / 100.0);
    }
 
