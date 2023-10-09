@@ -64,7 +64,7 @@ int main() {
    // cas particulier
    if (montant_initial < montant_cible and taux_interet_annuel <= 0.0) {
       cout << "Le montant cible ne sera jamais atteint" << endl;
-      return EXIT_FAILURE;
+      return EXIT_SUCCESS;
    }
    
    double montant = montant_initial;
