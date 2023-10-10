@@ -1,13 +1,13 @@
 # Que produit ce code
 Sur la base de l'exercice précédent, que produit le code ci-dessous ?
 
-| n | a | b | c | min | d |
+| # | a | b | c | min | d |
 |---|---|---|---|-----|---|
-| 1 |   |   |   |     |   |
-| 2 |   |   |   |     |   |
-| 3 |   |   |   |     |   |
-| 4 |   |   |   |     |   |
-| 5 |   |   |   |     |   |
+| 1)|   |   |   |     |   |
+| 2)|   |   |   |     |   |
+| 3)|   |   |   |     |   |
+| 4)|   |   |   |     |   |
+| 5)|   |   |   |     |   |
 
 ~~~cpp
 #include <cstdlib>

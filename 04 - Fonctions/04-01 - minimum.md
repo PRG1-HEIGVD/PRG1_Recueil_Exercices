@@ -1,5 +1,5 @@
 # min(a, b, c)
-Écrire une fonction `min` qui retourne le minimum de 3 valeurs reçues en paramètre.
+Écrire une fonction *min* qui retourne le minimum de 3 valeurs reçues en paramètre.
 
 Les instructions suivantes doivent être possibles:
 

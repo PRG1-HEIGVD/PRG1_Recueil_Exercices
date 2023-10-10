@@ -7,7 +7,7 @@ La factorielle d'une nombre est décrite comme suit
 
 Ainsi `n! = n * (n-1)!` avec `1! = 1` et `0! = 1` pour `n >= 0`
 
-Ecrire une fonction récursive *facto* qui retourne la valeur de `n!` pour `n` reçu en paramètre.
+Ecrire une fonction récursive *facto* qui retourne la valeur de `n!` pour *n* reçu en paramètre.
 
 [Wikipedia - Factorial](https://en.wikipedia.org/wiki/Factorial)
 
