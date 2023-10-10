@@ -1,6 +1,6 @@
 # Affichage de caractères compris entre 2 bornes
-Ecrire une fonction qui a 2 paramètres de type *unsigned char* et qui affiche, sur une même ligne, tous les caractères compris entre le premier et le deuxième paramètre (bornes comprises), pour autant que le premier représente un caractère qui précède le deuxième.
-La fonction retourne une valeur booléenne indiquant si oui ou non il y a eu affichage de caractères.
+Ecrire une fonction qui prend 2 paramètres de type *char* et qui affiche, sur une même ligne, tous les caractères compris entre le premier et le deuxième paramètre (bornes comprises).
+La fonction retourne une valeur indiquant le nombre de caractères affichés.
 
 <details>
 <summary>Solution</summary>

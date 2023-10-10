@@ -1,6 +1,8 @@
 # Pointeurs
 
-Coder en C++ les questions suivantes
+Coder en C++ les questions suivantes.
+
+**NB** : les instructions sont dépendantes les unes des autres
 
 1) Créer une variable `var1` initialisée 1
 
