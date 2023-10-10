@@ -79,7 +79,7 @@ if (i > 10) {
       cout << i << endl;
    } while (i > 10);
 }
---i;   // nécessaire pour que i aie la même valeur en fin de boucle
+--i;   // nécessaire pour que i ait la même valeur en fin de boucle
 ~~~
 </details>
 

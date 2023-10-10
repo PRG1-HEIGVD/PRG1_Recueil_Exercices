@@ -11,11 +11,11 @@ Le programme ci-dessous contient plusieurs erreurs.
 4
 5  void f(double x);
 6  void g(double& x);
-7  void h(const double& x); 8
+7  void h(const double& x); 
 9  int main() {
 10
 11    const int C = 1;
-12    intn=C;
+12    int n = C;
 13    double x = C;
 14   
 15    f(C);
@@ -32,18 +32,18 @@ Le programme ci-dessous contient plusieurs erreurs.
 26 }
 27   
 28 void f(double x) {
-29    x=x+1;
-30    cout<<"x="<<x<<endl;
+29    x = x + 1;
+30    cout << "x = " << x <<endl;
 31 }
 32 
 33 void g(double& x) {
-34    x=x+1;
-35    cout<<"x="<<x<<endl;
+34    x = x + 1;
+35    cout << "x = "<< x <<endl;
 36 }
 37 
 38 void h(const double& x) {
-39    x=x+1;
-40    cout<<"x="<<x<<endl;
+39    x = x + 1;
+40    cout << "x = " << x <<endl;
 41 }
 ~~~
 
