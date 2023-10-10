@@ -1,5 +1,5 @@
 # Affichage de caractères compris entre 2 bornes
-Ecrire une fonction qui prend 2 paramètres de type *char* et qui affiche, sur une même ligne, tous les caractères non accentué compris entre deux paramètres *debut* et *fin*, bornes comprises.
+Ecrire une fonction qui prend 2 paramètres de type *char* et qui affiche, sur une même ligne, tous les caractères non accentués compris entre deux paramètres *debut* et *fin*, bornes comprises.
 </br>Rien n'est affiché si *debut* > *fin*.
 
 Exemples
