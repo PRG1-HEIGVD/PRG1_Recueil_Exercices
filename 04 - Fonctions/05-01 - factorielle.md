@@ -1,6 +1,6 @@
 # Factorielle
 
-La factorielle d'une nombre est décrite comme suit
+La factorielle d'un nombre est décrite comme suit
 
 `5! = 1 * 2 * 3 * 4 * 5`<br>
 `6! = 1 * 2 * 3 * 4 * 5 * 6` donc `6! = 5! * 6`<br>
