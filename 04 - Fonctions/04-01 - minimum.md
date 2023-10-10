@@ -1,7 +1,7 @@
 # min(a, b, c)
-Ecrire une fonction `min` qui retourne le minimum de 3 valeurs reçues en paramètre.
+Écrire une fonction `min` qui retourne le minimum de 3 valeurs reçues en paramètre.
 
-Les instructions suivantes doivent être ppssibles ?
+Les instructions suivantes doivent être possibles:
 
 `int a = 5;`</br>
 `int b = 2;`</br>
@@ -18,9 +18,7 @@ Les instructions suivantes doivent être ppssibles ?
 ~~~cpp
 
 int& min(int& a, int& b, int& c) {
-      return a < c ?
-         a < c ? a : c :
-         b < c ? b : c ;
+      return a < c ? a < b ? a : b : b < c ? b : c;
 }
 
 ~~~
