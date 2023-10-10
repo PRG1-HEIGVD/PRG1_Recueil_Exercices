@@ -1,5 +1,5 @@
 # Que produit ce code
-Sur la base de l'exercice précédent, que produit le code ci-dessous ?
+Que produit le code ci-dessous ?
 
 | # | a | b | c | min | d |
 |---|---|---|---|-----|---|
@@ -64,12 +64,12 @@ int main() {
 <details>
 <summary>Solution</summary>
 
-| n | a | b | c | min | d |
+| # | a | b | c | min | d |
 |---|---|---|---|-----|---|
-| 1 | 12| 7 | 9 |  7  | 7 |
-| 2 | 12| 5 | 9 |  5  | 5 |
-| 3 | 12| 3 | 9 |  3  | 3 |
-| 4 |  1| 3 | 9 |  1  | 3 |
-| 5 |  0| 3 | 9 |  0  | 3 |
+| 1)| 12| 7 | 9 |  7  | 7 |
+| 2)| 12| 5 | 9 |  5  | 5 |
+| 3)| 12| 3 | 9 |  3  | 3 |
+| 4)|  1| 3 | 9 |  1  | 3 |
+| 5)|  0| 3 | 9 |  0  | 3 |
 
 </details>
