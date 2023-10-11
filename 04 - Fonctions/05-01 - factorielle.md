@@ -3,7 +3,7 @@
 La factorielle d'un nombre est décrite comme suit
 
 `5! = 1 * 2 * 3 * 4 * 5`<br>
-`6! = 1 * 2 * 3 * 4 * 5 * 6` donc `6! = 5! * 6`<br>
+`6! = 1 * 2 * 3 * 4 * 5 * 6` ou `6! = 6 * 5!`<br>
 
 Ainsi `n! = n * (n-1)!` avec `1! = 1` et `0! = 1` pour `n >= 0`
 
