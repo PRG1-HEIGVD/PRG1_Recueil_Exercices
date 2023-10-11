@@ -2,8 +2,8 @@
 
 La suite de Fibonacci est décrite comme suit
 
-`F0 = 0`, `F1 = 1` et 
-`Fn = Fn-1 + Fn-2`
+`Fn = Fn-1 + Fn-2` avec `F0 = 0` et `F1 = 1`
+
 
 |F0 |F1 |F2 |F3 |F4 |F5 |F6 |F7 |F8 |F9 |F10|...|
 |---|---|---|---|---|---|---|---|---|---|---|---|
