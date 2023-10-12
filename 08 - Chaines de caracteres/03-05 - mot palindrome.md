@@ -3,6 +3,7 @@
 Pensez à organiser votre code avec les fonctions.
 
 Exemple d'exécution
+
 ~~~
 Entrez un mot (ou 'quitter' pour sortir) : été
 Le mot 'été' n'est pas un palindrome.
