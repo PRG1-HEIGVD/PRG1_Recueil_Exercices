@@ -1,5 +1,5 @@
 # Correction d'erreurs
-Quelles modifications faut-il apporter au programme ci-dessous pour le rendre correct ?
+Quelles modifications faut-il apporter au programme ci-dessous pour le rendre correct ?<br>
 **NB** Aucune ligne de code ne doit être ajoutée !
 
 ~~~cpp
