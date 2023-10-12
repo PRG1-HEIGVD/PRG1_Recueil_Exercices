@@ -34,7 +34,7 @@ void permutationCirculaireDroite(double* x,
                                  double* y,
                                  double* z) {
    double tmp = *z;
-   z  = *y;
+   *z = *y;
    *y = *x;
    *x = tmp;
 }
