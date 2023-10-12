@@ -76,7 +76,7 @@ bool listerCaracteres(char debut,
                       char fin) {
 
    // /!\ boucle infinie si signed char et fin=127
-//   for (char c = a; c <= b; ++c)
+//   for (char c = debut; c <= fin; ++c)
 //      cout << c;
 
    if(debut > fin)
