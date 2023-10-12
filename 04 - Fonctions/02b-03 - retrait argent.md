@@ -49,7 +49,7 @@ int main() {
    afficher("Montant retrait effectif = ", retraitEffectif, 1);
    
    afficher("Solde courant            = ", soldeCourant,    1);
-   return EXIT_SUCCESS:
+   return EXIT_SUCCESS;
 }
 
 //------------------------------------------------------------
