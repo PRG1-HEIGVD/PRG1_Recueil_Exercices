@@ -39,17 +39,15 @@ bool operation(double operandeGauche,
                double operandeDroite,
                char operateur,
                double& resultat) {
-   bool OK = true; // statut de retour de la fonction
    
    switch (operateur) {
       case '+': resultat = operandeGauche + operandeDroite; break;
       case '-': resultat = operandeGauche - operandeDroite; break;
       case '*': resultat = operandeGauche * operandeDroite; break;
       case '/': resultat = operandeGauche / operandeDroite; break; 
-      default: OK = false; break;
-
+      default : return false;
    }
-  return OK;
+  return true;
 }
 
 //------------------------------------------------------------
