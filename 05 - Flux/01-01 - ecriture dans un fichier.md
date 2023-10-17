@@ -26,7 +26,7 @@ int main() {
     std::getline(std::cin, nom_fichier);
 
     // Ouvrez le fichier en mode écriture
-    std::ofstream fichier_sortie(nom_fichier);
+    std::ofstream fichier_sortie(nom_fichier, std::ios::app);
 
     // Vérifiez si l'ouverture du fichier a réussi
     if (!fichier_sortie) {
