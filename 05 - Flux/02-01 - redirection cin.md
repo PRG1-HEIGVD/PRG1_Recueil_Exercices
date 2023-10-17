@@ -2,8 +2,8 @@
 
 Modifiez le programme en C++ de l'exercice 01-02 pour ajouter les fonctionnalités suivantes :
 
-- Demander à l'utilisateur de saisir le nom du fichier source.
-- Au lieu de saisir le texte, utiliser cin pour lire repuis le fichier source et ajouter (append) le texte dans le fichier de sortie. Si le fichier existe déjà, il ne doit pas être écrasé.
+- Demander à l'utilisateur de saisir le nom d'un fichier source.
+- Au lieu de saisir le texte, utiliser cin pour lire depuis le fichier source et ajouter (append) le texte dans le fichier de sortie. Si le fichier de sortie existe déjà, il ne doit pas être écrasé.
 
 
 Ps. Le code utilisé pour l'écriture ne doit pas changer, comparé à l'exercice 01-02.   
