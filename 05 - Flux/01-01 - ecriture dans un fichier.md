@@ -2,10 +2,11 @@
 
 Écrivez un programme en C++ qui fait ce qui suit :
 
-- Demander à l'utilisateur de saisir le nom du fichier de sortie.
-- Demandez à l'utilisateur de saisir du text et enregistrez le texte saisi dans le fichier de sortie. Si le fichier existe déjà, il ne doit pas être écrasé.
+- Demandez à l'utilisateur de saisir le nom du fichier de sortie.
+- Si le fichier existe déjà, il ne doit pas être écrasé.
+- Demandez à l'utilisateur de saisir du texte et enregistrez le texte saisi dans le fichier de sortie. Répétez cette action tant que l'utilisateur n'a pas terminé. 
+- Pour terminer la saisie, l'utilisateur pourra tapez #exit# dans une ligne séprée ou utiliser Ctrl+D.
 - Assurez-vous que le programme gère les erreurs d'ouverture de fichier.
-- pour terminer la saisie, l'utilisateur pourra tapez #exit# dans une ligne séprée ou utiliser Ctrl+D.
 
 Ps. Ctrl+D et Ctrl+Z simule le EOF pour les systèmes Unix et Windows, respectivement.   
 
