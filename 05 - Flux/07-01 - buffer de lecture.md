@@ -97,11 +97,11 @@ int main() {
 1. le buffer ne peut pas être traité s'il est vide (lu, traité, ...)
 1. lorsque le buffer est vide, une lecture met l'exécution du programme en pause jusqu'à la saisie de valeur(s) suivi de ENTER `↩︎`
 1. les espaces précédants une valeurs numériques sont consommés
-1. la lecture s'arrête dès la rencontre d'un caractère incompatible pour le type considéré (12 345 => 12, 345 et 1a2 => 1, 'a', 2)
+1. la lecture s'arrête dès la rencontre d'un caractère incompatible avec le type considéré (12 345 => 12, 345 et 1a2 => 1, 'a', 2)
 1. les valeurs non consommées restent dans le flux (dans cet exemple : lecture de 'n' dans c)
 1. une valeur incompatible avec l'opérateur de flux (ex 'a' => int) fait planter le flux, ce qui ne déclanche pas d'erreur
 1. lorsque le flux est planté, les lectures sont ignorées (le flux n'est pas utilisable, ni même pour vider le flux)
-1. une bonne habitude est de vider le flux après utilisation
+1. une bonne habitude est de **vider le flux après utilisation**
 
 </details>
 
