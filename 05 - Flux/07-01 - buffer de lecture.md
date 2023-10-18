@@ -33,14 +33,13 @@ L’utilisateur saisi dans l’ordre les informations suivantes lorsque le progr
 |`cin  >> b;`                                           |                   |                                          |
 |`cin  >> x;`                                           |                   |                                          |
 
-**Documentations :** [cin.get](https://cplusplus.com/reference/istream/istream/get) et [cin.ignore](https://cplusplus.com/reference/istream/istream/ignore)
+**Documentation :** [cin.get](https://cplusplus.com/reference/istream/istream/get) et [cin.ignore](https://cplusplus.com/reference/istream/istream/ignore)
 
 <details>
 <summary>Programme complet</summary>
 
 ~~~cpp
 #include <cstdlib>   // EXIT_SUCCESS
-#include <cstdio>    // cin.get()
 #include <iostream>  // cout et cin
 #include <limits>    // numeric_limits<streamsize>::max()
 
