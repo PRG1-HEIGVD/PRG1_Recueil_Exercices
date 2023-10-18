@@ -7,16 +7,14 @@
 Déterminer avec précision ce que contient le buffer d'entrée après chacune des instructions du programme ci-dessous.
 
 L’utilisateur saisi dans l’ordre les informations suivantes lorsque le programme est en attente.
+<br>**NB :** `_`  = espace et `↩︎` = enter
 
 - `45_23_21.2↩︎`
 - `4_1_94_3.94_123↩︎`
 - `7_3.45n↩︎`
 - `43a1↩︎`
 
-	`_`  = espace<br>
-	`↩︎` = enter<br>
-	[cin.get]    (https://cplusplus.com/reference/istream/istream/get)<br>
-	[cin.ignore] (https://cplusplus.com/reference/istream/istream/ignore/)
+
 
 | Instruction 	                        |  Buffer           | Commentaire                              |
 |----------------------------------------|-------------------|------------------------------------------|
@@ -34,6 +32,8 @@ L’utilisateur saisi dans l’ordre les informations suivantes lorsque le progr
 |`cin  >> a;`                            |                   |                                          |
 |`cin  >> b;`                            |                   |                                          |
 |`cin  >> x;`                            |                   |                                          |
+
+**Documentations :** [cin.get](https://cplusplus.com/reference/istream/istream/get) et [cin.ignore] (https://cplusplus.com/reference/istream/istream/ignore)
 
 <details>
 <summary>Programme complet</summary>
@@ -73,7 +73,7 @@ int main() {
 </details>
 
 <details>
-<summary>Solution</summary>
+<summary>Solutions</summary>
 
 | Instruction 	                        |  Buffer           | Commentaire                              |
 |----------------------------------------|-------------------|------------------------------------------|
@@ -89,7 +89,7 @@ int main() {
 |`cin  >> c;`                            | `↩︎`              | `n↩︎` 'n' => c                            |
 |`cout << "sauver : " << c << endl;`     | `↩︎`              | ne modifie pas le buffer d'entrée        |
 |`cin  >> a;`                            | `a1↩︎`            | `43a1↩︎` 43 => a                          |
-|`cin  >> b;`                            | `a1↩︎`            | 'a' pas un `int` => plamte le flux       |
+|`cin  >> b;`                            | `a1↩︎`            | 'a' pas un `int` => plante le flux       |
 |`cin  >> x;`                            | `a1↩︎`            | le flux est planté, passe tout droit     |
 
 ### Conclusions
