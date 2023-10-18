@@ -101,7 +101,7 @@ int main() {
 1. les valeurs non consommées restent dans le flux (dans cet exemple : lecture de 'n' dans c)
 1. une valeur incompatible avec l'opérateur de flux (ex 'a' => int) fait planter le flux, ce qui ne déclanche pas d'erreur
 1. lorsque le flux est planté, les lectures sont ignorées (le flux n'est pas utilisable, ni même pour vider le flux)
-1. une bonne pratique est de **vider le flux après utilisation**<br>typiquement avec `cin.ignore(numeric_limits<streamsize>::max(), '\n');`
+1. une bonne pratique est de **vider le flux après utilisation**<br>typiquement avec `cin.ignore(numeric_limits<streamsize>::max(), '\n');`<br>qui consommera `↩︎` le restant
 
 </details>
 
