@@ -65,7 +65,7 @@ int main() {
    cin  >> x;
 
    cout << "presser ENTER pour quitter";
-   while(getchar() != EOL);
+   cin.ignore(numeric_limits<streamsize>::max(), '\n');
    return EXIT_SUCCESS;
 }
 ~~~
