@@ -16,22 +16,22 @@ L’utilisateur saisi dans l’ordre les informations suivantes lorsque le progr
 
 
 
-| Instruction 	                        |  Buffer           | Commentaire                              |
-|----------------------------------------|-------------------|------------------------------------------|
-|`cout << "entrer des valeurs : ";`      |                   |                                          |
-|`while(cin.get() != '\n');`             |                   |                                          |
-|`cout << endl;`                         |                   |                                          |
-|`cin  >> a;`                            |                   |                                          |
-|`cin  >> b;`                            |                   |                                          |
-|`cin.ignore(max(), '\n');`              |                   |                                          |
-|`cin  >> x;`                            |                   |                                          |
-|`cin  >> y;`                            |                   |                                          |
-|`cout << "voulez-vous sauver [o/n] : ";`|                   |                                          |
-|`cin  >> c;`                            |                   |                                          |
-|`cout << "sauver : " << c << endl;`     |                   |                                          |
-|`cin  >> a;`                            |                   |                                          |
-|`cin  >> b;`                            |                   |                                          |
-|`cin  >> x;`                            |                   |                                          |
+| Instruction 	                                       |  Buffer           | Commentaire                              |
+|-------------------------------------------------------|-------------------|------------------------------------------|
+|`cout << "entrer des valeurs : ";`                     |                   |                                          |
+|`while(cin.get() != '\n');`                            |                   |                                          |
+|`cout << endl;`                                        |                   |                                          |
+|`cin  >> a;`                                           |                   |                                          |
+|`cin  >> b;`                                           |                   |                                          |
+|`cin.ignore(numeric_limits<streamsize>::max(), '\n');` |                   |                                          |
+|`cin  >> x;`                                           |                   |                                          |
+|`cin  >> y;`                                           |                   |                                          |
+|`cout << "voulez-vous sauver [o/n] : ";`               |                   |                                          |
+|`cin  >> c;`                                           |                   |                                          |
+|`cout << "sauver : " << c << endl;`                    |                   |                                          |
+|`cin  >> a;`                                           |                   |                                          |
+|`cin  >> b;`                                           |                   |                                          |
+|`cin  >> x;`                                           |                   |                                          |
 
 **Documentations :** [cin.get](https://cplusplus.com/reference/istream/istream/get) et [cin.ignore](https://cplusplus.com/reference/istream/istream/ignore)
 
@@ -82,7 +82,7 @@ int main() {
 |`cout << endl;`                         | `∅`               | ne modifie pas le buffer d'entrée        |
 |`cin  >> a;`                            | `_1_94_3.94_123↩︎`| `4_1_94_3.94_123↩︎` 4 => a                |
 |`cin  >> b;`                            | `_94_3.94_123↩︎`  | `_1_94_3.94_123↩︎` 1 => b                 |
-|`cin.ignore(max(), '\n');`              | `∅`               | les valeurs `_94_3.94_123↩︎` sont perdues|
+|`cin.ignore(...);`                      | `∅`               | les valeurs `_94_3.94_123↩︎` sont perdues|
 |`cin  >> x;`                            | `_3.45n↩︎`        | `7_3.45n↩︎` 7 => x                        |
 |`cin  >> y;`                            | `n↩︎`             | `3.45n↩︎` 3.45 => y                       |
 |`cout << "voulez-vous sauver [o/n] : ";`| `n↩︎`             | ne modifie pas le buffer d'entrée        |
@@ -101,7 +101,7 @@ int main() {
 1. les valeurs non consommées restent dans le flux (dans cet exemple : lecture de 'n' dans c)
 1. une valeur incompatible avec l'opérateur de flux (ex 'a' => int) fait planter le flux, ce qui ne déclanche pas d'erreur
 1. lorsque le flux est planté, les lectures sont ignorées (le flux n'est pas utilisable, ni même pour vider le flux)
-1. une bonne habitude est de **vider le flux après utilisation**
+1. une bonne habitude est de **vider le flux après utilisation**<br>typiquement avec `cin.ignore(numeric_limits<streamsize>::max(), '\n');`
 
 </details>
 
