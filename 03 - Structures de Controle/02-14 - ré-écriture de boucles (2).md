@@ -1,8 +1,9 @@
 # Ré-écriture de boucles (2)
 
-1. Réécrire la boucle suivante avec une boucle `while`
-   Attention, votre code doit être valide quelque soit la valeur de départ de `i` et quelque soit l'utilisation subséquente de la valeur de `i` en sortie de la boucle
+Attention, dans les exercices qui suivents, votre code doit être valide quelque soit la valeur de `n` et les variables doivent avoir la même portée (scope) que dans le code original.
 
+1. Réécrire la boucle suivante avec une boucle `while`
+  
 ~~~cpp 
 for (int i = 0; i < n; ++i) {
    cout << i << endl;
