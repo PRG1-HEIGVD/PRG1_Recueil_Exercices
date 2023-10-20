@@ -43,6 +43,8 @@ L’utilisateur saisi dans l’ordre les informations suivantes lorsque le progr
 #include <iostream>  // cout et cin
 #include <limits>    // numeric_limits<streamsize>::max()
 
+using namespace std;
+
 int main() {
    int      a, b;
    double   x, y;
