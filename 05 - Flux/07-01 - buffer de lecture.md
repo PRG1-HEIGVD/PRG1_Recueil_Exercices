@@ -1,4 +1,4 @@
-## Buffer
+## Buffer de lecture
 
 ### Objectif
 - Compréhension du buffer de saisie
