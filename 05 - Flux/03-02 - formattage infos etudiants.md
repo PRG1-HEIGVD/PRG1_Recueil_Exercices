@@ -1,6 +1,6 @@
 # Formattage cout, Gestionnaire d'étudiants
 
-Écrivez un programme en C++ qui permet à l'utilisateur de saisir les données d'un étudiant, de calculer sa moyenne, et d'afficher un résumé de l'étudiant avec un formatage propre.
+Écrivez un programme en C++ qui permet à l'utilisateur de saisir les données d'un.e étudiant.e, de calculer sa moyenne, et d'afficher un résumé de l'étudiant.e avec un formatage propre.
 
 Le programme doit :
 
@@ -8,16 +8,16 @@ Le programme doit :
   - le nom, 
   - l'âge, 
   - la note en mathématiques (sur 6), et 
-  - la note en science (sur 6) de l'étudiant.
-- Calculer la moyenne de l'étudiant.
-- Déterminer si l'étudiant est admis (si la moyenne est supérieure ou égale à 3.8).
-- Afficher un tableau avec le nom, l'âge, les notes, la moyenne, et le statut d'admission de l'étudiant.
+  - la note en PRG1 (sur 6) de l'étudiant.e.
+- Calculer la moyenne de l'étudiant.e.
+- Déterminer si l'étudiant.e est admis.e (si la moyenne est supérieure ou égale à 3.8).
+- Afficher un tableau avec le nom, l'âge, les notes, la moyenne, et le statut d'admission de l'étudiant.e.
 
 Un exemple de l'exécution  du programme :
 
 ~~~
-Entrez le nom de l'étudiant : Fouad Hanna
-Entrez l'âge de l'étudiant : 19
+Entrez le nom de l'étudiant.e : Fouad Hanna
+Entrez l'âge de l'étudiant.e : 19
 Entrez la note en mathématiques (max. 6): 5.2
 Entrez la note en PRG1 (max. 6): 5.3
 Nom               Age  Note Math     Note PRG1    Admis
