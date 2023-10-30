@@ -8,7 +8,9 @@
 - Pour terminer la saisie, l'utilisateur pourra tapez #exit# dans une ligne séprée ou utiliser Ctrl+D.
 - Assurez-vous que le programme gère les erreurs d'ouverture de fichier.
 
-Ps. Ctrl+D et Ctrl+Z simule le EOF pour les systèmes Unix et Windows, respectivement.   
+Ps : simlulation du *EOF* (End of File)<br>
+- Ctrl+D et Ctrl+Z sur Unix et Windows, respectivement.<br>
+- Cmd+D sur Mac
 
 <details>
 <summary>Solution</summary>
@@ -26,7 +28,7 @@ int main() {
     std::getline(std::cin, nom_fichier);
 
     // Ouvrez le fichier en mode écriture
-    std::ofstream fichier_sortie(nom_fichier);
+    std::ofstream fichier_sortie(nom_fichier, std::ios::app);
 
     // Vérifiez si l'ouverture du fichier a réussi
     if (!fichier_sortie) {

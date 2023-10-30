@@ -35,8 +35,6 @@ votre saisie : 9
 #include <cstdlib>
 #include "annexe.hpp"
 
-using namespace std;
-
 int main() {
 
    int i = saisir("votre saisie", 0, 10);
