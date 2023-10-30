@@ -8,7 +8,9 @@
 - Pour terminer la saisie, l'utilisateur pourra tapez #exit# dans une ligne séprée ou utiliser Ctrl+D.
 - Assurez-vous que le programme gère les erreurs d'ouverture de fichier.
 
-Ps. Ctrl+D et Ctrl+Z simule le EOF pour les systèmes Unix et Windows, respectivement.   
+Ps : simlulation du *EOF* (End of File)<br>
+- Ctrl+D et Ctrl+Z sur Unix et Windows, respectivement.<br>
+- Cmd+D sur Mac
 
 <details>
 <summary>Solution</summary>
