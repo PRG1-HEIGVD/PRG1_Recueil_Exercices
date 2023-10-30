@@ -1,5 +1,6 @@
 # struct - Date et Personne
 Soit le programme principal mis à disposition.
+
 Ecrire les librairies *Date* et *Personne* de sorte à ce que le programme produise le résultat ci-après.
 
 ~~~
