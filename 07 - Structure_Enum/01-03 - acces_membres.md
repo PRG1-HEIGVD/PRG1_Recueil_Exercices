@@ -7,8 +7,8 @@ struct Coord {
 }
 
 struct Cercle {
-   Coord centre;
    int   rayon;
+   Coord centre;
 }
 
 const Coord origine = {0, 0, 0};
