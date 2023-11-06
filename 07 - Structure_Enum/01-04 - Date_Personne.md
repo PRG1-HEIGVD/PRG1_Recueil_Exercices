@@ -41,6 +41,12 @@ int main() {
 <summary>date.h</summary>
 
 ~~~cpp
+//----------------------------------------------
+// A NOTER
+// - pas de using namespace std
+// - pas de #using <iostream>
+//----------------------------------------------
+
 #ifndef DATE_H
 #define DATE_H
 
@@ -72,6 +78,12 @@ void afficher (const Date& d);
 <summary>date.cpp</summary>
 
 ~~~cpp
+//----------------------------------------------
+// A NOTER
+// - using namespace std possible
+// - #include <iostream> ici et non dans le .h
+//----------------------------------------------
+
 #include <iostream>
 #include "date.h"
 
@@ -109,6 +121,14 @@ void afficher(const Date& d) {
 <summary>personne.h</summary>
 
 ~~~cpp
+//----------------------------------------------
+// A NOTER
+// - pas de using namespace std
+// - pas de "#using <iostream>"
+// - #include <string> nécessaire (paramètre)
+// - #include "date.h" nécessaire (paramètre)
+//----------------------------------------------
+
 #ifndef PERSONNE_H
 #define PERSONNE_H
 
@@ -141,6 +161,13 @@ void afficher (const Personne& p);
 <summary>personne.cpp</summary>
 
 ~~~cpp
+//----------------------------------------------
+// A NOTER
+// - using namespace std possible
+// - #using <iostream> nécessaire
+// - pas de #include <string>, déjà dans le .h
+//----------------------------------------------
+
 #include <iostream>
 #include "personne.h"
 
