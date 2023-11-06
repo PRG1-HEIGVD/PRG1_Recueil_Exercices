@@ -21,11 +21,11 @@ Anniversaire : 30.10.2023
 using namespace std;
 int main() {
 
-   Date uneDate = set(30, 10, 2023);
+   Date uneDate = {30, 10, 2023};
    cout << "une date     : "; afficher(uneDate);
    cout << endl << endl;
 
-   Personne anna = set("Anna", "Yverdon", uneDate);
+   Personne anna = {"Anna", "Yverdon", uneDate};
    afficher(anna);
 
    cout << endl;
@@ -62,11 +62,6 @@ struct Date {
    Annee annee;
 };
 
-Date  set(Jour j, Mois m, Annee a);
-Jour  getJour (const Date& d);
-Mois  getMois (const Date& d);
-Annee getAnnee(const Date& d);
-
 void afficher (const Date& d);
 
 #endif //DATE_H
@@ -87,27 +82,6 @@ void afficher (const Date& d);
 #include <iostream>
 #include "date.h"
 
-//-------------------------------------
-Date  set(Jour j, Mois m, Annee a) {
-   return Date {j, m, a};
-}
-
-//-------------------------------------
-Jour  getJour (const Date& d) {
-   return d.jour;
-}
-
-//-------------------------------------
-Mois  getMois (const Date& d) {
-   return d.mois;
-}
-
-//-------------------------------------
-Annee getAnnee(const Date& d) {
-   return d.annee;
-}
-
-//-------------------------------------
 void afficher(const Date& d) {
    std::cout << (int)d.jour << '.'
              << (int)d.mois << '.'
@@ -141,14 +115,6 @@ struct Personne {
    Date        anniversaire;
 };
 
-Personne set(const std::string& nom,
-             const std::string& adresse,
-             const Date&        date);
-
-std::string getNom         (const Personne& p);
-std::string getAdresse     (const Personne& p);
-Date        getAnniversaire(const Personne& p);
-
 void afficher (const Personne& p);
 
 
@@ -171,29 +137,6 @@ void afficher (const Personne& p);
 #include <iostream>
 #include "personne.h"
 
-//-------------------------------------
-Personne set(const std::string& nom,
-             const std::string& adresse,
-             const Date&        date) {
-   return {nom, adresse, date};
-}
-
-//-------------------------------------
-std::string getNom(const Personne& p) {
-   return p.nom;
-}
-
-//-------------------------------------
-std::string getAdresse(const Personne& p) {
-   return p.adresse;
-}
-
-//-------------------------------------
-Date getAnniversaire(const Personne& p) {
-   return p.anniversaire;
-}
-
-//-------------------------------------
 void afficher (const Personne& p) {
    std::cout << "Nom          : " << p.nom      << std::endl
              << "Adresse      : " << p.adresse  << std::endl
