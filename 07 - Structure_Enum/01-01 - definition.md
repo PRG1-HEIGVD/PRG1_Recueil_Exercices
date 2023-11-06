@@ -91,9 +91,18 @@ struct const Struct {
 
 ~~~cpp
 struct Struct {
-   const char car 'A';
+   const char car = 'A';
 };
 ~~~
+
+12.
+
+~~~cpp
+struct Struct {
+   const char car;
+};
+~~~
+
 
 <details>
 <summary> Solutions </summary>
@@ -111,5 +120,6 @@ struct Struct {
 | 9  | correct   | un `struc` peut contenir un autre `struct`                   |
 | 10 | faux      | un `struc` n'est pas constant globalement                    |
 | 11 | correct   | un membre d'un `struc` peut être constant                    |
+| 12 | correct   | mais une variable de ce type doit initialiser la constante car                   |
 
 </details>
