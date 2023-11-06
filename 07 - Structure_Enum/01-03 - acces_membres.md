@@ -35,7 +35,7 @@ Les instructions sont-elles correctes ?
 | no | Réponse   | Commentaire                                                                                                         |
 |--- |---        |---                                                                                                                  |
 | 1  | correct   | affiche le rayon => 1                                                                                               |
-| 2  | faux      | remplacer le `.` par  l'opérateur `->`                                                                              |
+| 2  | faux      | remplacer l'opérateur `->` par un `.`                                                                               |
 | 3  | faux      | selon la priorité des opérateurs, `.` est fait avant le `*`                                                         |
 | 4  | correct   | le membre `centre` est affectée par les valeurs de `origine`                                                        |
 | 5  | faux      | `ptr` n'a pas de membre, il faut d'abord le déréférencer</br>`(*ptr).rayon = 2;` ou `ptr->rayon = 2;`               |
