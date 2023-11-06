@@ -19,7 +19,7 @@ struct Date {
 
 ~~~cpp
 // à noter
-// paramètre en référence constante<br>
+// paramètre en référence constante
 // pour pouvoir passer une constante en paramètre
 
 bool est_bissextile(const Date& d) {
