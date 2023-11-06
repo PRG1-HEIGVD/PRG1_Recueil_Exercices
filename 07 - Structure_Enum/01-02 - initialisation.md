@@ -30,7 +30,7 @@ Que valent les déclarations proposées ?
 | no |  R  |  X  |  Y  |  Z  | Commentaire                                         |
 |--- |---  |---  |---  |---  |---                                                  |
 | 1  | 1   | 2   | 3   | 4   | l'agégat est complet                                |
-| 2  | 1   | 0   | 0   | 0   | seul le rayon est renseignl, le reste à `0`         |
+| 2  | 1   | 0   | 0   | 0   | seul le rayon est renseigné, le reste à `0`         |
 | 3  | 0   | 0   | 0   | 0   | l'agrégat est vide, donc tout est à `0`             |
 | 4  | 1   | 2   | 3   | 0   | manque la valeur de Z, => à `0`                     |
 | 5  | 1   | 2   | 3   | 4   | tout est renseigné en séquence                      |
