@@ -124,7 +124,7 @@ void afficher(const Date& d) {
 //----------------------------------------------
 // A NOTER
 // - pas de using namespace std
-// - pas de "#using <iostream>"
+// - pas de #using <iostream>
 // - #include <string> nécessaire (paramètre)
 // - #include "date.h" nécessaire (paramètre)
 //----------------------------------------------
