@@ -2,7 +2,7 @@
 
 Le code ci-dessous, doit afficher le jour de la semaine.
 
-Compléter ce code pour le rendre fonctionxel.
+Compléter ce code pour le rendre fonctionnel.
 
 ~~~cpp
 enum class Jour {LUNDI, MARDI, MERCREDI, JEUDI,
