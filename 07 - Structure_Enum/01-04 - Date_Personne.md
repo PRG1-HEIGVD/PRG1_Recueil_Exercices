@@ -22,11 +22,11 @@ using namespace std;
 int main() {
 
    Date uneDate = {30, 10, 2023};
-   cout << "une date     : "; afficher(uneDate);
+   cout << "une date     : "; afficher_date(uneDate);
    cout << endl << endl;
 
    Personne anna = {"Anna", "Yverdon", uneDate};
-   afficher(anna);
+   afficher_personne(anna);
 
    cout << endl;
 
@@ -62,7 +62,7 @@ struct Date {
    Annee annee;
 };
 
-void afficher (const Date& d);
+void afficher_date(const Date& d);
 
 #endif //DATE_H
 }
@@ -83,7 +83,7 @@ void afficher (const Date& d);
 #include <iostream>
 #include "date.h"
 
-void afficher(const Date& d) {
+void afficher_date(const Date& d) {
    std::cout << (int)d.jour << '.'
              << (int)d.mois << '.'
              << d.annee;
@@ -116,7 +116,7 @@ struct Personne {
    Date        anniversaire;
 };
 
-void afficher (const Personne& p);
+void afficher_personne(const Personne& p);
 
 
 #endif //PERSONNE_H
@@ -138,7 +138,7 @@ void afficher (const Personne& p);
 #include <iostream>
 #include "personne.h"
 
-void afficher (const Personne& p) {
+void afficher_personne(const Personne& p) {
    std::cout << "Nom          : " << p.nom      << std::endl
              << "Adresse      : " << p.adresse  << std::endl
              << "Anniversaire : ";
