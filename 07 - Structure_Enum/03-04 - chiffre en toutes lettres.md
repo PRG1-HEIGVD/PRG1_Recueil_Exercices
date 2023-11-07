@@ -8,8 +8,7 @@ enum class Chiffre {ZERO, UN, DEUX, TROIS, QUATRE, CINQ, SIX, SEPT, HUIT, NEUF};
 
 Ecrire les fonctions nécessaires pour obtenir le résultat ci-après.
 
-**NB** La gestion est circulaire.<br>
-Après NEUF il y a ZERO, etc ...
+**NB** La gestion est circulaire. Après NEUF il y a ZERO, etc ...
 
 ~~~cpp
 Chiffre c = Chiffre::CINQ;
