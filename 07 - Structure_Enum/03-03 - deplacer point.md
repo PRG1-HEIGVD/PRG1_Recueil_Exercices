@@ -16,7 +16,7 @@ using Point = Coord;
 
 Ecrire une fonction *deplacer* permettant de déplacer un point  d'une unité dans une direction donnée.
 
-Le point et la direction sont reçu en paramètre.
+Le point et la direction sont reçus en paramètre.
 
 <details>
 <summary>Solution</summary>
