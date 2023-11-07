@@ -10,9 +10,10 @@ Nous avons besoin de convertir des coordonnées GPS dans les deux notations typi
 |    DD  | 46.7785711        | 6.6409158         |
 |   DMS  | N 46° 46' 42.856" | E 6° 38' 27.296"  |
 
-Après avoir déclaré les types de données (*struct* et *enum*) de la manière la plus flexible possible en économisant la mémoire, écrire de manière décomposée (autres sous-programmes) les deux fonctions de conversion.
-
+Après avoir déclaré les types de données (*struct* et *enum*) de la manière la plus flexible possible en économisant la mémoire, écrire de manière décomposée (autres sous-programmes) les deux fonctions de conversion.<br>
 Prévoir également deux fonctions d'affichage.
+
+Aide : [GPS coordinates converter](https://www.gps-coordinates.net/gps-coordinates-converter)
 
 Le code ci-après produit le résultat présenté
 
@@ -29,10 +30,10 @@ cout << endl;
 afficher_DD (Yverdon_DD);
 cout << endl;
 
-afficher_DMS(Coord_DD_to_DMS(Yverdon_DD));
+afficher_DMS(coord_DD_to_DMS(Yverdon_DD));
 cout << endl;
 
-afficher_DD(Coord_DMS_to_DD(Yverdon_DMS));
+afficher_DD(coord_DMS_to_DD(Yverdon_DMS));
 cout << endl;
 ~~~
 
@@ -49,9 +50,6 @@ Longitude : E 6°38'27.297"
 Latitude  : 46.778571
 Longitude : 6.640916
 ~~~
-
-
-Aide : [GPS coordinates converter](https://www.gps-coordinates.net/gps-coordinates-converter)
 
 <details>
 <summary>Solution</summary>
@@ -118,7 +116,7 @@ DD DMS_to_DD (const DMS& dms) {
 }
 
 //-----------------------------------------------------------------------------
-Coord_DD Coord_DMS_to_DD (const Coord_DMS& dms) {
+Coord_DD coord_DMS_to_DD (const Coord_DMS& dms) {
    Degree latitude_sign  = dms.latitude.direction  == Dir_NS::N ? 1.0 : -1.0;
    Degree longitude_sign = dms.longitude.direction == Dir_EW::E ? 1.0 : -1.0;
    return Coord_DD {
@@ -128,7 +126,7 @@ Coord_DD Coord_DMS_to_DD (const Coord_DMS& dms) {
 }
 
 //-----------------------------------------------------------------------------
-Coord_DMS Coord_DD_to_DMS (const Coord_DD& deg) {
+Coord_DMS coord_DD_to_DMS (const Coord_DD& deg) {
    return Coord_DMS {
       { deg.latitude  > 0.0 ? Dir_NS::N : Dir_NS::S, DD_to_DMS(deg.latitude) },
       { deg.longitude > 0.0 ? Dir_EW::E : Dir_EW::W, DD_to_DMS(deg.longitude)},
@@ -173,10 +171,10 @@ int main() {
    afficher_DD (Yverdon_DD);
    cout << endl;
 
-   afficher_DMS(Coord_DD_to_DMS(Yverdon_DD));
+   afficher_DMS(coord_DD_to_DMS(Yverdon_DD));
    cout << endl;
 
-   afficher_DD(Coord_DMS_to_DD(Yverdon_DMS));
+   afficher_DD(coord_DMS_to_DD(Yverdon_DMS));
    cout << endl;
 
    return EXIT_SUCCESS;
