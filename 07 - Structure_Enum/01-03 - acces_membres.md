@@ -4,12 +4,12 @@ Soient les déclarations ci-dessous.
 ~~~cpp
 struct Coord {
    int x, y, z;
-}
+};
 
 struct Cercle {
    int   rayon;
    Coord centre;
-}
+};
 
 const Coord origine = {0, 0, 0};
 Cercle cercle = {1, {2, 3, 4}};

@@ -4,12 +4,12 @@ Soient les `struct` ci-dessous.
 ~~~cpp
 struct Coord {
    int x, y, z;
-}
+};
 
 struct Cercle {
    int   rayon;
    Coord centre;
-}
+};
 ~~~
 
 Que valent les déclarations proposées ?
