@@ -24,10 +24,10 @@ Les instructions sont-elles correctes ?
 4. `cercle.centre = origine;`
 5. `ptr.rayon = 2;`
 6. `*ptr.rayon = 2;`
-7. `cercle.coord.x = 2;`
-8. `ptr.coord.x = 2;`
-9. `Coord coord1 = cercle.coord;`
-10. `Coord coord2 = ptr->coord;`
+7. `cercle.centre.x = 2;`
+8. `ptr.centre.x = 2;`
+9. `Coord coord1 = cercle.centre;`
+10. `Coord coord2 = ptr->centre;`
 
 <details>
 <summary>Solutions</summary>
