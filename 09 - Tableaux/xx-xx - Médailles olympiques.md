@@ -24,7 +24,7 @@ Ecrire un programme C++ mettant à disposition :
 <summary>Solution</summary>
 
 ~~~cpp
-include <array>
+#include <array>
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
