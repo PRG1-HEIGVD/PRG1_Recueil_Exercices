@@ -77,6 +77,7 @@ void afficher (const Date& d);
 // A NOTER
 // - using namespace std possible
 // - #include <iostream> ici et non dans le .h
+// - cast (int)d.jour et (int)d.mois sinon un car est affiché
 //----------------------------------------------
 
 #include <iostream>
