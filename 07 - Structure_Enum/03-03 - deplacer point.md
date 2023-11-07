@@ -1,6 +1,6 @@
 # Déplacer un point
 
-Soient les directions
+Soient les directions et les déclarations
 
 ~~~cpp
 enum class Direction {HAUT, BAS, GAUCHE, DROITE};
