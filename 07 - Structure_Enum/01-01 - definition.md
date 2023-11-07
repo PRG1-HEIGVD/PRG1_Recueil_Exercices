@@ -99,7 +99,7 @@ struct Struct {
 
 ~~~cpp
 struct Struct {
-   const char car;
+   const char c;
 };
 ~~~
 
@@ -120,6 +120,6 @@ struct Struct {
 | 9  | correct   | un `struc` peut contenir un autre `struct`                   |
 | 10 | faux      | un `struc` n'est pas constant globalement                    |
 | 11 | correct   | un membre d'un `struc` peut être constant                    |
-| 12 | correct   | mais une variable de ce type doit initialiser la constante car                   |
+| 12 | correct   | mais une variable de ce type doit initialiser la constante c |
 
 </details>
