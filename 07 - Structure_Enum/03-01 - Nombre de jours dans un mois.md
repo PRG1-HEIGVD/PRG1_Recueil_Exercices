@@ -45,6 +45,7 @@ uint8_t nbre_jours_mois (Mois m, Annee a) {
       case NOVEMBRE  : return 30;
       default        : return 0;
    }
-}~~~
+}
+~~~
 </details>
 
