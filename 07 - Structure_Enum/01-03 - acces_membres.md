@@ -40,9 +40,9 @@ Les instructions sont-elles correctes ?
 | 4  | correct   | le membre `centre` est affectée par les valeurs de `origine`                                                        |
 | 5  | faux      | `ptr` n'a pas de membre, il faut d'abord le déréférencer</br>`(*ptr).rayon = 2;` ou `ptr->rayon = 2;`               |
 | 6  | faux      | l'opérateur `.` est trop prioritaire</br>`(*ptr).rayon = 2;` ou `ptr->rayon = 2;`                                   |
-| 7  | correct   | `cercle.cord` pour descendre dans `Coord` puis `.x` pour accéder au membre `x`.                                     |
-| 8  | faux      | il faut déréférencer le `ptr`puis descendre dans la structure</br>`(*ptr).coord.x` ou `ptr->coord.x;`               |
-| 9  | correct   | `cercle.coord` est utilisée pour initialiser `coord1`                                                               |
-| 10 | correct   | `cercle.coord` pointée par `ptr` est utilisée pour initialiser `coord2`                                             |
+| 7  | correct   | `cercle.centre` pour descendre dans `Coord` puis `.x` pour accéder au membre `x`.                                     |
+| 8  | faux      | il faut déréférencer le `ptr`puis descendre dans la structure</br>`(*ptr).centre.x` ou `ptr->centre.x;`               |
+| 9  | correct   | `cercle.centre` est utilisée pour initialiser `coord1`                                                               |
+| 10 | correct   | `cercle.centre` pointée par `ptr` est utilisée pour initialiser `coord2`                                             |
 
 </details>
