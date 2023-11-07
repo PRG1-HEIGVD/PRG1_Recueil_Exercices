@@ -7,9 +7,9 @@ Une année est bissextile si :<br>
 
 ~~~cpp
 struct Date {
-   int jour;
-   int mois;
-   int annee;
+   uint8_t  jour;
+   uint8_t  mois;
+   uint16_t annee;
 };
 ~~~
 
@@ -19,8 +19,8 @@ struct Date {
 
 ~~~cpp
 // à noter
-// paramètre en référence constante
-// pour pouvoir passer une constante en paramètre
+// paramètre en référence constante pour
+// pouvoir passer une constante en paramètre
 
 bool est_bissextile(const Date& d) {
    return d.annee % 400 == 0 or
