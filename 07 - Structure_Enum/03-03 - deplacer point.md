@@ -8,7 +8,6 @@ enum class Direction {HAUT, BAS, GAUCHE, DROITE};
 struct Coord {
    int x = 0;
    int y = 0;
-   int z = 0;
 };
 
 using Point = Coord;
