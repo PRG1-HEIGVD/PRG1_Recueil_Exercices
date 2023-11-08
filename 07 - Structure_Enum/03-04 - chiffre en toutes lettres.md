@@ -11,10 +11,11 @@ Ecrire les fonctions nécessaires pour obtenir le résultat ci-après.
 **NB** La gestion est circulaire. Après NEUF il y a ZERO, etc ...
 
 ~~~cpp
-Chiffre c = Chiffre::CINQ;
-afficher(c);
-cout << " < ";
-afficher(next(c));
+   Chiffre a = Chiffre::CINQ;
+   Chiffre b = next(a);
+   afficher(a);
+   cout << (a < b ? " < " : " >= ");
+   afficher(b);
 
 // reultat : CINQ < SIX
 ~~~
@@ -43,5 +44,6 @@ void afficher(Chiffre c) {
    }
 }
 ~~~
+
 </details>
 
