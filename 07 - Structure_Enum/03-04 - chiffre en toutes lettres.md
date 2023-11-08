@@ -8,18 +8,15 @@ enum class Chiffre {ZERO, UN, DEUX, TROIS, QUATRE, CINQ, SIX, SEPT, HUIT, NEUF};
 
 Ecrire les fonctions nécessaires pour obtenir le résultat ci-après.
 
-**NB** La gestion est circulaire, après NEUF il y a ZERO, etc ...
+**NB** La gestion est circulaire : *..., HUIT, NEUF, ZERO, UN, ...*
 
 ~~~cpp
-   Chiffre a = Chiffre::CINQ;
-   Chiffre b = next(a);
-   afficher(a);
-   cout << (a < b ? " < " : " >= ");
-   afficher(b);
-
-// reultat : CINQ < SIX
+Chiffre a = Chiffre::CINQ;
+Chiffre b = next(a);
+afficher(a);
+cout << (a < b ? " < " : " >= ");	   // CINQ < SIX
+afficher(b);
 ~~~
-
 
 <details>
 <summary>Solution</summary>
