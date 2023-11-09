@@ -97,7 +97,7 @@ struct DMS_Longitude {
 struct Coord_DMS {
    DMS_Latitude  latitude;
    DMS_Longitude longitude;
-}
+};
 
 //-----------------------------------------------------------------------------
 // param volontairement par valeur
