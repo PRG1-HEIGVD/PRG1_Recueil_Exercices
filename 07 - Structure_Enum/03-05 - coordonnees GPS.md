@@ -72,7 +72,7 @@ struct Coord_DD {
 };
 
 using Degree =  int8_t;
-using Minute = uint8_t;
+using Minute =  uint8_t;
 using Second = double;
 
 struct DMS {
@@ -103,8 +103,8 @@ struct Coord_DMS {
 // param volontairement par valeur
 DMS DD_to_DMS(DD dd) {
    dd            = abs(dd);
-   Degree degree = static_cast<int>(dd);
-   Minute minute = static_cast<int>((dd - degree) * 60);
+   Degree degree = static_cast<Degree>(dd);
+   Minute minute = static_cast<Minute>((dd - degree) * 60);
    Second second = ((dd - degree) * 60 - minute) * 60;
 
    return DMS{degree, minute, second};
