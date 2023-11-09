@@ -30,6 +30,9 @@ uint8_t nbre_jours_mois (Mois m, Annee a) {
    enum Liste_Mois {JANVIER = 1, FEVRIER, MARS, AVRIL, MAI, JUIN, JUILLET,
                     AOUT, SEPTEMBRE, OCTOBRE, NOVEMBRE, DECEMBRE};
 
+   // NB : "enum" et non "enum class" => pas d'opérateur d'appartenance "::" dans le case
+   // si c'était "enum class T_Mois {..}" alors "case T_Mois::JANVIER : .."
+
    switch (m) {
       case FEVRIER   : return 28 + est_bissextile(Date{1, m, a});
       case JANVIER   :
