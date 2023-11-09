@@ -65,7 +65,6 @@ struct Date {
 void afficher_date(const Date& d);
 
 #endif //DATE_H
-}
 ~~~
 </details>
 
@@ -142,7 +141,7 @@ void afficher_personne(const Personne& p) {
    std::cout << "Nom          : " << p.nom      << std::endl
              << "Adresse      : " << p.adresse  << std::endl
              << "Anniversaire : ";
-   afficher(p.anniversaire);
+   afficher_date(p.anniversaire);
 }
 ~~~
 
