@@ -71,7 +71,7 @@ struct Coord_DD {
    DD longitude;
 };
 
-using Degree =  int8_t;
+using Degree = uint8_t;
 using Minute = uint8_t;
 using Second = double;
 
