@@ -157,6 +157,7 @@ void afficher_DD(const Coord_DD& dd) {
    cout << "Longitude : " << dd.longitude << endl;
 }
 
+//-----------------------------------------------------------------------------
 void test(const string& nom,
           const Coord_DMS& dms,
           const Coord_DD& dd) {
