@@ -59,7 +59,7 @@ cout << '|' << s << '|' << endl;
 
 8.	
 ~~~cpp
-8.	string s = string("A") + "BC";
+string s = string("A") + "BC";
 cout << '|' << s << '|' << endl;
 ~~~
 
