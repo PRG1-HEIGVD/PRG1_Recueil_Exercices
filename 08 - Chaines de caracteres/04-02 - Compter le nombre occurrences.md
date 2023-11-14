@@ -1,14 +1,13 @@
 # Compter le nombre d'occurrences
-Ecrire une fonction qui renvoie combien de fois un caractère donné se trouve dans une chaîne de caractères (de type string) donnée. Vous ne pouvez pas utiliser l'opérateur [] ni la méthode
-at() pour résoudre cet exercice. 
+Ecrire une fonction qui renvoie combien de fois une suite de caractères donnée se trouve dans une chaîne de caractères (de type string) donnée. 
 
 Exemple d'exécution
 ~~~
 Entrez une chaine de caractères : 
-Les sanglots longs des violons de l'automne
-Entrez le caractère à compter : 
-o
-Le nombre d'occurences du caractère 'o' dans la chaine "Les sanglots longs des violons de l'automne" = 5
+Les sanglots longs de violons de l'automne bercent mon coeur d'une langueur monotone
+Entrez la suite de caractères à compter : 
+on
+La suite de caractères "on" apparait 5 fois dans la chaine "Les sanglots longs de violons de l'automne bercent mon coeur d'une langueur monotone"
 ~~~
 
 <details>
@@ -17,39 +16,32 @@ Le nombre d'occurences du caractère 'o' dans la chaine "Les sanglots longs des 
 ~~~cpp
 #include <iostream>
 #include <string>
+#include <string_view>
 using namespace std;
 
-size_t nb_occ(string_view str, char c) {
-   size_t resultat = 0,
-          pos = 0;
+size_t nb_occ(string_view str, string_view c) {
+   size_t cnt = 0, pos = 0;
    while ( (pos = str.find(c, pos)) != string::npos ) {
-      ++resultat;
+      ++cnt;
       ++pos;
-   } 
-   return resultat; 
+   }
+   return cnt;
 }
-
 
 int main() {
 
-    string str;
-    char c;
+   string str, sub;
 
-    cout << "Entrez une chaine de caractères : \n";
-    getline(cin, str);
-    
-    cout << "Entrez le caractère à compter : \n";
-    cin >> c;
+   cout << "Entrez une chaine de caractères : \n";
+   getline(cin, str);
 
-    cout << "Le nombre d'occurences du caractère " 
-         << "'" << c << "'" 
-         << " dans la chaine \"" << str << "\" = "
-         << nb_occ(str, c) << "\n";  
+   cout << "Entrez la suite de caractères à compter : \n";
+   getline(cin, sub);
 
-    return EXIT_SUCCESS;
+   cout << "La suite de caractères " << "\"" << sub << "\""
+        << " apparait "  << nb_occ(str, sub)
+        << " fois dans la chaine \"" << str << "\"" << endl;
 }
 ~~~
-
-
 
 </details>
