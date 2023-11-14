@@ -59,6 +59,7 @@ Longitude : 6.640916
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <cstdint>
 
 using namespace std;
 
