@@ -19,9 +19,9 @@ La suite de caractères "on" apparait 5 fois dans la chaine "Les sanglots longs 
 #include <string_view>
 using namespace std;
 
-size_t nb_occ(string_view str, string_view c) {
+size_t nb_occ(string_view str, string_view sub) {
    size_t cnt = 0, pos = 0;
-   while ( (pos = str.find(c, pos)) != string::npos ) {
+   while ( (pos = str.find(sub, pos)) != string::npos ) {
       ++cnt;
       ++pos;
    }
