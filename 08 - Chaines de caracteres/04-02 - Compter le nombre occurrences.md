@@ -3,11 +3,11 @@ Ecrire une fonction qui renvoie combien de fois un caractère donné se trouve d
 
 Exemple d'exécution
 ~~~
-Entrez votre prenom et votre nom : Alexandre Dumas
-
-Votre prenom est   : Alexandre
-Votre nom est      : Dumas
-Votre acronyme est : ADS
+Entrez une chaine de caractères : 
+Les sanglots longs des violons de l'automne
+Entrez le caractère à compter : 
+o
+Le nombre d'occurences du caractère 'o' dans la chaine "Les sanglots longs des violons de l'automne" = 5
 ~~~
 
 <details>
