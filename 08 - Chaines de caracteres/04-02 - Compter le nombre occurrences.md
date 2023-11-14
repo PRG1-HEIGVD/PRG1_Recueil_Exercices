@@ -1,5 +1,6 @@
 # Compter le nombre d'occurrences
-Ecrire une fonction qui renvoie combien de fois un caractère donné se trouve dans une chaîne de caractères (de type string) donnée.
+Ecrire une fonction qui renvoie combien de fois un caractère donné se trouve dans une chaîne de caractères (de type string) donnée. Vous ne pouvez pas utiliser l'opérateur [] ni la méthode
+at() pour résoudre cet exercice. 
 
 Exemple d'exécution
 ~~~
