@@ -37,7 +37,7 @@ const int W_PAYS_MAX = 10; // plus long nom de pays
 const array METAUX = {"Or", "Argent", "Bronze"};
 const int W_METAL_MAX = 6; // plus long nom de metal
 
-using Nombre_de_medailles = size_t;
+using Nombre_de_medailles = unsigned short;
 using Pays = size_t;
 using Metal = size_t;
 
@@ -57,18 +57,18 @@ inline auto pluriel(unsigned n) { return n >= 2 ? "s" : ""; }
 int main() {
 
    const Tableau_des_medailles tableau_des_medailles =
-           {Medailles_du_pays{0, 0, 2},
-            Medailles_du_pays{1, 0, 1},
-            Medailles_du_pays{1, 2, 0},
-            Medailles_du_pays{1, 0, 0},
-            Medailles_du_pays{2, 1, 1},
-            Medailles_du_pays{0, 1, 1},
-            Medailles_du_pays{0, 1, 0} };
+           { Medailles_du_pays{0, 0, 2},
+             Medailles_du_pays{1, 0, 1},
+             Medailles_du_pays{1, 2, 0},
+             Medailles_du_pays{1, 0, 0},
+             Medailles_du_pays{2, 1, 1},
+             Medailles_du_pays{0, 1, 1},
+             Medailles_du_pays{0, 1, 0} };
 
    // Nombre total de médailles obtenues par chacun des pays
 
    for (Pays pays{0}; pays < PAYS.size(); ++pays) {
-      const string& nom_du_pays = PAYS[pays];
+      const string& nom_du_pays = PAYS.at(pays);
       Nombre_de_medailles nb_medailles
               = total_medailles_pays(tableau_des_medailles, pays);
 
@@ -82,7 +82,7 @@ int main() {
    // par l'ensemble des pays
 
    for (Metal metal = 0; metal < METAUX.size(); ++metal) {
-      const string& nom_du_metal = METAUX[metal];
+      const string& nom_du_metal = METAUX.at(metal);
       Nombre_de_medailles nb_medailles
               = total_medailles_metal(tableau_des_medailles, metal);
 
@@ -97,7 +97,7 @@ Nombre_de_medailles total_medailles_pays(
         Pays pays)
 {
    Nombre_de_medailles cnt{0};
-   const Medailles_du_pays& medailles_du_pays = tableau_des_medailles[pays];
+   const Medailles_du_pays& medailles_du_pays = tableau_des_medailles.at(pays);
    for (Nombre_de_medailles nb : medailles_du_pays) {
       cnt += nb;
    }
@@ -110,7 +110,7 @@ Nombre_de_medailles total_medailles_metal(
 {
    Nombre_de_medailles cnt{0};
    for (Pays pays{0}; pays < PAYS.size(); ++pays) {
-      cnt += tableau_des_medailles[pays][metal];
+      cnt += tableau_des_medailles.at(pays).at(metal);
    }
    return cnt;
 }
