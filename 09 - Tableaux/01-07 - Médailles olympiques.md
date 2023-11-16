@@ -30,12 +30,12 @@ Ecrire un programme C++ mettant à disposition :
 #include <string>
 using namespace std;
 
-const array PAYS = {"Allemagne", "Canada", "Chine", "Coree",
-                    "Etats-Unis", "Japon", "Russie"};
-const int W_PAYS_MAX = 10; // plus long nom de pays
+const array PAYS {"Allemagne", "Canada", "Chine", "Coree",
+                  "Etats-Unis", "Japon", "Russie"};
+const int W_PAYS_MAX {10}; // plus long nom de pays
 
-const array METAUX = {"Or", "Argent", "Bronze"};
-const int W_METAL_MAX = 6; // plus long nom de metal
+const array METAUX {"Or", "Argent", "Bronze"};
+const int W_METAL_MAX {6}; // plus long nom de metal
 
 using Nombre_de_medailles = unsigned short;
 using Pays = size_t;
@@ -56,7 +56,7 @@ inline auto pluriel(unsigned n) { return n >= 2 ? "s" : ""; }
 
 int main() {
 
-   const Tableau_des_medailles tableau_des_medailles =
+   const Tableau_des_medailles tableau_des_medailles
            { Medailles_du_pays{0, 0, 2},
              Medailles_du_pays{1, 0, 1},
              Medailles_du_pays{1, 2, 0},
@@ -68,9 +68,8 @@ int main() {
    // Nombre total de médailles obtenues par chacun des pays
 
    for (Pays pays{0}; pays < PAYS.size(); ++pays) {
-      const string& nom_du_pays = PAYS.at(pays);
-      Nombre_de_medailles nb_medailles
-              = total_medailles_pays(tableau_des_medailles, pays);
+      const string& nom_du_pays { PAYS.at(pays) };
+      Nombre_de_medailles nb_medailles { total_medailles_pays(tableau_des_medailles, pays) };
 
       cout << setw(W_PAYS_MAX) << left << nom_du_pays << " : "
            << nb_medailles << " medaille" << pluriel(nb_medailles)
@@ -81,10 +80,9 @@ int main() {
    // Nombre total de médailles d'or, d'argent et de bronze obtenues
    // par l'ensemble des pays
 
-   for (Metal metal = 0; metal < METAUX.size(); ++metal) {
-      const string& nom_du_metal = METAUX.at(metal);
-      Nombre_de_medailles nb_medailles
-              = total_medailles_metal(tableau_des_medailles, metal);
+   for (Metal metal{0}; metal < METAUX.size(); ++metal) {
+      const string& nom_du_metal { METAUX.at(metal) };
+      Nombre_de_medailles nb_medailles { total_medailles_metal(tableau_des_medailles, metal)};
 
       cout << setw(W_METAL_MAX) << left << nom_du_metal << " : "
            << nb_medailles << " medaille" << pluriel(nb_medailles)
