@@ -1,6 +1,6 @@
 # Calcul vectoriel
 
-On décide d'utiliser un tableau de 3 double pour représenter un vecteur à 3 dimension via
+On décide d'utiliser un tableau de 3 `double` pour représenter un vecteur à 3 dimensions via
 
 ~~~cpp
 using Vec3d = array<double,3>;
