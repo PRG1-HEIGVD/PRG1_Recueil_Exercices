@@ -100,7 +100,7 @@ cout << '|' << s.substr() << '|' << endl;
 1.	|B|
 2.	Erreur à la compilation (pas de constructeur string(char))
 3.	|B|
-4.	|\0|1 
+4.	|\0| 
 5.	Comportement indéfini
 6.	Erreur à l'exécution
 7.	0
