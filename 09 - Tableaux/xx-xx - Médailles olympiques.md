@@ -4,13 +4,13 @@ Soit le tableau suivant, donnant le nombre de médailles d'or, d'argent et de br
 
 | Pays      | Or | Argent | Bronze |
 |-----------|----|--------|--------|
-| Allemagne |  0 |     0  |     1  |
-| Canada    |  1 |     0  |     1  |
-| Chine     |  1 |     1  |     0  |
-| Corée     |  1 |     0  |     0  |
-| Etats-Unis|  1 |     1  |     0  |
-| Japon     |  0 |     1  |     1  |
-| Russie    |  0 |     1  |     1  |
+| Allemagne | 0  | 0      | 2      |
+| Canada    | 1  | 0      | 1      |
+| Chine     | 1  | 2      | 0      |
+| Corée     | 1  | 0      | 0      |
+| Etats-Unis| 2  | 1      | 1      |
+| Japon     | 0  | 1      | 1      |
+| Russie    | 0  | 1      | 0      |
 
 Ecrire un programme C++ mettant à disposition :
 
@@ -18,93 +18,101 @@ Ecrire un programme C++ mettant à disposition :
 - une fonction retournant le nombre total de médailles d'un type donné obtenues par l'ensemble des pays (par ex le nombre total de médailles d'or obtenues par l'ensemble des pays)
 - … et bien sûr une fonction main permettant de tester les 2 fonctions précédentes.
 
-**NB** Le tableau des médailles ci-dessus est à implémenter sous la forme d'un array bidimensionnel (2D)   
+**NB** Le tableau des médailles ci-dessus est à implémenter sous la forme d'un array bidimensionnel (2D). Utilisez intensément les alias de type pour clarifier votre code.   
 
 <details>
 <summary>Solution</summary>
 
 ~~~cpp
 #include <array>
-#include <cstdlib>
 #include <iomanip>
 #include <iostream>
 #include <string>
 using namespace std;
 
-using ushort = unsigned short;
+const array PAYS = {"Allemagne", "Canada", "Chine", "Coree",
+                    "Etats-Unis", "Japon", "Russie"};
+const int W_PAYS_MAX = 10; // plus long nom de pays
 
-enum class Pays {CANADA, CHINE, ALLEMAGNE, COREE, JAPON, RUSSIE, ETATS_UNIS};
-const ushort NB_PAYS = 7;
-const string PAYS[] = {"Canada", "Chine", "Allemagne", "Coree",
-                       "Japon", "Russie", "Etats-Unis"};
+const array METAUX = {"Or", "Argent", "Bronze"};
+const int W_METAL_MAX = 6; // plus long nom de metal
 
-enum class TypeMedaille {OR, ARGENT, BRONZE};
-const ushort NB_TYPES_MEDAILLE = 3;
-const string TYPE_MEDAILLE[] = {"Or", "Argent", "Bronze"};
+using Nombre_de_medailles = size_t;
+using Pays = size_t;
+using Metal = size_t;
 
-using Medailles_Obtenues = array<ushort, NB_TYPES_MEDAILLE>;
-using Medailles = array<Medailles_Obtenues, NB_PAYS>;
+using Medailles_du_pays = array<Nombre_de_medailles, METAUX.size()>;
+using Tableau_des_medailles = array<Medailles_du_pays, PAYS.size()>;
 
-// nombre total de médailles obtenues par un pays donné
-unsigned nbTotalMedailles(const Medailles& medailles,
-                          const Pays& pays);
+Nombre_de_medailles total_medailles_pays(
+        const Tableau_des_medailles& medailles,
+        Pays pays);
 
-// nombre total de médailles d'un type donné obtenues par l'ensemble des pays
-unsigned nbTotalMedailles(const Medailles& medailles,
-                          const TypeMedaille& typeMedaille);
+Nombre_de_medailles total_medailles_metal(
+        const Tableau_des_medailles& medailles,
+        Metal metal);
+
+inline auto pluriel(unsigned n) { return n >= 2 ? "s" : ""; }
 
 int main() {
 
-   const Medailles MEDAILLES = { Medailles_Obtenues{1, 0, 1},
-                                 Medailles_Obtenues{1, 1, 0},
-                                 Medailles_Obtenues{0, 0, 1},
-                                 Medailles_Obtenues{1, 0, 0},
-                                 Medailles_Obtenues{0, 1, 1},
-                                 Medailles_Obtenues{0, 1, 1},
-                                 Medailles_Obtenues{1, 1, 0} };
+   const Tableau_des_medailles tableau_des_medailles =
+           {Medailles_du_pays{0, 0, 2},
+            Medailles_du_pays{1, 0, 1},
+            Medailles_du_pays{1, 2, 0},
+            Medailles_du_pays{1, 0, 0},
+            Medailles_du_pays{2, 1, 1},
+            Medailles_du_pays{0, 1, 1},
+            Medailles_du_pays{0, 1, 0} };
 
    // Nombre total de médailles obtenues par chacun des pays
-   // NB Le setw(10) ci-dessous est fixé "en dur".
-   //    Aurait pu (dû) se calculer en déterminant le nom du pays le plus long.
-   for (Pays p = Pays::CANADA; p <= Pays::ETATS_UNIS; p = (Pays) ((int) p + 1)) {
-      unsigned nbMedailles = nbTotalMedailles(MEDAILLES, p);
-      cout << setw(10) << left << PAYS[(int) p] << " : "
-           << nbMedailles << " medaille" << (nbMedailles >= 2 ? "s" : "")
+
+   for (Pays pays{0}; pays < PAYS.size(); ++pays) {
+      const string& nom_du_pays = PAYS[pays];
+      Nombre_de_medailles nb_medailles
+              = total_medailles_pays(tableau_des_medailles, pays);
+
+      cout << setw(W_PAYS_MAX) << left << nom_du_pays << " : "
+           << nb_medailles << " medaille" << pluriel(nb_medailles)
            << endl;
    }
    cout << endl;
+
    // Nombre total de médailles d'or, d'argent et de bronze obtenues
    // par l'ensemble des pays
-   // NB Le setw(6) ci-dessous est fixé "en dur".
-   //    Aurait pu (dû) se calculer en déterminant le nom du type de médaille
-   //    le plus long.
-   for (TypeMedaille tm = TypeMedaille::OR; tm <= TypeMedaille::BRONZE;
-        tm = (TypeMedaille) ((int) tm + 1)) {
-      unsigned nbMedailles = nbTotalMedailles(MEDAILLES, tm);
-      cout << setw(6) << left << TYPE_MEDAILLE[(int) tm] << " : "
-           << nbMedailles << " medaille" << (nbMedailles >= 2 ? "s" : "")
+
+   for (Metal metal = 0; metal < METAUX.size(); ++metal) {
+      const string& nom_du_metal = METAUX[metal];
+      Nombre_de_medailles nb_medailles
+              = total_medailles_metal(tableau_des_medailles, metal);
+
+      cout << setw(W_METAL_MAX) << left << nom_du_metal << " : "
+           << nb_medailles << " medaille" << pluriel(nb_medailles)
            << endl;
    }
-
-   return EXIT_SUCCESS;
 }
 
-unsigned nbTotalMedailles(const Medailles& medailles,
-                          const Pays& pays) {
-   unsigned nbTotalMedailles = 0;
-   for (ushort j = 0; j < NB_TYPES_MEDAILLE; ++j) {
-      nbTotalMedailles += medailles[(ushort) pays][j];
+Nombre_de_medailles total_medailles_pays(
+        const Tableau_des_medailles & tableau_des_medailles,
+        Pays pays)
+{
+   Nombre_de_medailles cnt{0};
+   const Medailles_du_pays& medailles_du_pays = tableau_des_medailles[pays];
+   for (Nombre_de_medailles nb : medailles_du_pays) {
+      cnt += nb;
    }
-   return nbTotalMedailles;
+   return cnt;
 }
 
-unsigned nbTotalMedailles(const Medailles& medailles,
-                          const TypeMedaille& typeMedaille) {
-   unsigned nbTotalMedailles = 0;
-   for (ushort i = 0; i < NB_PAYS; ++i) {
-      nbTotalMedailles += medailles[i][(ushort) typeMedaille];
+Nombre_de_medailles total_medailles_metal(
+        const Tableau_des_medailles & tableau_des_medailles,
+        Metal metal)
+{
+   Nombre_de_medailles cnt{0};
+   for (Pays pays{0}; pays < PAYS.size(); ++pays) {
+      cnt += tableau_des_medailles[pays][metal];
    }
-   return nbTotalMedailles;
+   return cnt;
 }
 ~~~
 </details>
