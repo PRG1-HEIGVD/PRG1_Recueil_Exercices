@@ -1,6 +1,6 @@
 # Médailles olympiques
 
-Soit le tableau suivant, donnant le nombre de médailles d'or, d'argent et de bronze obtenues par pays en patinage aux Jeux olympiques d'hiver de 2010 à Vancouver (Canada).
+Soit le tableau suivant, donnant le nombre de médailles d'or, d'argent et de bronze obtenues par pays en patinage aux Jeux olympiques d'hiver.
 
 | Pays      | Or | Argent | Bronze |
 |-----------|----|--------|--------|
