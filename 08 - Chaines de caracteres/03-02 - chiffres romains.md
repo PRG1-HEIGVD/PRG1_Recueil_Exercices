@@ -48,13 +48,13 @@ int romain_en_entier(string_view nb_romain){
     int somme = 0, prev_valeur = 0;
 
     for (int i = nb_romain.size() - 1; i >= 0; i--) {
-        int valuer = valeur_chiffre(nb_romain[i]);
-        if (valuer < prev_valeur) {
-            somme -= valuer;
+        int valeur = valeur_chiffre(nb_romain[i]);
+        if (valeur < prev_valeur) {
+            somme -= valeur;
         } else {
-            somme += valuer;
+            somme += valeur;
         }
-        prev_valeur = valuer;
+        prev_valeur = valeur;
     }
 
     return somme;
