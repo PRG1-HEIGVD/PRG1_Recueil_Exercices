@@ -78,6 +78,7 @@ for(int i : a)
 ~~~
 <details>
 <summary>Solution</summary>
+   
 ~~~
 1 2 3 4 5
 ~~~
@@ -92,6 +93,7 @@ for(int i : a)
 ~~~
 <details>
 <summary>Solution</summary>
+   
 ~~~
 1 2 3 4 5 
 ~~~
@@ -106,6 +108,7 @@ for(int i : a)
 ~~~
 <details>
 <summary>Solution</summary>
+   
 ~~~
 1 4 9 16 25 
 ~~~
