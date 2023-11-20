@@ -32,7 +32,7 @@ int main() {
    int& d = min(a, b, c);
    cout << "d:" << d << endl << endl;
 
-   b = 5;
+   b=5;
    cout << "2) b = 5;" << endl;
    cout << "a:" << a << " b:" << b << " c:" << c
         << " => min:" << min(a, b, c) << " ";
