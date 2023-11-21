@@ -12,11 +12,11 @@ Le code ci-après doit produire le résulat indiqué
 
 ~~~cpp
    Stack s;
-   int i = 1;
 
    show_stack(s);
    cout << endl;
 
+   int i = 1;
    while (not is_stack_full(s)) {
       push(s, i*=2);
    }
