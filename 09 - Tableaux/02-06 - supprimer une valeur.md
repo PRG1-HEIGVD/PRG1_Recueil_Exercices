@@ -33,6 +33,7 @@ doit afficher
 
 <details>
 <summary>Solution</summary>
+
 Il est possible de résoudre ce problème en un seul passage sur le `vector` en 
 utilisant 2 indices différents, l'un en lecture, l'autre en écriture. 
 
