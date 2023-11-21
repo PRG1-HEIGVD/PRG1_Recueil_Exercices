@@ -1,4 +1,4 @@
-#to_string
+# to_string
 
 Ecrire la fonction *to_string* permettant de traiter un *tableau* d'entiers et de retourner sa représentation *string* au format [v1, v2, .., vn].
 
