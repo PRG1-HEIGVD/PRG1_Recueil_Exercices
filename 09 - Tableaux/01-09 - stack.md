@@ -12,17 +12,18 @@ Le code ci-après doit produire le résulat indiqué
 
 ~~~cpp
    Stack s;
-   int i = 0;
+   int i = 1;
 
    show_stack(s);
    cout << endl;
 
    while (not is_stack_full(s)) {
-      push(s, ++i);
+      push(s, i*=2);
    }
 
    top(s, i);
    cout << "top  : " << i << endl;
+   cout << "size : "; cout << stack_size(s) << endl;
    cout << endl;
 
    show_stack(s);
@@ -40,10 +41,11 @@ Le code ci-après doit produire le résulat indiqué
 top  : 0
 data : []
 
-top  : 10
+top  : 1024
+size : 10
 
 top  : 10
-data : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+data : [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
 
 top  : 0
 data : []
@@ -67,28 +69,30 @@ struct Stack {
 };
 
 //---------------------------------------------------------
-bool push            (      Stack& s, int  v);
-bool pop             (      Stack& s);
-bool top             (const Stack& s, int& v);
-bool is_stack_full   (const Stack& s);
-bool is_stack_empty  (const Stack& s);
-void show_stack      (const Stack& s);
+bool   push            (      Stack& s, int  v);
+bool   pop             (      Stack& s);
+bool   top             (const Stack& s, int& v);
+bool   is_stack_full   (const Stack& s);
+bool   is_stack_empty  (const Stack& s);
+size_t stack_size      (const Stack& s);
+void   show_stack      (const Stack& s);
 //---------------------------------------------------------
 
 int main() {
 
    Stack s;
-   int i = 0;
+   int i = 1;
 
    show_stack(s);
    cout << endl;
 
    while (not is_stack_full(s)) {
-      push(s, ++i);
+      push(s, i*=2);
    }
 
    top(s, i);
    cout << "top  : " << i << endl;
+   cout << "size : "; cout << stack_size(s) << endl;
    cout << endl;
 
    show_stack(s);
@@ -140,6 +144,11 @@ bool is_stack_empty(const Stack& s) {
 }
 
 //---------------------------------------------------------
+size_t stack_size      (const Stack& s) {
+   return s.top;
+}
+
+//---------------------------------------------------------
 void show_stack      (const Stack& s) {
    cout << "top  : " << s.top << endl;
    cout << "data : ";
@@ -151,7 +160,6 @@ void show_stack      (const Stack& s) {
    }
    cout << "]" << endl;
 }
-
 ~~~
 </details>
 
