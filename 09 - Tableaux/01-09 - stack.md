@@ -38,16 +38,16 @@ Le code ci-après doit produire le résulat indiqué
 ~~~
 
 ~~~
-top  : 0
+size : 0
 data : []
 
 top  : 1024
 size : 10
 
-top  : 10
+size : 10
 data : [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
 
-top  : 0
+size : 0
 data : []
 ~~~
 
@@ -150,7 +150,7 @@ size_t stack_size(const Stack& s) {
 
 //---------------------------------------------------------
 void show_stack(const Stack& s) {
-   cout << "top  : " << s.top << endl;
+   cout << "size : " << s.top << endl;
    cout << "data : ";
 
    cout << "[";
