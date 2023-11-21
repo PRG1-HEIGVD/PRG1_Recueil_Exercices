@@ -144,12 +144,12 @@ bool is_stack_empty(const Stack& s) {
 }
 
 //---------------------------------------------------------
-size_t stack_size      (const Stack& s) {
+size_t stack_size(const Stack& s) {
    return s.top;
 }
 
 //---------------------------------------------------------
-void show_stack      (const Stack& s) {
+void show_stack(const Stack& s) {
    cout << "top  : " << s.top << endl;
    cout << "data : ";
 
