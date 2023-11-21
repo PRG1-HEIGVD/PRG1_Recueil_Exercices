@@ -6,9 +6,9 @@ Ecrire l'implémentation d'un pile de *n* entiers (connu à la compilation) sur 
 Une pile contient
 
 - un sommet qui détermine l'indice dans le tabeau où sera ajouté la prochaine valeur
-- les *data* (tableau de valeurs)
+- les *data*, ici *array\<int, 10\>*
 
-Le code ci-après produit le résulat indiqué
+Le code ci-après doit produire le résulat indiqué
 
 ~~~cpp
    Stack s;
