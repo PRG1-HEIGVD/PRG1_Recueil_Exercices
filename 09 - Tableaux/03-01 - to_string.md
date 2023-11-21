@@ -25,7 +25,7 @@ Que produisent ces appels
 ~~~cpp
 string to_string (span<const int> v) {
    string result = "[";
-   for (size_t i=0; i<v.size(); ++i) {
+   for (size_t i = 0; i < v.size(); ++i) {
       if (i)
          result += ", ";
       result += to_string(v[i]);
