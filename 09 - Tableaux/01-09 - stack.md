@@ -1,6 +1,6 @@
 # Stack
 
-Ecrire l'implémentation d'un pile de *n* entiers (connu à la compilation) sur la base d'un *array*.
+Ecrire l'implémentation d'une pile de *n* entiers (connu à la compilation) sur la base d'un *array*.
 
 
 Une pile contient
