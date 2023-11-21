@@ -11,7 +11,8 @@ unsigned    f (double)        { cout << "double ";       return 0;  }
 float       f (float&)        { cout << "float& ";       return 0.; }
 ~~~
 
-Que produisent les appels ci-dessous
+Que produisent les appels ci-dessous.<br>
+Indiquer les cas d'ambiguité.
 
 | Appel										| Résultat  |
 |---											|---        |
