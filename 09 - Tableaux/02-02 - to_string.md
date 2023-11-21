@@ -1,6 +1,6 @@
 # vector to_string
 
-Ecrire la fonction *to_string* permettant de retourner un *vector* d'entiers en *string* au format [v1, v2, .., vn]
+Ecrire la fonction *to_string* permettant de traiter un *vector* d'entiers et de retourner sa représentation *string* au format [v1, v2, .., vn]
 
 ~~~cpp
 const vector<int> v = {1, 2, 3, 4, 5, 6};
