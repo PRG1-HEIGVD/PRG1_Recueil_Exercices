@@ -3,7 +3,7 @@
 Soit le tableau suivant, donnant le nombre de médailles d'or, d'argent et de bronze obtenues par pays en patinage aux Jeux olympiques d'hiver.
 
 | Pays      | Or | Argent | Bronze |
-|-----------|----|--------|--------|
+|-----------|:--:|:------:|:------:|
 | Allemagne | 0  | 0      | 2      |
 | Canada    | 1  | 0      | 1      |
 | Chine     | 1  | 2      | 0      |
@@ -16,9 +16,9 @@ Ecrire un programme C++ mettant à disposition :
 
 - une fonction retournant le nombre total de médailles obtenues par un pays donné
 - une fonction retournant le nombre total de médailles d'un type donné obtenues par l'ensemble des pays (par ex le nombre total de médailles d'or obtenues par l'ensemble des pays)
-- … et bien sûr une fonction main permettant de tester les 2 fonctions précédentes.
+- … et bien sûr une fonction *main* permettant de tester les 2 fonctions précédentes.
 
-**NB** Le tableau des médailles ci-dessus est à implémenter sous la forme d'un array bidimensionnel (2D). Utilisez intensément les alias de type pour clarifier votre code.   
+**NB** Le tableau des médailles ci-dessus est à implémenter sous la forme d'un array bidimensionnel (2D).<br>Utilisez intensément les alias de type pour clarifier votre code.   
 
 <details>
 <summary>Solution</summary>
