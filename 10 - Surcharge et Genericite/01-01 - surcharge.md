@@ -1,47 +1,146 @@
 # fonctions surchargées
 
-Soient les fonctions
-
-~~~cpp
-double      f (signed char)   { cout << "signed char ";  return 0.; }
-signed char f (int &)         { cout << "int & ";        return 0;  }
-int         f (const int &)   { cout << "const int & ";  return 0;  }
-float       f (unsigned)      { cout << "unsigned ";     return 0;  }
-unsigned    f (double)        { cout << "double ";       return 0;  }
-float       f (float&)        { cout << "float& ";       return 0.; }
-~~~
-
-Que produisent les appels ci-dessous.<br>
+Que produisent les appels aux fonctions ci-dessous ?<br>
 Indiquer les cas d'ambiguité.
 
-| Appel										| Résultat  |
-|---											|---        |
-| f('a');									|           |
-| f(42);									|           |
-| int i = 42;<br>f(++i);			|           |
-| int j = 42;<br>f(j--);			|           |
-| const float pi = 3.14f;<br>f(pi);|   |
-| f(2ull);									|           |
-| long a; double b;<br>f (a<b);|           |
-| float r = 2.f;<br>f(r *= 2.l)	|           |
-| f(f(2u));								|           |
-| f('2') ? f(2.0) : f(-2); 		|           |
+~~~cpp
+double      f(signed char) { cout << "fonction no 1"; return 0.; }
+signed char f(int&)        { cout << "fonction no 2"; return 0 ; }
+int         f(const int&)  { cout << "fonction no 3"; return 0 ; }
+float       f(unsigned)    { cout << "fonction no 4"; return 0 ; }
+unsigned    f(double)      { cout << "fonction no 5"; return 0 ; }
+float       f(float&)      { cout << "fonction no 6"; return 0.; }
+~~~
+
+<br>
+
+~~~cpp
+f('a');
+~~~
+<details>
+<summary>Solution</summary>
+
+- `fonction no 1` sur une machine avec `signed char    (type exact)
+- `fonction no 3` sur une machine avec `unsigned char` (ajustement de type)
+
+NB : la no 2 n'est pas possible (`int&` sur une constante `'a'`)
+
+</details>
+
+~~~cpp
+f(42);
+~~~
 
 <details>
 <summary>Solution</summary>
 
-| Appel										| Résultat           |
-|---											|---                 |
-| f('a');									| const int &        |
-| f(42);									| const int &        |
-| int i = 42;<br>f(++i);			| int &              |
-| int j = 42;<br>f(j--);			| const int &        |
-| const float pi = 3.141592f;<br>f(pi);| double     |
-| f(2ull);									| Appel ambigu       |
-| long a; double b;<br>f (a<b);| const int &        |
-| float r = 2.f;<br>f(r *= 2.l)	| float &            |
-| f(f(2u));								| unsigned double    |
-| f('2') ? f(2.0) : f(-2); 		| const int & double |
+- `fonction no 3` (type exact)
 
 </details>
 
+~~~cpp
+int i = 42;
+f(++i);	
+~~~
+
+<details>
+<summary>Solution</summary>
+
+Les opérateurs suffixés, typiquement `++i` et `--i` retournent une référence sur la variable [cppreference](https://en.cppreference.com/w/cpp/language/operators)
+
+- `fonction no 2`
+
+</details>
+
+~~~cpp
+int j = 42;
+f(j--);	
+~~~
+
+<details>
+<summary>Solution</summary>
+
+Les opérateurs postfixés, typiquement `i++` et `i--` retournent une copie de la variable [cppreference](https://en.cppreference.com/w/cpp/language/operators)
+
+- `fonction no 3`
+
+</details>
+
+~~~cpp
+f(2ull);
+~~~
+<details>
+<summary>Solution</summary>
+
+`2ull` est un `unsigned long long`
+
+4 fonctions sont candidates et il n'y a pas de priorité de choix => **ambiguité**
+
+- fonction no 1 (conversion de `unsigned long long` en `signed char`
+- fonction no 3 (conversion de `unsigned long long` en `const int&`
+- fonction no 4 (conversion de `unsigned long long` en `unsigned `
+- fonction no 5 (conversion de `unsigned long long` en `double`
+
+</details>
+
+~~~cpp
+long   a;
+double b;
+f(a < b);
+~~~
+
+<details>
+<summary>Solution</summary>
+
+La comparaison d'un `long int` avec un `double` n'est pas directement possible.<br>Un ajustemnet de type est nécessaire `long` => `double`
+
+Ensuite la comparaison retoure un `bool`.<br>En l'absence de correspondance exacte, il y a promotion `bool` => `int`
+
+- `fonction no 3`
+
+</details>
+
+~~~cpp
+float r = 2.f;
+f(r *= 2.l);
+~~~
+
+<details>
+<summary>Solution</summary>
+
+La multiplication d'un `float` par un `long double` n'est pas directement possible.<br>Un ajustemnet de type est nécessaire `float` => `long double`
+
+L'opérateur `*=` retourne une référence à la variable.<br>
+La seule fonction possible est la 6, au prix d'une conversion dégradante `long double` => `float`
+
+- `fonction no 6`
+
+</details>
+
+~~~cpp
+f(f(2u));
+~~~
+
+<details>
+<summary>Solution</summary>
+
+Dans une premier temps, `f(2u)` appelle la fonction no 4 qui retourne un `float` mais sans référence.<br>
+L'appel de f(`double`) correspond à la fonction no 5
+
+- `fonction no 5`
+
+</details>
+
+~~~cpp
+f('2') ? f(2.0) : f(-2.0); 
+~~~
+
+<details>
+<summary>Solution</summary>
+
+Comme vu précédemment, `f('2')` appel la fonction no 3 (sur une machine avec `unsigned char`).<br>
+La fonction retournant `false`, `f(-2.0)` est appelé ce qui correspond à la fonction no 5
+
+- `fonction no 3` et `fonction no 5`
+
+</details>
