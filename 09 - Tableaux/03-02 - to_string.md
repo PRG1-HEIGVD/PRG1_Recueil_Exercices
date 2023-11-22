@@ -5,9 +5,9 @@ Ecrire la fonction *to_string* permettant de traiter un *tableau* d'entiers et d
 Sans faire de surcharge, la fonction *to_string* doit pouvoir traiter les tableaux ci-dessous
 
 ~~~cpp
-   int t[10]         = {1, 2, 3, 4, 5, 6};
-   array<int, 10> a  = {1, 2, 3, 4, 5, 6};
-   vector<int>    v  = {1, 2, 3, 4, 5, 6};
+   int t[10]               = {1, 2, 3, 4, 5, 6};
+   const array<int, 10> a  = {1, 2, 3, 4, 5, 6};
+   vector<int> v           = {1, 2, 3, 4, 5, 6};
 ~~~
 
 Que produisent ces appels
