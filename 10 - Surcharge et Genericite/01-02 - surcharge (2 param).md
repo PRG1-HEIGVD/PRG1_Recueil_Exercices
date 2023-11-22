@@ -230,7 +230,7 @@ fct('a', 2.0L);
 <details>
 <summary>Solution</summary>
 
-- `const char`        {1, 2,    4} : 1, 2 par promotion
+- `const char`        {1, 2      } : par promotion
 - `const long double` {1, 2,    4} : tous par conversion
 - intersection {1, 2} => **ambiguité**
 
