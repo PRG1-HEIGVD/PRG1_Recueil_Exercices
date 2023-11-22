@@ -1,4 +1,4 @@
-# Suppression du ou des éléments centraux
+# Suppression d'une valeur
 
 Sans faire usage de `vector::erase`, écrire une fonction C++ qui supprime tous les 
 éléments égaux à une valeur donnée. L'ordre des éléments non supprimés doit être préservé.
