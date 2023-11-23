@@ -40,8 +40,8 @@ int main() {
 
 `3 / 3.5`
 
-- l'appel `somme<int>. (a, b)` fait la somme en `int`    => 1 + 2 = 3
-- l'appel `somme<float>(a, b)` fait la somme en `float ` => 1.0f + 2.5f = 3.5f
+- l'appel `somme<int>  (a, b)` fait la somme en `int`   => 1 + 2 = 3
+- l'appel `somme<float>(a, b)` fait la somme en `float` => 1.0f + 2.5f = 3.5f
 
 ------------------------------------------------
 </details>
@@ -55,7 +55,7 @@ T somme(T a, T b) {
 int main() {
    int  a = 1;
    char d = 'd'; // d vaut 100
-   cout << somme<char>(d, a) << " / " << somme<int> (d, a);
+   cout << somme<char>(d, a) << " / " << somme<int>(d, a);
 }
 ~~~
 
@@ -65,7 +65,7 @@ int main() {
 `e / 101`
 
 - l'appel `somme<char>(d, a)` fait la somme en `char`<br>
-    100 + 1 = 100 en entier à cause du `+`<br>
+    100 + 1 = 100 en entier à cause du `+` => promotion en `int`<br>
     et retourne ceci dans T qui est un `char` => 'e';
 - l'appel `somme<int>(d, a)`  fait la somme en `int ` => 100 + 1 = 101
 
@@ -124,7 +124,7 @@ int main() {
 
 `2 / 3.5`
 
-Il y a surcharge de la fonction *somme* générique
+Il y a surcharge de la fonction *somme(..)* générique
 
 1. `template <typename T1, typename T2> T1 somme(T1 a, T2 b)`
 1. `template <typename T> T1 somme(T a, T b)`
@@ -133,7 +133,6 @@ Il y a surcharge de la fonction *somme* générique
 
 - l'appel `somme(a, a)` avec (`int`, `int`) va appeler `T somme(T a, T b)` et retourner 2
 - l'appel `somme(b, a)` avec (`float`, `int`) va appeler `T1 somme(T1 a, T2 b)` et retourner 3.5
-
 
 ------------------------------------------------
 </details>
