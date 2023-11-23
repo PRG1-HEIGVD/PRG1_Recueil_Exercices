@@ -5,8 +5,8 @@ Les fonctions proposées peuvent-elles être surcharges et utilisées correcteme
 <br>
 
 ~~~cpp
-void f(int)      { // no 1 }
-void f(int, int) { // no 2 }
+void f(int)      { /* no 1 */ }
+void f(int, int) { /* no 2 */ }
 ~~~
 
 <details>
@@ -23,8 +23,8 @@ void f(int, int) { // no 2 }
 
 
 ~~~cpp
-void f(int)    { // no 1 }
-void f(double) { // no 2 }
+void f(int)    { /* no 1 */ }
+void f(double) { /* no 2 */ }
 ~~~
 
 <details>
@@ -40,8 +40,8 @@ void f(double) { // no 2 }
 </details>
 
 ~~~cpp
-void f(int) { // no 1 }
-int  f(int) { // no 2 }
+void f(int) { /* no 1 */ }
+int  f(int) { /* no 2 */ }
 ~~~
 
 <details>
@@ -56,8 +56,8 @@ exemple `sin(x);`<br>
 </details>
 
 ~~~cpp
-void f(int i=0) { // no 1  }
-void f(int    ) { // no 2  }
+void f(int i=0) { /* no 1 */ }
+void f(int    ) { /* no 2 */ }
 ~~~
 
 <details>
@@ -73,8 +73,8 @@ Si le paramètre effectif renseigne le paramètre formel avec valeur par défaut
 </details>
 
 ~~~cpp
-void f(int&) { // no 1  }
-void f(int ) { // no 2  }
+void f(int&) { /* no 1 */ }
+void f(int ) { /* no 2 */ }
 ~~~
 
 <details>
@@ -89,6 +89,81 @@ int i;
 f(CSTE); // ne peut appeler que la no 2
 f(2);    // ne peut appeler que la no 2
 f(i);    // quelle fonction appeler => AMBIGUITE
+~~~
+
+-------------------------------------
+
+</details>
+
+
+~~~cpp
+void f(const int&) { /* no 1 */ }
+void f(int )       { /* no 2 */ }
+~~~
+
+<details>
+<summary>Solution</summary>
+
+**OUI**, ces fonctions sont disctinctes mais **ne peuvent par être utilisées**.<br>
+
+~~~cpp
+const int CSTE = 2;
+int i;
+
+f(CSTE); // quelle fonction appeler => AMBIGUITE
+f(2);    // quelle fonction appeler => AMBIGUITE
+f(i);    // quelle fonction appeler => AMBIGUITE
+~~~
+
+-------------------------------------
+
+</details>
+
+~~~cpp
+void f(int ) { /* no 1 */ }
+void f(int*) { /* no 2 */ }
+~~~
+
+<details>
+<summary>Solution</summary>
+
+**OUI**, ces fonctions sont disctinctes avec des types différents.<br>
+
+~~~cpp
+const int CSTE = 2;
+int i;
+
+f(CSTE); // ne peut appeler que la no 1
+f(2);    // ne peut appeler que la no 1
+f(i);    // ne peut appeler que la no 1
+f(&i);   // ne peut appeler que la no 2
+~~~
+
+-------------------------------------
+
+</details>
+
+~~~cpp
+void f(const int*) { /* no 1 */ }
+void f(      int*) { /* no 2 */ }
+~~~
+
+<details>
+<summary>Solution</summary>
+
+**OUI**, ces fonctions sont disctinctes avec des types différents<br>
+... mais pas compatibles avec n'importe quel type.<br>
+
+~~~cpp
+const int CSTE = 2;
+int    i;
+double d;
+
+f(&CSTE); // ne peut appeler que la no 1
+f(2);     // aucune fonction ne correspond
+f(i);     // aucune fonction ne correspond
+f(&i);    // ne peut appeler que la no 2
+f(&d);    // aucune fonction ne correspond
 ~~~
 
 -------------------------------------
