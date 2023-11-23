@@ -104,7 +104,7 @@ void f(int )       { /* no 2 */ }
 <details>
 <summary>Solution</summary>
 
-**OUI**, ces fonctions sont disctinctes mais **ne peuvent par être utilisées**.<br>
+**OUI**, ces fonctions sont disctinctes mais **ne peuvent pas être utilisées**.<br>
 
 ~~~cpp
 const int CSTE = 2;
