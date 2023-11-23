@@ -109,10 +109,12 @@ void f(int )       { /* no 2 */ }
 ~~~cpp
 const int CSTE = 2;
 int i;
+const int& r = i;
 
-f(CSTE); // quelle fonction appeler => AMBIGUITE
-f(2);    // quelle fonction appeler => AMBIGUITE
-f(i);    // quelle fonction appeler => AMBIGUITE
+f(CSTE); // quelle fonction appeler ? => AMBIGUITE
+f(2);    // quelle fonction appeler ? => AMBIGUITE
+f(i);    // quelle fonction appeler ? => AMBIGUITE
+f(r);    // quelle fonction appeler ? => AMBIGUITE
 ~~~
 
 -------------------------------------
