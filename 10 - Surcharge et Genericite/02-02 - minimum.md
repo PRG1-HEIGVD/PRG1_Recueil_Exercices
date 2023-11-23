@@ -19,9 +19,9 @@ cout << min(a, b, c);
 min(a, b, c) = 1;
 int& d = min(a, b, c);
 
-cout << min(a, b, c);
-min(a, b, c) = 1;
-double& d = min(a, b, c);
+cout << min(d, e, f);
+min(d, e, f) = 1;
+double& d = min(d, e, f);
 ~~~
 
 <details>
