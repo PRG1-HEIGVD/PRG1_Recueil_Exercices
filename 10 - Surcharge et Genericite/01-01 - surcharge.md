@@ -86,9 +86,9 @@ void f(int ) { /* no 2 */ }
 const int CSTE = 2;
 int i;
 
-f(CSTE); // ne peut appeler que la no 2
-f(2);    // ne peut appeler que la no 2
-f(i);    // quelle fonction appeler => AMBIGUITE
+f(CSTE); // appel de la no 2
+f(2);    // appel de la no 2
+f(i);    // ambiguité
 ~~~
 
 -------------------------------------
@@ -111,10 +111,10 @@ const int CSTE = 2;
 int i;
 const int& r = i;
 
-f(CSTE); // quelle fonction appeler ? => AMBIGUITE
-f(2);    // quelle fonction appeler ? => AMBIGUITE
-f(i);    // quelle fonction appeler ? => AMBIGUITE
-f(r);    // quelle fonction appeler ? => AMBIGUITE
+f(CSTE); // ambiguité
+f(2);    // ambiguité
+f(i);    // ambiguité
+f(r);    // ambiguité
 ~~~
 
 -------------------------------------
@@ -134,11 +134,15 @@ void f(int*) { /* no 2 */ }
 ~~~cpp
 const int CSTE = 2;
 int i;
+int*       ptr1 = &i;
+const int* ptr2 = &i;
 
-f(CSTE); // ne peut appeler que la no 1
-f(2);    // ne peut appeler que la no 1
-f(i);    // ne peut appeler que la no 1
-f(&i);   // ne peut appeler que la no 2
+f(CSTE); // appel de la no 1
+f(2);    // appel de la no 1
+f(i);    // appel de la no 1
+f(&i);   // appel de la no 2
+f(ptr1); // appel de la no 2
+f(ptr2); // aucune fonction compatible
 ~~~
 
 -------------------------------------
@@ -161,11 +165,11 @@ const int CSTE = 2;
 int    i;
 double d;
 
-f(&CSTE); // ne peut appeler que la no 1
-f(2);     // aucune fonction ne correspond
-f(i);     // aucune fonction ne correspond
-f(&i);    // ne peut appeler que la no 2
-f(&d);    // aucune fonction ne correspond
+f(&CSTE); // appel de la no 1
+f(2);     // aucune fonction compatible
+f(i);     // aucune fonction compatible
+f(&i);    // appel de la no 2
+f(&d);    // aucune fonction compatible
 ~~~
 
 -------------------------------------
