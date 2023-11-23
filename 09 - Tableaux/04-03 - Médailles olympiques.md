@@ -2,15 +2,15 @@
 
 Soit le tableau suivant, donnant le nombre de médailles d'or, d'argent et de bronze obtenues par pays en patinage aux Jeux olympiques d'hiver.
 
-| Pays      | Or | Argent | Bronze |
-|-----------|:--:|:------:|:------:|
-| Allemagne | 0  | 0      | 2      |
-| Canada    | 1  | 0      | 1      |
-| Chine     | 1  | 2      | 0      |
-| Corée     | 1  | 0      | 0      |
-| Etats-Unis| 2  | 1      | 1      |
-| Japon     | 0  | 1      | 1      |
-| Russie    | 0  | 1      | 0      |
+| Pays       | Or     | Argent | Bronze |
+|------------|:------:|:------:|:------:|
+| Allemagne  |   0    |   0    |   2    |
+| Canada     |   1    |   0    |   1    |
+| Chine      |   1    |   2    |   0    |
+| Corée      |   1    |   0    |   0    |
+| Etats-Unis |   2    |   1    |   1    |
+| Japon      |   0    |   1    |   1    |
+| Russie     |   0    |   1    |   0    |
 
 Ecrire un programme C++ mettant à disposition :
 
