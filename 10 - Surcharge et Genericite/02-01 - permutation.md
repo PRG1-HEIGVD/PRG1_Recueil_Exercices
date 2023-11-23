@@ -1,6 +1,8 @@
 # Permutation circulaire droite de 3 valeurs
 
-Reprendre l'exercice [02b-02 - permutation](../04%20-%20Fonctions/02b-02%20-%20permutation.md) en rendant tout le code complètement générique.
+Reprise de l'exercice [02b-02 - permutation](../04%20-%20Fonctions/02b-02%20-%20permutation.md)
+
+Ecrire un programme C++ qui met à disposition une fonction sans valeur de retour et prenant 3 paramètres de type **quelconque** permettant d'effectuer une permutation circulaire droite de ces 3 valeurs.
 
 <details>
 <summary>Solution</summary>
