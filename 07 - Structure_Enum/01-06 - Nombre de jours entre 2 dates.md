@@ -43,6 +43,7 @@ moins des calendriers pré-juliens. Pour simplifier le problème, ne considérez
 #include <iostream>
 #include <string>
 #include <cstdint>
+#include <cassert>
 
 using namespace std;
 
