@@ -11,9 +11,9 @@ int    a = 5;
 int    b = 2;
 int    c = 9;
 
-double d = 5;
-double e = 2;
-double f = 9;
+double d = 5.0;
+double e = 2.0;
+double f = 9.0;
 
 cout << min(a, b, c);
 min(a, b, c) = 1;
