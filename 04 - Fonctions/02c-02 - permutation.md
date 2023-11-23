@@ -1,7 +1,7 @@
 # Permutation circulaire droite de 3 réels
-Ecrire un programme C++ qui met à disposition une fonction sans valeur de retour et prenant 3 paramètres de type double permettant d'effectuer une permutation circulaire droite de ces 3 valeurs.
 
-**NB** : ne pas utiliser de référence "&"
+Reprendre l'exercice [02b-02 - permutation](../04%20-%20Fonctions/02b-02%20-%20permutation.md) mais sans utiliser de référence `double& ref`
+
 <details>
 <summary>Solution</summary>
 
