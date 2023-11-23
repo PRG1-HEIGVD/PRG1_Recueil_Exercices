@@ -17,7 +17,10 @@ void f(int, int) { // no 2 }
 `f(1);    // appel no 1`<br>
 `f(1, 2); // appel no 2`
 
+-------------------------------------
+
 </details>
+
 
 ~~~cpp
 void f(int)    { // no 1 }
@@ -31,6 +34,8 @@ void f(double) { // no 2 }
 
 `f(1);   // appel no 1`<br>
 `f(1.2); // appel no 2`
+
+-------------------------------------
 
 </details>
 
@@ -46,6 +51,8 @@ int  f(int) { // no 2 }
 exemple `sin(x);`<br>
 => Les fonctions ne peuvent pas être surchargées.
 
+-------------------------------------
+
 </details>
 
 ~~~cpp
@@ -60,6 +67,8 @@ void f(int    ) { // no 2  }
 Si le paramètre effectif renseigne le paramètre formel avec valeur par défaut, quelle fonction utiliser ?
 
 => mais le compilateur ne permet pas cette surcharge
+
+-------------------------------------
 
 </details>
 
@@ -81,5 +90,7 @@ f(CSTE); // ne peut appeler que la no 2
 f(2);    // ne peut appeler que la no 2
 f(i);    // quelle fonction appeler => AMBIGUITE
 ~~~
+
+-------------------------------------
 
 </details>
