@@ -42,9 +42,9 @@ void permutationCirculaireDroite(double& x,
 void afficher(double x,
               double y,
               double z) {
-   cout << "x = " << x << "
-            y = " << y << "
-            z = " << z << endl;
+   cout << "x = " << x << ", "
+        << "y = " << y << ", "
+        << "z = " << z << endl;
 }
 ~~~
 </details>
