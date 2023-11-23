@@ -1,7 +1,6 @@
 # Permutation circulaire droite de 3 réels
 
-Reprendre l'exercice [02b-02 - permutation.md](../04 - Fonctions/02b-02 - permutation.md) en rendant tout le code complètement générique.
-
+Reprendre l'exercice [02b-02 - permutation.md](../04%20-%20Fonctions/02b-02%20-%20permutation.md) en rendant tout le code complètement générique.
 
 <details>
 <summary>Solution</summary>
