@@ -1,4 +1,4 @@
-# Permutation circulaire droite de 3 réels
+# Permutation circulaire droite de 3 valeurs
 
 Reprendre l'exercice [02b-02 - permutation](../04%20-%20Fonctions/02b-02%20-%20permutation.md) en rendant tout le code complètement générique.
 
