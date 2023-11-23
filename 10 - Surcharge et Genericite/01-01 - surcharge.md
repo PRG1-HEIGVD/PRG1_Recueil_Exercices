@@ -14,8 +14,8 @@ void f(int, int) { // no 2 }
 
 **OUI**, le nombre de paramètres est différent<br>
 
-`f(1);		// appel no 1`<br>
-`f(1, 2);	// appel no 2`
+`f(1);    // appel no 1`<br>
+`f(1, 2); // appel no 2`
 
 </details>
 
@@ -29,8 +29,8 @@ void f(double) { // no 2 }
 
 **OUI**, le type des paramètres est différent
 
-`f(1);		// appel no 1`<br>
-`f(1.2);	// appel no 2`
+`f(1);   // appel no 1`<br>
+`f(1.2); // appel no 2`
 
 </details>
 
