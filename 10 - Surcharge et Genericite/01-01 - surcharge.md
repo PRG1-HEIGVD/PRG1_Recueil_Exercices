@@ -64,7 +64,7 @@ void f(int    ) { /* no 2 */ }
 <summary>Solution</summary>
 
 **NON**, ces fonctions **ne sont pas** disctinctes.<br>
-Si le paramètre effectif renseigne le paramètre formel avec valeur par défaut, quelle fonction utiliser ?
+Si le paramètre effectif renseigne le paramètre formel avec valeur pas défaut, quelle fonction utiliser ?
 
 => mais le compilateur ne permet pas cette surcharge
 
