@@ -1,4 +1,4 @@
-# fonctions surchargées (2 paramètres)
+# Fonctions surchargées (2 paramètres)
 
 Que produisent les appels aux fonctions ci-dessous ?<br>
 Indiquer les cas d'ambiguité.
