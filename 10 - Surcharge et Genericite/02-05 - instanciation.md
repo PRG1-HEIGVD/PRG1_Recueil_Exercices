@@ -9,7 +9,7 @@ R fct(const T& t, const U& u) {
 }
 ~~~
 
-Indiquer si les instanciations, implicites ou explicites, sont correctes.
+Indiquer si les instanciations, implicites ou explicites, sont correctes.<br>
 Si c’est le cas, préciser le type des arguments génériques R, T et U retenu.
 
 <br>
