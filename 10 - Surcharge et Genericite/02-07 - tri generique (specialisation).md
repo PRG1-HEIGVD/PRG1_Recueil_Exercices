@@ -31,7 +31,20 @@ Tout en étant capable de trier le *vector\<int\>* **non constant**, écrire les
 
 1. Un vecteur constant ne peut pas être modifié.<br>
 2. Copier un vecteur n'est pas une option du point de vue de l'utilisation de la mémoire.<br>
-3. Nous pouvons créer un **vecteur de pointeurs** sur les éléments du vecteur constant à trier. Ce seront les pointeurs qui seront réorganisés pour voir les valeurs pointées de manière triée.
+3. Nous pouvons créer un **vecteur de pointeurs** sur les éléments du vecteur constant à trier.<br>Ce seront les pointeurs qui seront réorganisés pour voir les valeurs pointées de manière triée.
+
+	Vecteur constant de valeurs
+	
+	|  0  |  1  |  2  |  3  |  4  |  5  |
+	|:---:|:---:|:---:|:---:|:---:|:---:|
+	|  6  |   2 |  9  |  7  |  1  |  3  |
+	| 0x00| 0x04| 0x08| 0x0B| 0x0F| 0x14|
+	
+	Vecteur de pointeurs
+	
+	|  0  |  1  |  2  |  3  |  4  |  5  |
+	|:---:|:---:|:---:|:---:|:---:|:---:|
+	| 0x0F| 0x04| 0x14| 0x00| 0x0B| 0x08|
 
 </details>
 
