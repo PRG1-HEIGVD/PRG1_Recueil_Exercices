@@ -3,9 +3,9 @@
 Soient les tabeaux déclarés
 
 ~~~cpp
-vector<int> v      {6, 2, 8, 7, 1, 3};
-array       a      {"chien"s, "chat"s, "souris"s, "oiseau"s};
-double      t[ ] = {6.1, 2.2, 8.3, 7.4, 1.5, 3.6};
+vector v      {6, 2, 8, 7, 1, 3};
+array  a      {"chien"s, "chat"s, "souris"s, "oiseau"s};
+double t[ ] = {6.1, 2.2, 8.3, 7.4, 1.5, 3.6};
 ~~~
 
 Trier ces tableaux en utilisant le tri par *sélection*.<br>
