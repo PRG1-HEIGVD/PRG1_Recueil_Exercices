@@ -11,7 +11,7 @@ const vector<int>    vInt {6, 2, 9, 7, 1, 3};
 const vector<string> vStr {"chien"s, "chat"s, "souris"s, "poisson"s};
 ~~~
 
-Tout en étant capable de trier le *vector\<int\>* non constant, écrire les fonctions permettant de trier les 2 **vecteurs constants**.
+Tout en étant capable de trier le *vector\<int\>* **non constant**, écrire les fonctions permettant de trier les 2 **vecteurs constants**.
 
 ~~~
 [6, 2, 9, 7, 1, 3]
@@ -25,11 +25,11 @@ Tout en étant capable de trier le *vector\<int\>* non constant, écrire les fon
 ~~~
 
 <details>
-<summary> Indice 💡</summary>
+<summary>💡Indice</summary>
 
-Un vecteur constant ne peut pas être modifié.<br>
-Copier un vecteur n'est pas une option optimale notemment du point de vue de l'utilisation de la mémoire.<br>
-Par contre, nous pouvons créer un **vecteur de pointeurs** sur les éléments du vecteur constant.
+1. Un vecteur constant ne peut pas être modifié.<br>
+2. Copier un vecteur n'est pas une option du point de vue de l'utilisation de la mémoire.<br>
+3. Nous pouvons créer un **vecteur de pointeurs** sur les éléments du vecteur constant à trier. Ce seront les pointeurs qui seront réorganisés pour voir les valeurs pointées de manière triée.
 
 </details>
 
