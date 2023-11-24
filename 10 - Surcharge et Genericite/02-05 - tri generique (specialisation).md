@@ -11,7 +11,7 @@ const vector<int>    vInt {6, 2, 9, 7, 1, 3};
 const vector<string> vStr {"chien"s, "chat"s, "souris"s, "poisson"s};
 ~~~
 
-Tout en étant capable de trier le *vector\<int\>* **non constant**, écrire les fonctions permettant de trier les 2 **vecteurs constants**.
+Tout en étant capable de trier le *vector\<int\>* **non constant**, écrire les fonctions permettant d'afficher les deux **vecteurs constants** triés.
 
 ~~~
 [6, 2, 9, 7, 1, 3]
@@ -103,7 +103,7 @@ void tri_par_selection(span<T*> v) {
 
 //---------------------------------------------
 template <typename T>
-vector<const T*> tab_to_vectPtr(const span<const T>& v) {
+vector<const T*> tab_to_vectPtr(span<const T> v) {
    vector<const T*> vPtr;
    vPtr.reserve(v.size());
    for (const T& e : v) {
