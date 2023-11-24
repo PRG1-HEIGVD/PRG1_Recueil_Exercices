@@ -3,23 +3,23 @@
 Soient les tabeaux déclarés
 
 ~~~cpp
-vector<int> v      {6, 2, 9, 7, 1, 3};
+vector<int> v      {6, 2, 8, 7, 1, 3};
 array       a      {"chien"s, "chat"s, "souris"s, "oiseau"s};
-double      t[ ] = {6.1, 2.2, 9.3, 7.4, 1.5, 3.6};
+double      t[ ] = {6.1, 2.2, 8.3, 7.4, 1.5, 3.6};
 ~~~
 
 Trier ces tableaux en utilisant le tri par *sélection*.<br>
 Les tableaux seront affichés avant et après le tri par le programme principal.
 
 ~~~
-[6, 2, 9, 7, 1, 3]
-[1, 2, 3, 6, 7, 9]
+[6, 2, 8, 7, 1, 3]
+[1, 2, 3, 6, 7, 8]
 
 [chien, chat, souris, oiseau]
 [chat, chien, oiseau, souris]
 
-[6.1, 2.2, 9.3, 7.4, 1.5, 3.6]
-[1.5, 2.2, 3.6, 6.1, 7.4, 9.3]
+[6.1, 2.2, 8.3, 7.4, 1.5, 3.6]
+[1.5, 2.2, 3.6, 6.1, 7.4, 8.3]
 ~~~
 
 <details>
