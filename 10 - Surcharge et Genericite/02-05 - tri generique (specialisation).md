@@ -11,7 +11,9 @@ const vector<int>    vInt {6, 2, 9, 7, 1, 3};
 const vector<string> vStr {"chien"s, "chat"s, "souris"s, "poisson"s};
 ~~~
 
-Tout en étant capable de trier le *vector\<int\>* **non constant**,<br>écrire les fonctions permettant d'afficher les deux **vecteurs constants** de manière triée.
+Tout en étant capable de trier le *vector\<int\>* **non constant**, écrire les fonctions permettant d'afficher les deux **vecteurs constants** de manière triée.
+
+⚠️ Les vecteurs occupent potentiellement beaucoup de mémoire.
 
 ~~~
 [6, 2, 9, 7, 1, 3]
