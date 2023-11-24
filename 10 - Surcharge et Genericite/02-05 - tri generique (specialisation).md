@@ -1,18 +1,17 @@
 # Tri générique (spécialisation)
 
-Reprise de l'exercice [04-01 - minimum](../04%20-%20Fonctions/04-01%20-%20minimum.md)
+Reprise de l'exercice [02-04 - tri generique.md](../10%20-%20Surcharge%20et%20Genericite/02-04%20-%20tri%20generique.md)
 
-https://github.com/PRG1-HEIGVD/PRG1_Recueil_Exercices/blob/main/10%20-%20Surcharge%20et%20Genericite/02-04%20-%20tri%20g%C3%A9n%C3%A9rique.md
-
-Soient les vector<int> déclarés
+Soient les vectors déclarés
 
 ~~~cpp
-   vector<int> v1 {6, 2, 9, 7, 1, 3};
-   const vector<int> v2 {6, 2, 9, 7, 1, 3};
+vector<int> v1 {6, 2, 9, 7, 1, 3};
+
+const vector<int>    vInt {6, 2, 9, 7, 1, 3};
+const vector<string> vStr {"chien"s, "chat"s, "souris"s, "poisson"s};
 ~~~
 
-Trier ces tableaux en utilisant le tri par *sélection*.<br>
-Les tableaux seront affichés avant et après le tri par le programme principal.
+Tout en étant capable de trier le *vector<int>*, écrire les fonctions permettant de trier les 2 **vecteurs constants**.
 
 ~~~
 [6, 2, 8, 7, 1, 3]
@@ -26,57 +25,116 @@ Les tableaux seront affichés avant et après le tri par le programme principal.
 ~~~
 
 <details>
+<summary>Indice</summary>
+
+Un vecteur constant ne peut pas être manipulé (modifié).<br>
+Copier un vecteur n'est pas une option optimale.<br>
+Par contre, nous pouvons créer un **vecteur de pointeurs** sur les éléments du vecteur constant.
+
+</details>
+
+<details>
 <summary>Solution</summary>
 
 ~~~cpp
+#include <iostream>
+#include <string>
+#include <vector>
+#include <span>
+
+using namespace std;
+
+//---------------------------------------------
 template <typename T>
-size_t indice_min(span<const T> s) {
+void afficher(span<const T> v) {
+   cout << "[";
+   for (size_t i=0; i<v.size(); ++i) {
+      if (i) cout << ", ";
+      cout << v[i];
+   }
+   cout << "]";
+}
+
+template <typename T>
+void afficher(const vector<T*>& v) {
+   cout << "[";
+   for (size_t i=0; i<v.size(); ++i) {
+      if (i) cout << ", ";
+      cout << *(v[i]);
+   }
+   cout << "]";
+}
+
+//---------------------------------------------
+template <typename T>
+size_t indice_min(span<const T> v) {
    size_t iMin = 0;
-   for (size_t i = 1; i < s.size(); ++i)
-      if (s[i] < s[iMin])
+   for (size_t i=1; i<v.size(); ++i)
+      if (v[i] < v[iMin])
          iMin = i;
    return iMin;
 }
 
 template <typename T>
+size_t indice_min(span<T*> v) {
+   size_t iMin = 0;
+   for (size_t i=1; i<v.size(); ++i)
+      if (*v[i] < *v[iMin])
+         iMin = i;
+   return iMin;
+}
+
+//---------------------------------------------
+template <typename T>
 void tri_par_selection(span<T> v) {
+   for (size_t i = 0; i < v.size()-1 ; ++i) {
+    size_t imin = i + indice_min<T>(v.subspan(i));
+      swap(v[i], v[imin]);
+   }
+}
+
+template <typename T>
+void tri_par_selection(span<T*> v) {
    for (size_t i = 0; i < v.size()-1 ; ++i) {
       size_t imin = i + indice_min<T>(v.subspan(i));
       swap(v[i], v[imin]);
    }
 }
 
+//---------------------------------------------
 template <typename T>
-void afficher(span<const T> s) {
-   cout << "[";
-   for (size_t i = 0; i < s.size(); ++i) {
-      if (i) cout << ", ";
-      cout << s[i];
+vector<const T*> tab_to_vectPtr(const span<const T>& v) {
+   vector<const T*> vPtr;
+   vPtr.reserve(v.size());
+   for (const T& e : v) {
+      vPtr.push_back(&e);
    }
-   cout << "]";
+   return vPtr;
 }
 
+//---------------------------------------------
 int main() {
-   vector v     {6, 2, 8, 7, 1, 3};
-   array  a     {"chien"s, "chat"s, "souris"s, "oiseau"s};
-   double t[] = {6.1, 2.2, 8.3, 7.4, 1.5, 3.6};
+   vector<int> v1 {6, 2, 9, 7, 1, 3};
 
-   afficher<const int>(v);
-   tri_par_selection<int>(v);
-   cout << endl;
-   afficher<const int>(v);
-   cout << endl << endl;
+   const vector<int>    vInt {6, 2, 9, 7, 1, 3};
+   const vector<string> vStr {"chien"s, "chat"s, "souris"s, "poisson"s};
 
-   afficher<const string>(a);
-   tri_par_selection<string>(a);
+   afficher<const int>(v1);   cout << endl;
+   tri_par_selection<int>(v1);
+   afficher<const int>(v1);   cout << endl;
    cout << endl;
-   afficher<const string>(a);
-   cout << endl << endl;
 
-   afficher<const double>(t);
-   tri_par_selection<double>(t);
+   vector<const int*> vPtrInt = tab_to_vectPtr<const int>(vInt);
+   afficher(vPtrInt);   cout << endl;
+   tri_par_selection<const int>(vPtrInt);
+   afficher(vPtrInt);   cout << endl;
    cout << endl;
-   afficher<const double>(t);
+
+   vector<const string*> vPtrStr = tab_to_vectPtr<const string>(vStr);
+   afficher(vPtrStr);   cout << endl;
+   tri_par_selection<const string>(vPtrStr);
+   afficher(vPtrStr);   cout << endl;
+   cout << endl;
 }
 ~~~
 
