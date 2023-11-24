@@ -22,10 +22,10 @@ double* pd = &d;     // ptr sur d
 
 Pour chacun des appels, indiquer :
 
-**Fonctions viables** (surcharge)<br>
+- **Fonctions viables** (surcharge)<br>
 liste des fonctions viables après résolutions des cas de surcharge
 
-**Plus spécialisée(s)**<br>
+- **Plus spécialisée(s)**<br>
 si applicable, la liste des fonctions après détermination de l’ordre de spécialisation.<br>
 Indiquer également les cas d’ambiguïté.
 
