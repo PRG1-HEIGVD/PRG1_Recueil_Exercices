@@ -2,6 +2,8 @@
 
 Reprise de l'exercice [04-01 - minimum](../04%20-%20Fonctions/04-01%20-%20minimum.md)
 
+https://github.com/PRG1-HEIGVD/PRG1_Recueil_Exercices/blob/main/10%20-%20Surcharge%20et%20Genericite/02-04%20-%20tri%20g%C3%A9n%C3%A9rique.md
+
 Soient les vector<int> déclarés
 
 ~~~cpp
