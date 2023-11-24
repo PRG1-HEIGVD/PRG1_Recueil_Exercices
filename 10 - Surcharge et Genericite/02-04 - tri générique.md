@@ -1,4 +1,4 @@
-# Trier tableau
+# Tri générique
 
 Soient les tabeaux déclarés
 
