@@ -31,7 +31,28 @@ T somme(T a, T b) {
 int main() {
    int   a = 1;
    float b = 2.5;
-   cout << somme<int>  (a, b) << " / " << somme<float>(a, b);
+   cout << somme(a, b) << " / " << somme(a, b);
+}
+~~~
+
+<details>
+<summary>Solution</summary>
+
+Erreur de compilation, la déduction de type n'est pas possible, les types sont différents.
+
+------------------------------------------------
+</details>
+
+~~~cpp
+template <typename T>
+T somme(T a, T b) {
+   return (a + b);
+}
+
+int main() {
+   int   a = 1;
+   float b = 2.5;
+   cout << somme<int>(a, b) << " / " << somme<float>(a, b);
 }
 ~~~
 
