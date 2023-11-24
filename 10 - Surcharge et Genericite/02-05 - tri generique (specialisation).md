@@ -14,14 +14,14 @@ const vector<string> vStr {"chien"s, "chat"s, "souris"s, "poisson"s};
 Tout en étant capable de trier le *vector<int>*, écrire les fonctions permettant de trier les 2 **vecteurs constants**.
 
 ~~~
-[6, 2, 8, 7, 1, 3]
-[1, 2, 3, 6, 7, 8]
+[6, 2, 9, 7, 1, 3]
+[1, 2, 3, 6, 7, 9]
 
-[chien, chat, souris, oiseau]
-[chat, chien, oiseau, souris]
+[6, 2, 9, 7, 1, 3]
+[1, 2, 3, 6, 7, 9]
 
-[6.1, 2.2, 8.3, 7.4, 1.5, 3.6]
-[1.5, 2.2, 3.6, 6.1, 7.4, 8.3]
+[chien, chat, souris, poisson]
+[chat, chien, poisson, souris]
 ~~~
 
 <details>

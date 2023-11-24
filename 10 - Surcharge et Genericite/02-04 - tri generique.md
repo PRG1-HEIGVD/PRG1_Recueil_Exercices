@@ -4,7 +4,7 @@ Soient les tabeaux déclarés
 
 ~~~cpp
 vector v      {6, 2, 8, 7, 1, 3};
-array  a      {"chien"s, "chat"s, "souris"s, "oiseau"s};
+array  a      {"chien"s, "chat"s, "souris"s, "poisson"s};
 double t[ ] = {6.1, 2.2, 8.3, 7.4, 1.5, 3.6};
 ~~~
 
@@ -15,8 +15,8 @@ Les tableaux seront affichés avant et après le tri par le programme principal.
 [6, 2, 8, 7, 1, 3]
 [1, 2, 3, 6, 7, 8]
 
-[chien, chat, souris, oiseau]
-[chat, chien, oiseau, souris]
+[chien, chat, souris, poisson]
+[chat, chien, poisson, souris]
 
 [6.1, 2.2, 8.3, 7.4, 1.5, 3.6]
 [1.5, 2.2, 3.6, 6.1, 7.4, 8.3]
@@ -55,7 +55,7 @@ void afficher(span<const T> s) {
 
 int main() {
    vector v     {6, 2, 8, 7, 1, 3};
-   array  a     {"chien"s, "chat"s, "souris"s, "oiseau"s};
+   array  a     {"chien"s, "chat"s, "souris"s, "poisson"s};
    double t[] = {6.1, 2.2, 8.3, 7.4, 1.5, 3.6};
 
    afficher<const int>(v);
