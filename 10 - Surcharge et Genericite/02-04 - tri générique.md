@@ -29,7 +29,7 @@ Les tableaux seront affichés avant et après le tri par le programme principal.
 template <typename T>
 size_t indice_min(span<const T> s) {
    size_t iMin = 0;
-   for (size_t i=1; i<s.size(); ++i)
+   for (size_t i = 1; i < s.size(); ++i)
       if (s[i] < s[iMin])
          iMin = i;
    return iMin;
@@ -46,7 +46,7 @@ void tri_par_selection(span<T> v) {
 template <typename T>
 void afficher(span<const T> s) {
    cout << "[";
-   for (size_t i=0; i<s.size(); ++i) {
+   for (size_t i = 0; i < s.size(); ++i) {
       if (i) cout << ", ";
       cout << s[i];
    }
