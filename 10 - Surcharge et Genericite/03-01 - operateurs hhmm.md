@@ -25,38 +25,47 @@ HeureMinute hm1 = {12, 34};
 HeureMinute hm2 = {21, 43};
 
 cout << boolalpha;
-cout << hm1 << " <  " << hm2 << " : " << (hm1 <  hm2) << endl;
-cout << hm1 << " >  " << hm2 << " : " << (hm1 >  hm2) << endl;
-cout << hm1 << " <= " << hm2 << " : " << (hm1 <= hm2) << endl;
-cout << hm1 << " >= " << hm2 << " : " << (hm1 >= hm2) << endl;
-cout << hm1 << " == " << hm2 << " : " << (hm1 == hm2) << endl;
-cout << hm1 << " != " << hm2 << " : " << (hm1 != hm2) << endl;
+cout << hm1 << " <  " << hm2 << "  : " << (hm1 <  hm2) << endl;
+cout << hm1 << " >  " << hm2 << "  : " << (hm1 >  hm2) << endl;
+cout << hm1 << " <= " << hm2 << "  : " << (hm1 <= hm2) << endl;
+cout << hm1 << " >= " << hm2 << "  : " << (hm1 >= hm2) << endl;
+cout << hm1 << " == " << hm2 << "  : " << (hm1 == hm2) << endl;
+cout << hm1 << " != " << hm2 << "  : " << (hm1 != hm2) << endl;
 
-cout << hm1 << " +  " << hm2 << " : " << (hm1 +  hm2) << endl;
-cout << hm1 << " +  " << 44  << "    : " << (hm1 +  44 ) << endl;
-cout << 44  << "    +  " << hm1 << " : " << (44  +  hm1) << endl;
+cout << hm1 << " +  " << hm2 << "  : " << (hm1 +  hm2) << endl;
+cout << hm1 << " +  " << 44  << "     : " << (hm1 +  44 ) << endl;
+cout << 44  << "    +  " << hm1 << "  : " << (44  +  hm1) << endl;
+cout << hm1 << " += "  << 2 << "      : " << (hm1+=2 )    << endl;
+
+cout << "++" << hm1  << "\t\t: " << ++hm1 << endl;
+cout << hm1  << "++" << "\t\t: " << hm1++ << endl;
+cout << hm1 << endl;
 
 cout << endl;
-HeureMinute hm3 = saisie("heure [hh:mm] : ");
-cout << "votre saisie  : " << hm3 << endl;
+HeureMinute hm3 = saisie("heure [hh:mm]: ");
+cout << "votre saisie : " << hm3 << endl;
 ~~~
 
 Ecrire le code nécessaire afin que le code produise ceci.
 
 ~~~
-12:34 <  21:43 : true
-12:34 >  21:43 : false
-12:34 <= 21:43 : true
-12:34 >= 21:43 : false
-12:34 == 21:43 : false
-12:34 != 21:43 : true
-12:34 +  21:43 : 34:17
-12:34 +  44    : 13:18
-44    +  12:34 : 13:18
+12:34 <  21:43  : true
+12:34 >  21:43  : false
+12:34 <= 21:43  : true
+12:34 >= 21:43  : false
+12:34 == 21:43  : false
+12:34 != 21:43  : true
+12:34 +  21:43  : 34:17
+12:34 +  44     : 13:18
+44    +  12:34  : 13:18
+12:34 += 2      : 12:36
+++12:36         : 12:37
+12:37++         : 12:37
+12:38
 
-heure [hh:mm] : 12 34
-heure [hh:mm] : 12:34
-votre saisie  : 12:34
+heure [hh:mm]: 12 34
+heure [hh:mm]: 12:34
+votre saisie : 12:34
 
 ~~~
 
@@ -96,25 +105,40 @@ HeureMinute operator+ (const HeureMinute& lhs, const HeureMinute& rhs) {
             int8_t((lhs.minute + rhs.minute) % 60)};
 }
 
-HeureMinute operator+ (const HeureMinute& lhs, int8_t minute) {
-   return { int8_t(lhs.heure + (lhs.minute + minute) / 60),
-            int8_t((lhs.minute + minute) % 60)};
+HeureMinute& operator+= (HeureMinute& hm, int8_t minute) {
+   hm = {int8_t(hm.heure + (hm.minute + minute) / 60),
+          int8_t((hm.minute + minute) % 60)};
+   return hm;
 }
 
-HeureMinute operator+ (int8_t minute, const HeureMinute& rhs) {
-   return rhs + minute;
+HeureMinute operator+ (HeureMinute hm, int8_t minute) {
+   return hm += minute;
+}
+
+HeureMinute operator+ (int8_t minute, HeureMinute hm) {
+   return hm += minute;
+}
+
+HeureMinute& operator++ (HeureMinute& hm) {
+   return hm += 1;
+}
+
+HeureMinute operator++ (HeureMinute& hm, int) {
+   HeureMinute tmp = hm;
+   ++hm;
+   return tmp;
 }
 
 ostream& operator<< (ostream& os, const HeureMinute& h) {
-   return os << (int)h.heure << ":" << (int)h.minute;
+   return os << +h.heure << ":" << +h.minute;
 }
 
 istream& operator>> (istream& is, HeureMinute& h) {
+   char c;
    int  valeur; // sinon lecture d'un char avec int8_t
    is >> valeur;
    h.heure = valeur;
 
-   char c;
    is >> c;
    if (c != ':') {
       is.setstate(ios::failbit);
@@ -124,6 +148,8 @@ istream& operator>> (istream& is, HeureMinute& h) {
    h.minute = valeur;
 
    if (h.minute >= 60) {
+      cout << h.minute << endl;
+      cout << "fail 60" << endl;
       is.setstate(ios::failbit);
    }
 
