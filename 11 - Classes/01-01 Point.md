@@ -1,4 +1,4 @@
-# Classes - Constructeurs, données et fonctions membres
+# Point
 Implémenter une classe Point permettant de manipuler un point du plan.
 
 Complétez le code suivant afin qu'il s'exécute correctement et affiche le résultat ci-après.
