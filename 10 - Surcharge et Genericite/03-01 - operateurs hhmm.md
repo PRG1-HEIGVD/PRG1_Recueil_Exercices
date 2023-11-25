@@ -135,7 +135,7 @@ istream& operator>> (istream& is, HeureMinute& h) {
 
 </details>
 
-🤔Pourrions-nous *simplifier* l'algorithme des opérateurs < et == ?
+🤔 Pourrions-nous *simplifier* l'algorithme des opérateurs < et == ?
 
 <details>
 <summary>Solution</summary>
