@@ -74,20 +74,20 @@ bool operator> (const HeureMinute& lhs, const HeureMinute& rhs) {
    return rhs < lhs;
 }
 
-bool operator<=(const HeureMinute& lhs, const HeureMinute& rhs) {
+bool operator<= (const HeureMinute& lhs, const HeureMinute& rhs) {
    return !(rhs < lhs);
 }
 
-bool operator>=(const HeureMinute& lhs, const HeureMinute& rhs) {
+bool operator>= (const HeureMinute& lhs, const HeureMinute& rhs) {
    return !(lhs < rhs);
 }
 
-bool operator==(const HeureMinute& lhs, const HeureMinute& rhs) {
+bool operator== (const HeureMinute& lhs, const HeureMinute& rhs) {
    return lhs.heure   == rhs.heure
       and lhs.minute  == rhs.minute;
 }
 
-bool operator!=(const HeureMinute& lhs, const HeureMinute& rhs) {
+bool operator!= (const HeureMinute& lhs, const HeureMinute& rhs) {
    return !(lhs == rhs);
 }
 
@@ -150,7 +150,7 @@ bool operator< (const HeureMinute& lhs, const HeureMinute& rhs) {
    return pair{lhs.heure, lhs.minute} < pair{rhs.heure, rhs.minute};
 }
 
-bool operator==(const HeureMinute& lhs, const HeureMinute& rhs) {
+bool operator== (const HeureMinute& lhs, const HeureMinute& rhs) {
    return pair{lhs.heure, lhs.minute} == pair{rhs.heure, rhs.minute};
 }
 ~~~
