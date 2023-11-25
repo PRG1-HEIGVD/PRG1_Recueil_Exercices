@@ -11,7 +11,9 @@ const vector<int>    vInt {6, 2, 9, 7, 1, 3};
 const vector<string> vStr {"chien"s, "chat"s, "souris"s, "poisson"s};
 ~~~
 
-Tout en étant capable de trier le *vector\<int\>* **non constant**, écrire les fonctions permettant de trier les 2 **vecteurs constants**.
+Tout en étant capable de trier un **tableau non constant**, par exemple un *vector\<int\>*, écrire les fonctions permettant d'afficher les deux **vecteurs constants** de manière triée.
+
+⚠️ Les vecteurs occupent potentiellement beaucoup de mémoire.
 
 ~~~
 [6, 2, 9, 7, 1, 3]
@@ -29,7 +31,22 @@ Tout en étant capable de trier le *vector\<int\>* **non constant**, écrire les
 
 1. Un vecteur constant ne peut pas être modifié.<br>
 2. Copier un vecteur n'est pas une option du point de vue de l'utilisation de la mémoire.<br>
-3. Nous pouvons créer un **vecteur de pointeurs** sur les éléments du vecteur constant à trier. Ce seront les pointeurs qui seront réorganisés pour voir les valeurs pointées de manière triée.
+3. Nous pouvons créer un **vecteur de pointeurs** sur les éléments du vecteur constant à trier.<br>Ce seront les pointeurs qui seront réorganisés pour voir les valeurs pointées de manière triée.<br>
+**NB** : Il n'est pas possible de créer un tableau de références, elles seraient qui qu'il en soit, toujours associées au même élément.
+
+
+	Vecteur constant de valeurs
+	
+	|Indice|  0  |  1  |  2  |  3  |  4  |  5  |
+	|:----:|:---:|:---:|:---:|:---:|:---:|:---:|
+	| val  |  6  |   2 |  9  |  7  |  1  |  3  |
+	| adr  | 0x00| 0x04| 0x08| 0x0B| 0x0F| 0x14|
+	
+	Vecteur de pointeurs
+	
+	|Indice|  0  |  1  |  2  |  3  |  4  |  5  |
+	|:----:|:---:|:---:|:---:|:---:|:---:|:---:|
+	| val  | 0x0F| 0x04| 0x14| 0x00| 0x0B| 0x08|
 
 </details>
 
@@ -103,7 +120,7 @@ void tri_par_selection(span<T*> v) {
 
 //---------------------------------------------
 template <typename T>
-vector<const T*> tab_to_vectPtr(const span<const T>& v) {
+vector<const T*> tab_to_vectPtr(span<const T> v) {
    vector<const T*> vPtr;
    vPtr.reserve(v.size());
    for (const T& e : v) {
