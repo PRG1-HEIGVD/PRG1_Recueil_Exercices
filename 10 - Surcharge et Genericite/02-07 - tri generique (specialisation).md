@@ -11,7 +11,7 @@ const vector<int>    vInt {6, 2, 9, 7, 1, 3};
 const vector<string> vStr {"chien"s, "chat"s, "souris"s, "poisson"s};
 ~~~
 
-Tout en étant capable de trier le *vector\<int\>* **non constant**, écrire les fonctions permettant d'afficher les deux **vecteurs constants** de manière triée.
+Tout en étant capable de trier un **tableau non constant**, par exemple un *vector\<int\>*, écrire les fonctions permettant d'afficher les deux **vecteurs constants** de manière triée.
 
 ⚠️ Les vecteurs occupent potentiellement beaucoup de mémoire.
 
@@ -32,21 +32,21 @@ Tout en étant capable de trier le *vector\<int\>* **non constant**, écrire les
 1. Un vecteur constant ne peut pas être modifié.<br>
 2. Copier un vecteur n'est pas une option du point de vue de l'utilisation de la mémoire.<br>
 3. Nous pouvons créer un **vecteur de pointeurs** sur les éléments du vecteur constant à trier.<br>Ce seront les pointeurs qui seront réorganisés pour voir les valeurs pointées de manière triée.<br>
-**NB** : Malheureusement, il n'est pas possible de créer un tableau de références.
+**NB** : Il n'est pas possible de créer un tableau de références, elles seraient qui qu'il en soit, toujours associées au même élément.
 
 
 	Vecteur constant de valeurs
 	
-	|  0  |  1  |  2  |  3  |  4  |  5  |
-	|:---:|:---:|:---:|:---:|:---:|:---:|
-	|  6  |   2 |  9  |  7  |  1  |  3  |
-	| 0x00| 0x04| 0x08| 0x0B| 0x0F| 0x14|
+	|Indice|  0  |  1  |  2  |  3  |  4  |  5  |
+	|:----:|:---:|:---:|:---:|:---:|:---:|:---:|
+	| val  |  6  |   2 |  9  |  7  |  1  |  3  |
+	| adr  | 0x00| 0x04| 0x08| 0x0B| 0x0F| 0x14|
 	
 	Vecteur de pointeurs
 	
-	|  0  |  1  |  2  |  3  |  4  |  5  |
-	|:---:|:---:|:---:|:---:|:---:|:---:|
-	| 0x0F| 0x04| 0x14| 0x00| 0x0B| 0x08|
+	|Indice|  0  |  1  |  2  |  3  |  4  |  5  |
+	|:----:|:---:|:---:|:---:|:---:|:---:|:---:|
+	| val  | 0x0F| 0x04| 0x14| 0x00| 0x0B| 0x08|
 
 </details>
 
