@@ -135,20 +135,23 @@ istream& operator>> (istream& is, HeureMinute& h) {
 
 </details>
 
-Pourrions-nous *simplifier* l'algorithme des opérateurs < et == ?
+🤔Pourrions-nous *simplifier* l'algorithme des opérateurs < et == ?
 
 <details>
 <summary>Solution</summary>
 
-En profitant de la comparaison lexicographique des tableaux 👍
+En profitant de la comparaison lexicographique des structures comme 
+*vector*, *array*, *pair*, etc ... 👍
+
+Choisir toutefois la structure la plus économe en mémoire (compléxité spatiale).
 
 ~~~cpp
 bool operator< (const HeureMinute& lhs, const HeureMinute& rhs) {
-   return array{lhs.heure, lhs.minute} < array{rhs.heure, rhs.minute};
+   return pair{lhs.heure, lhs.minute} < pair{rhs.heure, rhs.minute};
 }
 
 bool operator==(const HeureMinute& lhs, const HeureMinute& rhs) {
-   return array{lhs.heure, lhs.minute} == array{rhs.heure, rhs.minute};
+   return pair{lhs.heure, lhs.minute} == pair{rhs.heure, rhs.minute};
 }
 ~~~
 
