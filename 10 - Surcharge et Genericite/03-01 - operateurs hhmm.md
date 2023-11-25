@@ -37,8 +37,8 @@ cout << hm1 << " +  " << 44  << "    : " << (hm1 +  44 ) << endl;
 cout << 44  << "    +  " << hm1 << " : " << (44  +  hm1) << endl;
 
 cout << endl;
-HeureMinute hm3 = saisie("heure : ");
-cout << "saisie: " << hm3 << endl;
+HeureMinute hm3 = saisie("heure [hh:mm] : ");
+cout << "votre saisie  : " << hm3 << endl;
 ~~~
 
 Ecrire le code nécessaire afin que le code produise ceci.
@@ -54,9 +54,9 @@ Ecrire le code nécessaire afin que le code produise ceci.
 12:34 +  44    : 13:18
 44    +  12:34 : 13:18
 
-heure : 12 34
-heure : 12:34
-saisie: 12:34
+heure [hh:mm] : 12 34
+heure [hh:mm] : 12:34
+votre saisie  : 12:34
 
 ~~~
 
@@ -86,6 +86,7 @@ bool operator==(const HeureMinute& lhs, const HeureMinute& rhs) {
    return lhs.heure   == rhs.heure
       and lhs.minute  == rhs.minute;
 }
+
 bool operator!=(const HeureMinute& lhs, const HeureMinute& rhs) {
    return !(lhs == rhs);
 }
@@ -105,15 +106,15 @@ HeureMinute operator+ (int8_t minute, const HeureMinute& rhs) {
 }
 
 ostream& operator<< (ostream& os, const HeureMinute& h) {
-   return os << +h.heure << ":" << +h.minute;
+   return os << (int)h.heure << ":" << (int)h.minute;
 }
 
 istream& operator>> (istream& is, HeureMinute& h) {
-   char c;
    int  valeur; // sinon lecture d'un char avec int8_t
    is >> valeur;
    h.heure = valeur;
 
+   char c;
    is >> c;
    if (c != ':') {
       is.setstate(ios::failbit);
@@ -129,4 +130,26 @@ istream& operator>> (istream& is, HeureMinute& h) {
    return is;
 }
 ~~~
+
+------------------------------------------------------------
+
+</details>
+
+Pourrions-nous "simplifier" l'algorithme des opérateurs "<" et "==" ?
+
+<details>
+<summary>Solution</summary>
+
+En profitant de la comparaison lexicographique des tableaux.
+
+~~~cpp
+bool operator< (const HeureMinute& lhs, const HeureMinute& rhs) {
+   return array{lhs.heure, lhs.minute} < array{rhs.heure, rhs.minute};
+}
+
+bool operator==(const HeureMinute& lhs, const HeureMinute& rhs) {
+   return array{lhs.heure, lhs.minute} == array{rhs.heure, rhs.minute};
+}
+~~~
+
 </details>
