@@ -1,4 +1,4 @@
-# Operateurs sur hh:mm
+# Operateurs sur hh:mm 🕔
 
 Soient la déclaration et le code suivant
 
@@ -140,7 +140,7 @@ Pourrions-nous *simplifier* l'algorithme des opérateurs < et == ?
 <details>
 <summary>Solution</summary>
 
-En profitant de la comparaison lexicographique des tableaux.
+En profitant de la comparaison lexicographique des tableaux 👍
 
 ~~~cpp
 bool operator< (const HeureMinute& lhs, const HeureMinute& rhs) {
