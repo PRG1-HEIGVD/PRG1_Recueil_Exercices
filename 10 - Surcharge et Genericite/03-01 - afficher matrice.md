@@ -1,6 +1,6 @@
 # Afficher matrice
 
-Soient les déclarations génériques
+Soient les déclarations génériques.
 
 ~~~cpp
 template <typename T>
@@ -14,9 +14,10 @@ Matrice<int> m {{0},
                 {3, 4, 5},
                 {6, 7, 8, 9}};
 
+cout << m;
 ~~~
 
-Ecrire le code nécessaire afin que l'instruction `cout << m;` produise ceci.
+Ecrire le code nécessaire afin que le code produise ceci.
 
 ~~~
 [[0], [1, 2], [3, 4, 5], [6, 7, 8, 9]]
