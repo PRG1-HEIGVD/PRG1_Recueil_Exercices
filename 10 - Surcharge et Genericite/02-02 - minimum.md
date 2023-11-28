@@ -17,11 +17,11 @@ double f = 9.0;
 
 cout << min(a, b, c);
 min(a, b, c) = 1;
-int& d = min(a, b, c);
+int& min_abc = min(a, b, c);
 
 cout << min(d, e, f);
 min(d, e, f) = 1;
-double& d = min(d, e, f);
+double& min_def = min(d, e, f);
 ~~~
 
 <details>
