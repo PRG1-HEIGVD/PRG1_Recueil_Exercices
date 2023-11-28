@@ -113,8 +113,8 @@ fct(f, i);
 <details>
 <summary>Solution</summary>
 
-- `float` {3   } : type exact
-- `int`   {3, 4} : type exact
+- `float` {3} : type exact
+- `int`   {3} : type exact
 - intersection {3} => **Fonction no 3**
 
 </details>
