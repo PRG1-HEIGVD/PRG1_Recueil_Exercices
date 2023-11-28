@@ -61,7 +61,7 @@ fct(i, f);
 <details>
 <summary>Solution</summary>
 
-- `int`   {1, 2, 4} : 4 par conversion
+- `int`   {1, 2   } : type exact
 - `float` {1      } : type exact
 - intersection {1} => **Fonction no 1**
 
