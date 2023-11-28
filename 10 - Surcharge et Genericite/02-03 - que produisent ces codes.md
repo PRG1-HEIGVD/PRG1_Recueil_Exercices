@@ -112,11 +112,11 @@ int main() {
 `3 / 3.5`
 
 - l'appel `somme(a, b)` utilise `int` pour `T1` et `float` pour `T2`
-	- la somme se fait en double (`int` converti en `double` et `float` promu en `double`)
-	- le résultat `3.5` est casté en `T1` => `3`
+	- la somme se fait en int (`int` comme reçu et `float` casté en  `int`)
+	- le résultat `3` est transmis en valeur de retour
 - l'appel `somme(b, a)` utilise `float ` pour `T1` et `int` pour `T2`
 	- la somme se fait en double (`float` promu en `double` et `int` converti en `double`)
-	- le résultat `3.5` est casté en `T1` => `3.5f`
+	- le résultat `3.5` est casté (conversion dégradante) en `T1` => `3.5f`
 
 ------------------------------------------------
 </details>
