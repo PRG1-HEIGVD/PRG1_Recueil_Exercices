@@ -63,10 +63,7 @@ public:
     double getX() const;
     double getY() const;
     void deplacer(double dx, double dy);
-    void afficher() const;
-    Point operator+(const Point& rhs) const;
-    Point operator+(double rhs) const;
-    bool operator== (const Point & rhs) const;
+    void afficher() const;    
 private:
     double x, y;
 };
@@ -74,7 +71,10 @@ private:
 // -----------------------------------------------------------------
 pair<double, double> analyserPoint(const Point& p);
 ostream& operator<<(ostream& cout, const Point& p);
+Point operator+(const Point& lhs, const Point& rhs);
+Point operator+(const Point& lhs, double rhs);
 Point operator+(double rhs, const Point& lhs);
+bool operator== (const Point& lhs, const Point& rhs);
 
 // -----------------------------------------------------------------
 
@@ -132,18 +132,6 @@ void Point::afficher() const {
     cout << "(" << x << "," << y << ")" << endl;
 }
 
-Point Point::operator+(const Point& rhs) const {
-    return Point(this->x + rhs.x, this->y + rhs.y);
-}
-
-Point Point::operator+(double rhs) const {
-    return Point(this->x + rhs, this->y + rhs);
-}
-
-bool Point::operator== (const Point & rhs) const {
-    return this->x == rhs.x && this->y == rhs.y;
-}
-
 // -----------------------------------------------------------------
 pair<double, double> analyserPoint(const Point& p){
     return {p.getX(), p.getY()};
@@ -159,6 +147,17 @@ Point operator+(double rhs, const Point& lhs){
     return lhs + rhs;
 }
 
+Point operator+(const Point& lhs, const Point& rhs) {
+    return Point(lhs.getX() + rhs.getX(), lhs.getY() + rhs.getY());
+}
+
+Point operator+(const Point& lhs, double rhs) {
+    return Point(lhs.getX() + rhs, lhs.getY() + rhs);
+}
+
+bool operator==(const Point& lhs, const Point & rhs) {
+    return lhs.getX() == rhs.getX() && lhs.getY() == rhs.getY();
+}
 
 // -----------------------------------------------------------------
 ~~~
