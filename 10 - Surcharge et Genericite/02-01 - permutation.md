@@ -40,7 +40,7 @@ template<typename T>
 void permutationCirculaireDroite(T& x,
                                  T& y,
                                  T& z) {
-   double tmp = z;
+   T tmp = z;
    z = y;
    y = x;
    x = tmp;
