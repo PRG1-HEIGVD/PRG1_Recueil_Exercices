@@ -143,7 +143,7 @@ int main() {
 <details>
 <summary>Solution</summary>
 
-`2 / 3.5`
+`3 / 3.5`
 
 Il y a surcharge de la fonction *somme(..)* générique
 
@@ -152,7 +152,7 @@ Il y a surcharge de la fonction *somme(..)* générique
 
 <br>
 
-- l'appel `somme(a, a)` avec (`int`, `int`) va appeler `T somme(T a, T b)` et retourner 2
+- l'appel `somme(a, a)` avec (`int`, `int`) va appeler `T somme(T a, T b)` et retourner 3
 - l'appel `somme(b, a)` avec (`float`, `int`) va appeler `T1 somme(T1 a, T2 b)` et retourner 3.5
 
 ------------------------------------------------
