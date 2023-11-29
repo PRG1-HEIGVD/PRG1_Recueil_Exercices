@@ -65,7 +65,6 @@ bool operator== (const Point& lhs, const Point& rhs);
 
 ~~~cpp
 #include <iostream>
-#include <cstdlib>
 #include <utility>
 #include <iomanip>
 
