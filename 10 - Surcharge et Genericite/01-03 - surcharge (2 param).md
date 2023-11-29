@@ -37,10 +37,10 @@ fct(i, c);
 <details>
 <summary>Solution</summary>
 
-- $\left\{1, 2, 4\right\}$ sont appelables. 3 ne l'est pas : pas de conversion de `int` vers `float&` ni de `char` vers `int&`. 
-- `i` de type `int` => $P_{1} = \left\{1, 2\right\}$ par type exact. 4 requiert une conversion `int` vers `float`.
-- `c` de type `char` => $P_{2} = \left\{4\right\}$ par promotion numérique. 1, 2 requièrent une conversion de type. 
-- $P_1 \cap P_2 = \left\{\right\}$ => **ambiguité**
+- $\left\\{1, 2, 4\right\\}$ sont appelables. 3 ne l'est pas : pas de conversion de `int` vers `float&` ni de `char` vers `int&`. 
+- `i` de type `int` => $P_{1} = \left\\{1, 2\right\\}$ par type exact. 4 requiert une conversion `int` vers `float`.
+- `c` de type `char` => $P_{2} = \left\\{4\right\\}$ par promotion numérique. 1, 2 requièrent une conversion de type. 
+- $P_1 \cap P_2 = \left\\{\right\\}$ => **ambiguité**
 
 </details>
 
