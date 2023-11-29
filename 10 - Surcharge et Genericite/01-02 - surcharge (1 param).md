@@ -108,10 +108,7 @@ f(r *= 2.l);
 <details>
 <summary>Solution</summary>
 
-La multiplication d'un `float` par un `long double` n'est pas directement possible.<br>Un ajustemnet de type est nécessaire `float` => `long double`
-
-L'opérateur `*=` retourne une référence à la variable.<br>
-La seule fonction possible est la 6, au prix d'une conversion dégradante `long double` => `float`
+L'opérateur `*=` prend uniquement un float en paramètre. Le `long double` `2.l` est donc converti en `float`. L'opérateur `*=` retourne une référence à la variable `r`. La fonction 6 est appelée, `r` étant une `float&`. 
 
 - `Fonction no 6`
 
