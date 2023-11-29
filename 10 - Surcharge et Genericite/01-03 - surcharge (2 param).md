@@ -157,8 +157,8 @@ fct(i, d);
 
 1. $S = \left\\{1, 2, 4\right\\}$ 
 2. Paramètres
-	- $P_{1} = \left\\{1, 2\right\\}$ 
-    - $P_{2} = \left\\{2\right\\}$
+	- $P_{1} = \left\\{1, 2\right\\}$ par type exact
+    - $P_{2} = \left\\{2\right\\}$ par type exact
 3. $P_{1} \cap P_{2} = \left\\{2\right\\}$
 4. **Fonction no 2**
 
@@ -172,9 +172,12 @@ fct(f, i);
 <details>
 <summary>Solution</summary>
 
-- `float` {3} : type exact
-- `int`   {3} : type exact
-- intersection {3} => **Fonction no 3**
+1. $S = \left\\{1, 2, 3, 4\right\\}$
+2. Paramètres
+	- $P_{1} = \left\\{3\right\\}$ par type exact, 4 requiert une conversion simple -> `const`, 1 et 2 requièrent une conversion de type
+	- $P_{2} = \left\\{3\right\\}$ par type exact
+3. $P_{1} \cap P_{2} = \left\\{3\right\\}$
+4. **Fonction no 3**
 
 </details>
 
@@ -185,9 +188,12 @@ fct(2.0, i);
 <details>
 <summary>Solution</summary>
 
-- `const double` {1, 2,    4} : tous par conversion
-- `int`          {      3, 4} : type exact
-- intersection {4} => **Fonction no 4**
+1. $S = \left\\{1, 2, 4\right\\}$
+2. Paramètres
+	- $P_{1} = \left\\{1, 2, 4\right\\}$ par conversion de type
+	- $P_{2} = \left\\{4\right\\}$ par type conversion simple `int` vers `const int`
+3. $P_{1} \cap P_{2} = \left\\{4\right\\}$
+4. **Fonction no 4**
 
 </details>
 
@@ -198,9 +204,12 @@ fct(2, c);
 <details>
 <summary>Solution</summary>
 
-- `const int` {1, 2, 4} : 1 et 2 type exact, 4 par conversion
-- `char`      {1, 2, 4} : 1 et 2 promotion, 4 par conversion
-- intersection {1, 2, 4} => **ambiguité**
+1. $S = \left\\{1, 2, 4\right\\}$
+2. Paramètres
+	- $P_{1} = \left\\{1, 2\right\\}$ par type exact
+	- $P_{2} = \left\\{4\right\\}$ par promotion numérique
+3. $P_{1} \cap P_{2} = \emptyset$
+4. **ambiguité**
 
 </details>
 
@@ -211,9 +220,12 @@ fct(c, 2);
 <details>
 <summary>Solution</summary>
 
-- `char`       {1, 2, 4} : 1 et 2 par promotion, 4 par conversion
-- `const int`  {1, 2, 4} : 1 et 2 par conversion, 4 type exact
-- intersection {1, 2, 4} => **ambiguité**
+1. $S = \left\\{1, 2, 4\right\\}$
+2. Paramètres
+	- $P_{1} = \left\\{1, 2\right\\}$ par promotion numérique
+	- $P_{2} = \left\\{4\right\\}$ par type exact
+3. $P_{1} \cap P_{2} = \emptyset$
+4. **ambiguité**
 
 </details>
 
