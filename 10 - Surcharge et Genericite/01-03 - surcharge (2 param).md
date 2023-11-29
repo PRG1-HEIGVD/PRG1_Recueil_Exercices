@@ -254,7 +254,7 @@ fct(f, rdC);
 
 1. $S = \left\\{1, 2, 4\right\\}$, 3 sans conversion de `const double&` vers `int&`
 2. Paramètres
-	- $P_{1} = \left\\{3\right\\}$ par conversion simple `float` vers `const float`
+	- $P_{1} = \left\\{4\right\\}$ par conversion simple `float` vers `const float`
 	- $P_{2} = \left\\{2\right\\}$ par type exact 
 3. $P_{1} \cap P_{2} = \emptyset$
 4. **ambiguité**
