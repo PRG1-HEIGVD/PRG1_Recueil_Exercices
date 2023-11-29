@@ -37,7 +37,7 @@ fct(i, c);
 <details>
 <summary>Solution</summary>
 
-1. Fonction appelables : $S = \left\\{1, 2, 4\right\\}$. 
+1. $S = \left\\{1, 2, 4\right\\}$ sont appelables. 
    - Pour 3, pas de conversion de `int` vers `float&` ni de `char` vers `int&`. 
 2. Paramètres 
    - $P_{1} = \left\\{1, 2\right\\}$
@@ -48,7 +48,7 @@ fct(i, c);
      - `c` de type `char`
      - 4 par promotion numérique
      - 1, 2 par conversion de type. 
-3. Intersection : $P_{1} \cap P_{2} = \emptyset$ 
+3. $P_{1} \cap P_{2} = \emptyset$ 
 4. **ambiguité**
 
 </details>
@@ -60,7 +60,7 @@ fct(2.0, 1);
 <details>
 <summary>Solution</summary>
 
-1. Fonction appelables : $S = \left\\{1, 2, 4\right\\}$.
+1. $S = \left\\{1, 2, 4\right\\}$ sont appelables.
 	- Pour 3, pas de conversion de `const double` vers `float&` ni de `const int` vers `int&`.
 2. Paramètres 
 	- $P_{1} = \left\\{1, 2, 4\right\\}$
@@ -71,7 +71,7 @@ fct(2.0, 1);
 		- `1` de type `const int`
 		- 4 par type exact
 		- 1, 2 par conversion de type.
-3. Intersection : $P_{1} \cap P_{2} = \left\\{4\right\\}$ 
+3. $P_{1} \cap P_{2} = \left\\{4\right\\}$ 
 4. **Fonction no 4**
 
 </details>
@@ -83,7 +83,7 @@ fct(i, f);
 <details>
 <summary>Solution</summary>
 
-1. Fonction appelables : $S = \left\\{1, 2, 4\right\\}$.
+1. $S = \left\\{1, 2, 4\right\\}$ sont appelables
 	- Pour 3, pas de conversion de `int` vers `float&` ni de `float` vers `int&`.
 2. Paramètres 
 	- $P_{1} = \left\\{1, 2\right\\}$
@@ -95,7 +95,7 @@ fct(i, f);
 		- 1 par type exact
 		- 2 par promotion `float` vers `double`
         - 4 par conversion `float` vers `int`
-3. Intersection : $P_{1} \cap P_{2} = \left\\{1\right\\}$
+3. $P_{1} \cap P_{2} = \left\\{1\right\\}$
 4. **Fonction no 1**
 
 </details>
@@ -107,9 +107,20 @@ fct(ri, f);
 <details>
 <summary>Solution</summary>
 
-- `int&` 	{1, 2} : par copie
-- `float` {1   } : type exact
-- intersection {1} => **Fonction no 1**
+1. $S = \left\\{1, 2, 4\right\\}$ sont appelables.
+	- Pour 3, pas de conversion de `int&` vers `float&` ni de `float` vers `int&`.
+2. Paramètres
+	- $P_{1} = \left\\{1, 2\right\\}$
+		- `i` de type `int&`
+		- 1 et 2 par type exact et copie par valeur
+		- 4 par conversion `int` vers `float`.
+	- $P_{2} = \left\\{1\right\\}$
+		- `1` de type `float`
+		- 1 par type exact
+		- 2 par promotion `float` vers `double`
+		- 4 par conversion `float` vers `int`
+3. $P_{1} \cap P_{2} = \left\\{1\right\\}$
+4. **Fonction no 1**
 
 </details>
 
@@ -120,9 +131,20 @@ fct(f, 1);
 <details>
 <summary>Solution</summary>
 
-- `float`     {3, 4} : type exact
-- `const int` {   4} : type exact
-- intersection {4} => **Fonction no 4**
+
+1. $S = \left\\{1, 2, 4\right\\}$ sont appelables.
+	- Pour 3, pas de conversion de `const int` vers `int&`.
+2. Paramètres
+	- $P_{1} = \left\\{4\right\\}$
+		- `i` de type `float&`
+		- 4 par conversion simple `float&` vers `const float&`.
+		- 1 et 2 par conversion de type `float` vers `int` 
+	- $P_{2} = \left\\{4\right\\}$
+		- `1` de type `const int`
+		- 4 par type exact
+		- 1 et 2 par conversion de type `const int` vers `float` et `double` resp.
+3. $P_{1} \cap P_{2} = \left\\{4\right\\}$
+4. **Fonction no 4**
 
 </details>
 
