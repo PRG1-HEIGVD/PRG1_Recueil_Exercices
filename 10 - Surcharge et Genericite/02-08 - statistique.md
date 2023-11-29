@@ -13,7 +13,7 @@ const Matrice notes {{4.0, 5.0, 6.0},  // Jean
                      {4.5, 4.5, 4.6}}; // Ali
 ~~~
 
-Ecrire le code générique nécessaire afin de créer un vecteur contenant la somme de note de chacun ou la moyenne de chacun.
+Ecrire le code générique nécessaire afin de créer un vecteur contenant la somme des notes de chacun ou la moyenne de chacun.
 
 ~~~
 somme   : [15.0, 14.0, 7.6, 13.6]
