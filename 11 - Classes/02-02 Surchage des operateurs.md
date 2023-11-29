@@ -58,36 +58,49 @@ class MonEntier {
    int x;
 public:
     MonEntier(int x = 0) : x(x) {}
+
+    int getX() const {
+        return x;
+    }
+
+    int setX() const {
+        return x;
+    }
+    
     MonEntier& operator+=(const MonEntier& rhs) {
         x += rhs.x;
         return *this;
     }
-    MonEntier operator+(const MonEntier& rhs) const {
-        MonEntier temp(*this);
-        temp += rhs;
-        return temp;
-    }
+
     MonEntier& operator++() {
         ++x;
         return *this;
     }
+
     MonEntier operator++(int) {
         MonEntier temp(*this);
         ++x;
         return temp;
     }
-    bool operator==(const MonEntier& rhs) const {
-        return x == rhs.x;
-    }
-    bool operator!=(const MonEntier& rhs) const {
-        return !(*this == rhs);
-    }
-    friend ostream& operator<<(ostream& os, const MonEntier& rhs) {
-        return os << "n = " << rhs.x;
-    }
+
 };
 
+MonEntier operator+(MonEntier lhs, const MonEntier& rhs) {
+   lhs += rhs;
+   return lhs;
+}
 
+bool operator==(const MonEntier& lhs, const MonEntier& rhs) {
+   return lhs.getX() == rhs.getX();
+}
+
+bool operator!=(const MonEntier& lhs, const MonEntier& rhs) {
+   return !(lhs == rhs);
+}
+
+ostream& operator<<(ostream& os, const MonEntier& rhs) {
+   return os << "n = " << rhs.getX();
+}
 
 int main() {
    MonEntier m0, m1(1), m2 = 5;
