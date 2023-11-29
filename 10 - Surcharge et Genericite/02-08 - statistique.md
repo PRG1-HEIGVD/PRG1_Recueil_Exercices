@@ -55,7 +55,6 @@ T somme(span<const T> v) {
 }
 
 template <typename T>
-//T moyenne(const vector<T>& v) {
 T moyenne(span<const T> v) {
    if (v.empty())
       return T();
