@@ -155,9 +155,13 @@ fct(i, d);
 <details>
 <summary>Solution</summary>
 
-- `int`    {1, 2, 4} : 4 par conversion
-- `double` {   2   } : type exact
-- intersection {2} => **Fonction no 2**
+1. $S = \left\\{1, 2, 4\right\\}$ 
+2. Paramètres
+	- $P_{1} = \left\\{1, 2\right\\}$ 
+    - $P_{2} = \left\\{2\right\\}$
+3. $P_{1} \cap P_{2} = \left\\{2\right\\}$
+4. **Fonction no 2**
+
 
 </details>
 
