@@ -25,6 +25,9 @@ p1 == p3
 <summary>Point.h</summary>
 
 ~~~cpp
+#ifndef POINT_H
+#define POINT_H
+
 #include <iostream>
 #include <utility>
 
@@ -52,6 +55,7 @@ Point operator+(double rhs, const Point& lhs);
 bool operator== (const Point& lhs, const Point& rhs);
 
 // -----------------------------------------------------------------
+#endif /* POINT_H */
 ~~~
 
 </details>
