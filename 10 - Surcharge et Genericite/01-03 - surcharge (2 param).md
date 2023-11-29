@@ -19,12 +19,14 @@ const double& rdC = d;
 
 **Méthode**<br>
 
-1. établir la liste des fonctions possibles pour chacun des paramètres
+1. établir la liste des fonctions appelables 
+2. Parmi ces fonctions appelables, pour chacun des paramètres, établir celles qui sont appelables le plus simplement, i.e. 
 	1. par type exact
-	2. sinon par promotion
-	3. sinon par conversion
-2. choisir la fonction correspondante à la seule intersection
-3. s'il en reste plusieurs, il y a ambiguité
+    2. sinon par conversion simple (ajout d'un `const`) 
+	3. sinon par promotion numérique
+	4. sinon par conversion de type 
+3. Faire l'intersection des ensembles sélectionnés par chaque paramètre
+4. Si cet ensemble compte une seule fonction, elle est appelée. S'il en compte plusieurs ou aucune, il y a ambiguité
 
 <br>
 
@@ -35,9 +37,10 @@ fct(i, c);
 <details>
 <summary>Solution</summary>
 
-- `int`   {1, 2, 4} : 4 par conversion
-- `char` 	{1, 2, 4} : 1, 2 par conversion, 4 par promotion
-- intersection {1, 2, 4} => **ambiguité**
+- $\{1, 2, 4\}$ sont appelables. 3 ne l'est pas : pas de conversion de `int` vers `float&` ni de `char` vers `int&`. 
+- `i` de type `int` => $P_1 = \{1, 2\}$ par type exact. 4 requiert une conversion `int` vers `float`.
+- `c` de type `char` => $P_2 = \{4\}$ par promotion numérique. 1, 2 requièrent une conversion de type. 
+- $P_1 \cap P_2 = \{\}$ => **ambiguité**
 
 </details>
 
