@@ -236,9 +236,12 @@ fct(rdC, i);
 <details>
 <summary>Solution</summary>
 
-- `const double&` {1, 2,    4} : tous par conversion
-- `int`           {      3, 4} : type exact
-- intersection {4} => **Fonction no 4**
+1. $S = \left\\{1, 2, 4\right\\}$
+2. Paramètres
+	- $P_{1} = \left\\{1, 2, 4\right\\}$ par conversion de type
+	- $P_{2} = \left\\{4\right\\}$ par conversion simple `int` vers `const int`
+3. $P_{1} \cap P_{2} = \left\\{4\right\\}$
+4. **Fonction no 4**
 
 </details>
 
@@ -249,9 +252,12 @@ fct(f, rdC);
 <details>
 <summary>Solution</summary>
 
-- `float`         {1, 2, 3, 4} : 1 et 2 par conversion, 3 et 4 type exact
-- `const double&` {   2,    4} : tous par conversion
-- intersection {2, 4} => **ambiguité**
+1. $S = \left\\{1, 2, 4\right\\}$, 3 sans conversion de `const double&` vers `int&`
+2. Paramètres
+	- $P_{1} = \left\\{3\right\\}$ par conversion simple `float` vers `const float`
+	- $P_{2} = \left\\{2\right\\}$ par type exact 
+3. $P_{1} \cap P_{2} = \emptyset$
+4. **ambiguité**
 
 </details>
 
@@ -262,9 +268,12 @@ fct('a', rdC);
 <details>
 <summary>Solution</summary>
 
-- `const char`    {1, 2,    4} : 4 par conversion
-- `const double&` {   2      } : type exact
-- intersection {2} => **Fonction no 2**
+1. $S = \left\\{1, 2, 4\right\\}$
+2. Paramètres
+	- $P_{1} = \left\\{1, 2\right\\}$ par promotion numérique 
+	- $P_{2} = \left\\{2\right\\}$ par type exact 
+3. $P_{1} \cap P_{2} = \left\\{2\right\\}$
+4. **Fonction no 2**
 
 </details>
 
@@ -275,9 +284,12 @@ fct(2.0, 'a');
 <details>
 <summary>Solution</summary>
 
-- `const double` {1, 2,    4} : tous par conversion
-- `const char`   {         4} : 4 par promotion
-- intersection {4} => **Fonction no 4**
+1. $S = \left\\{1, 2, 4\right\\}$
+2. Paramètres
+	- $P_{1} = \left\\{1, 2, 4\right\\}$ par conversion de type
+	- $P_{2} = \left\\{4\right\\}$ par promotion numérique
+3. $P_{1} \cap P_{2} = \left\\{4\right\\}$
+4. **Fonction no 4**
 
 </details>
 
@@ -288,9 +300,12 @@ fct('a', 2L);
 <details>
 <summary>Solution</summary>
 
-- `const char`   {1, 2      } : 1, 2 par promotion
-- `const long`   {1, 2,    4} : tous par conversion
-- intersection {1, 2} => **ambiguité**
+1. $S = \left\\{1, 2, 4\right\\}$
+2. Paramètres
+	- $P_{1} = \left\\{1, 2\right\\}$ par promotion numérique
+	- $P_{2} = \left\\{1, 2, 4\right\\}$ par conversion 
+3. $P_{1} \cap P_{2} = \left\\{1, 2\right\\}$
+4.  **ambiguité**
 
 </details>
 
@@ -301,8 +316,11 @@ fct('a', 2.0L);
 <details>
 <summary>Solution</summary>
 
-- `const char`        {1, 2      } : par promotion
-- `const long double` {1, 2,    4} : tous par conversion
-- intersection {1, 2} => **ambiguité**
+1. $S = \left\\{1, 2, 4\right\\}$
+2. Paramètres
+	- $P_{1} = \left\\{1, 2\right\\}$ par promotion numérique `char` -> `int`
+	- $P_{2} = \left\\{1, 2, 4\right\\}$ par conversion `long double` vers ...
+3. $P_{1} \cap P_{2} = \left\\{1, 2\right\\}$
+4.  **ambiguité**
 
 </details>
