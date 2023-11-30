@@ -165,6 +165,16 @@ int main() {
 Avec une seule version des fonctions `afficher`, `indice_min` et `tri_par_selection`, 
 mais qui appellent des fonctions `afficher_element` et `comparer` surchargées. 
 
+Dans cette version, on évite aussi de devoir spécifier l'argument générique lors des 
+appels à `afficher`, `indice_min` et `tri_par_selection` en leur passant explicitement
+des `std::span` plutôt que des `std::vector`, ce qui permet à la déduction d'arguments 
+génériques de fonctionner. 
+
+Enfin, on n'utilise toujours `span<T>` comme type de paramètre plutôt que `span<const T>`
+qui est inutilement complexe. `span<T>` est appelable par `span<const int>` avec 
+déduction de `T = const int`. Il n'est pas nécessaire et plus simple de ne pas écrire le 
+`const` dans ce cas. 
+
 ~~~cpp
 #include <iostream>
 #include <string>
@@ -173,16 +183,11 @@ mais qui appellent des fonctions `afficher_element` et `comparer` surchargées.
 
 using namespace std;
 
-template <typename T> void afficher_element(T t) { cout << t; }
-template <typename T> void afficher_element(T* t) { cout << *t; }
-
-// Note : les fonctions génériques qui prennent un span en paramètre
-// ne peuvent pas être appelées avec un argument de type vector ou
-// array en utilisant la déduction d'argument. T doit être spécifié
-// explicitement pour pouvoir utiliser la conversion de vector -> span
+template <typename T> void afficher_element(T const& t) { cout << t; }
+template <typename T> void afficher_element(const T *t) { cout << *t; }
 
 template <typename T>
-void afficher_span(span<const T> v) {
+void afficher_span(span<T> v) {
    cout << "[";
    for (size_t i=0; i<v.size(); ++i) {
       if (i) cout << ", ";
@@ -195,7 +200,7 @@ template <typename T> bool comparer(const T& a, const T& b) { return a < b; }
 template <typename T> bool comparer(const T *a, const T *b) { return *a < *b; }
 
 template <typename T>
-size_t indice_min(span<const T> v) {
+size_t indice_min(span<T> v) {
    size_t iMin = 0;
    for (size_t i=1; i<v.size(); ++i)
       if (comparer(v[i],v[iMin]))
@@ -206,13 +211,13 @@ size_t indice_min(span<const T> v) {
 template <typename T>
 void tri_par_selection(span<T> v) {
    for (size_t i = 0; i < v.size()-1 ; ++i) {
-      size_t imin = i + indice_min<T>(v.subspan(i));
+      size_t imin = i + indice_min(v.subspan(i));
       swap(v[i], v[imin]);
    }
 }
 
 template <typename T>
-vector<const T*> tab_to_vectPtr(span<const T> v) {
+vector<const T*> vecteur_de_const_pointeurs(span<T> v) {
    vector<const T*> vPtr;
    vPtr.reserve(v.size());
    for (const T& e : v) {
@@ -223,32 +228,30 @@ vector<const T*> tab_to_vectPtr(span<const T> v) {
 
 int main() {
    vector<int> v1{6, 2, 9, 7, 1, 3};
+   span s1(v1); 
+   afficher_span(s1);
+   cout << endl;
+   tri_par_selection(s1);
+   afficher_span(s1);
+   cout << endl << endl;
 
    const vector<int> vInt{6, 2, 9, 7, 1, 3};
+   auto vPtrInt = vecteur_de_const_pointeurs(span(vInt));
+   span sPtrInt(vPtrInt);
+   afficher_span(sPtrInt);
+   cout << endl;
+   tri_par_selection(sPtrInt);
+   afficher_span(sPtrInt);
+   cout << endl << endl;
+
    const vector<string> vStr{"chien"s, "chat"s, "souris"s, "poisson"s};
-
-   afficher_span<const int>(v1);
+   auto vPtrStr = vecteur_de_const_pointeurs(span(vStr));
+   span sPtrStr(vPtrStr);
+   afficher_span(sPtrStr);
    cout << endl;
-   tri_par_selection<int>(v1);
-   afficher_span<const int>(v1);
-   cout << endl;
-   cout << endl;
-
-   vector<const int*> vPtrInt = tab_to_vectPtr<const int>(vInt);
-   afficher_span<const int*>(vPtrInt);
-   cout << endl;
-   tri_par_selection<const int*>(vPtrInt);
-   afficher_span<const int*>(vPtrInt);
-   cout << endl;
-   cout << endl;
-
-   vector<const string*> vPtrStr = tab_to_vectPtr<const string>(vStr);
-   afficher_span<const string*>(vPtrStr);
-   cout << endl;
-   tri_par_selection<const string*>(vPtrStr);
-   afficher_span<const string*>(vPtrStr);
-   cout << endl;
-   cout << endl;
+   tri_par_selection(sPtrStr);
+   afficher_span(sPtrStr);
+   cout << endl << endl;
 }
 ~~~
 </details>
