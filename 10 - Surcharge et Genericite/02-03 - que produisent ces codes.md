@@ -135,7 +135,7 @@ T somme(T a, T b) {
 int main() {
    int   a = 1;
    float b = 2.5f;
-   cout << somme(a, a) << " / " << somme(b, a) << " / " << somme(a, b);
+   cout << somme(a, a) << " / " << somme(b, a) << " / " << somme(a, b) << " / " << somme(b,b);
    return 0;
 }
 ~~~
@@ -143,7 +143,7 @@ int main() {
 <details>
 <summary>Solution</summary>
 
-`3 / 3.5 / 3`
+`3 / 3.5 / 3 / 6`
 
 Il y a surcharge de la fonction *somme(..)* générique
 
@@ -152,9 +152,11 @@ Il y a surcharge de la fonction *somme(..)* générique
 
 <br>
 
-- l'appel `somme(a, a)` avec (`int`, `int`) va appeler `T somme(T a, T b)` et retourner `1+1+1 = 3`
-- l'appel `somme(b, a)` avec (`float`, `int`) va appeler `T1 somme(T1 a, T2 b)` instancié en `float somme(float, int)` et retourner `2.5f + 1 = 3.5f` en `float`
-- l'appel `somme(a, b)` avec (`int`,`float`) va appeler `T1 somme(T1 a, T2 b)` instancié en `int somme(int, float)`et retourner `1 + 2.5f = 3.5f` casté en `int`, soit `3`
+- l'appel `somme(a, a)` avec (`int`, `int`) va appeler `T somme(T a, T b)` instancié en `int somme(int, int)`et retourner `1 + 1 + 1 = 3`
+- l'appel `somme(b, a)` avec (`float`, `int`) va appeler `T1 somme(T1 a, T2 b)` instancié en `float somme(float, int)` et retourner `2.5f + (float)1 = 3.5f` en `float`
+- l'appel `somme(a, b)` avec (`int`,`float`) va appeler `T1 somme(T1 a, T2 b)` instancié en `int somme(int, float)`et retourner `(float)1 + 2.5f = 3.5f` casté en `int`, soit `3`
+- l'appel `somme(b, b)` avec (`float`, `float`) va appeler `T somme(T a, T b)` instancié en `float somme(float, float)` et retourner `2.5f + 2.5f + (float)1 = 6.f`
+
 
 ------------------------------------------------
 </details>
