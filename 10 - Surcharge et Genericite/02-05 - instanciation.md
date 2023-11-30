@@ -9,6 +9,14 @@ R fct(const T& t, const U& u) {
 }
 ~~~
 
+et les déclarations de variables suivantes 
+
+~~~cpp
+double d;
+float f;
+int i;
+~~~
+
 Indiquer si les instanciations, implicites ou explicites, sont correctes.<br>
 Si c’est le cas, préciser le type des arguments génériques R, T et U retenus.
 
@@ -55,11 +63,7 @@ fct(f, d);
 <details>
 <summary>Solution</summary>
 
-Incorrect
-
-- R : -
-- T : -
-- U : -
+Incorrect. R n'est pas déductible. 
 
 ------------------------------------------------
 </details>
@@ -71,11 +75,7 @@ fct<>(d, i);
 <details>
 <summary>Solution</summary>
 
-Incorrect
-
-- R : -
-- T : -
-- U : -
+Incorrect. R n'est pas déductible. 
 
 ------------------------------------------------
 </details>
