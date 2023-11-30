@@ -135,7 +135,10 @@ T somme(T a, T b) {
 int main() {
    int   a = 1;
    float b = 2.5f;
-   cout << somme(a, a) << " / " << somme(b, a) << " / " << somme(a, b) << " / " << somme(b,b);
+   cout << somme(a, a) << " / "
+        << somme(b, a) << " / "
+        << somme(a, b) << " / "
+        << somme(b, b);
    return 0;
 }
 ~~~
