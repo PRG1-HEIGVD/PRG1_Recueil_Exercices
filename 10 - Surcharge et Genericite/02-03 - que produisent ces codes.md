@@ -112,11 +112,11 @@ int main() {
 `3 / 3.5`
 
 - l'appel `somme(a, b)` utilise `int` pour `T1` et `float` pour `T2`
-	- la somme se fait en double (`int` converti en `double` et `float` promu en `double`)
-	- le résultat `3.5` est casté en `T1` => `3`
+	- la somme se fait en int (`int` comme reçu et `float` casté en  `int`)
+	- le résultat `3` est transmis en valeur de retour
 - l'appel `somme(b, a)` utilise `float ` pour `T1` et `int` pour `T2`
 	- la somme se fait en double (`float` promu en `double` et `int` converti en `double`)
-	- le résultat `3.5` est casté en `T1` => `3.5f`
+	- le résultat `3.5` est casté (conversion dégradante) en `T1` => `3.5f`
 
 ------------------------------------------------
 </details>
@@ -143,7 +143,7 @@ int main() {
 <details>
 <summary>Solution</summary>
 
-`2 / 3.5`
+`3 / 3.5`
 
 Il y a surcharge de la fonction *somme(..)* générique
 
@@ -152,7 +152,7 @@ Il y a surcharge de la fonction *somme(..)* générique
 
 <br>
 
-- l'appel `somme(a, a)` avec (`int`, `int`) va appeler `T somme(T a, T b)` et retourner 2
+- l'appel `somme(a, a)` avec (`int`, `int`) va appeler `T somme(T a, T b)` et retourner 3
 - l'appel `somme(b, a)` avec (`float`, `int`) va appeler `T1 somme(T1 a, T2 b)` et retourner 3.5
 
 ------------------------------------------------

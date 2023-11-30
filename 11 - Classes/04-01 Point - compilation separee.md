@@ -1,35 +1,13 @@
-# Point avec opérateurs
-Reprenez la classe Point de l'exercice 01-01 et faites les modifications / ajouts nécessaires afin que le code ci-dessous s'exécute correctement et affiche le résultat ci-après.
+# Point avec opérateur en compilation séparée
+Reprenez le code de l'exercice 02-01 et réorganisez-le en compilation séparée.
 
-~~~cpp
-#include <iostream>
-#include <cstdlib>
-#include <utility>
-#include <iomanip>
-
-using namespace std;
-
-int main() {
-
-    Point p1(1.2, 2.4);
-    Point p2(3., 4.2);
-
-    cout << "p1" << p1 << ", p2" << p2 << endl;
-    
-    cout << "p1 + p2 = " << p1 + p2 << endl;
-    cout << "p2 + p1 = " << p2 + p1 << endl;
-
-    cout << "p1 + 2. = " << p1 + 2. << endl;
-    cout << "2. + p1 = " << 2. + p1 << endl;
-
-    
-    cout << (p1 == p2 ? "p1 == p2" : "p1 != p2") << endl;
-    Point p3(p1);
-    cout << (p1 == p3 ? "p1 == p3" : "p1 != p3") << endl;
-
-    return EXIT_SUCCESS;
-}
+~~~text
+Point.h
+Point.cpp
+main.cpp
 ~~~
+
+Le résultat de l'exécution du programme ne doit pas changer.
 
 ~~~text
 p1(1.2,2.4), p2(3.0,4.2)
@@ -42,16 +20,16 @@ p1 == p3
 ~~~
 
 
+
 <details>
-<summary>Solution</summary>
+<summary>Point.h</summary>
 
 ~~~cpp
-#include <iostream>
-#include <cstdlib>
-#include <utility>
-#include <iomanip>
+#ifndef POINT_H
+#define POINT_H
 
-using namespace std;
+#include <iostream>
+#include <utility>
 
 class Point {
 public:
@@ -69,38 +47,31 @@ private:
 };
 
 // -----------------------------------------------------------------
-pair<double, double> analyserPoint(const Point& p);
-ostream& operator<<(ostream& cout, const Point& p);
+std::pair<double, double> analyserPoint(const Point& p);
+std::ostream& operator<<(std::ostream& cout, const Point& p);
 Point operator+(const Point& lhs, const Point& rhs);
 Point operator+(const Point& lhs, double rhs);
 Point operator+(double rhs, const Point& lhs);
 bool operator== (const Point& lhs, const Point& rhs);
 
 // -----------------------------------------------------------------
+#endif /* POINT_H */
+~~~
 
+</details>
 
-int main() {
+<details>
+<summary>Point.cpp</summary>
 
-    Point p1(1.2, 2.4);
-    Point p2(3., 4.2);
+~~~cpp
+#include <iostream>
+#include <utility>
+#include <iomanip>
 
-    cout << "p1" << p1 << ", p2" << p2 << endl;
-    
-    cout << "p1 + p2 = " << p1 + p2 << endl;
-    cout << "p2 + p1 = " << p2 + p1 << endl;
+#include "Point.h"
 
-    cout << "p1 + 2. = " << p1 + 2. << endl;
-    cout << "2. + p1 = " << 2. + p1 << endl;
+using namespace std;
 
-    
-    cout << (p1 == p2 ? "p1 == p2" : "p1 != p2") << endl;
-    Point p3(p1);
-    cout << (p1 == p3 ? "p1 == p3" : "p1 != p3") << endl;
-
-    return EXIT_SUCCESS;
-}
-
-// -----------------------------------------------------------------
 Point::Point() : Point(0., 0.) {}
 
 Point::Point(double x, double y) : x(x), y(y) {}
@@ -158,10 +129,40 @@ Point operator+(const Point& lhs, double rhs) {
 bool operator==(const Point& lhs, const Point & rhs) {
     return lhs.getX() == rhs.getX() && lhs.getY() == rhs.getY();
 }
-
-// -----------------------------------------------------------------
 ~~~
 
+</details>
 
+<details>
+<summary>main.cpp</summary>
+
+~~~cpp
+#include <iostream>
+
+#include "Point.h"
+
+using namespace std;
+
+int main() {
+
+    Point p1(1.2, 2.4);
+    Point p2(3., 4.2);
+
+    cout << "p1" << p1 << ", p2" << p2 << endl;
+    
+    cout << "p1 + p2 = " << p1 + p2 << endl;
+    cout << "p2 + p1 = " << p2 + p1 << endl;
+
+    cout << "p1 + 2. = " << p1 + 2. << endl;
+    cout << "2. + p1 = " << 2. + p1 << endl;
+
+    
+    cout << (p1 == p2 ? "p1 == p2" : "p1 != p2") << endl;
+    Point p3(p1);
+    cout << (p1 == p3 ? "p1 == p3" : "p1 != p3") << endl;
+
+    return EXIT_SUCCESS;
+}
+~~~
 
 </details>
