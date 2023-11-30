@@ -2,6 +2,7 @@
 
 
 ~~~cpp
+// no 1
 template
 T somme(T a, T b) {
     return (a + b);
@@ -23,6 +24,7 @@ Erreur de compilation, le `template` est incomplet.
 </details>
 
 ~~~cpp
+// no 2
 template <typename T>
 T somme(T a, T b) {
    return (a + b);
@@ -44,6 +46,7 @@ Erreur de compilation, la déduction de type n'est pas possible, les types sont 
 </details>
 
 ~~~cpp
+// no 3
 template <typename T>
 T somme(T a, T b) {
    return (a + b);
@@ -68,6 +71,7 @@ int main() {
 </details>
 
 ~~~cpp
+// no 4
 template <typename T>
 T somme(T a, T b) {
    return (a + b);
@@ -94,6 +98,7 @@ int main() {
 </details>
 
 ~~~cpp
+// no 5
 template <typename T1, typename T2>
 T1 somme(T1 a, T2 b) {
    return (a + (T1)b);
@@ -122,6 +127,7 @@ int main() {
 </details>
 
 ~~~cpp
+// no 6
 template <typename T1, typename T2>
 T1 somme(T1 a, T2 b) {
    return (a + b);

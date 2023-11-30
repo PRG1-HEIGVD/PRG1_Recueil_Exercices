@@ -5,6 +5,7 @@ Les fonctions proposées peuvent-elles être surcharges et utilisées correcteme
 <br>
 
 ~~~cpp
+// no 1
 void f(int)      { /* no 1 */ }
 void f(int, int) { /* no 2 */ }
 ~~~
@@ -23,6 +24,7 @@ void f(int, int) { /* no 2 */ }
 
 
 ~~~cpp
+// no 2
 void f(int)    { /* no 1 */ }
 void f(double) { /* no 2 */ }
 ~~~
@@ -40,6 +42,7 @@ void f(double) { /* no 2 */ }
 </details>
 
 ~~~cpp
+// no 3
 void f(int) { /* no 1 */ }
 int  f(int) { /* no 2 */ }
 ~~~
@@ -56,6 +59,7 @@ exemple `sin(x);`<br>
 </details>
 
 ~~~cpp
+// no 4
 void f(int i=0) { /* no 1 */ }
 void f(int    ) { /* no 2 */ }
 ~~~
@@ -73,6 +77,7 @@ Si le paramètre effectif renseigne le paramètre formel avec valeur pas défaut
 </details>
 
 ~~~cpp
+// no 5
 void f(int&) { /* no 1 */ }
 void f(int ) { /* no 2 */ }
 ~~~
@@ -95,8 +100,8 @@ f(i);    // ambiguité
 
 </details>
 
-
 ~~~cpp
+// no 6
 void f(const int&) { /* no 1 */ }
 void f(int )       { /* no 2 */ }
 ~~~
@@ -122,6 +127,7 @@ f(r);    // ambiguité
 </details>
 
 ~~~cpp
+// no 7
 void f(int ) { /* no 1 */ }
 void f(int*) { /* no 2 */ }
 ~~~
@@ -150,6 +156,7 @@ f(ptr2); // aucune fonction compatible
 </details>
 
 ~~~cpp
+// no 8
 void f(const int*) { /* no 1 */ }
 void f(      int*) { /* no 2 */ }
 ~~~

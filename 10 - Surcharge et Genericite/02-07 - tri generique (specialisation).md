@@ -31,7 +31,8 @@ Tout en étant capable de trier un **tableau non constant**, par exemple un *vec
 
 1. Un vecteur constant ne peut pas être modifié.<br>
 2. Copier un vecteur n'est pas une option du point de vue de l'utilisation de la mémoire.<br>
-3. Nous pouvons créer un **vecteur de pointeurs** sur les éléments du vecteur constant à trier.<br>Ce seront les pointeurs qui seront réorganisés pour voir les valeurs pointées de manière triée.<br>
+3. Nous pouvons créer un **vecteur de pointeurs** sur les éléments du vecteur constant à trier.<br>Ce seront les pointeurs qui seront réorganisés pour voir les valeurs pointées de manière triée.
+
 **NB** : Il n'est pas possible de créer un tableau de références, elles seraient quoi qu'il en soit, toujours associées au même élément. Un tableau d'itérateurs serait possible et même mieux, mais pas encore vu. 
 
 

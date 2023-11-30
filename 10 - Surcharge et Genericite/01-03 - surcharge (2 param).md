@@ -31,6 +31,7 @@ const double& rdC = d;
 <br>
 
 ~~~cpp
+// no 1
 fct(i, c);	
 ~~~
 
@@ -54,6 +55,7 @@ fct(i, c);
 </details>
 
 ~~~cpp
+// no 2
 fct(2.0, 1);
 ~~~
 
@@ -77,6 +79,7 @@ fct(2.0, 1);
 </details>
 
 ~~~cpp
+// no 3
 fct(i, f);
 ~~~
 
@@ -101,7 +104,8 @@ fct(i, f);
 </details>
 
 ~~~cpp
-fct(ri, f);	
+// no 4
+fct(ri, f);
 ~~~
 
 <details>
@@ -125,6 +129,7 @@ fct(ri, f);
 </details>
 
 ~~~cpp
+// no 5
 fct(f, 1);
 ~~~
 
@@ -149,6 +154,7 @@ fct(f, 1);
 </details>
 
 ~~~cpp
+// no 6
 fct(i, d);
 ~~~
 
@@ -166,6 +172,7 @@ fct(i, d);
 </details>
 
 ~~~cpp
+// no 7
 fct(f, i);
 ~~~
 
@@ -182,6 +189,7 @@ fct(f, i);
 </details>
 
 ~~~cpp
+// no 8
 fct(2.0, i);
 ~~~
 
@@ -198,6 +206,7 @@ fct(2.0, i);
 </details>
 
 ~~~cpp
+// no 9
 fct(2, c);
 ~~~
 
@@ -214,6 +223,7 @@ fct(2, c);
 </details>
 
 ~~~cpp
+// no 10
 fct(c, 2);
 ~~~
 
@@ -230,6 +240,7 @@ fct(c, 2);
 </details>
 
 ~~~cpp
+// no 11
 fct(rdC, i);
 ~~~
 
@@ -246,6 +257,7 @@ fct(rdC, i);
 </details>
 
 ~~~cpp
+// no 12
 fct(f, rdC);
 ~~~
 
@@ -262,6 +274,7 @@ fct(f, rdC);
 </details>
 
 ~~~cpp
+// no 13
 fct('a', rdC);
 ~~~
 
@@ -278,7 +291,8 @@ fct('a', rdC);
 </details>
 
 ~~~cpp
-fct(2.0, 'a');	
+// no 14
+fct(2.0, 'a');
 ~~~
 
 <details>
@@ -294,6 +308,7 @@ fct(2.0, 'a');
 </details>
 
 ~~~cpp
+// no 15
 fct('a', 2L);	
 ~~~
 
@@ -310,6 +325,7 @@ fct('a', 2L);
 </details>
 
 ~~~cpp
+// no 16
 fct('a', 2.0L);	
 ~~~
 

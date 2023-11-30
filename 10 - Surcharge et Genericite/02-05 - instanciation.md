@@ -23,6 +23,7 @@ Si c’est le cas, préciser le type des arguments génériques R, T et U retenu
 <br>
 
 ~~~cpp
+// no 1
 template
 int fct(const float& t, const double& u);
 ~~~
@@ -40,6 +41,7 @@ Correct
 </details>
 
 ~~~cpp
+// no 2
 template
 int fct<>(const int& t, const double& u);
 ~~~
@@ -57,6 +59,7 @@ Correct
 </details>
 
 ~~~cpp
+// no 3
 fct(f, d);
 ~~~
 
@@ -69,6 +72,7 @@ Incorrect. R n'est pas déductible.
 </details>
 
 ~~~cpp
+// no 4
 fct<>(d, i);
 ~~~
 
@@ -81,6 +85,7 @@ Incorrect. R n'est pas déductible.
 </details>
 
 ~~~cpp
+// no 5
 fct<int>(i, d);
 ~~~
 
@@ -97,6 +102,7 @@ Correct
 </details>
 
 ~~~cpp
+// no 6
 fct<int, double>(i, d);
 ~~~
 
@@ -111,3 +117,4 @@ Correct
 
 ------------------------------------------------
 </details>
+  

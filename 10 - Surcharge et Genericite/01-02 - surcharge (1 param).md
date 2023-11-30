@@ -15,8 +15,10 @@ float       f(float&)      { cout << "Fonction no 6"; return 0.; }
 <br>
 
 ~~~cpp
+// no 1
 f('a');
 ~~~
+
 <details>
 <summary>Solution</summary>
 
@@ -25,9 +27,12 @@ f('a');
 
 NB : la no 2 n'est pas possible (`int&` sur une constante `'a'`)
 
+----------------------------------------
+
 </details>
 
 ~~~cpp
+// no 2
 f(42);
 ~~~
 
@@ -36,9 +41,12 @@ f(42);
 
 - `Fonction no 3` (type exact)
 
+----------------------------------------
+
 </details>
 
 ~~~cpp
+// no 3
 int i = 42;
 f(++i);	
 ~~~
@@ -50,9 +58,12 @@ Les opérateurs suffixés, typiquement `++i` et `--i` retournent une référence
 
 - `Fonction no 2`
 
+----------------------------------------
+
 </details>
 
 ~~~cpp
+// no 4
 int j = 42;
 f(j--);	
 ~~~
@@ -64,11 +75,15 @@ Les opérateurs postfixés, typiquement `i++` et `i--` retournent une copie de l
 
 - `Fonction no 3`
 
+----------------------------------------
+
 </details>
 
 ~~~cpp
+// no 5
 f(2ull);
 ~~~
+
 <details>
 <summary>Solution</summary>
 
@@ -81,9 +96,12 @@ f(2ull);
 - Fonction no 4 (conversion de `unsigned long long` en `unsigned `
 - Fonction no 5 (conversion de `unsigned long long` en `double`
 
+----------------------------------------
+
 </details>
 
 ~~~cpp
+// no 6
 long   a;
 double b;
 f(a < b);
@@ -98,9 +116,12 @@ Ensuite la comparaison retoure un `bool`.<br>En l'absence de correspondance exac
 
 - `Fonction no 3`
 
+----------------------------------------
+
 </details>
 
 ~~~cpp
+// no 7
 float r = 2.f;
 f(r *= 2.l);
 ~~~
@@ -112,9 +133,12 @@ L'opérateur `*=` prend uniquement un float en paramètre. Le `long double` `2.l
 
 - `Fonction no 6`
 
+----------------------------------------
+
 </details>
 
 ~~~cpp
+// no 8
 f(f(2u));
 ~~~
 
@@ -126,9 +150,12 @@ L'appel de f(`double`) correspond à la Fonction no 5
 
 - `Fonction no 5`
 
+----------------------------------------
+
 </details>
 
 ~~~cpp
+// no 9
 f('2') ? f(2.0) : f(-2.0); 
 ~~~
 
@@ -139,5 +166,7 @@ Comme vu précédemment, `f('2')` appelle la Fonction no 3 (sur une machine avec
 La fonction retournant `false`, `f(-2.0)` est appelé ce qui correspond à la Fonction no 5
 
 - `Fonction no 3` et `Fonction no 5`
+
+----------------------------------------
 
 </details>
