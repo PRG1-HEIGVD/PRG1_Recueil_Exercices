@@ -36,7 +36,7 @@ fct(i, c);
 <summary>Solution</summary>
 
 - `int`   {1, 2, 4} : 4 par conversion
-- `char` 	{1, 2, 4} : 1 et 2 par promotion, 4 par conversion
+- `char` 	{1, 2, 4} : 1 et 2 par conversion, 4 par promotion
 - intersection {1, 2, 4} => **ambiguité**
 
 </details>
