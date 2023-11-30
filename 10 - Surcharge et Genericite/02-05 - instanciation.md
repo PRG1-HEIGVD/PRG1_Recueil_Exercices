@@ -13,8 +13,8 @@ et les déclarations de variables suivantes
 
 ~~~cpp
 double d;
-float f;
-int i;
+float  f;
+int    i;
 ~~~
 
 Indiquer si les instanciations, implicites ou explicites, sont correctes.<br>

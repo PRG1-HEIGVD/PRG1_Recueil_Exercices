@@ -13,7 +13,7 @@ double t[ ] = {6.1, 2.2, 8.3, 7.4, 1.5, 3.6};
 Trier ces tableaux en utilisant le tri par *sélection*.<br>
 Les tableaux seront affichés avant et après le tri par le programme principal.
 
-Les sous-programmes utiles au tri seront placés dans un fichier séparé *Tri.h*.
+**Les sous-programmes utiles au tri seront placés dans un fichier séparé "Tri.h"**.
 
 ~~~
 [6, 2, 8, 7, 1, 3]

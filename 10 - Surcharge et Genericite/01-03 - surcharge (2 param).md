@@ -22,7 +22,7 @@ const double& rdC = d;
 1. établir la liste des fonctions appelables 
 2. Parmi ces fonctions appelables, pour chacun des paramètres, établir celles qui sont appelables le plus simplement, i.e. 
 	1. par type exact
-    2. sinon par conversion simple (ajout d'un `const`) 
+	2. sinon par conversion simple (ajout d'un `const`) 
 	3. sinon par promotion numérique
 	4. sinon par conversion de type 
 3. Faire l'intersection des ensembles sélectionnés par chaque paramètre
