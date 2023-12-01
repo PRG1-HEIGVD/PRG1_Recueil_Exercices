@@ -5,6 +5,7 @@ Indiquer ce que va afficher chacune des séquences d'instructions suivantes :
 _Il se peut qu'une séquence provoque une erreur à la compilation ou à l'exécution, voire ait un comportement indéfini. Le cas échéant, répondez "Erreur à la compilation", "Erreur à l'exécution" ou "Comportement indéfini"_
 
 ~~~cpp
+// no 1
 vector<int> v(2,3);
 for(auto e : v) cout << e << ' '; 
 ~~~
@@ -18,6 +19,7 @@ for(auto e : v) cout << e << ' ';
 
 
 ~~~cpp
+// no 2
 vector<int> v(4);
 for(auto e : v) cout << e << ' '; 
 ~~~
@@ -30,6 +32,7 @@ for(auto e : v) cout << e << ' ';
 </details>
 
 ~~~cpp
+// no 3
 vector<int> v{1, 2, 3};
 for (auto e: v) cout << e << ' ';
 ~~~
@@ -42,6 +45,7 @@ for (auto e: v) cout << e << ' ';
 </details>
 
 ~~~cpp
+// no 4
 vector<int> v{1., 2, 3};
 for (auto e: v) cout << e << ' ';
 ~~~
@@ -57,6 +61,7 @@ vector<int> v{1., 2, 3};
 </details>
 
 ~~~cpp
+// no 5
 vector<double> v{1., 2, 3};
 for (auto e: v) cout << e << ' ';
 ~~~
@@ -69,6 +74,7 @@ for (auto e: v) cout << e << ' ';
 </details>
 
 ~~~cpp
+// no 6
 vector<int> v(3) = {1, 2, 3};
 for (auto e: v) cout << e << ' ';
 ~~~
@@ -85,6 +91,7 @@ vector<int> v(3) = {1, 2, 3};
 
 
 ~~~cpp
+// no 7
 vector v{1., 2., 3.};
 for (auto e: v) cout << e << ' ';
 ~~~
@@ -100,6 +107,7 @@ v est de type `vector<double>`
 
 
 ~~~cpp
+// no 8
 vector v{1., 2, 3};
 for (auto e: v) cout << e << ' ';
 ~~~
@@ -116,6 +124,7 @@ vector v{1., 2, 3};
 
 
 ~~~cpp
+// no 9
 vector v(3,2.f);
 for (auto e: v) cout << e << ' ';
 ~~~
@@ -131,6 +140,7 @@ v est de type `vector<float>`
 
 
 ~~~cpp
+// no 10
 vector v(4);
 for (auto e: v) cout << e << ' ';
 ~~~
@@ -144,4 +154,3 @@ vector v(4);
        ^
 ~~~
 </details>
-

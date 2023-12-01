@@ -6,7 +6,7 @@ le tableau, même si elle écrit une valeur déjà présente.
 Indiquez à part le contenu de la variable tampon
 
 ~~~
-3 2 5 1 4
+1) 3 2 5 1 4
 ~~~
 
 <details>
@@ -30,7 +30,7 @@ TABLEAU   | TMP
 
 
 ~~~
-4 3 2 5 1
+2) 4 3 2 5 1
 ~~~
 
 <details>
@@ -55,7 +55,7 @@ TABLEAU   | TMP
 </details>
 
 ~~~
-5 4 2 3 1
+3) 5 4 2 3 1
 ~~~
 
 <details>

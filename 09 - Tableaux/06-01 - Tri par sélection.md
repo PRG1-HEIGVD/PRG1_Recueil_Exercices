@@ -5,7 +5,7 @@ Indiquez l'état du tableau après chaque échange, même si
 les 2 éléments échangés sont le même élément. 
 
 ~~~
-3 2 5 1 4
+1) 3 2 5 1 4
 ~~~
 
 <details>
@@ -23,7 +23,7 @@ les 2 éléments échangés sont le même élément.
 
 
 ~~~
-4 3 2 5 1
+2) 4 3 2 5 1
 ~~~
 
 <details>
@@ -40,7 +40,7 @@ les 2 éléments échangés sont le même élément.
 </details>
 
 ~~~
-5 4 2 3 1
+3) 5 4 2 3 1
 ~~~
 
 <details>

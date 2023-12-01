@@ -5,6 +5,7 @@ Indiquer ce que va afficher chacune des séquences d'instructions suivantes :
 _Il se peut qu'une séquence provoque une erreur à la compilation ou à l'exécution, voire ait un comportement indéfini. Le cas échéant, répondez "Erreur à la compilation", "Erreur à l'exécution" ou "Comportement indéfini"_
 
 ~~~cpp
+// no 1
 array<int, 5> a{1, 2, 3, 4, 5};
 cout << a.front() << ' ' << a.back();
 ~~~
@@ -17,6 +18,7 @@ cout << a.front() << ' ' << a.back();
 </details>
 
 ~~~cpp
+// no 2
 array<int, 5> a{1, 2, 3, 4, 5};
 cout << a[1] << ' ' << a[3];
 ~~~
@@ -29,6 +31,7 @@ cout << a[1] << ' ' << a[3];
 </details>
 
 ~~~cpp
+// no 3
 array<int, 5> a{1, 2, 3, 4, 5};
 cout << a[5];
 ~~~
@@ -38,6 +41,7 @@ Comportement indéterminé
 </details>
 
 ~~~cpp
+// no 4
 array<int, 5> a{1, 2, 3, 4, 5};
 cout << a.at(1) << ' ' << a.at(3);
 ~~~
@@ -50,6 +54,7 @@ cout << a.at(1) << ' ' << a.at(3);
 </details>
 
 ~~~cpp
+// no 5
 array<int, 5> a{1, 2, 3, 4, 5};
 cout << a.at(5);
 ~~~
