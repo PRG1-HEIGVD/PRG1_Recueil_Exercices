@@ -120,6 +120,7 @@ fct(pi, f);
 
 <details>
 <summary>Solution</summary>
+
 1. $S = \left\\{1, 2, 4, 6\right\\}$ sont appelables. 
    - 3 : `T = int*` et `T = float` non compatibles
    - 5 : pas de conversion `int*` vers `int`
@@ -138,6 +139,7 @@ fct(pc, pc);
 
 <details>
 <summary>Solution</summary>
+
 1. $S = \left\\{1, 2, 3\right\\}$ sont appelables. 
    - 4 : pas de conversion `char*` vers `int`
    - 5 : pas de conversion `char*` vers `int`
@@ -149,7 +151,6 @@ fct(pc, pc);
 4. fct no 2 : plus spécialisée que la 1<br>
    fct no 3 : plus spécialisée que la 1<br>
    pas d'ordre de spécialisation entre la 2 et la 3 => **appel ambigu**
-
 
 --------------------
 
