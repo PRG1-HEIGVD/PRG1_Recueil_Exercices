@@ -287,7 +287,7 @@ Longitude : 139.691667
 Latitude  : N 35°41'22.000"
 Longitude : E 139°41'30.000"
 
-Latitude  : 33.689444
+Latitude  : 35.689444
 Longitude : 139.691667
 
 ~~~
