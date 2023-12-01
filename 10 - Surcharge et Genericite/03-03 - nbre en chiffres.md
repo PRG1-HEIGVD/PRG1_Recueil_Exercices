@@ -25,7 +25,7 @@ ostream& operator<< (ostream& os, Chiffre chiffre) {
 }
 
 ostream& operator<< (ostream& os, span<const Chiffre> tab) {
-   for (size_t i=0; i<tab.size(); ++i) {
+   for (size_t i = 0; i < tab.size(); ++i) {
       if (i) cout << " ";
       cout << tab[i];
    }
@@ -36,8 +36,8 @@ vector<Chiffre> nbreToEnums(int valeur) {
    if (valeur == 0)
       return vector<Chiffre>();
 
-   vector<Chiffre> result((size_t)log10(valeur)+1);
-   size_t i=result.size()-1;
+   vector<Chiffre> result((size_t)log10(valeur) + 1);
+   size_t i = result.size() - 1;
    while(valeur) {
       result.at(i--) = ( Chiffre(valeur % 10) );
       valeur /= 10;
