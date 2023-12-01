@@ -59,25 +59,22 @@ fct(pd, d);
 
 ~~~cpp
 // no 2
-fct(c, f)`    | {1,    3, 4      } | {1,              } | {1               } | 1                  |
+fct(c, f);
 ~~~
 
 <details>
 <summary>Solution</summary>
 
-1. $S = \left\\{1, 2\right\\}$ sont appelables. 
-   - no 3 exclue, types différents pour `T` (`char*` et `float`)
+1. $S = \left\\{1, 4, 5\right\\}$ sont appelables. 
+   - 2 : `T* = char` pas déductible
+   - 3 : `T = char` et `T = float` non compatibles
+   - 6 : pas de conversion `char` vers `int*`
 2. Paramètres 
-   - $P_{1} = \left\\{1, 3, 4, 5, 6\right\\}$
-     - `c` de type `char` 
-     - 1, 3 et 4 par type exact 
-     - 5 et 6 par promotion `char` vers `int`
-   - $P_{2} = \left\\{1, 2, 3, 4, 5, 6\right\\}$ 
-     - `f` de type `float`
-     - 1, 2, 3 et 6par type exact 
-     - 4 et 5 par conversion de type. 
-3. $P_{1} \cap P_{2} = \left\\{1\right\\}$ 
-4. fct no 1 : types exacts
+   - $P_{1} = \left\\{1, 4\right\\}$ par type exact
+     - 6 par promotion `char` vers `int`
+   - $P_{2} = \left\\{1\right\\}$ par type exact 
+     - 4 et 5 par conversion `float` vers `int`
+3. $P_{1} \cap P_{2} = \left\\{1\right\\}$, la  fct no 1 est appelée 
 
 --------------------
 
@@ -85,26 +82,42 @@ fct(c, f)`    | {1,    3, 4      } | {1,              } | {1               } | 1
 
 ~~~cpp
 // no 3
-fct(pf,  s)`    | {1, 2, 3, 4      } | {1, 2            } | {1, 2            } | 2 plus spécialisée |
+fct(pf,  s)
 ~~~
 
 <details>
 <summary>Solution</summary>
 
---------------------
+1. $S = \left\\{1, 2, 4\right\\}$ sont appelables. 
+   - 3 : `T = float*` et `T = short` non compatibles
+   - 5 : pas de conversion `float*` vers `int`
+   - 6 : pas de conversion `float*` vers `int*`
+2. Paramètres 
+   - $P_{1} = \left\\{1, 2, 4\right\\}$ par type exact
+   - $P_{2} = \left\\{1, 2\right\\}$ par type exact 
+     - 4 par promotion `short` vers `int`
+3. $P_{1} \cap P_{2} = \left\\{1, 2\right\\}$
+4. fct no 2 : plus spécialisée que 1
 
 </details>
 
 ~~~cpp
 // no 4
-fct(pi,  f)`    | {1, 2, 3, 4,    6} | {1, 2,          6} | {1, 2,          6} | 6 plus spécialisée |
+fct(pi,  f);
 ~~~
 
 <details>
 <summary>Solution</summary>
 
---------------------
-
+1. $S = \left\\{1, 2, 4, 6\right\\}$ sont appelables. 
+   - 3 : `T = int*` et `T = float` non compatibles
+   - 5 : pas de conversion `int*` vers `int`
+2. Paramètres 
+   - $P_{1} = \left\\{1, 2, 4, 6\right\\}$ par type exact
+   - $P_{2} = \left\\{1, 2, 6\right\\}$ par type exact 
+     - 6 par conversion `float` vers `int`
+3. $P_{1} \cap P_{2} = \left\\{1, 2, 6\right\\}$
+4. fct no 6 : fonction non générique toujours plus spécialisée que les fonctions générique
 </details>
 
 ~~~cpp
