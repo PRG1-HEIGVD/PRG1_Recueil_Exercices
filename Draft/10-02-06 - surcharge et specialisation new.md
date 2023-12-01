@@ -78,7 +78,7 @@ fct(c, f);
 
 1. $S = \left\\{1, 4, 5\right\\}$ sont appelables. 
    - 2 : `T* = char` pas déductible
-   - 3 : `T = char` et `T = float` non compatibles
+   - 3 : types différents déduits pour `T` (`char` et `float`)
    - 6 : pas de conversion `char` vers `int*`
 2. Paramètres 
    - $P_{1} = \left\\{1, 4\right\\}$ par type exact
@@ -100,7 +100,7 @@ fct(pf, s)
 <summary>Solution</summary>
 
 1. $S = \left\\{1, 2, 4\right\\}$ sont appelables. 
-   - 3 : `T = float*` et `T = short` non compatibles
+   - 3 : types différents déduits pour `T` (`float*` et `short`)
    - 5 : pas de conversion `float*` vers `int`
    - 6 : pas de conversion `float*` vers `int*`
 2. Paramètres 
@@ -123,7 +123,7 @@ fct(pi, f);
 <summary>Solution</summary>
 
 1. $S = \left\\{1, 2, 4, 6\right\\}$ sont appelables. 
-   - 3 : `T = int*` et `T = float` non compatibles
+   - 3 : types différents déduits pour `T` (`int*` et `float`)
    - 5 : pas de conversion `int*` vers `int`
 2. Paramètres 
    - $P_{1} = \left\\{1, 2, 4, 6\right\\}$ par type exact
@@ -166,7 +166,7 @@ fct(pi, i);
 <summary>Solution</summary>
 
 1. $S = \left\\{1, 2, 4, 6\right\\}$ sont appelables. 
-   - 3 : `T = int*` et `T = int` non compatibles
+   - 3 : types différents déduits pour `T` (`int*` et `int`)
    - 5 : pas de conversion `int*` vers `int`
 2. Paramètres 
    - $P_{1} = \left\\{1, 2, 4, 6\right\\}$ par type exact
@@ -191,7 +191,6 @@ fct(f, f);
 
 1. $S = \left\\{1, 3\right\\}$ sont appelables. 
    - 2 : `float` n'est pas copatible pour `T*`
-   - 3 : `T = int*` et `T = int` non compatibles
 2. Paramètres 
    - $P_{1} = \left\\{1, 3\right\\}$ par type exact
    - $P_{2} = \left\\{1, 3\right\\}$ par type exact
@@ -233,7 +232,7 @@ fct(d, i);
 
 1. $S = \left\\{1, 4\right\\}$ sont appelables. 
    - 2 : `double` n'est pas copatible pour `T*`
-   - 3 : `T = double` et `T = int` non compatibles
+   - 3 : types différents déduits pour `T` (`double` et `int`)
    - 5 : conversion de `int` vers `float`
    - 6 : pas de conversion de `double` vers `int*`
 2. Paramètres 
@@ -276,6 +275,7 @@ fct(c, s);
 
 1. $S = \left\\{1\right\\}$ sont appelables. 
    - 1 : `char` la seule avec les types exacts
+   - 3 : types différents déduits pour `T` (`char` et `short`)
 2. Paramètres 
    - $P_{1} = \left\\{1\right\\}$ par type exact
    - $P_{2} = \left\\{1\right\\}$ par type exact
@@ -295,7 +295,7 @@ fct(pd, i);
 <summary>Solution</summary>
 
 1. $S = \left\\{1, 2, 4\right\\}$ sont appelables. 
-   - 3 : `T = double*` et `T = int` non compatibles
+   - 3 : types différents déduits pour `T` (`double*` et `int`)
 2. Paramètres 
    - $P_{1} = \left\\{1, 2, 4\right\\}$ par type exact
    - $P_{2} = \left\\{1, 2, 4\right\\}$ par type exact
@@ -318,6 +318,7 @@ fct(i, c);
 
 1. $S = \left\\{1\right\\}$ sont appelables. 
    - 1 : `char` la seule avec les types exacts
+   - 3 : types différents déduits pour `T` (`int` et `char`)
 2. Paramètres 
    - $P_{1} = \left\\{1\right\\}$ par type exact
    - $P_{2} = \left\\{1\right\\}$ par type exact
@@ -338,7 +339,7 @@ fct(pc, pd);
 
 1. $S = \left\\{1, 2\right\\}$ sont appelables. 
    - 1 : `char` la seule avec les types exacts
-   - 3 : `T = char*` et `T = double*` non compatibles
+   - 3 : types différents déduits pour `T` (`char*` et `double*`)
 2. Paramètres
    - $P_{1} = \left\\{1, 2\right\\}$ par type exact
    - $P_{2} = \left\\{1, 2\right\\}$ par type exact
@@ -485,6 +486,7 @@ fct<char>(d, c);
 
 1. $S = \left\\{1\right\\}$ sont appelables. 
    - 2 : `double` n'est pas copatible pour `T*`
+   - 3 : types différents déduits pour `T` (`double` et `char`)
 2. Paramètres
    - $P_{1} = \left\\{1\right\\}$ par type exact
    - $P_{2} = \left\\{1\right\\}$ par type exact
