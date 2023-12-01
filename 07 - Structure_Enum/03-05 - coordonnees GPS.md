@@ -201,10 +201,10 @@ int main() {
                               {Dir_EW::W, {77,  2, 11.492}}};
    Coord_DD Lima_DD        = {-12.0621065, -77.0365256};
    
-   Coord_DMS Tokyo_DMS     = {{Dir_NS::N,  {33, 41, 22.0}},
+   Coord_DMS Tokyo_DMS     = {{Dir_NS::N,  {35, 41, 22.0}},
                               {Dir_EW::E, {139, 41, 30.0}}};
                              
-   Coord_DD Tokyo_DD       = {35.689444444, 139.691666667};
+   Coord_DD Tokyo_DD       = {35.6894444, 139.6916667};
 
    test("Yverdon",   Yverdon_DMS,   Yverdon_DD);
    test("Montreal",  Montreal_DMS,  Montreal_DD);
