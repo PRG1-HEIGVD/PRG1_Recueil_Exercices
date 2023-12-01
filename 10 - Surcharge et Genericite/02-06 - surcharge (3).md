@@ -1,4 +1,4 @@
-# Surcharge et spécialisation
+# Surcharge (3)
 
 Soient les fonctions et les déclarations suivantes
 

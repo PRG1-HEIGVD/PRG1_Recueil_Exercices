@@ -1,4 +1,4 @@
-# Tri générique (spécialisation)
+# Tri générique (surcharge)
 
 Reprise de l'exercice [02-04 - tri generique.md](../10%20-%20Surcharge%20et%20Genericite/02-04%20-%20tri%20generique.md)
 
