@@ -35,7 +35,8 @@ double* pd = &d;     // ptr sur d
    	2. s'il a 1 élément, cette fonction est appelée
 4. S'il reste plusieurs fonctions
 	1. si une est plus spécialisée que toutes les autres, elle est appelée
- 	2. sinon, il y a ambiguité 		
+ 	2. sinon, il y a ambiguité
+	
 <br>
 
 **Cas simplifié**<br>
@@ -61,7 +62,7 @@ fct(pd, d);
    - $P_{2} = \left\\{1, 2\right\\}$ par type exact 
      - 4 : conversion `double` vers `int`
 3. $P_{1} \cap P_{2} = \left\\{1, 2\right\\}$ 
-4. fct no 2 : plus spécialisée que 1 
+4. fct no 2 : plus spécialisée que 1, **la fct no 2 est appelée**
 
 --------------------
 
@@ -84,7 +85,7 @@ fct(c, f);
      - 6 par promotion `char` vers `int`
    - $P_{2} = \left\\{1\right\\}$ par type exact 
      - 4 et 5 par conversion `float` vers `int`
-3. $P_{1} \cap P_{2} = \left\\{1\right\\}$, la  fct no 1 est appelée 
+3. $P_{1} \cap P_{2} = \left\\{1\right\\}$, **la fct no 1 est appelée**
 
 --------------------
 
@@ -107,7 +108,7 @@ fct(pf, s)
    - $P_{2} = \left\\{1, 2\right\\}$ par type exact 
      - 4 par promotion `short` vers `int`
 3. $P_{1} \cap P_{2} = \left\\{1, 2\right\\}$
-4. fct no 2 : plus spécialisée que 1
+4. fct no 2 plus spécialisée que 1, **la fct no 2 est appelée**
 
 --------------------
 
@@ -129,7 +130,7 @@ fct(pi, f);
    - $P_{2} = \left\\{1, 2, 6\right\\}$ par type exact 
      - 6 par conversion `float` vers `int`
 3. $P_{1} \cap P_{2} = \left\\{1, 2, 6\right\\}$
-4. fct no 6 : fonction non générique toujours plus spécialisée que les fonctions générique
+4. fct no 6 : **fonction non générique toujours plus spécialisée** que les fonctions générique
 </details>
 
 ~~~cpp
