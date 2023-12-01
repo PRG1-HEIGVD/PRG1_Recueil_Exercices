@@ -43,17 +43,15 @@ fct(pd, d);
 <summary>Solution</summary>
 
 1. $S = \left\\{1, 2, 4\right\\}$ sont appelables. 
-   - no 3 exclue, types différents pour `T` (`double*` et `double`)
+   - 3 : types différents déduits pour `T` (`double*` et `double`)
+   - 5 : pas de conversion `double*` vers `int`
+   - 6 : pas de conversion `double*` vers `int*`
 2. Paramètres 
-   - $P_{1} = \left\\{1, 2, 3, 4\right\\}$
-     - `pd` de type `double*` 
-     - 1, 2, 3 et 4 par type exact 
-   - $P_{2} = \left\\{1, 2, 3, 4, 5, 6\right\\}$ 
-     - `d` de type `double`
-     - 1, 2 et 3 par type exact 
-     - 4, 5, 6 par conversion de type. 
+   - $P_{1} = \left\\{1, 2, 4\right\\}$ par type exact 
+   - $P_{2} = \left\\{1, 2\right\\}$ par type exact 
+     - 4 : conversion `double` vers `int`
 3. $P_{1} \cap P_{2} = \left\\{1, 2\right\\}$ 
-4. fct no 2 : plus spécialisée
+4. fct no 2 : plus spécialisée que 1 
 
 --------------------
 
