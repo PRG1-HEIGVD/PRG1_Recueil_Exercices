@@ -39,8 +39,7 @@ double* pd = &d;     // ptr sur d
 <br>
 
 **Cas simplifié**<br>
-
-si une fonction non générique est appelable par type exact pour tous ses arguments, il n'est pas nécessaire de 
+Si une fonction non générique est appelable par type exact pour tous ses arguments, il n'est pas nécessaire de 
 considérer les alternatives génériques. 
 
 <br>
@@ -93,7 +92,7 @@ fct(c, f);
 
 ~~~cpp
 // no 3
-fct(pf,  s)
+fct(pf, s)
 ~~~
 
 <details>
@@ -110,16 +109,17 @@ fct(pf,  s)
 3. $P_{1} \cap P_{2} = \left\\{1, 2\right\\}$
 4. fct no 2 : plus spécialisée que 1
 
+--------------------
+
 </details>
 
 ~~~cpp
 // no 4
-fct(pi,  f);
+fct(pi, f);
 ~~~
 
 <details>
 <summary>Solution</summary>
-
 1. $S = \left\\{1, 2, 4, 6\right\\}$ sont appelables. 
    - 3 : `T = int*` et `T = float` non compatibles
    - 5 : pas de conversion `int*` vers `int`
@@ -133,11 +133,23 @@ fct(pi,  f);
 
 ~~~cpp
 // no 5
-fct(pc, pc)`    | {1, 2, 3, 4      } | {1, 2, 3         } | {   2, 3         } | ambiguité {2, 3}   |
+fct(pc, pc);
 ~~~
 
 <details>
 <summary>Solution</summary>
+1. $S = \left\\{1, 2, 3\right\\}$ sont appelables. 
+   - 4 : pas de conversion `char*` vers `int`
+   - 5 : pas de conversion `char*` vers `int`
+   - 6 : pas de conversion `char*` vers `float`
+2. Paramètres 
+   - $P_{1} = \left\\{1, 2, 3\right\\}$ par type exact
+   - $P_{2} = \left\\{1, 2, 3\right\\}$ par type exact 
+3. $P_{1} \cap P_{2} = \left\\{1, 2, 3\right\\}$
+4. fct no 2 : plus spécialisée que la 1<br>
+   fct no 3 : plus spécialisée que la 1<br>
+   pas d'ordre de spécialisation entre la 2 et la 3 => **appel ambigu**
+
 
 --------------------
 
