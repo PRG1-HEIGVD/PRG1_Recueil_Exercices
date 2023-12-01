@@ -1,4 +1,4 @@
-# Surcharge et spécialisation
+# Surcharges avec fonctions ordinaires
 
 Que produisent les appels aux fonctions ci-dessous ?
 Indiquer les cas d'ambiguité.
