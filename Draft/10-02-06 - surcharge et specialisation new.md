@@ -158,11 +158,23 @@ fct(pc, pc);
 
 ~~~cpp
 // no 6
-fct(pi,  i)`    | {1, 2, 3, 4,    6} | {1, 2,    4      } | {   2,    4      } | ambiguité {2, 4}   |
+fct(pi,  i)
 ~~~
 
 <details>
 <summary>Solution</summary>
+
+1. $S = \left\\{1, 2, 4, 6\right\\}$ sont appelables. 
+   - 3 : `T = int*` et `T = int` non compatibles
+   - 5 : pas de conversion `int*` vers `int`
+2. Paramètres 
+   - $P_{1} = \left\\{1, 2, 4, 6\right\\}$ par type exact
+   - $P_{2} = \left\\{1, 2, 4\right\\}$ par type exact
+      - 6 par conversion `int` vers `float`
+3. $P_{1} \cap P_{2} = \left\\{1, 2, 4\right\\}$
+4. fct no 2 : plus spécialisée que la 1<br>
+   fct no 4 : plus spécialisée que la 1<br>
+   pas d'ordre de spécialisation entre la 2 et la 4 => **appel ambigu**
 
 --------------------
 
