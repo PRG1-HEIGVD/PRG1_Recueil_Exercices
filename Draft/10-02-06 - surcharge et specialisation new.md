@@ -41,7 +41,7 @@ double* pd = &d;     // ptr sur d
 **Cas simplifié**<br>
 
 si une fonction non générique est appelable par type exact pour tous ses arguments, il n'est pas nécessaire de 
-considéré les alternatives génériques. 
+considérer les alternatives génériques. 
 
 <br>
 
