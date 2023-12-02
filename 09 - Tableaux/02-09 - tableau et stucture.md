@@ -122,6 +122,7 @@ cout << ptr->prenom[0] << ptr->nom[0] << endl;
 <details>
 <summary>Solution</summary>
 
+**Invariablement 8 bytes**.<br>
 Un tableau contient des éléments de même taille,
 alors qu'un string peut stocker un nombre différent de caractères.<br>
 La partie `string.data` n'est pas dans le tableau, seule la structure du string s'y trouve
