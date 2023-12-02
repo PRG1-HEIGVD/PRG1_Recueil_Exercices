@@ -6,7 +6,8 @@ Soit la déclaration
 enum class Chiffre { ZERO,  UN,  DEUX,  TROIS,  QUATRE,  CINQ,  SIX,  SEPT,  HUIT,  NEUF };
 ~~~
 
-Ecrire le code nécessaire afin d'afficher une valeur en chiffres écrits en toutes lettres.
+Ecrire le code nécessaire afin de traduire une valeur reçue en `int` en un `vector<Chiffre>` de chiffres correspondant.<br>
+L'opérateur `<<` pour un `vector<Chiffre>` affiche les chiffres en toutes lettres.
 
 ~~~
 cout << nbreToEnums(123);       // UN DEUX TROIS
@@ -33,15 +34,15 @@ ostream& operator<< (ostream& os, span<const Chiffre> tab) {
 }
 
 vector<Chiffre> nbreToEnums(int valeur) {
-   if (valeur == 0)
-      return vector<Chiffre>();
 
    vector<Chiffre> result((size_t)log10(valeur) + 1);
    size_t i = result.size() - 1;
-   while(valeur) {
+
+   do {
       result.at(i--) = ( Chiffre(valeur % 10) );
       valeur /= 10;
-   }
+   } while (valeur);
+
    return result;
 }
 ~~~
