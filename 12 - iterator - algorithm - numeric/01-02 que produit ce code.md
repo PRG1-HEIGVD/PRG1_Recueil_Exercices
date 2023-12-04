@@ -35,7 +35,7 @@ int main() {
 
 Le vecteur ayant grandi (passé de 4 à 5 éléments), la **capacité a été ajustée** et l' **emplacement mémoire de la partie `data` du vecteur a changé**.
 
-Les deux itérateurs déclarés `begin` et `end` existent toujours mais n'ont pas été mis à jour !!
+⚠️ Les deux itérateurs déclarés `begin` et `end` existent toujours mais n'ont pas été mis à jour !!
 
 ~~~
 [1, 2, 3, 4]
