@@ -67,7 +67,7 @@ void display(Iterator first, Iterator last) {
 }
 
 template<>
-void display(string::iterator first, const string::iterator last) {
+void display(string::iterator first, string::iterator last) {
    for (string::iterator it = first; it != last; ++it) {
       cout << *it    << "\t";
       cout << (void*)&(*it) << endl;
