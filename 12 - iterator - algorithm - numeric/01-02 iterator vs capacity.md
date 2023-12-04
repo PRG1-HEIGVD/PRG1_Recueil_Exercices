@@ -2,8 +2,6 @@
 
 Ce code produit le résultat indiqué.
 
-Que se passe-t-il ?
-
 ~~~cpp
 #include <iostream>
 #include <vector>
@@ -34,6 +32,9 @@ int main() {
 
 }
 ~~~
+
+Que se passe-t-il ?<br>
+Ecrire le code nécessaire pour démontrer le problème.
 
 ~~~
 [1, 2, 3, 4]
