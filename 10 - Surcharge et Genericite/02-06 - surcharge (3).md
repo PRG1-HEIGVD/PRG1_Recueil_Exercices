@@ -464,13 +464,14 @@ fct<int>(d, d);
 <details>
 <summary>Solution</summary>
 
-1. $S = \left\\{1, 3\right\\}$ sont appelables. 
+1. $S = \left\\{1, 3, 4\right\\}$ sont appelables. 
    - 2 : `double` n'est pas copatible pour `T*`
 2. Paramètres
-   - $P_{1} = \left\\{1, 3\right\\}$ par type exact
-   - $P_{2} = \left\\{1, 3\right\\}$ par type exact
-3. $P_{1} \cap P_{2} = \left\\{1, 3\right\\}$
-4. fct no 3 : plus spécialisée que la 1 => **la fct no 3 est appelée**
+   - $P_{1} = \left\\{1, 3, 4\right\\}$ par conversion `double` vers `int`
+   - $P_{2} = \left\\{1\right\\}$ par type exact
+     	- 3 ou 4 par conversion 
+3. $P_{1} \cap P_{2} = \left\\{1\right\\}$
+4. **la fct no 1 est appelée**
 
 --------------------
 
