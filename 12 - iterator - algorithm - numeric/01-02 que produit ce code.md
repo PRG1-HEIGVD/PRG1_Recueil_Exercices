@@ -73,17 +73,12 @@ void display_details(const vector<T>& v) {
    cout << endl;
 }
 
-template <typename Iterator>
-void display_details(Iterator it) {
-   cout << "adresse  : " << &(*it) << endl;
-}
-
 int main() {
    vector v  {1, 2, 3, 4};
-   display(v.begin(), v.end());
+   display(v.cbegin(), v.cend());
 
-   vector<int>::iterator begin = v.begin();
-   vector<int>::iterator end   = v.end();
+   vector<int>::const_iterator begin = v.cbegin();
+   vector<int>::const_iterator end   = v.cend();
 
    cout << endl;
    cout << "AVANT insertion" << endl;
@@ -94,12 +89,12 @@ int main() {
    display_details(v);
 
    cout << "itérations" << endl;
-   display(v.begin(), v.end());
+   display(v.cbegin(), v.cend());
    display(begin, end);
 
    cout << endl;
-   display_details(begin);
-   display_details(v.begin());
+   cout << "begin    : " << &(*begin)      << endl;
+   cout << "v.begin(): " << &(*v.cbegin()) << endl;
 }
 ~~~
 
@@ -122,8 +117,8 @@ itérations
 [1, 2, 3, 4, 5]
 [609648688, 10632, 2043, 0]
 
-adresse  : 0x600001618030
-adresse  : 0x60000141d240
+cout << "begin    : " << &(*begin)     << endl;
+cout << "v.begin(): " << &(*v.begin()) << endl;
 ~~~
 
 </details>

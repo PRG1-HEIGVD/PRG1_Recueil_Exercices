@@ -12,10 +12,10 @@ list   l  {"chien"s, "chat"s, "souris"s};
 Ecrire la ou les fonction(s) générique(s) `display(...)` qui reçoit deux itérateurs `begin` et `end` et liste toutes les valeurs contenues et leur emplacement mémoire.
 
 ~~~cpp
-cout << "array"   << endl;    display(a.begin(), a.end());
-cout << "vector"  << endl;    display(v.begin(), v.end());
-cout << "string"  << endl;    display(s.begin(), s.end());
-cout << "list"    << endl;    display(l.begin(), l.end());
+cout << "array"   << endl;    display(a.cbegin(), a.cend());
+cout << "vector"  << endl;    display(v.cbegin(), v.cend());
+cout << "string"  << endl;    display(s.cbegin(), s.cend());
+cout << "list"    << endl;    display(l.cbegin(), l.cend());
 ~~~
 
 ~~~text
@@ -67,10 +67,10 @@ void display(Iterator first, Iterator last) {
 }
 
 template<>
-void display(string::iterator first, string::iterator last) {
-   for (string::iterator it = first; it != last; ++it) {
+void display(string::const_iterator first, string::const_iterator last) {
+   for (string::const_iterator it = first; it != last; ++it) {
       cout << *it    << "\t";
-      cout << (void*)&(*it) << endl;
+      cout << (const void*)&(*it) << endl;
    }
    cout << endl;
 }
@@ -81,10 +81,10 @@ int main() {
    string s  ("HEIG-VD"s);
    list   l  {"chien"s, "chat"s, "souris"s};
 
-   cout << "array"   << endl;    display(a.begin(), a.end());
-   cout << "vector"  << endl;    display(v.begin(), v.end());
-   cout << "string"  << endl;    display(s.begin(), s.end());
-   cout << "list"    << endl;    display(l.begin(), l.end());
+   cout << "array"   << endl;    display(a.cbegin(), a.cend());
+   cout << "vector"  << endl;    display(v.cbegin(), v.cend());
+   cout << "string"  << endl;    display(s.cbegin(), s.cend());
+   cout << "list"    << endl;    display(l.cbegin(), l.cend());
 }
 ~~~
 
