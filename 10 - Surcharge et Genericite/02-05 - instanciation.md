@@ -36,8 +36,8 @@ Correct
 Instanciation explicite de la fonction `fct`.
 
 - R : ne sera pas déductible, à passer lors de l'appel
-- T : `float`
-- U : `double`
+- T : `float` par déduction
+- U : `double` par déduction
 
 exemple d'appel : `fct<int>(f, d);`
 
@@ -58,8 +58,8 @@ Correct
 Instanciation explicite de la fonction `fct`.
 
 - R : ne sera pas déductible, à passer lors de l'appel
-- T : `int`
-- U : `double`
+- T : `int` par déduction
+- U : `double` par déduction
 
 exemple d'appel : `fct<int>(i, d);`
 
@@ -102,9 +102,9 @@ fct<int>(i, d);
 
 Correct
 
-- R : `int`
-- T : `int`
-- U : `double`
+- R : `int` explicitement choisi par `<int>`
+- T : `int` par déduction
+- U : `double` par déduction
 
 ------------------------------------------------
 </details>
@@ -119,9 +119,9 @@ fct<int, double>(i, d);
 
 Correct
 
-- R : `int`
-- T : `double`
-- U : `double`
+- R : `int` explicitement choisi par `<int>`
+- T : `double` explicitement choisi par `<double>`
+- U : `double` par déduction
 
 ------------------------------------------------
 </details>
