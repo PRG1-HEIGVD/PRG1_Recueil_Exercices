@@ -48,7 +48,8 @@ struct Personne {
 };
 
 ostream& operator<< (ostream& os, const Date& d) {
-   os << (int)d.jour << "." << (int)d.mois << "." << (int)d.annee;
+   os << (int)d.jour << "." << (int)d.mois << "." << d.annee;
+// os << +d.jour << "." << +d.mois << "." << d.annee;
    return os;
 }
 
