@@ -1,6 +1,4 @@
-# Iterator et capacity
-
-Ce code produit le résultat indiqué.
+# Que produit ce code
 
 ~~~cpp
 #include <iostream>
@@ -26,20 +24,10 @@ int main() {
    vector<int>::iterator end   = v.end();
 
    v.push_back(5);
+   
    display(v.begin(), v.end());
-
    display(begin, end);
-
 }
-~~~
-
-Que se passe-t-il ?<br>
-Ecrire le code nécessaire pour démontrer le problème.
-
-~~~
-[1, 2, 3, 4]
-[1, 2, 3, 4, 5]
-[-595935184, 3613, 2043, 0]
 ~~~
 
 <details>
@@ -49,7 +37,17 @@ Le vecteur ayant grandi (passé de 4 à 5 éléments), la **capacité a été aj
 
 Les deux itérateurs déclarés `begin` et `end` existent toujours mais n'ont pas été mis à jour !!
 
-Pour s'en convraincre
+~~~
+[1, 2, 3, 4]
+[1, 2, 3, 4, 5]
+[-595935184, 3613, 2043, 0] // indéterminé
+~~~
+
+**Ecrire le code nécessaire pour démontrer le problème.**
+
+<details>
+<summary>Solution</summary>
+
 
 ~~~cpp
 #include <iostream>
@@ -128,5 +126,5 @@ adresse  : 0x600001618030
 adresse  : 0x60000141d240
 ~~~
 
-
+</details>
 </details>
