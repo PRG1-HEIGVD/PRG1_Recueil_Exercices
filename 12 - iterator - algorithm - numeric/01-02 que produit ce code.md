@@ -106,19 +106,19 @@ qui produit
 AVANT insertion
 taille   : 4
 capacity : 4
-data     : 0x600001618030
+data     : 0x600003994030
 
 APRES insertion
 taille   : 5
 capacity : 8
-data     : 0x60000141d240
+data     : 0x600003b911e0
 
 itérations
 [1, 2, 3, 4, 5]
-[609648688, 10632, 2043, 0]
+[-499695568, 2366, 2043, 0]
 
-cout << "begin    : " << &(*begin)     << endl;
-cout << "v.begin(): " << &(*v.begin()) << endl;
+begin    : 0x600003994030
+v.begin(): 0x600003b911e0
 ~~~
 
 </details>
