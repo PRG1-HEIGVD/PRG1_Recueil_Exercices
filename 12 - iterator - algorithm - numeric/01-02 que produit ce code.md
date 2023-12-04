@@ -93,8 +93,8 @@ int main() {
    display(begin, end);
 
    cout << endl;
-   cout << "begin    : " << &(*begin)      << endl;
    cout << "v.begin(): " << &(*v.cbegin()) << endl;
+   cout << "begin    : " << &(*begin)      << endl;
 }
 ~~~
 
@@ -117,8 +117,8 @@ itérations
 [1, 2, 3, 4, 5]
 [-499695568, 2366, 2043, 0]
 
-begin    : 0x600003994030
 v.begin(): 0x600003b911e0
+begin    : 0x600003994030
 ~~~
 
 </details>
