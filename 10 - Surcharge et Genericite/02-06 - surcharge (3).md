@@ -189,11 +189,14 @@ fct(f, f);
 <details>
 <summary>Solution</summary>
 
-1. $S = \left\\{1, 3\right\\}$ sont appelables. 
-   - 2 : `float` n'est pas copatible pour `T*`
+1. $S = \left\\{1, 3, 4, 5\right\\}$ sont appelables. 
+   - 2 : Pas de déduction de `T` pour `T* = float`
+   - 6 : pas de conversion `float` vers `int*`
 2. Paramètres 
-   - $P_{1} = \left\\{1, 3\right\\}$ par type exact
+   - $P_{1} = \left\\{1, 3, 4\right\\}$ par type exact
+     - 5 requiert une conversion `float` vers `int`
    - $P_{2} = \left\\{1, 3\right\\}$ par type exact
+     - 4 et 5 requièrent une conversion `float` vers `int`
 3. $P_{1} \cap P_{2} = \left\\{1, 3\right\\}$
 4. fct no 3 : plus spécialisée que la 1 => **la fct no 3 est appelée**
 
@@ -210,7 +213,7 @@ fct(i, i);
 <summary>Solution</summary>
 
 1. $S = \left\\{1, 3, 4, 5\right\\}$ sont appelables. 
-   - 2 : `int` n'est pas copatible pour `T*`
+   - 2 : `int` n'est pas compatible pour `T*`
    - 6 : pas de conversion de `int` vers `int*`
 2. Paramètres 
    - $P_{1} = \left\\{1, 3, 4, 5\right\\}$ par type exact
@@ -230,14 +233,14 @@ fct(d, i);
 <details>
 <summary>Solution</summary>
 
-1. $S = \left\\{1, 4\right\\}$ sont appelables. 
+1. $S = \left\\{1, 4, 5\right\\}$ sont appelables. 
    - 2 : `double` n'est pas copatible pour `T*`
    - 3 : types différents déduits pour `T` (`double` et `int`)
-   - 5 : conversion de `int` vers `float`
    - 6 : pas de conversion de `double` vers `int*`
 2. Paramètres 
    - $P_{1} = \left\\{1, 4\right\\}$ par type exact
-   - $P_{2} = \left\\{1, 4\right\\}$ par type exact
+     - 5 par conversion 
+   - $P_{2} = \left\\{1, 4, 5\right\\}$ par type exact
 3. $P_{1} \cap P_{2} = \left\\{1, 4\right\\}$
 4. fct no 4 : plus spécialisée que la 1 => **la fct no 4 est appelée**
 
@@ -253,11 +256,14 @@ fct(c, c);
 <details>
 <summary>Solution</summary>
 
-1. $S = \left\\{1, 3\right\\}$ sont appelables. 
-   - 2 : `char` n'est pas copatible pour `T*`
+1. $S = \left\\{1, 3, 4, 5\right\\}$ sont appelables. 
+   - 2 : `char` n'est pas compatible pour `T*`
+   - 6 : pas de conversion de `char` vers `int*`
 2. Paramètres 
-   - $P_{1} = \left\\{1, 3\right\\}$ par type exact
+   - $P_{1} = \left\\{1, 3, 4\right\\}$ par type exact
+     - 5 par promotion `char` vers `int`
    - $P_{2} = \left\\{1, 3\right\\}$ par type exact
+     - 4 et 5 par promotion `char` vers `int`
 3. $P_{1} \cap P_{2} = \left\\{1, 3\right\\}$
 4. fct no 3 : plus spécialisée que la 1 => **la fct no 3 est appelée**
 
@@ -273,14 +279,17 @@ fct(c, s);
 <details>
 <summary>Solution</summary>
 
-1. $S = \left\\{1\right\\}$ sont appelables. 
-   - 1 : `char` la seule avec les types exacts
+1. $S = \left\\{1, 4, 5\right\\}$ sont appelables. 
+   - 2 : Pas de déduction pour `T* = char`
    - 3 : types différents déduits pour `T` (`char` et `short`)
+   - 6 : pas de conversion `char` vers `int*`
 2. Paramètres 
-   - $P_{1} = \left\\{1\right\\}$ par type exact
+   - $P_{1} = \left\\{1, 4\right\\}$ par type exact
+     - 5 par promotion `char` vers `int`
    - $P_{2} = \left\\{1\right\\}$ par type exact
+     - 4 et 5 par promotion `char` vers `int`
 3. $P_{1} \cap P_{2} = \left\\{1\right\\}$
-4. **la fct no 3 est appelée**
+4. **la fct no 1 est appelée**
 
 --------------------
 
@@ -296,6 +305,8 @@ fct(pd, i);
 
 1. $S = \left\\{1, 2, 4\right\\}$ sont appelables. 
    - 3 : types différents déduits pour `T` (`double*` et `int`)
+   - 5 : pas de conversion `double*` vers `int`
+   - 6 : pas de conversion `double*` vers `int*`
 2. Paramètres 
    - $P_{1} = \left\\{1, 2, 4\right\\}$ par type exact
    - $P_{2} = \left\\{1, 2, 4\right\\}$ par type exact
@@ -316,12 +327,14 @@ fct(i, c);
 <details>
 <summary>Solution</summary>
 
-1. $S = \left\\{1\right\\}$ sont appelables. 
-   - 1 : `char` la seule avec les types exacts
+1. $S = \left\\{1, 4, 5\right\\}$ sont appelables. 
+   - 2 : pas de déduction pour `T* = int`
    - 3 : types différents déduits pour `T` (`int` et `char`)
+   - 6 : pas de conversion `int` vers `int*`
 2. Paramètres 
-   - $P_{1} = \left\\{1\right\\}$ par type exact
+   - $P_{1} = \left\\{1, 4, 5\right\\}$ par type exact
    - $P_{2} = \left\\{1\right\\}$ par type exact
+     - 4 et 5 par promotion `char` vers `int` 
 3. $P_{1} \cap P_{2} = \left\\{1\right\\}$
 4. **la fct no 1 est appelée**
 
