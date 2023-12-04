@@ -1,6 +1,6 @@
 # Instanciation
 
-Soit la fonction générique fct suivante
+Soit la fonction générique `fct` suivante
 
 ~~~cpp
 template <typename R, typename T, typename U>
@@ -9,7 +9,7 @@ R fct(const T& t, const U& u) {
 }
 ~~~
 
-et les déclarations de variables suivantes 
+et les déclarations de variables 
 
 ~~~cpp
 double d;
@@ -18,7 +18,7 @@ int    i;
 ~~~
 
 Indiquer si les instanciations, implicites ou explicites, sont correctes.<br>
-Si c’est le cas, préciser le type des arguments génériques R, T et U retenus.
+Si correcte, préciser le type des arguments génériques R, T et U retenus.
 
 <br>
 
@@ -33,9 +33,13 @@ int fct(const float& t, const double& u);
 
 Correct
 
-- R : `int`
+Instanciation explicite de la fonction `fct`.
+
+- R : ne sera pas déductible, à passer lors de l'appel
 - T : `float`
 - U : `double`
+
+exemple d'appel : `fct<int>(f, d);`
 
 ------------------------------------------------
 </details>
@@ -51,9 +55,13 @@ int fct<>(const int& t, const double& u);
 
 Correct
 
-- R : `int`
-- T : `int `
+Instanciation explicite de la fonction `fct`.
+
+- R : ne sera pas déductible, à passer lors de l'appel
+- T : `int`
 - U : `double`
+
+exemple d'appel : `fct<int>(i, d);`
 
 ------------------------------------------------
 </details>
