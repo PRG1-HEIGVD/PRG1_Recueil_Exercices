@@ -21,14 +21,14 @@ enum class Chiffre { ZERO,  UN,  DEUX,  TROIS,  QUATRE,  CINQ,  SIX,  SEPT,  HUI
 array      CHIFFRE {"ZERO","UN","DEUX","TROIS","QUATRE","CINQ","SIX","SEPT","HUIT","NEUF" };
 
 ostream& operator<< (ostream& os, Chiffre chiffre) {
-   cout << CHIFFRE[size_t(chiffre)];
+   os << CHIFFRE[size_t(chiffre)];
    return os;
 }
 
 ostream& operator<< (ostream& os, span<const Chiffre> tab) {
    for (size_t i = 0; i < tab.size(); ++i) {
       if (i) cout << " ";
-      cout << tab[i];
+      os << tab[i];
    }
    return os;
 }
