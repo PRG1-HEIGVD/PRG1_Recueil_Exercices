@@ -102,7 +102,6 @@ int main() {
    cout << endl;
    display_details(begin);
    display_details(v.begin());
-
 }
 ~~~
 
