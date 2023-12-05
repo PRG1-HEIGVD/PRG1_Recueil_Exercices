@@ -61,15 +61,6 @@ template<typename Iterator>
 void display(Iterator first, Iterator last) {
    for (Iterator it = first; it != last; ++it) {
       cout << *it    << "\t";
-      cout << &(*it) << endl;
-   }
-   cout << endl;
-}
-
-template<>
-void display(string::const_iterator first, string::const_iterator last) {
-   for (string::const_iterator it = first; it != last; ++it) {
-      cout << *it    << "\t";
       cout << (const void*)&(*it) << endl;
    }
    cout << endl;
