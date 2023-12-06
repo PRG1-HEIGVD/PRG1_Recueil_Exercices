@@ -41,7 +41,7 @@ template<typename T, size_t taille_ligne, size_t taille_colonne>
 T somme2(const Matrice<T, taille_ligne, taille_colonne>& matrice) {
    T resultat = T();
    for (const Ligne<T, taille_colonne>& ligne: matrice) {
-      for (const T &elem: ligne) {
+      for (const T& elem: ligne) {
          resultat += elem;
       }
    }
