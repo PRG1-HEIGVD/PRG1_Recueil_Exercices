@@ -18,29 +18,30 @@ Ecrire cette fonction de deux manières
 
 using namespace std;
 
+//---------------------------------------------------------
 template <typename T, size_t taille>
 using Ligne = array<T, taille>;
 
-template <typename T, size_t taille_ligne, size_t taille_colonne>
-using Matrice = array<Ligne<T, taille_colonne>, taille_ligne>;
+template <typename T, size_t nb_ligne, size_t nb_colonne>
+using Matrice = array<Ligne<T, nb_colonne>, nb_ligne>;
 
-
+//---------------------------------------------------------
 // avec la boucle for ( ; ; )
-template<typename T, size_t taille_ligne, size_t taille_colonne>
-T somme1(const Matrice<T, taille_ligne, taille_colonne>& matrice) {
+template<typename T, size_t nb_ligne, size_t nb_colonne>
+T somme1(const Matrice<T, nb_ligne, nb_colonne>& matrice) {
    T resultat = T();
-   for (size_t i_ligne=0; i_ligne<taille_ligne; ++i_ligne)
-      for (size_t i_colonne=0; i_colonne<taille_colonne; ++i_colonne)
+   for (size_t i_ligne = 0; i_ligne < nb_ligne; ++i_ligne)
+      for (size_t i_colonne = 0; i_colonne < nb_colonne; ++i_colonne)
          resultat += matrice[i_ligne][i_colonne];
    return resultat;
 }
 
-
+//---------------------------------------------------------
 // avec la boucle for ( : )
-template<typename T, size_t taille_ligne, size_t taille_colonne>
-T somme2(const Matrice<T, taille_ligne, taille_colonne>& matrice) {
+template<typename T, size_t nb_ligne, size_t nb_colonne>
+T somme2(const Matrice<T, nb_ligne, nb_colonne>& matrice) {
    T resultat = T();
-   for (const Ligne<T, taille_colonne>& ligne: matrice) {
+   for (const Ligne<T, nb_colonne>& ligne: matrice) {
       for (const T& elem: ligne) {
          resultat += elem;
       }
@@ -48,6 +49,7 @@ T somme2(const Matrice<T, taille_ligne, taille_colonne>& matrice) {
    return resultat;
 }
 
+//---------------------------------------------------------
 int main() {
 
    using Matrice_int_2x3      = Matrice<int,    2, 3>;
