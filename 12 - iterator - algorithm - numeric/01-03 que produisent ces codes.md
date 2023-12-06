@@ -195,7 +195,7 @@ display(tab+5, tab+2);
 <summary>Solution</summary>
 
 ~~~
-[6, 7, 8, 9, 10, ?, ?, ?, ? ... , ?]
+[6, 7, 8, 9, 10, ?, ?, ?, ?, ..., ?]
 ~~~
 
 ⚠️ les itérateurs sont croisés => boucle infinie
