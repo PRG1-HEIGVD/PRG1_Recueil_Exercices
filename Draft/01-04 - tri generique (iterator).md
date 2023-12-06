@@ -1,6 +1,6 @@
 # Tri générique (itérateur)
 
-## ne compile pas encore ... à termine(GMB)
+## ne compile pas encore ... à termine
 
 Reprise de l'exercice [02-07 - tri generique (surcharge).md](../10%20-%20Surcharge%20et%20Genericite/02-07%20-%20tri%20generique%20(surcharge).md)
 
@@ -13,7 +13,7 @@ const vector<int>    vInt {6, 2, 9, 7, 1, 3};
 const vector<string> vStr {"chien"s, "chat"s, "souris"s, "poisson"s};
 ~~~
 
-Utiliser cette fois un array d'térateur
+Utiliser cette fois un array d'itérateur et la généricité.
 
 ~~~
 [6, 2, 9, 7, 1, 3]
@@ -37,30 +37,33 @@ Utiliser cette fois un array d'térateur
 
 using namespace std;
 
-template <typename T> void afficher_element(T const& t) { cout << t; }
-template <typename T> void afficher_element(const T* t) { cout << *t; }
+template <typename T>
+void afficher_element(const T& t) { cout << t; }
 
 template <typename T>
-void afficher_span(span<T> v) {
-   cout << "[";
-//   for (auto it = v.begin(); it != v.end(); ++it) {
-//      if (it != v.begin()) cout << ", ";
-//      afficher_element(it);
-//   }
-   for (size_t i=0; i<v.size(); ++i) {
-      if (i) cout << ", ";
-      afficher_element(v[i]);
-   }
-}
+void afficher_element(typename span<T>::iterator it) { cout << *it; }
 
-template <typename T> bool comparer(const T& a, const T& b) { return  a <  b; }
-template <typename T> bool comparer(const T *a, const T *b) { return *a < *b; }
+template <typename T>
+bool operator< (const T& a, const T& b) { return  a <  b; }
+
+template <typename T>
+bool operator< (const T *a, const T *b) { return *a < *b; }
+
+template <typename T>
+void afficher_span (span<T> s) {
+   cout << "[";
+   for (size_t i = 0; i < s.size(); ++i) {
+      if (i) cout << ", ";
+      afficher_element(s[i]);
+   }
+   cout << "]";
+}
 
 template <typename T>
 size_t indice_min(span<T> v) {
    size_t iMin = 0;
    for (size_t i=1; i<v.size(); ++i)
-      if (comparer(v[i],v[iMin]))
+      if (v[i] < v[iMin])
          iMin = i;
    return iMin;
 }
@@ -80,39 +83,35 @@ vector<Iterator> vecteur_de_iterateurs(span<T> v) {
 
    for (Iterator it = v.begin(); it != v.end(); ++it)
       vIter.push_back(it);
-//
-//   for (const T& e : v) {
-//      vPtr.push_back(&e);
-//   }
+
    return vIter;
 }
 
 int main() {
+
    vector<int> v1{6, 2, 9, 7, 1, 3};
    span s1(v1);
-   afficher_span(s1);
-   cout << endl;
+   afficher_span(s1); cout << endl;
    tri_par_selection(s1);
-   afficher_span(s1);
-   cout << endl << endl;
+   afficher_span(s1); cout << endl;
 
-   const vector<int> vInt{6, 2, 9, 7, 1, 3};
-   auto vIterInt = vecteur_de_iterateurs<vector<int>::const_iterator>(span(vInt));
-   span sPtrInt(vIterInt);
-   afficher_span(sPtrInt);
+   const vector<int> v_int{6, 2, 9, 7, 1, 3};
+   auto v_iter_int = vecteur_de_iterateurs<vector<int>::const_iterator>(span(v_int));
+   span s_iter_int(v_iter_int);
+   afficher_span(s_iter_int);
    cout << endl;
-   tri_par_selection(sPtrInt);
-   afficher_span(sPtrInt);
-   cout << endl << endl;
+   tri_par_selection(s_iter_int);
+   afficher_span(s_iter_int);
+   cout << endl;
 
-   const vector<string> vStr{"chien"s, "chat"s, "souris"s, "poisson"s};
-   auto vIterStr = vecteur_de_iterateurs<vector<string>::const_iterator>(span(vStr));
-   span sPtrStr(vPtrStr);
-   afficher_span(sPtrStr);
-   cout << endl;
-   tri_par_selection(sPtrStr);
-   afficher_span(sPtrStr);
-   cout << endl << endl;
+//   const vector<string> v_string{"chien"s, "chat"s, "souris"s, "poisson"s};
+//   auto v_iter_string = vecteur_de_iterateurs<vector<string>::const_iterator>(span(v_string));
+//   span s_iter_string(v_iter_string);
+//   afficher_span(s_iter_string);
+//   cout << endl;
+//   tri_par_selection(s_iter_string);
+//   afficher_span(s_iter_string);
+//   cout << endl << endl;
 }
 ~~~
 </details>
