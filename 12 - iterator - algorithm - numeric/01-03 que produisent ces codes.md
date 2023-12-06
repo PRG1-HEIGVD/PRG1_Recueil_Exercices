@@ -230,7 +230,7 @@ Il n'y a donc aucune méthode `v.begin()` ou `v.end()` à disposition.
 // no 13
 template <typename T>
 void f(const T tab[], size_t taille) {
-   vector<T> v (tab.begin(), tab.end());
+   vector<T> v (tab.begin(), tab.begin() + taille);
    display(v.begin(), v.end());
 }
 
@@ -242,9 +242,9 @@ f(tab);
 
 ⚠️ ne compile pas<br>
 `tab` tel que reçu dans la fonction n'est qu'un **pointeur sur le tableau**.<br>
-Il n'y a donc aucune méthode `v.begin()` ou `v.end()` à disposition.
+Il n'y a donc aucune méthode `v.begin()` à disposition.
 
-**NB** cette fois la taille a été passée en paramètre ...
+**NB** cette fois la taille a été passée en paramètre et utilisée ici `v.begin() + taille`
 
 ------------------------------
 
