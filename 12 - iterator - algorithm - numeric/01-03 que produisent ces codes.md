@@ -207,7 +207,7 @@ display(tab+5, tab+2);
 ~~~cpp
 // no 12
 template <typename T>
-void f(T tab[]) {
+void f(const T tab[]) {
    vector<T> v (tab.begin(), tab.end());
    display(v.begin(), v.end());
 }
@@ -229,7 +229,7 @@ Il n'y a donc aucune méthode `v.begin()` ou `v.end()` à disposition.
 ~~~cpp
 // no 13
 template <typename T>
-void f(T tab[], size_t taille) {
+void f(const T tab[], size_t taille) {
    vector<T> v (tab.begin(), tab.end());
    display(v.begin(), v.end());
 }
@@ -253,7 +253,7 @@ Il n'y a donc aucune méthode `v.begin()` ou `v.end()` à disposition.
 ~~~cpp
 // no 14
 template <typename T>
-void f(T tab[], size_t taille) {
+void f(const T tab[], size_t taille) {
    vector<T> v (tab, tab + taille);
    display(v.begin(), v.end());
 }
