@@ -40,7 +40,7 @@ display(v.begin(), v.end());
 
 ~~~cpp
 // no 2
-display(v.end()-1, v.end());
+display(v.end() - 1, v.end());
 ~~~
 
 <details>
@@ -72,7 +72,7 @@ display(v.end(), v.end());
 
 ~~~cpp
 // no 4
-display(v.begin()+5, v.end()-5);
+display(v.begin() + 5, v.end() - 5);
 ~~~
 
 <details>
@@ -88,7 +88,7 @@ display(v.begin()+5, v.end()-5);
 
 ~~~cpp
 // no 5
-display(v.begin()+5, v.begin()+4);
+display(v.begin() + 5, v.begin() + 4);
 ~~~
 
 <details>
@@ -106,7 +106,7 @@ display(v.begin()+5, v.begin()+4);
 
 ~~~cpp
 // no 6
-display(tab, tab+3);
+display(tab, tab + 3);
 ~~~
 
 <details>
@@ -122,7 +122,7 @@ display(tab, tab+3);
 
 ~~~cpp
 // no 7
-display(tab, tab+2);
+display(tab, tab + 2);
 ~~~
 
 <details>
@@ -138,7 +138,7 @@ display(tab, tab+2);
 
 ~~~cpp
 // no 8
-display(tab, tab+10);
+display(tab, tab + 10);
 ~~~
 
 <details>
@@ -154,7 +154,7 @@ display(tab, tab+10);
 
 ~~~cpp
 // no 9
-display(tab, tab+12);
+display(tab, tab + 12);
 ~~~
 
 <details>
@@ -172,7 +172,7 @@ display(tab, tab+12);
 
 ~~~cpp
 // no 10
-display(tab+2, tab+5);
+display(tab + 2, tab + 5);
 ~~~
 
 <details>
@@ -188,7 +188,7 @@ display(tab+2, tab+5);
 
 ~~~cpp
 // no 11
-display(tab+5, tab+2);
+display(tab + 5, tab + 2);
 ~~~
 
 <details>
@@ -273,3 +273,67 @@ f(tab);
 ------------------------------
 
 </details>
+
+~~~cpp
+// no 15
+display(v.rbegin(), v.rend());
+~~~
+
+<details>
+<summary>Solution</summary>
+
+~~~
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+~~~
+
+------------------------------
+
+</details>
+
+~~~cpp
+// no 16
+display(v.rend(), v.rbegin());
+~~~
+
+<details>
+<summary>Solution</summary>
+
+⚠️ indéterminé, les itérateurs sont croisés
+
+------------------------------
+
+</details>
+
+~~~cpp
+// no 17
+display(v.rbegin(), v.end());
+~~~
+
+<details>
+<summary>Solution</summary>
+
+⚠️ ne compile pas<br>
+les itérateurs ne sont pas du même type<br>
+- `v.rbegin()` => `vector<int>::reverse_iterator`<br>
+- `v.end()` => `vector<int>::iterator`<br>
+
+------------------------------
+
+</details>
+
+~~~cpp
+// no 18
+display(v.rbegin() + 1, v.rend() - 3);
+~~~
+
+<details>
+<summary>Solution</summary>
+
+~~~
+[9, 8, 7, 6, 5, 4]
+~~~
+
+------------------------------
+
+</details>
+
