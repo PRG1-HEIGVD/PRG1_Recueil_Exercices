@@ -1,7 +1,6 @@
 # Que produisent ces codes
 
-Soit la fonction *display(..)*<br>
-et les tableaux déclarés.
+Soit la fonction `display(..)` et les tableaux déclarés.
 
 ~~~cpp
 template<typename Iterator>
