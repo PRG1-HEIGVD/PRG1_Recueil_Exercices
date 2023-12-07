@@ -220,7 +220,7 @@ f(tab);
 
 ⚠️ ne compile pas<br>
 `tab` tel que reçu dans la fonction n'est qu'un **pointeur sur le tableau**.<br>
-Il n'y a donc aucune méthode `v.begin()` ou `v.end()` à disposition.
+Il n'y a donc aucune méthode `tab.begin()` ou `tab.end()` à disposition.
 
 ------------------------------
 
@@ -242,7 +242,7 @@ f(tab);
 
 ⚠️ ne compile pas<br>
 `tab` tel que reçu dans la fonction n'est qu'un **pointeur sur le tableau**.<br>
-Il n'y a donc aucune méthode `v.begin()` à disposition.
+Il n'y a donc aucune méthode `tab.begin()` à disposition.
 
 **NB** cette fois la taille a été passée en paramètre et utilisée ici `v.begin() + taille`
 
@@ -268,7 +268,7 @@ f(tab);
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ~~~
 
-👍 cette fois pas d'utilisation de `v.begin()` ou `v.end()`<br>mais de `tab` et `tab + taille` pour le constructeur de `v`.
+👍 cette fois pas d'utilisation de `tab.begin()` ou `tab.end()`<br>mais de `tab` et `tab + taille` pour le constructeur de `v`.
 
 ------------------------------
 
