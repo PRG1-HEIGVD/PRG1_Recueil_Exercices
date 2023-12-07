@@ -234,7 +234,8 @@ void f(const T tab[], size_t taille) {
    display(v.begin(), v.end());
 }
 
-f(tab);
+// tab supposé dans le scope de déclaration de l'appel
+f(tab, sizeof(tab));
 ~~~
 
 <details>
@@ -258,7 +259,8 @@ void f(const T tab[], size_t taille) {
    display(v.begin(), v.end());
 }
 
-f(tab);
+// tab supposé dans le scope de déclaration de l'appel
+f(tab, sizeof(tab));
 ~~~
 
 <details>
