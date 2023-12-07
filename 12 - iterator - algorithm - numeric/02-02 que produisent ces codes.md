@@ -244,7 +244,7 @@ f(tab);
 `tab` tel que reçu dans la fonction n'est qu'un **pointeur sur le tableau**.<br>
 Il n'y a donc aucune méthode `tab.begin()` à disposition.
 
-**NB** cette fois la taille a été passée en paramètre et utilisée ici `v.begin() + taille`
+**NB** cette fois la taille a été passée en paramètre et utilisée ici `tab.begin() + taille`
 
 ------------------------------
 
