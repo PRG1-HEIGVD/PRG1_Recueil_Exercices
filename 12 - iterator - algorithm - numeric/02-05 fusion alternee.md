@@ -76,7 +76,7 @@ int main() {
 <details>
 <summary>Solution 2</summary>
 
-En utilisant `vector<T>::insert` mais alors la taille doit être ajustée à $2 * min(taille1, taille2)$.<br>
+En utilisant `vector<T>::insert` mais alors la taille doit être ajustée à `2 * min(taille1, taille2)`.<br>
 Pour éviter un changement de capacité, la réservation est faite en une seule fois et la taille réduite.
 
 ~~~cpp
