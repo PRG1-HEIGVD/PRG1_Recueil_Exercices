@@ -2,8 +2,6 @@
 
 Sans utiliser `<algorithm>`, écrire une fonction générique *merge* qui prend en paramètres 4 itérateurs identifiant 2 deux plages de données de type `<T>` et qui retourne un `vector<T>` avec l'ensemble de ces données fusionnées de manière alternée.
 
-Aucun ordre particulier n'est demandé.
-
 Exemple d'exécution
 
 ~~~
