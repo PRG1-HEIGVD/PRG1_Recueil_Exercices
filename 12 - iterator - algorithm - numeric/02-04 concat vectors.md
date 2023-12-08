@@ -9,7 +9,7 @@ Exemple d'exécution
 ~~~
 vector   : [11, 12, 13]
 array    : [21, 22, 23, 24, 25]
-resultat : [11, 12, 13, 22, 23, 24, 25]
+resultat : [11, 12, 13, 21, 22, 23, 24, 25]
 ~~~
 
 <details>
