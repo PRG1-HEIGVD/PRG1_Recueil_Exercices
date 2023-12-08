@@ -107,7 +107,7 @@ vector<T> merge(Iterator1 first1, Iterator1 last1,
    auto taille2 = distance(first2, last2);
 
    vector<T> v(taille1 + taille2);
-   v.resize(min(taille1, taille2));
+   v.resize(taille1 < taille2 ? taille1 : taille2);
 
    typename vector<T>::iterator it = v.begin();
    while (first1 != last1 and first2 != last2) {
