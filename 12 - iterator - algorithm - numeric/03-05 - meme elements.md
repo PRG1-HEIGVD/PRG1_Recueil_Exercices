@@ -36,7 +36,7 @@ ostream& operator<< (ostream& os, span<T> s) {
 
 //---------------------------------------------------------
 template <typename T>
-bool contenue_dans(const T& e, span<T> tab) {
+bool tab_contient_val(const T& e, span<T> tab) {
    return find(tab.begin(), tab.end(), e) != tab.end();
 }
 
@@ -45,11 +45,11 @@ template <typename T>
 bool meme_elements(span<T> tab1, span<T> tab2) {
 
    for (const T& e : tab1)
-      if (not contenue_dans<T>(e, tab2))
+      if (not tab_contient_val<T>(e, tab2))
          return false;
 
    for (const T& e : tab2)
-      if (not contenue_dans<T>(e, tab1))
+      if (not tab_contient_val<T>(e, tab1))
          return false;
 
    return true;
