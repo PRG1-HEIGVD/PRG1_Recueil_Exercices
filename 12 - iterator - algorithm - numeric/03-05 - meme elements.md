@@ -1,0 +1,71 @@
+# Même éléments
+
+Ecrire une fonction `meme_elements` qui reçoit deux tabéeaux en paramtêre de type `<T>` et retourne `true` si les deux tableaux contiennent les même éléments et `false` dans le cas contraire.
+
+- l'ordre n'a pas d'importance
+- les valeurs à double sont possibles
+
+Les deux tableaux ci-dessous ont les même éléments
+
+~~~cpp
+array  a {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+vector v {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2};
+~~~
+
+<details>
+<summary>Solution</summary>
+
+~~~cpp
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <span>
+
+using namespace std;
+
+//---------------------------------------------------------
+template <typename T>
+ostream& operator<< (ostream& os, span<T> s) {
+   os << "[";
+   for (size_t i=0; i<s.size(); ++i) {
+      if (i) os << ", ";
+      os << s[i];
+   }
+   return os << "]";
+}
+
+//---------------------------------------------------------
+template <typename T>
+bool contenue_dans(const T& e, span<T> tab) {
+   return find(tab.begin(), tab.end(), e) != tab.end();
+}
+
+//---------------------------------------------------------
+template <typename T>
+bool meme_elements(span<T> tab1, span<T> tab2) {
+
+   for (const T& e : tab1)
+      if (not contenue_dans<T>(e, tab2))
+         return false;
+
+   for (const T& e : tab2)
+      if (not contenue_dans<T>(e, tab1))
+         return false;
+
+   return true;
+}
+
+//---------------------------------------------------------
+int main() {
+
+   array  a {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+   vector v {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2};
+
+   cout << span<int>(a) << endl;
+   cout << span<int>(v) << endl;
+
+   cout << meme_elements<int>(span<int>(a), span<int>(v));
+}
+~~~
+
+</details>

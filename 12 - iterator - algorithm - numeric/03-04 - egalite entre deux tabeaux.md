@@ -1,0 +1,82 @@
+# Egalité entre deux tableaux
+
+Soient les dexux tabéeaux déclarés.
+
+~~~cpp
+array  a {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+vector v {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+~~~
+
+Ecrire une fonction `vect_iter_val` qui reçoit un span sur un tableau quelconque de `<T>` existant et une valeur `<T>` et retourne un vecteur contenant des itérateurs sur chacune des valeurs correspondantes.
+
+Dans l'exemple ci-dessous, la valeur `2` était recherchée.
+
+~~~cpp
+vecteur d'entiers     : [1, 2, 3, 2, 4, 2, 2, 6, 2]
+vecteur d'iterateurs  : [2, 2, 2, 2, 2]
+~~~
+
+<details>
+<summary>Solution</summary>
+
+~~~cpp
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <span>
+
+using namespace std;
+
+//---------------------------------------------------------
+template <typename T>
+ostream& operator<< (ostream& os, span<T> s) {
+   os << "[";
+   for (size_t i=0; i<s.size(); ++i) {
+      if (i) os << ", ";
+      os << s[i];
+   }
+   return os << "]";
+}
+
+//---------------------------------------------------------
+template <typename T, typename Iterator>
+vector<Iterator> vect_iter_val(span<T> s, const T& e) {
+
+   vector<Iterator> result;
+   auto it = s.begin();
+
+   while( (it = find(it, s.end(), e)) != s.end()) {
+      result.push_back(it);
+      ++it;
+   }
+
+   return result;
+}
+
+//---------------------------------------------------------
+// pour éviter des problèmes de surcharge avec l'opérateur de flux
+template <typename Iterateur>
+void afficher_vect_iter (const vector<Iterateur>& v) {
+   cout << "[";
+   for (size_t i=0; i<v.size(); ++i) {
+      if (i) cout << ", ";
+      cout << *v[i];
+   }
+   cout << "]";
+}
+
+//---------------------------------------------------------
+int main() {
+
+   vector v {1, 2, 3, 2, 4, 2, 2, 6, 2};
+
+   using it_int = vector<int>::iterator;
+
+   cout << "vecteur d'entiers     : " << span(v) << endl;
+   vector vect_int_ref = vect_iter_val<int, it_int>(span<int>(v), 2);
+   cout << "vecteur d'iterateurs  : ";
+   afficher_vect_iter(vect_int_ref);
+}
+~~~
+
+</details>
