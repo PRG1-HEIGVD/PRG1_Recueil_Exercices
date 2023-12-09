@@ -53,7 +53,7 @@ vector<Iterator> vect_iter_val(span<T> s, const T& e) {
 }
 
 //---------------------------------------------------------
-// pour éviter des problèmes de surcharges avec l'opérateur de flux
+// pour éviter des problèmes de surcharge avec l'opérateur de flux
 template <typename Iterateur>
 void afficher_vect_iter (const vector<Iterateur>& v) {
    cout << "[";
