@@ -80,7 +80,7 @@ cout << span<int>(a) << endl;
 ~~~cpp
 // no 4
 int mult(int a, int b) { return a * b; }
-transform(v.begin(), v.end(),a.begin(), v.begin(), mult);
+transform(a.begin(), a.end(), v.begin(), v.begin(), mult);
 
 cout << span<int>(v) << endl;
 ~~~
@@ -89,7 +89,7 @@ cout << span<int>(v) << endl;
 <summary>Solution</summary>
 
 ~~~
-[1, 4, 9, 4, 10, 3, 8, 15, 4]
+[1, 4, 9, 4, 5, 1, 2, 3, 4]
 ~~~
 
 ------------------------------
