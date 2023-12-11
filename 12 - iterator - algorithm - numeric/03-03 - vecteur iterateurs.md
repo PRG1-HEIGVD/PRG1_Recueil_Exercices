@@ -6,7 +6,7 @@ Soit le vecteur déclaré.
 vector v {1, 2, 3, 2, 4, 2, 2, 6, 2};
 ~~~
 
-Ecrire une fonction `vect_iter_val` qui reçoit un span sur un tableau quelconque de `<T>` existant et une valeur `<T>` et retourne un vecteur contenant des itérateurs sur chacune des valeurs correspondantes.
+Ecrire une fonction `vect_iter_val` qui reçoit un `vector<T>` et une valeur `<T>` et retourne un vecteur contenant des itérateurs sur chacune des valeurs correspondantes.
 
 Dans l'exemple ci-dessous, la valeur `2` était recherchée.
 
@@ -39,12 +39,12 @@ ostream& operator<< (ostream& os, span<T> s) {
 
 //---------------------------------------------------------
 template <typename T, typename Iterator>
-vector<Iterator> vect_iter_val(span<T> s, const T& e) {
+vector<Iterator> vect_iter_val(vector<T>& v, const T& e) {
 
    vector<Iterator> result;
-   auto it = s.begin();
+   auto it = v.begin();
 
-   while( (it = find(it, s.end(), e)) != s.end()) {
+   while( (it = find(it, v.end(), e)) != v.end()) {
       result.push_back(it);
       ++it;
    }
@@ -72,7 +72,7 @@ int main() {
    using it_int = vector<int>::iterator;
 
    cout << "vecteur d'entiers     : " << span(v) << endl;
-   vector vect_int_ref = vect_iter_val<int, it_int>(span<int>(v), 2);
+   vector vect_int_ref = vect_iter_val<int, it_int>(v, 2);
    cout << "vecteur d'iterateurs  : ";
    afficher_vect_iter(vect_int_ref);
 }
