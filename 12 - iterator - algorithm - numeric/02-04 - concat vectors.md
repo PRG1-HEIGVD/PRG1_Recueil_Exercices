@@ -40,7 +40,7 @@ vector<T> concat_tab(Iterator1 first1, Iterator1 last1,
    vector<T> v( distance(first1, last1) +
                 distance(first2, last2)  );
 
-   vector<int>::iterator it = v.begin();
+   typename vector<T>::iterator it = v.begin();
 
    while(first1 != last1)
       *it++ = *first1++;

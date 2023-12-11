@@ -129,27 +129,8 @@ true
 </details>
 
 ~~~cpp
-// no 6
-auto resultat = equal(v.begin(), v.begin() + 3,
-                      a.begin(), a.end());
-
-cout << resultat;
-~~~
-
-<details>
-<summary>Solution</summary>
-
-~~~
-true
-~~~
-
-------------------------------
-
-</details>
-
-~~~cpp
 // no 7
-auto resultat = equal(v.begin(), v.begin(),
+auto resultat = equal(v.begin(), v.end(),
                       v.begin(), v.end());
 
 cout << resultat;
