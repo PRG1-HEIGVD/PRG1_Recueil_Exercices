@@ -71,8 +71,6 @@ Nb litres restants             : 23.6
 <summary>Solution</summary>
 
 ~~~cpp
-#include <cmath>
-#include <cstdlib>
 #include <iomanip>
 #include <iostream>
 using namespace std;
@@ -80,56 +78,40 @@ using namespace std;
 class Voiture {
 public:
    Voiture(unsigned capaciteReservoir, double consommationMoyenne);
-   unsigned getCapaciteReservoir() const;
-   double getConsommationMoyenne() const;
-   double getNbLitresDansReservoir() const;
-   double effectuerTrajet(double nbKm); // en valeur de retour : le coût du trajet
-   static double getPrixEssence();
+
+   unsigned getCapaciteReservoir() const { return capaciteReservoir; }
+   double getConsommationMoyenne() const { return consommationMoyenne; }
+   double getNbLitresDansReservoir() const { return nbLitresDansReservoir; }
+   static double getPrixEssence() { return prixEssence; }
+
    static void setPrixEssence(double prix);
+
+   double effectuerTrajet(double nbKm); // en valeur de retour : le coût du trajet
 private:
-   static double prixEssence;        // en Frs
-   const unsigned capaciteReservoir; // en litres
-   const double consommationMoyenne; // litres aux 100 km
-   double nbLitresDansReservoir;     // nb de litres actuellement dans le réservoir
+   static double prixEssence;     // en Frs
+   unsigned capaciteReservoir;    // en litres
+   double consommationMoyenne;    // litres aux 100 km
+   double nbLitresDansReservoir;  // nb de litres actuellement dans le réservoir
 };
 
 double Voiture::prixEssence = 1.7;
 
 Voiture::Voiture(unsigned capaciteReservoir, double consommationMoyenne)
-: capaciteReservoir(capaciteReservoir),
-  consommationMoyenne(consommationMoyenne),
-  nbLitresDansReservoir(capaciteReservoir) {
-}                     
-
-unsigned Voiture::getCapaciteReservoir() const {
-   return capaciteReservoir;
+        : capaciteReservoir(capaciteReservoir),
+          consommationMoyenne(consommationMoyenne),
+          nbLitresDansReservoir(capaciteReservoir) {
 }
-
-double Voiture::getConsommationMoyenne() const {
-   return consommationMoyenne;
-}
-
-double Voiture::getNbLitresDansReservoir() const {
-   return nbLitresDansReservoir;
-}
-
 
 double Voiture::effectuerTrajet(double nbKm) {
-   const double CONSOMMATION = nbKm * consommationMoyenne / 100;
-   nbLitresDansReservoir -= CONSOMMATION;
+   const double consommation = nbKm * consommationMoyenne / 100;
+   nbLitresDansReservoir -= consommation;
    while (nbLitresDansReservoir <= 0)
       nbLitresDansReservoir += capaciteReservoir;
-   return CONSOMMATION * prixEssence;
-}
-
-
-
-double Voiture::getPrixEssence() {
-   return prixEssence;
+   return consommation * prixEssence;
 }
 
 void Voiture::setPrixEssence(double prix) {
-   prixEssence = prix;   
+   prixEssence = prix;
 }
 
 void afficherPrixEssence(double prix) {
@@ -139,35 +121,33 @@ void afficherPrixEssence(double prix) {
 }
 
 void afficherVoiture(const Voiture& v) {
-  cout << "Capacite du reservoir [l]      : " << v.getCapaciteReservoir() << endl
-       << fixed << setprecision(1) 
-       << "Consommation moyenne [l/100km] : " << v.getConsommationMoyenne() << endl
-       << "Nb litres restants             : " << v.getNbLitresDansReservoir()
-       << endl << endl << defaultfloat;
+   cout << "Capacite du reservoir [l]      : " << v.getCapaciteReservoir() << endl
+        << fixed << setprecision(1)
+        << "Consommation moyenne [l/100km] : " << v.getConsommationMoyenne() << endl
+        << "Nb litres restants             : " << v.getNbLitresDansReservoir()
+        << endl << endl << defaultfloat;
 }
 
 void afficherCoutTrajet(double montant) {
    cout << fixed << setprecision(2)
         << "Cout du trajet : " << montant << " Frs"
-        << endl << endl << defaultfloat;        
+        << endl << endl << defaultfloat;
 }
 
 int main() {
 
    afficherPrixEssence(Voiture::getPrixEssence());
-      
+
    Voiture::setPrixEssence(1.95);
-   afficherPrixEssence(Voiture::getPrixEssence());   
+   afficherPrixEssence(Voiture::getPrixEssence());
 
    Voiture v(52, 6.7);
 
-   afficherVoiture(v);   
+   afficherVoiture(v);
    afficherCoutTrajet(v.effectuerTrajet(1000));
    afficherVoiture(v);
    afficherCoutTrajet(v.effectuerTrajet(200));
    afficherVoiture(v);
-
-   return EXIT_SUCCESS;
 }
 ~~~
 
