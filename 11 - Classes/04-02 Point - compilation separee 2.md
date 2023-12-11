@@ -30,28 +30,29 @@ Nombre de points : 2
 
 class Point {
 public:
-    Point();
-    Point(double x, double y, double maxX = 100., double maxY = 100.);
-    ~Point();
-    void setX(double x);
-    void setY(double y);
-    double getX() const;
-    double getY() const;
-    double getMaxX() const;
-    double getMaxY() const;
-    double getPointId() const;
-    static double getNbPoints();
-    void deplacer(double dx, double dy);
-    void afficher() const;
-private:
-    double x, y;
-    const double maxX;
-    const double maxY;
-    const int id;
-    static int prochainId;
-    static int nbPoints;
-};
+   Point();
+   Point(double x, double y, double maxX = 100., double maxY = 100.);
+   ~Point();
 
+   void setX(double x);
+   void setY(double y);
+
+   double getX() const { return x; }
+   double getY() const { return y; }
+   double getMaxX() const { return maxX; }
+   double getMaxY() const { return maxY; }
+   double getPointId() const { return id; }
+   static double getNbPoints() { return nbPoints; }
+
+   void deplacer(double dx, double dy);
+   void afficher() const;
+private:
+   double x, y;
+   double maxX, maxY;
+   int id;
+   static int prochainId;
+   static int nbPoints;
+};
 #endif /* POINT_H */
 ~~~
 
@@ -87,30 +88,6 @@ void Point::setX(double x){
 
 void Point::setY(double y){
     this->y = y;
-}
-
-double Point::getX() const {
-    return this->x;
-}
-
-double Point::getY() const {
-    return this->y;
-}
-
-double Point::getMaxX() const {
-    return this->maxX;
-}
-
-double Point::getMaxY() const {
-    return this->maxY;
-}
-
-double Point::getPointId() const {
-    return this->id;
-}
-
-double Point::getNbPoints() {
-    return Point::nbPoints;
 }
 
 void Point::deplacer(double dx, double dy) {
@@ -151,7 +128,6 @@ int main() {
 
         cout << "Nombre de points : " << Point::getNbPoints() << endl;
         cout << "-------------------------------------------" << endl;
-
     }
 
     Point p3(5, 10);
