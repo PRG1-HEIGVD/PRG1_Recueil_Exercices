@@ -46,8 +46,7 @@ cout << count(v.begin(), v.end(), 6);
 <details>
 <summary>Solution</summary>
 
-⚠️ aucune valeur trouvée, retourne `v.end()`<br>
-**résultat indéterminé**
+0 (rien n'a été trouvé)
 
 ------------------------------
 
