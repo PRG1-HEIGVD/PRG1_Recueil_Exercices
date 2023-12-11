@@ -40,6 +40,7 @@ vector<T> merge(Iterator1 first1, Iterator1 last1,
    vector<T> v(distance(first1, last1) + distance(first2, last2));
 
    typename vector<T>::iterator it = v.begin();
+   
    while (first1 != last1 and first2 != last2) {
       *it++ = *first1++;
       *it++ = *first2++;

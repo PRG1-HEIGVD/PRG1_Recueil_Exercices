@@ -8,7 +8,7 @@ Ecrire une fonction `meme_elements` qui reçoit deux tabéeaux en paramtêre de 
 Les deux tableaux ci-dessous ont les même éléments
 
 ~~~cpp
-array  a {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+array  a {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
 vector v {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2};
 ~~~
 
@@ -58,7 +58,7 @@ bool meme_elements(span<T> tab1, span<T> tab2) {
 //---------------------------------------------------------
 int main() {
 
-   array  a {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+   array  a {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
    vector v {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2};
 
    cout << span<int>(a) << endl;

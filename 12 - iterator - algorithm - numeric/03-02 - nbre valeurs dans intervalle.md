@@ -11,7 +11,7 @@ résultat   : 4
 ~~~
 
 <details>
-<summary>Solution 1</summary>
+<summary>Solution 1 - foncteur</summary>
 
 ~~~cpp
 #include <iostream>
@@ -32,6 +32,7 @@ ostream& operator<< (ostream& os, span<T> s) {
    return os << "]";
 }
 
+//---------------------------------------------------------
 template <typename T>
 struct entre {
    const T& min;
@@ -52,7 +53,7 @@ int main() {
 </details>
 
 <details>
-<summary>Solution 2</summary>
+<summary>Solution 2 - lambda</summary>
 
 ~~~cpp
 int min=3,
