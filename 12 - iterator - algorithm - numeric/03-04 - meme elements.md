@@ -69,3 +69,29 @@ int main() {
 ~~~
 
 </details>
+
+🤔... et si nous voulions écrire
+
+~~~cpp
+   cout << (span<int>(a) == span<int>(v)) << endl;
+~~~
+
+<details>
+<summary>Solution</summary>
+
+~~~cpp
+template <typename T>
+bool operator== (span<T> tab1, span<T> tab2) {
+   for (const T& e : tab1)
+      if (not tab_contient_val<T>(e, tab2))
+         return false;
+
+   for (const T& e : tab2)
+      if (not tab_contient_val<T>(e, tab1))
+         return false;
+
+   return true;
+}
+~~~
+
+</details>
