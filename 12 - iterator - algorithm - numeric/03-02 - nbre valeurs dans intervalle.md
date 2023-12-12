@@ -37,7 +37,7 @@ template <typename T>
 struct entre {
    const T& min;
    const T& max;
-   bool operator() (T e) { return e >= min and e <= max; }
+   bool operator() (const T& e) { return e >= min and e <= max; }
 };
 
 //---------------------------------------------------------
