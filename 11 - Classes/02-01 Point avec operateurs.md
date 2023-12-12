@@ -43,43 +43,66 @@ p1 == p3
 
 ~~~cpp
 #include <iostream>
+#include <cstdlib>
 #include <utility>
 #include <iomanip>
 
 using namespace std;
 
+#include <iostream>
+#include <cstdlib>
+#include <utility>
+
+using namespace std;
+
 class Point {
 public:
-   // constructeurs
    Point();
    Point(double x, double y);
 
-   // setters
-   void setX(double x);
-   void setY(double y);
-
-   // getters
-   double getX() const { return x; }
-   double getY() const { return y; }
-
-   // operateurs d'affectation composée
-   Point& operator+=(const Point& rhs);
+   Point& operator+=(Point const& other);
    Point& operator*=(double d);
+
 private:
    double x, y;
+
+   friend ostream& operator<< (ostream& out, Point const& pt);
+   friend bool operator == (Point const& lhs, Point const& rhs);
 };
 
-// operateurs sous forme de fonctions externes --------------------
+Point::Point() : Point(0., 0.) {}
 
-ostream& operator<<(ostream& cout, const Point& p);
+Point::Point(double x, double y) : x(x), y(y) {}
 
-Point operator+(Point lhs, const Point& rhs);
+ostream& operator<< (ostream& out, Point const& pt) {
+   return out << "(" << pt.x << "," << pt.y << ")";
+}
 
-Point operator*(Point lhs, double rhs);
-Point operator*(double rhs, Point lhs);
+Point& Point::operator+=(const Point& other) {
+   x += other.x;
+   y += other.y;
+   return *this;
+}
 
-bool operator== (const Point& lhs, const Point& rhs);
-// -----------------------------------------------------------------
+Point operator+ (Point pt1, Point const& pt2) {
+   return pt1 += pt2;
+}
+
+Point& Point::operator*=(double d) {
+   x *= d; y *= d; return *this;
+}
+
+Point operator* (Point pt, double d) {
+   return pt *= d;
+}
+
+Point operator* (double d, Point pt) {
+   return pt *= d;
+}
+
+bool operator == (Point const& lhs, Point const& rhs) {
+   return lhs.x == rhs.x and lhs.y == rhs.y;
+}
 
 int main() {
 
@@ -98,56 +121,6 @@ int main() {
    Point p3(p1);
    cout << (p1 == p3 ? "p1 == p3" : "p1 != p3") << endl;
 }
-
-// -----------------------------------------------------------------
-Point::Point() : Point(0., 0.) {}
-
-Point::Point(double x, double y) : x(x), y(y) {}
-
-void Point::setX(double x){
-   this->x = x;
-}
-
-void Point::setY(double y){
-   this->y = y;
-}
-
-// -----------------------------------------------------------------
-ostream& operator<<(ostream& cout, const Point& p){
-   return cout << fixed << setprecision(1)
-               << "(" << p.getX() << ","
-               << p.getY() << ")";
-}
-
-Point& Point::operator+=(const Point& rhs) {
-   x += rhs.x;
-   y += rhs.y;
-   return *this;
-}
-
-Point operator+(Point lhs, const Point& rhs) {
-   return lhs += rhs;
-}
-
-Point& Point::operator*=(double d) {
-   x *= d;
-   y *= d;
-   return *this;
-}
-
-Point operator*(double rhs, Point lhs){
-   return lhs *= rhs;
-}
-
-Point operator*(Point rhs, double lhs){
-   return rhs *= lhs;
-}
-
-bool operator==(const Point& lhs, const Point & rhs) {
-   return lhs.getX() == rhs.getX() and lhs.getY() == rhs.getY();
-}
-
-// -----------------------------------------------------------------
 ~~~
 
 
