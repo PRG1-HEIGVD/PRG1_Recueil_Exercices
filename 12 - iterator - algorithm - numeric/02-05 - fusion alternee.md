@@ -108,7 +108,6 @@ vector<T> merge(Iterator1 first1, Iterator1 last1,
    auto taille2 = distance(first2, last2);
 
    vector<T> v(taille1 + taille2);
-   v.resize(taille1 < taille2 ? taille1 : taille2);
 
    typename vector<T>::iterator it = v.begin();
    while (first1 != last1 and first2 != last2) {
@@ -116,8 +115,75 @@ vector<T> merge(Iterator1 first1, Iterator1 last1,
       *it++ = *first2++;
    }
 
+   v.resize(2 * taille1 < taille2 ? taille1 : taille2);
+
    v.insert(it, first1, last1);
    v.insert(it, first2, last2);
+
+   return v;
+}
+
+//---------------------------------------------------------
+int main() {
+
+   vector v {11, 12, 13};
+   array  a {21, 22, 23, 24, 25};
+
+   cout << "vector   : " << span<int>(v) << endl;
+   cout << "array    : " << span<int>(a) << endl;
+
+   vector r = merge<int>(v.begin(), v.end(),
+                         a.begin(), a.end());
+
+   cout << "resultat : " << span<int>(r) << endl;
+}
+~~~
+
+</details>
+
+<details>
+<summary>Solution 3</summary>
+
+En utilisant `copy(...)` mais alors la taille n'a pas besoin d'être ajustée.<br>
+La capacité est gérée immédiatement, pas de risques de déplacement.
+
+~~~cpp
+#include <iostream>
+#include <array>
+#include <vector>
+#include <span>
+
+using namespace std;
+
+//---------------------------------------------------------
+template <typename T>
+ostream& operator<< (ostream& os, span<T> s) {
+   os << "[";
+   for (size_t i=0; i<s.size(); ++i) {
+      if (i) os << ", ";
+      os << s[i];
+   }
+   return os << "]";
+}
+
+//---------------------------------------------------------
+template<typename T, typename Iterator1, typename Iterator2>
+vector<T> merge(Iterator1 first1, Iterator1 last1,
+                Iterator2 first2, Iterator2 last2) {
+
+   auto taille1 = distance(first1, last1);
+   auto taille2 = distance(first2, last2);
+
+   vector<T> v(taille1 + taille2);
+
+   typename vector<T>::iterator it = v.begin();
+   while (first1 != last1 and first2 != last2) {
+      *it++ = *first1++;
+      *it++ = *first2++;
+   }
+
+   copy(first1, last1, it);
+   copy(first2, last2, it);
 
    return v;
 }
