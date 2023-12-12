@@ -1,5 +1,7 @@
-# Point
-Implémenter une classe Point permettant de manipuler un point du plan.
+# Point avec constructeurs
+
+Modifiez la classe Point de l'exercice [02-01](11-02-01%20Point.md) 
+pour pouvoir donner une valeur initiale aux points
 
 Complétez le code suivant afin qu'il s'exécute correctement et affiche le résultat ci-après.
 
@@ -14,19 +16,15 @@ int main() {
     Point centre;
     centre.afficher();
 
-    Point p(1.2, 2.4);
+    Point p(1.2,2.4);
     p.afficher();
+    
     p.deplacer(0.8, 0.6);
     p.afficher();
 
     p.setX(5.5);
     p.setY(10.3);
     cout << p.getX() << " -- " << p.getY() << endl;
-
-    auto [x, y] = analyserPoint(p);
-    cout << x << " -- " << y << endl;
-
-    return EXIT_SUCCESS;
 }
 ~~~
 
@@ -34,7 +32,6 @@ int main() {
 (0,0)
 (1.2,2.4)
 (2,3)
-5.5 -- 10.3
 5.5 -- 10.3
 ~~~
 
@@ -53,19 +50,22 @@ class Point {
 public:
     Point();
     Point(double x, double y);
+    
     void setX(double x);
     void setY(double y);
+    
     double getX() const;
     double getY() const;
+    
     void deplacer(double dx, double dy);
     void afficher() const;
 private:
     double x, y;
 };
 
-Point::Point() : Point(0., 0.) {}
+Point::Point() : Point(0.,0.) { }
 
-Point::Point(double x, double y) : x(x), y(y) {}
+Point::Point(double x, double y) : x(x), y(y) { }
 
 void Point::setX(double x){
     this->x = x;
@@ -92,27 +92,19 @@ void Point::afficher() const {
     cout << "(" << x << "," << y << ")" << endl;
 }
 
-pair<double, double> analyserPoint(const Point& p){
-    return {p.getX(), p.getY()};
-}
-
 int main() {
     Point centre;
     centre.afficher();
 
-    Point p(1.2, 2.4);
+    Point p(1.2,2.4);
     p.afficher();
+    
     p.deplacer(0.8, 0.6);
     p.afficher();
 
     p.setX(5.5);
     p.setY(10.3);
     cout << p.getX() << " -- " << p.getY() << endl;
-
-    auto [x, y] = analyserPoint(p);
-    cout << x << " -- " << y << endl;
-
-    return EXIT_SUCCESS;
 }
 ~~~
 

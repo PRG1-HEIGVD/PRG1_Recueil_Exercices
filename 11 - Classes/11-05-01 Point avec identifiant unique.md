@@ -1,5 +1,5 @@
 # Point avec un identifiant unique et un compteur
-Reprenez la classe Point de l'exercice 03-01 et faites les modifications / ajouts nécessaires afin d'y intégrer les fonctionnalités suivantes :
+Reprenez la classe Point de l'exercice [03-02](11-03-02%20Point%20avec%20limites%20de%20deplacement.md) et faites les modifications / ajouts nécessaires afin d'y intégrer les fonctionnalités suivantes :
 
 - Attribuer automatiquement un numéro unique à chaque nouveau point créé (1 au premier, 2 au second…). On ne cherchera pas à réutiliser les numéros d'objets éventuellement détruits. Utilisez un attribut constant pour ce numéro. 
 - Maintenir à jour le mombre de points qui existent à un instant donné.
@@ -48,19 +48,19 @@ int main() {
 ~~~
 
 ~~~text
-Point ID = 1, (1.2,2.4), maxX = 100, maxY = 100
+Point ID = 1, (1.2,2.4), containtes: [0,100]x[0,100]
 Nombre de points : 1
 -------------------------------------------
-Point ID = 2, (3,4.2), maxX = 10, maxY = 10
+Point ID = 2, (3,4.2), containtes: [0,10]x[0,10]
 Nombre de points : 2
 -------------------------------------------
-Point ID = 2, (1.2,2.4), maxX = 100, maxY = 100
+Point ID = 2, (1.2,2.4), containtes: [0,100]x[0,100]
 Nombre de points : 2
 -------------------------------------------
-Point ID = 3, (1.2,2.4), maxX = 100, maxY = 100
+Point ID = 3, (1.2,2.4), containtes: [0,100]x[0,100]
 Nombre de points : 3
 -------------------------------------------
-Point ID = 4, (5,10), maxX = 100, maxY = 100
+Point ID = 4, (5,10), containtes: [0,100]x[0,100]
 Nombre de points : 2
 -------------------------------------------
 ~~~
@@ -86,11 +86,6 @@ public:
    void setX(double x);
    void setY(double y);
 
-   double getX() const { return x; }
-   double getY() const { return y; }
-   double getMaxX() const { return maxX; }
-   double getMaxY() const { return maxY; }
-   double getPointId() const { return id; }
    static double getNbPoints() { return nbPoints; }
 
    void deplacer(double dx, double dy);
@@ -103,6 +98,9 @@ private:
    // copie explicitement
    static int prochainId;
    static int nbPoints;
+
+   bool x_valide(double x) const;
+   bool y_valide(double y) const;
 };
 
 // -----------------------------------------------------------------
@@ -148,7 +146,8 @@ int Point::prochainId = 1;
 
 Point::Point() : Point(0., 0.) {}
 
-Point::Point(double x, double y, double maxX, double maxY) : x(x), y(y), maxX(maxX), maxY(maxY), id(prochainId) {
+Point::Point(double x, double y, double maxX, double maxY)
+: x(x), y(y), maxX(maxX), maxY(maxY), id(prochainId) {
    ++prochainId;
    ++nbPoints;
 }
@@ -158,7 +157,7 @@ Point::~Point() {
 }
 
 Point::Point(const Point& other)
-: Point(other.x, other.y, other.maxX, other.maxY) {
+        : Point(other.x, other.y, other.maxX, other.maxY) {
    // other.id n'est pas copié. Le constructeur appelé en génère un nouveau
 }
 
@@ -171,24 +170,35 @@ Point& Point::operator=(const Point& other) {
    return *this;
 }
 
+bool Point::x_valide(double x) const {
+   return x >= 0 and x <= maxX;
+}
+
+bool Point::y_valide(double y) const {
+   return y >= 0 and y <= maxY;
+}
+
 void Point::setX(double x){
-   this->x = x;
+   if (x_valide(x))
+      this->x = x;
 }
 
 void Point::setY(double y){
-   this->y = y;
+   if (y_valide(y))
+      this->y = y;
 }
 
 void Point::deplacer(double dx, double dy) {
-   if(x + dx <= maxX && y + dy <= maxY){
+   if (x_valide(x + dx) and y_valide(y + dy)) {
       x += dx;
       y += dy;
    }
 }
 
 void Point::afficher() const {
-   cout << "Point ID = " << id << ", (" << x << "," << y << ")" << ", maxX = " << maxX << ", maxY = " << maxY << endl;
+   cout << "Point ID = " << id << ", (" << x << "," << y << ")" << ", containtes: [0," << maxX << "]x[0," << maxY << "]\n";
 }
+// -----------------------------------------------------------------
 ~~~
 
 </details>
