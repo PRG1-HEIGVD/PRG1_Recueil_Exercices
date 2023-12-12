@@ -1,42 +1,49 @@
 # Point avec un identifiant unique et un compteur
 Reprenez la classe Point de l'exercice 03-01 et faites les modifications / ajouts nécessaires afin d'y intégrer les fonctionnalités suivantes :
 
-- Attribuer automatiquement un numéro unique à chaque nouveau point créé (1 au premier, 2 au second…). On ne cherchera pas à réutiliser les numéros d'objets éventuellement détruits.
+- Attribuer automatiquement un numéro unique à chaque nouveau point créé (1 au premier, 2 au second…). On ne cherchera pas à réutiliser les numéros d'objets éventuellement détruits. Utilisez un attribut constant pour ce numéro. 
 - Maintenir à jour le mombre de points qui existent à un instant donné.
-
 
 Le code ci-dessous doit s'exécuter correctement et affiche le résultat ci-après.
 
 ~~~cpp
 #include <iostream>
-#include <cstdlib>
 
 using namespace std;
 
 int main() {
 
-    Point p1(1.2, 2.4);
-    p1.afficher();
-    
-    cout << "Nombre de points : " << Point::getNbPoints() << endl;
-    cout << "-------------------------------------------" << endl;
-   
-    {
-        Point p2(3., 4.2, 10., 10.);
-        p2.afficher();
+   Point p1(1.2, 2.4);
+   p1.afficher();
 
-        cout << "Nombre de points : " << Point::getNbPoints() << endl;
-        cout << "-------------------------------------------" << endl;
+   cout << "Nombre de points : " << Point::getNbPoints() << endl;
+   cout << "-------------------------------------------" << endl;
 
-    }
+   {
+      Point p2(3., 4.2, 10., 10.);
+      p2.afficher();
 
-    Point p3(5, 10);
-    p3.afficher();
+      cout << "Nombre de points : " << Point::getNbPoints() << endl;
+      cout << "-------------------------------------------" << endl;
 
-    cout << "Nombre de points : " << Point::getNbPoints() << endl;
-    cout << "-------------------------------------------" << endl;
+      p2 = p1;
+      p2.afficher();
 
-    return EXIT_SUCCESS;
+      cout << "Nombre de points : " << Point::getNbPoints() << endl;
+      cout << "-------------------------------------------" << endl;
+
+      Point p3 = p2;
+      p3.afficher();
+
+      cout << "Nombre de points : " << Point::getNbPoints() << endl;
+      cout << "-------------------------------------------" << endl;
+   }
+
+   Point p4(5, 10);
+   p4.afficher();
+
+   cout << "Nombre de points : " << Point::getNbPoints() << endl;
+   cout << "-------------------------------------------" << endl;
 }
 ~~~
 
@@ -47,7 +54,13 @@ Nombre de points : 1
 Point ID = 2, (3,4.2), maxX = 10, maxY = 10
 Nombre de points : 2
 -------------------------------------------
-Point ID = 3, (5,10), maxX = 100, maxY = 100
+Point ID = 2, (1.2,2.4), maxX = 100, maxY = 100
+Nombre de points : 2
+-------------------------------------------
+Point ID = 3, (1.2,2.4), maxX = 100, maxY = 100
+Nombre de points : 3
+-------------------------------------------
+Point ID = 4, (5,10), maxX = 100, maxY = 100
 Nombre de points : 2
 -------------------------------------------
 ~~~
@@ -67,6 +80,9 @@ public:
    Point(double x, double y, double maxX = 100., double maxY = 100.);
    ~Point();
 
+   Point(const Point& other);
+   Point& operator=(const Point& other);
+
    void setX(double x);
    void setY(double y);
 
@@ -82,7 +98,9 @@ public:
 private:
    double x, y;
    double maxX, maxY;
-   int id;
+   const int id;  // attention, avec id const, il faut
+   // écrire constructeur de copie et affectation par
+   // copie explicitement
    static int prochainId;
    static int nbPoints;
 };
@@ -103,10 +121,22 @@ int main() {
 
       cout << "Nombre de points : " << Point::getNbPoints() << endl;
       cout << "-------------------------------------------" << endl;
+
+      p2 = p1;
+      p2.afficher();
+
+      cout << "Nombre de points : " << Point::getNbPoints() << endl;
+      cout << "-------------------------------------------" << endl;
+
+      Point p3 = p2;
+      p3.afficher();
+
+      cout << "Nombre de points : " << Point::getNbPoints() << endl;
+      cout << "-------------------------------------------" << endl;
    }
 
-   Point p3(5, 10);
-   p3.afficher();
+   Point p4(5, 10);
+   p4.afficher();
 
    cout << "Nombre de points : " << Point::getNbPoints() << endl;
    cout << "-------------------------------------------" << endl;
@@ -125,6 +155,20 @@ Point::Point(double x, double y, double maxX, double maxY) : x(x), y(y), maxX(ma
 
 Point::~Point() {
    --nbPoints;
+}
+
+Point::Point(const Point& other)
+: Point(other.x, other.y, other.maxX, other.maxY) {
+   // other.id n'est pas copié. Le constructeur appelé en génère un nouveau
+}
+
+Point& Point::operator=(const Point& other) {
+   if (&other == this)
+      return *this;
+   x = other.x; y = other.y;
+   maxX = other.maxX; maxY = other.maxY;
+   // other.id n'est pas copié. Il conserve sa valeur précédente
+   return *this;
 }
 
 void Point::setX(double x){
@@ -146,7 +190,5 @@ void Point::afficher() const {
    cout << "Point ID = " << id << ", (" << x << "," << y << ")" << ", maxX = " << maxX << ", maxY = " << maxY << endl;
 }
 ~~~
-
-
 
 </details>
