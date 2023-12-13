@@ -2,7 +2,7 @@
 Reprenez la classe Point de l'exercice [03-02](11-03-02%20Point%20avec%20limites%20de%20deplacement.md) et faites les modifications / ajouts nécessaires afin d'y intégrer les fonctionnalités suivantes :
 
 - Attribuer automatiquement un numéro unique à chaque nouveau point créé (1 au premier, 2 au second…). On ne cherchera pas à réutiliser les numéros d'objets éventuellement détruits. Utilisez un attribut constant pour ce numéro. 
-- Maintenir à jour le mombre de points qui existent à un instant donné.
+- Maintenir à jour le nombre de points qui existent à un instant donné.
 
 Le code ci-dessous doit s'exécuter correctement et affiche le résultat ci-après.
 
@@ -48,19 +48,19 @@ int main() {
 ~~~
 
 ~~~text
-Point ID = 1, (1.2,2.4), containtes: [0,100]x[0,100]
+Point ID = 1, (1.2,2.4), contraintes: [0,100]x[0,100]
 Nombre de points : 1
 -------------------------------------------
-Point ID = 2, (3,4.2), containtes: [0,10]x[0,10]
+Point ID = 2, (3,4.2), contraintes: [0,10]x[0,10]
 Nombre de points : 2
 -------------------------------------------
-Point ID = 2, (1.2,2.4), containtes: [0,100]x[0,100]
+Point ID = 2, (1.2,2.4), contraintes: [0,100]x[0,100]
 Nombre de points : 2
 -------------------------------------------
-Point ID = 3, (1.2,2.4), containtes: [0,100]x[0,100]
+Point ID = 3, (1.2,2.4), contraintes: [0,100]x[0,100]
 Nombre de points : 3
 -------------------------------------------
-Point ID = 4, (5,10), containtes: [0,100]x[0,100]
+Point ID = 4, (5,10), contraintes: [0,100]x[0,100]
 Nombre de points : 2
 -------------------------------------------
 ~~~
@@ -196,7 +196,7 @@ void Point::deplacer(double dx, double dy) {
 }
 
 void Point::afficher() const {
-   cout << "Point ID = " << id << ", (" << x << "," << y << ")" << ", containtes: [0," << maxX << "]x[0," << maxY << "]\n";
+   cout << "Point ID = " << id << ", (" << x << "," << y << ")" << ", contraintes: [0," << maxX << "]x[0," << maxY << "]\n";
 }
 // -----------------------------------------------------------------
 ~~~
