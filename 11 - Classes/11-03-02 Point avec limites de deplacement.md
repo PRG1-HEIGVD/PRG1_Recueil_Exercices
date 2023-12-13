@@ -2,11 +2,11 @@
 
 Reprenez la classe Point de l'exercice [03-01](11-03-01%20Point%20avec%20constructeurs.md) et faites les modifications / ajouts nécessaires afin d'y intégrer les fonctionnalités suivantes :
 
-- Chaque point a des coordonnées comprises entre 0 et xMax pour x, et entre 0 et yMax pour x
+- Chaque point a des coordonnées comprises entre 0 et xMax pour x, et entre 0 et yMax pour y
 - Ces limites ne peuvent pas être modifiées après la création d'un point et peuvent être différentes d'un point à l'autre. Par defaut, xMax = yMax = 100
-- Ces limites sont mises en oeuvre de manière stricte par la classe. Toute appel à une méthode qui entrainerait un non respect des contraintes a un effet nul
+- Ces limites sont mises en oeuvre de manière stricte par la classe. Tout appel à une méthode qui entrainerait un non respect des contraintes a un effet nul
 
-Le code ci-dessous doit s'exécuter correctement et affiche le résultat ci-après.
+Le code ci-dessous doit s'exécuter correctement et afficher le résultat ci-après.
 
 ~~~cpp
 #include <iostream>
@@ -37,15 +37,15 @@ int main() {
 ~~~
 
 ~~~text
-p1(1.2,2.4), containtes: [0,100]x[0,100]
-p1(2.2,5.4), containtes: [0,100]x[0,100]
-p1(4,5.4), containtes: [0,100]x[0,100]
-p1(4,7), containtes: [0,100]x[0,100]
-p2(3,4.2), containtes: [0,10]x[0,10]
-p2(3,4.2), containtes: [0,10]x[0,10]
-p2(6,6.2), containtes: [0,10]x[0,10]
-p2(6,6.2), containtes: [0,10]x[0,10]
-p2(6,6.2), containtes: [0,10]x[0,10]
+p1(1.2,2.4), contraintes: [0,100]x[0,100]
+p1(2.2,5.4), contraintes: [0,100]x[0,100]
+p1(4,5.4), contraintes: [0,100]x[0,100]
+p1(4,7), contraintes: [0,100]x[0,100]
+p2(3,4.2), contraintes: [0,10]x[0,10]
+p2(3,4.2), contraintes: [0,10]x[0,10]
+p2(6,6.2), contraintes: [0,10]x[0,10]
+p2(6,6.2), contraintes: [0,10]x[0,10]
+p2(6,6.2), contraintes: [0,10]x[0,10]
 ~~~
 
 <details>
@@ -133,7 +133,7 @@ void Point::deplacer(double dx, double dy) {
 }
 
 void Point::afficher() const {
-   cout << "(" << x << "," << y << ")" << ", containtes: [0," << maxX << "]x[0," << maxY << "]\n";
+   cout << "(" << x << "," << y << ")" << ", contraintes: [0," << maxX << "]x[0," << maxY << "]\n";
 }
 // -----------------------------------------------------------------
 ~~~
