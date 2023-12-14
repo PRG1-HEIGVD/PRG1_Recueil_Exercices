@@ -1,12 +1,12 @@
 # Vecteur d'itérateurs
 
-Soit le vecteur déclaré.
+Soit le vecteur constant déclaré.
 
 ~~~cpp
-vector v {1, 2, 3, 2, 4, 2, 2, 6, 2};
+const vector v {1, 2, 3, 2, 4, 2, 2, 6, 2};
 ~~~
 
-Ecrire une fonction `vect_iter_val` qui reçoit un `vector<T>` et une valeur `<T>` et retourne un vecteur contenant des itérateurs sur chacune des valeurs correspondantes.
+Ecrire une fonction `vect_iter_val` qui reçoit un `vector<T>` **constant** et une valeur `<T>` et retourne un vecteur contenant des itérateurs sur chacune des valeurs correspondantes.
 
 Dans l'exemple ci-dessous, la valeur `2` était recherchée.
 
@@ -39,12 +39,14 @@ ostream& operator<< (ostream& os, span<T> s) {
 
 //---------------------------------------------------------
 template <typename T, typename Iterator>
-vector<Iterator> vect_iter_val(vector<T>& v, const T& e) {
+vector<Iterator> vect_iter_val(const vector<T>& v, const T& e) {
 
    vector<Iterator> result;
-   auto it = v.begin();
+   auto it = v.cbegin();
+   // ou
+   typename vector<T>::const_iterator it = v.cbegin();
 
-   while( (it = find(it, v.end(), e)) != v.end()) {
+   while( (it = find(it, v.cend(), e)) != v.cend()) {
       result.push_back(it);
       ++it;
    }
@@ -69,7 +71,7 @@ int main() {
 
    vector v {1, 2, 3, 2, 4, 2, 2, 6, 2};
 
-   using it_int = vector<int>::iterator;
+   using it_int = vector<int>::const_iterator;
 
    cout << "vecteur d'entiers     : " << span(v) << endl;
    vector vect_int_ref = vect_iter_val<int, it_int>(v, 2);
