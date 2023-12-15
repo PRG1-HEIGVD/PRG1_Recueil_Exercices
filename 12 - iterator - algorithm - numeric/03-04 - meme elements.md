@@ -1,4 +1,4 @@
-# Même éléments
+# Mêmes éléments
 
 Ecrire une fonction `meme_elements` qui reçoit deux tabéeaux en paramtêre de type `<T>` et retourne `true` si les deux tableaux contiennent les même éléments et `false` dans le cas contraire.
 
