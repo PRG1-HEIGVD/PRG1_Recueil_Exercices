@@ -60,26 +60,6 @@ private:
 };
 
 //------------------------------------------------------------
-template <typename T>
-void Coord<T>::setCoord(T x, T y) {
-   this->x = x;
-   this->y = y;
-}
-
-//------------------------------------------------------------
-template <typename T>
-void Coord<T>::deplacer(T dx, T dy) {
-   this->x += dx;
-   this->y += dy;
-}
-
-//------------------------------------------------------------
-template <typename T>
-void Coord<T>::afficher() const {
-   cout << "(" << this->x << ", " << this->y << ")";
-}
-
-//------------------------------------------------------------
 int main() {
    cout << "origine  : ";
    const Coord<int> origin;
@@ -105,6 +85,26 @@ int main() {
    Coord<string> p3("x", "y");
    p3.afficher();
    cout << endl;
+}
+
+//------------------------------------------------------------
+template <typename T>
+void Coord<T>::setCoord(T x, T y) {
+   this->x = x;
+   this->y = y;
+}
+
+//------------------------------------------------------------
+template <typename T>
+void Coord<T>::deplacer(T dx, T dy) {
+   this->x += dx;
+   this->y += dy;
+}
+
+//------------------------------------------------------------
+template <typename T>
+void Coord<T>::afficher() const {
+   cout << "(" << this->x << ", " << this->y << ")";
 }
 ~~~
 
@@ -160,26 +160,6 @@ private:
 };
 
 //------------------------------------------------------------
-template <typename T>
-void Coord<T>::setCoord(T x, T y) {
-   this->x = x;
-   this->y = y;
-}
-
-//------------------------------------------------------------
-template <typename T>
-void Coord<T>::deplacer(T dx, T dy) {
-   this->x += dx;
-   this->y += dy;
-}
-
-//------------------------------------------------------------
-template <typename T>
-void Coord<T>::afficher() const {
-   cout << "(" << this->x << ", " << this->y << ")";
-}
-
-//------------------------------------------------------------
 int main() {
 
    cout << "origine  : ";
@@ -207,6 +187,26 @@ int main() {
    Coord<string> p3("x", "y");   // ne compile pas
    p3.afficher();
    cout << endl;
+}
+
+//------------------------------------------------------------
+template <typename T>
+void Coord<T>::setCoord(T x, T y) {
+   this->x = x;
+   this->y = y;
+}
+
+//------------------------------------------------------------
+template <typename T>
+void Coord<T>::deplacer(T dx, T dy) {
+   this->x += dx;
+   this->y += dy;
+}
+
+//------------------------------------------------------------
+template <typename T>
+void Coord<T>::afficher() const {
+   cout << "(" << this->x << ", " << this->y << ")";
 }
 ~~~
 
