@@ -9,7 +9,7 @@ string s  ("HEIG-VD"s);
 list   l  {"chien"s, "chat"s, "souris"s};
 ~~~
 
-Ecrire la ou les fonction(s) générique(s) `display(...)` qui reçoit deux itérateurs `first` et `last` et liste toutes les valeurs contenues et leur emplacement mémoire.
+Ecrire la ou les fonction(s) générique(s) `display(...)` qui reçoit deux itérateurs `first` et `last` et liste toutes les valeurs contenues ainsi que leur emplacement mémoire.
 
 ~~~cpp
 cout << "array"   << endl;    display(a.cbegin(), a.cend());
