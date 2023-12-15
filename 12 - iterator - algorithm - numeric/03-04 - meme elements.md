@@ -73,9 +73,7 @@ int main() {
 🤔... et si nous voulions écrire
 
 ~~~cpp
-if (span<int>(a) == span<int>(v)) {
-   ...
-};
+if (span<int>(a) == span<int>(v)) { ... }
 ~~~
 
 <details>
