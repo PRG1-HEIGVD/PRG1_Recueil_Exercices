@@ -67,7 +67,6 @@ int main() {
    cout << span(vStr) << endl;
    tri_selection<vector<string>::iterator, less<string> >(vStr.begin(), vStr.end());
    cout << span(vStr) << endl;
-
 }
 ~~~
 </details>
