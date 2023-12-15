@@ -1,5 +1,5 @@
 # Algorithm - avec modification
-Soit l'opérateur de flux et le vecteur déclarés.
+Soit l'opérateur de flux et les vecteurs déclarés.
 
 ~~~cpp
 template <typename T>
