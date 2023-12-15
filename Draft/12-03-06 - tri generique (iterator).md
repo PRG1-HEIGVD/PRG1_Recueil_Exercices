@@ -1,19 +1,18 @@
-# Tri générique (itérateur)
-
-## ne compile pas encore ... à termine
+# Tri générique par itérateur
 
 Reprise de l'exercice [02-07 - tri generique (surcharge).md](../10%20-%20Surcharge%20et%20Genericite/02-07%20-%20tri%20generique%20(surcharge).md)
 
 Soient les vectors déclarés
 
 ~~~cpp
-vector<int> v1{6, 2, 9, 7, 1, 3};
-
-const vector<int>    vInt {6, 2, 9, 7, 1, 3};
-const vector<string> vStr {"chien"s, "chat"s, "souris"s, "poisson"s};
+vector vInt {6, 2, 9, 7, 1, 3};
+vector vStr {"chien"s, "chat"s, "souris"s, "poisson"s};
 ~~~
 
-Utiliser cette fois un array d'itérateur et la généricité.
+Implémenter un tri générique par sélection utilisant des itérateurs.
+
+Par défaut, le tri se fait en ordonnant les valeurs par ordre croissant.<br>
+Par parmètre générique, il doit être possible de trier de manière décroissante.
 
 ~~~
 [6, 2, 9, 7, 1, 3]
