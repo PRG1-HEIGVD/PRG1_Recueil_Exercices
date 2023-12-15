@@ -73,7 +73,9 @@ int main() {
 🤔... et si nous voulions écrire
 
 ~~~cpp
-   cout << (span<int>(a) == span<int>(v)) << endl;
+if (span<int>(a) == span<int>(v)) {
+   ...
+};
 ~~~
 
 <details>
