@@ -17,6 +17,9 @@ public:
    void deplacer(T dx, T dy);
    void afficher() const;
 
+   template <typename U>
+   U Distance(const Coord& coord) const;
+
 private:
 //   static_assert(std::is_arithmetic<T>::value, "T is not an arithmetic value");
    T x;
