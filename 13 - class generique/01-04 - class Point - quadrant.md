@@ -5,12 +5,12 @@ Reprendre l'exercice précédant [01-03 - class Point.md](01-03%20-%20class%20Co
 Soit le dessin
 
 ~~~
-vector<Point<int>> dessin { {"p1",  1,  2},
-                            {"p2",  4,  2},
-                            {"p3",  9,  8},
-                            {"p4", -1,  5},
-                            {"p5",  3, -1},
-                            {"p6",  7,  0}};
+vector<Point<int>> dessin {{"p1",  1,  2},
+                           {"p2",  4,  2},
+                           {"p3",  9,  8},
+                           {"p4", -1,  5},
+                           {"p5",  3, -1},
+                           {"p6",  7,  0}};
 ~~~
 
 Ecrire le code permettant de compter combien de `point` se trouvent dans l'un des quandrants `I`, `II`, `III`, `IV` choisi.
