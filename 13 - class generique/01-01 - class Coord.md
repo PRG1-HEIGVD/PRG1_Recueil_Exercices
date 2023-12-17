@@ -124,10 +124,7 @@ p3       : (x, y)
 <br>
 Pourrions-nous restreinde le type générique utilisé à des valeurs numériques ?
 
-💡à lire .. sera vu plus tard dans la gestion des erreurs
-
-- [type_traits](https://cplusplus.com/reference/type_traits/)
-- [static_assert](https://en.cppreference.com/w/cpp/language/static_assert)
+💡Lire [type_traits](https://cplusplus.com/reference/type_traits/) et [static_assert](https://en.cppreference.com/w/cpp/language/static_assert) (seront vu plus tard).
 
 <details>
 <summary>Solution</summary>
