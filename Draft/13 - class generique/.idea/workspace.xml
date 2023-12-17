@@ -26,6 +26,9 @@
     <option name="majorVersion" value="2023" />
     <option name="minorVersion" value="1.1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
   <component name="ProjectId" id="2ZaIbm7egqrxvMPgVy3xPJMQQ5k" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -33,6 +36,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -59,6 +63,7 @@
       <workItem from="1702670642933" duration="150000" />
       <workItem from="1702670795803" duration="2000" />
       <workItem from="1702673765383" duration="610000" />
+      <workItem from="1702802412960" duration="10000" />
     </task>
     <servers />
   </component>
