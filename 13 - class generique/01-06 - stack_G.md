@@ -2,7 +2,7 @@
 
 Reprendre l'exercice fait chap 09 [01-07 stack](09%20-%20Tableaux/01-07%20-%20stack.md) et l'ecrire cette fois de manière générique.
 
-A la compilation, l'utilisateur doit pouvoir choisir le type de données à manipuler `<T>` et la taille `n` de la pile.
+A la compilation, l'utilisateur doit pouvoir choisir le type de données à manipuler `<T>` et la capacité `n` de la pile.
 
 <details>
 <summary>Solution</summary>
