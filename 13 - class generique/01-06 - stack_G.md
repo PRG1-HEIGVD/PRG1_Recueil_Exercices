@@ -17,6 +17,7 @@ using namespace std;
 //---------------------------------------------------------
 template <typename T, int n>
 class Stack {
+   
 public:
    bool   push(const T&  v);
    bool   pop();
@@ -24,7 +25,7 @@ public:
    bool   full()     const;
    bool   empty()    const;
    size_t size()     const;
-   void   stack()    const;
+
    void   display()  const;
 
 private:
