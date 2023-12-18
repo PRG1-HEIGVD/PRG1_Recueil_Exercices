@@ -53,6 +53,7 @@ p2(6,6.2), contraintes: [0,10]x[0,10]
 
 ~~~cpp
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
