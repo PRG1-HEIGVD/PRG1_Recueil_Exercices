@@ -22,7 +22,7 @@ Que produisent les codes ci-après
 
 ~~~cpp
 // no 1
-copy(v.begin(), v.end(),a.begin());
+copy(v.begin(), v.end(), a.begin());
 
 cout << span<int>(a) << endl;
 ~~~
@@ -42,7 +42,7 @@ cout << span<int>(a) << endl;
 
 ~~~cpp
 // no 2
-copy(a.begin(), a.end(),v.rbegin());
+copy(a.begin(), a.end(), v.rbegin());
 
 cout << span<int>(v) << endl;
 ~~~
