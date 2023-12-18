@@ -105,7 +105,7 @@ int main() {
 // -----------------------------------------------------------------
 Point::Point() : Point(0., 0.) {}
 
-Point::Point(double x, double y, double maxX, double maxY) : x(x), y(y), maxX(maxX), maxY(maxY) {}
+Point::Point(double x, double y, double maxX, double maxY) : x(x), y(y), maxX(max(x, maxX)), maxY(max(y, maxY)) {}
 
 bool Point::x_valide(double x) const {
    return x >= 0 and x <= maxX;
