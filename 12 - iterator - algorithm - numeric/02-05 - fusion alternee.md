@@ -37,18 +37,23 @@ template<typename T, typename Iterator1, typename Iterator2>
 vector<T> merge(Iterator1 first1, Iterator1 last1,
                 Iterator2 first2, Iterator2 last2) {
 
+   // taille et capacité à jour
    vector<T> v(distance(first1, last1) + distance(first2, last2));
 
    typename vector<T>::iterator it = v.begin();
    
+   // fusion alternée
    while (first1 != last1 and first2 != last2) {
       *it++ = *first1++;
       *it++ = *first2++;
    }
 
+   // copie le reste de fisrst2 => last2
    if (first1 == last1)
       while (first2 != last2)
          *it++ = *first2++;
+
+   // copie le reste de fisrst1 => last1
    else
       while (first1 != last1)
          *it++ = *first1++;
@@ -107,16 +112,21 @@ vector<T> merge(Iterator1 first1, Iterator1 last1,
    auto taille1 = distance(first1, last1);
    auto taille2 = distance(first2, last2);
 
+   // taille et capacité à jour
    vector<T> v(taille1 + taille2);
 
+   // fusion alternée
    typename vector<T>::iterator it = v.begin();
    while (first1 != last1 and first2 != last2) {
       *it++ = *first1++;
       *it++ = *first2++;
    }
 
+   // réduction de la taille pour les insert qui suivent
+   // NB : la capacité ne change pas
    v.resize(2 * taille1 < taille2 ? taille1 : taille2);
 
+   // v.insert de l'un ou l'autre qui va remettre à jour la taille
    v.insert(it, first1, last1);
    v.insert(it, first2, last2);
 
@@ -174,14 +184,20 @@ vector<T> merge(Iterator1 first1, Iterator1 last1,
    auto taille1 = distance(first1, last1);
    auto taille2 = distance(first2, last2);
 
+   // taille et capacité à jour
    vector<T> v(taille1 + taille2);
 
+   // fusion alternée, 3 itérateurs
+   // - 2 de lectures : first1 et first2
+   // - 1 d'écriture  : it
    typename vector<T>::iterator it = v.begin();
    while (first1 != last1 and first2 != last2) {
       *it++ = *first1++;
       *it++ = *first2++;
    }
 
+   // it se trouve sur le prochain élément à écrire
+   // copie le reste de l'un ou l'autre sur it
    copy(first1, last1, it);
    copy(first2, last2, it);
 
