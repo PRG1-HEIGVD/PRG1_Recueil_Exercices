@@ -86,7 +86,7 @@ public:
    void setX(double x);
    void setY(double y);
 
-   static double getNbPoints() { return nbPoints; }
+   static int getNbPoints() { return nbPoints; }
 
    void deplacer(double dx, double dy);
    void afficher() const;
