@@ -1,5 +1,6 @@
 # classe générique Coord 
 
+Reprise de l'exercice [13-01-01 - class Coord](13-01-01%20-%20class%20Coord.md)<br>
 Ecrire la classe `Coord` qui permet d'obtenir le résultat indiqué pour les instructions suivantes.
 
 ~~~cpp
@@ -32,11 +33,27 @@ p2       : (3, 4)
 p2->     : (4, 5)
 ~~~
 
+<br>
+🤔 Probablement que votre solution permettait d'écrire ceci ?
+
+~~~cpp
+Coord<string> p3("x", "y");
+
+p3.afficher();  // p3 : (x, y)
+~~~
+
+<br>
+Pourrions-nous restreinde le type générique utilisé à des valeurs numériques ?
+
+💡Lire [type_traits](https://cplusplus.com/reference/type_traits/) et [static_assert](https://en.cppreference.com/w/cpp/language/static_assert) (seront vu plus tard).
+
 <details>
 <summary>Solution</summary>
 
 ~~~cpp
 #include <iostream>
+#include <type_traits>
+#include <vector>
 using namespace std;
 
 //------------------------------------------------------------
@@ -54,6 +71,7 @@ public:
    void afficher() const;
 
 private:
+   static_assert(std::is_arithmetic<T>::value, "T is not an arithmetic value");
    T x;
    T y;
    T z;
@@ -61,6 +79,7 @@ private:
 
 //------------------------------------------------------------
 int main() {
+
    cout << "origine  : ";
    const Coord<int> origin;
    origin.afficher();
@@ -79,10 +98,11 @@ int main() {
 
    cout << "p2->     : ";
    p2.deplacer(1, 1);            // conversion int => double
-   p2.afficher();
+   cout << "(" << p2.getX() << ", " << p2.getY() << ")";
    cout << endl;
 
-   Coord<string> p3("x", "y");
+   cout << "p3       : ";
+   Coord<string> p3("x", "y");   // ne compile pas
    p3.afficher();
    cout << endl;
 }
