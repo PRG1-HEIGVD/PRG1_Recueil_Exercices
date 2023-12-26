@@ -49,7 +49,7 @@ Donner un exemple d'appel.
 int dx = 1;
 int dy = 2;
 for_each(dessin.begin(), dessin.end(),
-         [&dx, &dy](Point<int>& p){ p.deplacer(dx, dy); });
+         [dx, dy](Point<int>& p){ p.deplacer(dx, dy); });
 ~~~
 
 </details>
