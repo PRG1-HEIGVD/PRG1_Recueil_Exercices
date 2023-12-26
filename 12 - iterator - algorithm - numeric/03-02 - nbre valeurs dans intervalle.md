@@ -59,8 +59,9 @@ int main() {
 int min=3,
     max=6;
     
+// [&min, &max] en référence pour ne pas copier les valeurs
 cout << count_if(v.begin(), v.end(),
-                 [min, max](int e) {return e >= min and e <= max; });
+                 [&min, &max](int e) {return e >= min and e <= max; });
 ~~~
 
 </details>
