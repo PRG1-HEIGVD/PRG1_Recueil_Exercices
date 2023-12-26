@@ -91,8 +91,8 @@ int main() {
    }
 
    top(s, i);
-   cout << "top  : " << i << endl;
-   cout << "size : "; cout << stack_size(s) << endl;
+   cout << "top  : " << i             << endl;
+   cout << "size : " << stack_size(s) << endl;
    cout << endl;
 
    show_stack(s);
