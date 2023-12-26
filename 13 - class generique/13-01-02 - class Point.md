@@ -1,8 +1,6 @@
 # classe générique Point 
 
-Sur la base de la classe générique `Coord` de l'exercice [13-01-01 - class Coord](13-01-01 - class Coord.md) et **sans faire d'héritage**, écrire la classe générique `Point` qui permet d'obtenir le résultat indiqué pour les instructions suivantes.
-
-[13-01-01 - class Coord](13-01-01%20-%20class%20Coord.md)
+Sur la base de la classe générique `Coord` de l'exercice [13-01-01 - class Coord](13-01-01%20-%20class%20Coord.md) et **sans faire d'héritage**, écrire la classe générique `Point` qui permet d'obtenir le résultat indiqué pour les instructions suivantes.
 
 ~~~cpp
 const Point<int> origin;
