@@ -1,6 +1,6 @@
 # classe générique Coord - distance 
 
-Reprendre l'exercice précédant [01-02 - class Point.md](01-02%20-%20class%20Point.md) et ajouter à la classe générique `Coord` une méthode générique `distance` qui retourne dans un type choisi la distance d'une coordonnée par rapport à l'origine `(T(), T())`.
+Reprendre l'exercice précédant [11-01-02 - class Point](13-01-02%20-%20class%20Point.md) et ajouter à la classe générique `Coord` une méthode générique `distance` qui retourne dans un type choisi la distance d'une coordonnée par rapport à l'origine `(T(), T())`.
 
 ~~~
 p4       : p4(2, 3)
