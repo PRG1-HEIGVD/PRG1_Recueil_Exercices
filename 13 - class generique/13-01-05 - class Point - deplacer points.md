@@ -13,26 +13,11 @@ p5(3, -1)
 p6(7, 0)
 ~~~
 
-<details>
-<summary>Solution - listerPoints</summary>
-
-~~~cpp
-template <typename T>
-void listerPoints(const vector<Point<T>>& v) {
-   for (const Point<T>& p : v) {
-      p.afficher();
-      cout << endl;
-   }
-}
-~~~
-
-</details>
-
 Sans écrire une fonction ou une méthode complémentaire, écrire le code permettant de déplacer ce dessin de `dx`, `dy`.<br>
 Donner un exemple d'appel.
 
 <details>
-<summary>déplacer tous les points</summary>
+<summary>déplacer</summary>
 
 ~~~cpp
 int dx = 1;
