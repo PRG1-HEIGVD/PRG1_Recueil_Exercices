@@ -8,7 +8,6 @@ int i = 1;
 while (not s.full()) {
    s.push(i*=2);
 }
-
 cout << s << endl;
 
 Stack copie(s);
@@ -52,7 +51,6 @@ int main() {
    while (not s.full()) {
       s.push(i*=2);
    }
-
    cout << s << endl;
 
    Stack copie(s);
