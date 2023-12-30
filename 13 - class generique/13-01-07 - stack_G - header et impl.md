@@ -1,6 +1,6 @@
 # Stack - générique
 
-Reprendre l'exercice [13-01-05 stack](13-01-05%20-%20stack_G.md) et l'adapter pour faire de la compilation séparée tel quel :
+Reprendre l'exercice [13-01-06 stack](13-01-06%20-%20stack_G.md) et l'adapter pour faire de la compilation séparée tel quel :
 
 - le fichier `Stack.h` contienne la déclaration de la classe
 - le fichier `Stack_Impl.h` contienne les définitions des méthodes
