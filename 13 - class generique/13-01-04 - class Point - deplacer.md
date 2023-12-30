@@ -2,17 +2,6 @@
 
 Reprendre l'exercice précédant [13-01-03 - class Point - quadrant](13-01-03%20-%20class%20Point%20-%20quadrant.md)
 
-Soit le dessin
-
-~~~
-vector<Point<int>> dessin {{"p1",  1,  2},
-                           {"p2",  4,  2},
-                           {"p3",  9,  8},
-                           {"p4", -1,  5},
-                           {"p5",  3, -1},
-                           {"p6",  7,  0}};
-~~~
-
 Ajouter une fonction ordinaire `listerPoint<T>` qui affiche l'ensemble des points.
 
 ~~~
