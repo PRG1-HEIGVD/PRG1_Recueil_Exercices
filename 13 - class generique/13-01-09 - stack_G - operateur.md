@@ -7,9 +7,7 @@ Stack<int, 10> s;
 for (int i=0; i<6; ++i) {
    s.push(i);
 }
-
 cout << s << endl;
-cout << endl;
 
 Stack copie(s);
 cout << copie << endl;
@@ -26,7 +24,6 @@ cout << boolalpha << (s == copie) << endl;
 [3] 3
 [4] 4
 [5] 5
-
 
 [0] 0
 [1] 1
@@ -55,9 +52,7 @@ int main() {
    for (int i=0; i<6; ++i) {
       s.push(i);
    }
-
    cout << s << endl;
-   cout << endl;
 
    Stack copie(s);
    cout << copie << endl;
