@@ -10,12 +10,28 @@ while (not s.full()) {
 }
 
 cout << s << endl;
-cout << endl;
 
 Stack copie(s);
 cout << copie << endl;
 
 cout << boolalpha << (s == copie) << endl;
+~~~
+
+... qui produit ce résultat
+
+~~~
+[0] 2
+[1] 4
+[2] 8
+[3] 16
+[4] 32
+[5] 64
+[6] 128
+[7] 256
+[8] 512
+[9] 1024
+
+true
 ~~~
 
 <details>
@@ -38,7 +54,6 @@ int main() {
    }
 
    cout << s << endl;
-   cout << endl;
 
    Stack copie(s);
    cout << copie << endl;
@@ -113,7 +128,7 @@ private:
 template <typename T, int n>
 std::ostream& operator<< (std::ostream& os, const Stack<T, n>& s) {
    for (size_t i=0; i<s.size(); ++i)
-      os << "[" << i << "]" << s.data[i] << std::endl;
+      os << "[" << i << "] " << s.data[i] << std::endl;
    return os;
 }
 
