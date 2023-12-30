@@ -1,6 +1,6 @@
 # classe générique Point - déplacer 
 
-Reprendre l'exercice précédant [11-01-03 - class Point](13-01-03%20-%20class%20Coord%20-%20distance.md)
+Reprendre l'exercice précédant [11-01-02 - class Point](13-01-02%20-%20class%20Coord%20-%20distance.md)
 
 Soit le dessin
 
