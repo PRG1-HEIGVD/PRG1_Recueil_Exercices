@@ -1,39 +1,6 @@
 # classe générique Coord 
 
 Reprise de l'exercice [13-01-01 - class Coord](13-01-01%20-%20class%20Coord.md)<br>
-Ecrire la classe `Coord` qui permet d'obtenir le résultat indiqué pour les instructions suivantes.
-
-~~~cpp
-cout << "origine  : ";
-const Coord<int> origin;
-origin.afficher();
-cout << endl;
-
-cout << "p1       : ";
-Coord<int> p1;
-p1.setCoord(1, 2);
-p1.afficher();
-cout << endl;
-
-cout << "p2       : ";
-Coord<double> p2(3, 4);
-p2.afficher();
-cout << endl;
-
-cout << "p2->     : ";
-p2.deplacer(1, 1);   // conversion int => double
-cout << "(" << p2.getX() << ", " << p2.getY() << ")";
-cout << endl;
-~~~
-
-~~~
-origine  : (0, 0)
-p1       : (1, 2)
-p2       : (3, 4)
-p2->     : (4, 5)
-~~~
-
-<br>
 🤔 Probablement que votre solution permettait d'écrire ceci ?
 
 ~~~cpp
