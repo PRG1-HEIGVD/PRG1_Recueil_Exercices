@@ -10,7 +10,7 @@ p3.afficher();  // p3 : (x, y)
 ~~~
 
 <br>
-Comment restreinde le type générique utilisé à des valeurs numériques ?
+Restreinde le type générique utilisé à des valeurs numériques ?
 
 💡Utiliser [type_traits](https://cplusplus.com/reference/type_traits/) et [static_assert](https://en.cppreference.com/w/cpp/language/static_assert)
 
