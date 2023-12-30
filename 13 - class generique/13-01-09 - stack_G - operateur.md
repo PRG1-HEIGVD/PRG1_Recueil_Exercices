@@ -4,11 +4,12 @@ Reprendre l'exercice [13-01-07 stack](13-01-07%20-%20stack_G%20-%20header%20et%2
 
 ~~~cpp
 Stack<int, 10> s;
-int i = 1;
-while (not s.full()) {
-   s.push(i*=2);
+for (int i=0; i<6; ++i) {
+   s.push(i);
 }
+
 cout << s << endl;
+cout << endl;
 
 Stack copie(s);
 cout << copie << endl;
@@ -19,16 +20,20 @@ cout << boolalpha << (s == copie) << endl;
 ... qui produit ce résultat
 
 ~~~
-[0] 2
-[1] 4
-[2] 8
-[3] 16
-[4] 32
-[5] 64
-[6] 128
-[7] 256
-[8] 512
-[9] 1024
+[0] 0
+[1] 1
+[2] 2
+[3] 3
+[4] 4
+[5] 5
+
+
+[0] 0
+[1] 1
+[2] 2
+[3] 3
+[4] 4
+[5] 5
 
 true
 ~~~
@@ -47,11 +52,12 @@ using namespace std;
 int main() {
 
    Stack<int, 10> s;
-   int i = 1;
-   while (not s.full()) {
-      s.push(i*=2);
+   for (int i=0; i<6; ++i) {
+      s.push(i);
    }
+
    cout << s << endl;
+   cout << endl;
 
    Stack copie(s);
    cout << copie << endl;
