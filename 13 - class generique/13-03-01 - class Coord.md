@@ -6,7 +6,6 @@ Reprise de l'exercice [13-01-01 - class Coord](13-01-01%20-%20class%20Coord.md)
 
 ~~~cpp
 Coord<string> p3("x", "y");
-
 p3.afficher();  // p3 : (x, y)
 ~~~
 
