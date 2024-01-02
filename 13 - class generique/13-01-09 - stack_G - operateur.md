@@ -112,7 +112,6 @@ public:
    size_t size()     const;
 
    bool operator== (const Stack<T, n>& other) const;
-
    operator std::string() const;
 
 private:
