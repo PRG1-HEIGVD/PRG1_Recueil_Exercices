@@ -7,11 +7,17 @@ Stack<int, 10> s;
 for (int i=0; i<6; ++i) {
    s.push(i);
 }
-cout << s << endl;
 
+// cast Stack<T, n> => string
+cout << string(s) << endl;
+
+// constructeur par copie
 Stack copie(s);
-cout << copie << endl;
 
+// opérateur de flux <<
+cout << copie     << endl;
+
+// opérateur ==
 cout << boolalpha << (s == copie) << endl;
 ~~~
 
@@ -52,11 +58,17 @@ int main() {
    for (int i=0; i<6; ++i) {
       s.push(i);
    }
-   cout << s << endl;
 
+   // cast Stack<T, n> => string
+   cout << string(s) << endl;
+
+   // constructeur par copie
    Stack copie(s);
-   cout << copie << endl;
 
+   // opérateur de flux <<
+   cout << copie     << endl;
+
+   // opérateur ==
    cout << boolalpha << (s == copie) << endl;
 
    return EXIT_SUCCESS;
@@ -73,6 +85,7 @@ int main() {
 #define STACK_H
 
 #include <array>
+#include <string>
 
 //---------------------------------------------------------
 template <typename T, int n=100>
@@ -100,6 +113,8 @@ public:
 
    bool operator== (const Stack<T, n>& other) const;
 
+   operator std::string() const;
+
 private:
    size_t index  = 0;
    std::array<T, n> data;
@@ -126,9 +141,7 @@ private:
 //---------------------------------------------------------
 template <typename T, int n>
 std::ostream& operator<< (std::ostream& os, const Stack<T, n>& s) {
-   for (size_t i=0; i<s.size(); ++i)
-      os << "[" << i << "] " << s.data[i] << std::endl;
-   return os;
+   return os << std::string(s);
 }
 
 //---------------------------------------------------------
@@ -190,6 +203,15 @@ size_t Stack<T, n>::size() const {
 template <typename T, int n>
 bool Stack<T, n>::operator== (const Stack<T, n>& other) const {
    return std::equal(this->data.begin(), this->data.end(), other.data.begin());
+}
+
+//---------------------------------------------------------
+template <typename T, int n>
+Stack<T, n>::operator std::string() const {
+   std::string result;
+   for (size_t i=0; i<this->size(); ++i)
+      result += "[" + std::to_string(i) + "] " + std::to_string(this->data[i]) + '\n';
+   return result;
 }
 
 #endif //STACK_IMPL_H
