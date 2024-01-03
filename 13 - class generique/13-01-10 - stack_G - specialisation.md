@@ -38,8 +38,6 @@ cout << string(s2) << endl;
 [3] 3
 [4] 4
 [5] 5
-
-true
 ~~~
 
 Que faut-il changer / ajouter ?
