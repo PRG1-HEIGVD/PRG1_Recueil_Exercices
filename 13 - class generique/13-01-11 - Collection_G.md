@@ -52,6 +52,7 @@ s2 n'est pas vide
 ~~~
 
 <br>
+
 Ecrire la classe `Collection`
 
 💡Le container est passé en paramètre générique `Collection<int, vector> s1;`
