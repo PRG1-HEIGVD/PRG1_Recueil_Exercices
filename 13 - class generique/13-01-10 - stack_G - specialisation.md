@@ -45,7 +45,10 @@ Que faut-il changer / ajouter ?
 <details>
 <summary>Solution</summary>
 
-Ajouter une spécialisation de l'`operator std::string()` dans l'implémentation.
+⚠️ la spécialisation partielle d'une méthode d'une classe générique n'est pas possible en C++
+
+Ajouter une spécialisation de l'`operator std::string()` dans l'implémentation.<br>
+Cette solution n'est pas satisfaisant dans la mesure où ce sera toujours pour `10` x `const int*`
 
 ~~~cpp
 template <>
@@ -58,6 +61,8 @@ Stack<const int*, 10>::operator std::string() const {
 ~~~
 
 </details>
+
+### Tous les fichiers ...
 
 <details>
 <summary>Solution - main.cpp</summary>
