@@ -16,7 +16,7 @@ using namespace std;
 int main() {
 
    // vector<int>
-   Collection<int, vector> s1;
+   Collection<int, std::vector> s1;
    for (int i : {0, 1, 2, 3, 4, 5}) {
       s1.add(i);
    }
@@ -26,7 +26,7 @@ int main() {
    s1.clear();
 
    // list<string>
-   Collection<string, list> s2;
+   Collection<string, std::list> s2;
    for (const string& s : {"chien"s, "chat"s, "souris"s}) {
       s2.add(s);
    }
@@ -55,7 +55,7 @@ s2 n'est pas vide
 
 Ecrire la classe `Collection`
 
-💡Le container est passé en paramètre générique `Collection<int, vector> s1;`
+💡Le container est passé en paramètre générique `Collection<int, std::vector> s1;`
 
 <details>
 <summary>Solution - Collection.h</summary>
