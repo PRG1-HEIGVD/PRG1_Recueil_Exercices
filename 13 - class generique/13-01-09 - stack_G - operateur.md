@@ -134,6 +134,7 @@ private:
 #define STACK_IMPL_H
 
 #include <iostream>
+#include <sstream>
 
 //---------------------------------------------------------
 // friends
@@ -207,10 +208,10 @@ bool Stack<T, n>::operator== (const Stack<T, n>& other) const {
 //---------------------------------------------------------
 template <typename T, int n>
 Stack<T, n>::operator std::string() const {
-   std::string result;
+   std::stringstream result;
    for (size_t i=0; i<this->size(); ++i)
-      result += "[" + std::to_string(i) + "] " + std::to_string(this->data[i]) + '\n';
-   return result;
+      result << "[" << i << "] " << this->data[i] << '\n';
+   return result.str();
 }
 
 #endif //STACK_IMPL_H

@@ -53,10 +53,10 @@ Cette solution n'est pas satisfaisante dans la mesure où ce sera toujours pour 
 ~~~cpp
 template <>
 Stack<const int*, 10>::operator std::string() const {
-   std::string result;
+   std::stringstream result;
    for (size_t i=0; i<this->size(); ++i)
-      result += "[" + std::to_string(i) + "] " + std::to_string(*this->data[i]) + '\n';
-   return result;
+      result << "[" << i << "] " << *this->data[i] << '\n';
+   return result.str();
 }
 ~~~
 
@@ -122,7 +122,7 @@ std::ostream& operator<< (std::ostream& os, const Stack<T, n>& s);
 template <typename T, int n>
 class Stack {
 
-friend std::ostream& operator<< <>(std::ostream& os, const Stack<T, n>& s);
+   friend std::ostream& operator<< <>(std::ostream& os, const Stack<T, n>& s);
 
 public:
    Stack () = default;
@@ -157,6 +157,7 @@ private:
 #define STACK_IMPL_H
 
 #include <iostream>
+#include <sstream>
 
 //---------------------------------------------------------
 // friends
@@ -230,19 +231,19 @@ bool Stack<T, n>::operator== (const Stack<T, n>& other) const {
 //---------------------------------------------------------
 template <typename T, int n>
 Stack<T, n>::operator std::string() const {
-   std::string result;
+   std::stringstream result;
    for (size_t i=0; i<this->size(); ++i)
-      result += "[" + std::to_string(i) + "] " + std::to_string(this->data[i]) + '\n';
-   return result;
+      result << "[" << i << "] " << this->data[i] << '\n';
+   return result.str();
 }
 
 //---------------------------------------------------------
 template <>
 Stack<const int*, 10>::operator std::string() const {
-   std::string result;
+   std::stringstream result;
    for (size_t i=0; i<this->size(); ++i)
-      result += "[" + std::to_string(i) + "] " + std::to_string(*this->data[i]) + '\n';
-   return result;
+      result << "[" << i << "] " << *this->data[i] << '\n';
+   return result.str();
 }
 
 #endif //STACK_IMPL_H
