@@ -28,10 +28,10 @@ struct DansQuadrant {
    Quadrant q;
    bool operator() (const Point<T>& p) {
       switch (q) {
-         case Quadrant::I   : return p.getCoord().getX() >= 0 and p.getCoord().getY() >= 0;
-         case Quadrant::II  : return p.getCoord().getX() <= 0 and p.getCoord().getY() >= 0;
-         case Quadrant::III : return p.getCoord().getX() <= 0 and p.getCoord().getY() <= 0;
-         case Quadrant::IV  : return p.getCoord().getX() >= 0 and p.getCoord().getY() <= 0;
+         case Quadrant::I   : return p.getCoord().getX() > T() and p.getCoord().getY() > T();
+         case Quadrant::II  : return p.getCoord().getX() < T() and p.getCoord().getY() > T();
+         case Quadrant::III : return p.getCoord().getX() < T() and p.getCoord().getY() < T();
+         case Quadrant::IV  : return p.getCoord().getX() > T() and p.getCoord().getY() < T();
       }
    }
 };
