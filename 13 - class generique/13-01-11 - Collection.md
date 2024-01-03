@@ -1,4 +1,4 @@
-# Stack - Collection
+# Collection
 
 Soit le programme principal
 
