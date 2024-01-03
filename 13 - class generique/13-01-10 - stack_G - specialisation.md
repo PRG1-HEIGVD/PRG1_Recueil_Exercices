@@ -1,27 +1,28 @@
-# Stack - opérateurs
+# Stack - spécialisation
 
-Reprendre l'exercice [13-01-07 stack](13-01-07%20-%20stack_G%20-%20header%20et%20impl.md) pour les instructions suivantes
+Reprendre l'exercice [13-01-09 stack - opérateur](13-01-09%20-%20stack_G%20-%20operateur.md).
+
+Nous souhaitons cette fois manipuler des `int` et des `const int*` dans le même code.
 
 ~~~cpp
-Stack<int, 10> s;
-for (int i=0; i<6; ++i) {
-   s.push(i);
+const vector data = {0, 1, 2, 3, 4, 5};
+
+// int
+Stack<int, 10> s1;
+for (int i : data) {
+   s1.push(i);
 }
+cout << s1 << endl;
 
-// cast Stack<T, n> => string
-cout << string(s) << endl;
-
-// constructeur par copie
-Stack copie(s);
-
-// opérateur de flux <<
-cout << copie     << endl;
-
-// opérateur ==
-cout << boolalpha << (s == copie) << endl;
+// const int*
+Stack<const int*, 10> s2;
+for (const int& i : data) {
+   s2.push(&i);
+}
+cout << string(s2) << endl;
 ~~~
 
-... qui produit ce résultat
+... qui doit produire ce résultat
 
 ~~~
 [0] 0
@@ -41,6 +42,25 @@ cout << boolalpha << (s == copie) << endl;
 true
 ~~~
 
+Que faut-il changer / ajouter ?
+
+<details>
+<summary>Solution</summary>
+
+Ajouter une spécialisation de l'`operator std::string()` dans l'implémentation.
+
+~~~cpp
+template <>
+Stack<const int*, 10>::operator std::string() const {
+   std::string result;
+   for (size_t i=0; i<this->size(); ++i)
+      result += "[" + std::to_string(i) + "] " + std::to_string(*this->data[i]) + '\n';
+   return result;
+}
+~~~
+
+</details>
+
 <details>
 <summary>Solution - main.cpp</summary>
 
@@ -54,22 +74,22 @@ using namespace std;
 
 int main() {
 
-   Stack<int, 10> s;
-   for (int i=0; i<6; ++i) {
-      s.push(i);
+   const vector data = {0, 1, 2, 3, 4, 5};
+
+   // int
+   Stack<int, 10> s1;
+   for (int i : data) {
+      s1.push(i);
    }
+   cout << s1 << endl;
 
-   // cast Stack<T, n> => string
-   cout << string(s) << endl;
+   // const int*
+   Stack<const int*, 10> s2;
+   for (const int& i : data) {
+      s2.push(&i);
+   }
+   cout << string(s2) << endl;
 
-   // constructeur par copie
-   Stack copie(s);
-
-   // opérateur de flux <<
-   cout << copie     << endl;
-
-   // opérateur ==
-   cout << boolalpha << (s == copie) << endl;
 
    return EXIT_SUCCESS;
 }
@@ -210,6 +230,15 @@ Stack<T, n>::operator std::string() const {
    std::string result;
    for (size_t i=0; i<this->size(); ++i)
       result += "[" + std::to_string(i) + "] " + std::to_string(this->data[i]) + '\n';
+   return result;
+}
+
+//---------------------------------------------------------
+template <>
+Stack<const int*, 10>::operator std::string() const {
+   std::string result;
+   for (size_t i=0; i<this->size(); ++i)
+      result += "[" + std::to_string(i) + "] " + std::to_string(*this->data[i]) + '\n';
    return result;
 }
 
