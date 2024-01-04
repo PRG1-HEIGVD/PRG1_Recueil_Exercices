@@ -20,7 +20,7 @@ Restreinde le type générique utilisé à des valeurs numériques ?
 ~~~cpp
 #include <iostream>
 #include <type_traits>
-#include <vector>
+
 using namespace std;
 
 //------------------------------------------------------------
