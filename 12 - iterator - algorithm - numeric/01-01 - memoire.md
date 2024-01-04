@@ -1,6 +1,6 @@
 # Mémoire
 
-Soient la fonction principale suivante.
+Soit la fonction principale suivante
 
 ~~~cpp
 #include <iostream>
