@@ -1,4 +1,4 @@
-# classe générique Coord 
+# classe générique Coord - assert 
 
 Reprise de l'exercice [13-01-01 - class Coord](13-01-01%20-%20class%20Coord.md)
 
