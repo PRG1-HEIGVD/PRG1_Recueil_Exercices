@@ -1,4 +1,4 @@
-# Stack - opérateurs
+# classe générique Stack -  opérateurs
 
 Reprendre l'exercice [13-01-07 Stack](13-01-07%20-%20Stack_G%20-%20header%20et%20impl.md) pour les instructions suivantes
 

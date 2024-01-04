@@ -1,4 +1,4 @@
-# Stack - générique
+# classe générique Stack
 
 Reprendre l'exercice [09-01-07 stack](../09%20-%20Tableaux/01-07%20-%20stack.md) et l'écrire cette fois de manière générique.
 

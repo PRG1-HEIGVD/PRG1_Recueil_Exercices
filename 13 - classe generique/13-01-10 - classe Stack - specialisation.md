@@ -1,4 +1,4 @@
-# Stack - spécialisation
+# classe générique Stack -  spécialisation
 
 Reprendre l'exercice [13-01-09 Stack - opérateur](13-01-09%20-%20Stack_G%20-%20operateur.md).
 

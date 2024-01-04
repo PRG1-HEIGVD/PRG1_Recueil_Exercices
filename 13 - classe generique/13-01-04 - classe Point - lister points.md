@@ -1,4 +1,4 @@
-# classe générique Point - déplacer 
+# classe générique Point - lister points 
 
 Reprendre l'exercice précédant [13-01-03 - classe Point - quadrant](13-01-03%20-%20classe%20Point%20-%20quadrant.md)
 

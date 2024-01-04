@@ -1,4 +1,4 @@
-# Stack - générique
+# classe générique Stack - compilation séparée
 
 Reprendre l'exercice [13-01-06 Stack](13-01-06%20-%20Stack_G.md) et l'adapter pour faire de la compilation séparée tel quel :
 

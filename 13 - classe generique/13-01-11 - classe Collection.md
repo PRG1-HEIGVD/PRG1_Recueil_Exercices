@@ -1,4 +1,4 @@
-# Collection
+# classe générique Collection
 
 Soit le programme principal
 
