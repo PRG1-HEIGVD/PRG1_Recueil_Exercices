@@ -1,35 +1,56 @@
-# classe générique Point - déplacer 
+# classe générique Point 
 
-Reprendre l'exercice précédant [13-01-04 - class Point - lister points](13-01-04%20-%20class%20Point%20-%20lister%20points.md)
-
-Ajouter une fonction ordinaire `listerPoint<T>` qui affiche l'ensemble des points.
-
-~~~
-p1(1, 2)
-p2(4, 2)
-p3(9, 8)
-p4(-1, 5)
-p5(3, -1)
-p6(7, 0)
-~~~
-
-Sans écrire une fonction ou une méthode complémentaire, écrire le code permettant de déplacer ce dessin de `dx`, `dy`.<br>
-Donner un exemple d'appel.
-
-<details>
-<summary>déplacer</summary>
+Sur la base de la classe générique `Coord` de l'exercice [13-01-01 - classe Coord](13-01-01%20-%20classe%20Coord.md) et **sans faire d'héritage**, écrire la classe générique `Point` qui permet d'obtenir le résultat indiqué pour les instructions suivantes.
 
 ~~~cpp
-int dx = 1;
-int dy = 2;
-for_each(dessin.begin(), dessin.end(),
-         [dx, dy](Point<int>& p){ p.deplacer(dx, dy); });
+const Point<int> origin;
+
+cout << "p1       : ";
+Point<int> p1("p1"s);
+p1.afficher();
+cout << endl;
+
+cout << "p2       : ";
+Point<double> p2("p2"s, Coord(1.2, 3.4));
+p2.afficher();
+cout << endl;
+
+cout << "p3       : ";
+Point<double> p3("p3"s, 1.2, 3.4);
+p3.afficher();
+cout << endl;
+
+cout << "p3.1     : ";
+p3.setNom("p3.1"s);
+p3.afficher();
+cout << endl;
+
+cout << "p1(-1, 1): ";
+p1.setCoord(Coord(-1, 1));
+p1.afficher();
+cout << endl;
+
+cout << "p1->     : ";
+p1.deplacer(-1, 1);
+p1.afficher();
+cout << endl;
+
+cout << "p1(x)    : ";
+cout << p1.getNom() << " " << p1.getCoord().getX();
 ~~~
 
-</details>
+~~~
+p1       : p1(0, 0)
+p2       : p2(1.2, 3.4)
+p3       : p3(1.2, 3.4)
+p3.1     : p3.1(1.2, 3.4)
+p1(-1, 1): p1(-1, 1)
+p1->     : p1(-2, 2)
+p1(x)    : p1 -2
+~~~
 
 <details>
-<summary>code complet</summary>
+<summary>Solution</summary>
 
 ~~~cpp
 #include <iostream>
@@ -48,9 +69,6 @@ public:
 
    void deplacer(T dx, T dy);
    void afficher() const;
-
-   template <typename U>
-   U distance() const;
 
 private:
    T x;
@@ -80,32 +98,42 @@ private:
 };
 
 //------------------------------------------------------------
-template <typename T>
-void listerPoints(const vector<Point<T>>& v) {
-   for (const Point<T>& p : v) {
-      p.afficher();
-      cout << endl;
-   }
-}
-
-//------------------------------------------------------------
 int main() {
-   vector<Point<int>> dessin {{"p1",  1,  2},
-                              {"p2",  4,  2},
-                              {"p3",  9,  8},
-                              {"p4", -1,  5},
-                              {"p5",  3, -1},
-                              {"p6",  7,  0}};
 
-   listerPoints(dessin);
-   
-   int dx = 1;
-   int dy = 2;
-   for_each(dessin.begin(), dessin.end(),
-            [dx, dy](Point<int>& p){ p.deplacer(dx, dy); });
+   const Point<int> origin;
+
+   cout << "p1       : ";
+   Point<int> p1("p1"s);
+   p1.afficher();
    cout << endl;
-   
-   listerPoints(dessin);
+
+   cout << "p2       : ";
+   Point<double> p2("p2"s, Coord(1.2, 3.4));
+   p2.afficher();
+   cout << endl;
+
+   cout << "p3       : ";
+   Point<double> p3("p3"s, 1.2, 3.4);
+   p3.afficher();
+   cout << endl;
+
+   cout << "p3.1     : ";
+   p3.setNom("p3.1"s);
+   p3.afficher();
+   cout << endl;
+
+   cout << "p1(-1, 1): ";
+   p1.setCoord(Coord(-1, 1));
+   p1.afficher();
+   cout << endl;
+
+   cout << "p1->     : ";
+   p1.deplacer(-1, 1);
+   p1.afficher();
+   cout << endl;
+
+   cout << "p1(x)    : ";
+   cout << p1.getNom() << " " << p1.getCoord().getX();
 }
 
 //------------------------------------------------------------
@@ -128,13 +156,6 @@ void Coord<T>::deplacer(T dx, T dy) {
 template <typename T>
 void Coord<T>::afficher() const {
    cout << "(" << this->x << ", " << this->y << ")";
-}
-
-//------------------------------------------------------------
-template <typename T>
-template <typename U>
-U Coord<T>::distance() const {
-   return U( std::sqrt(x * x + y * y) );
 }
 
 //------------------------------------------------------------

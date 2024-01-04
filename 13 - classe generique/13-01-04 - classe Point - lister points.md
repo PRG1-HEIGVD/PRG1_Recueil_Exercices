@@ -1,6 +1,6 @@
 # classe générique Point - déplacer 
 
-Reprendre l'exercice précédant [13-01-03 - class Point - quadrant](13-01-03%20-%20class%20Point%20-%20quadrant.md)
+Reprendre l'exercice précédant [13-01-03 - classe Point - quadrant](13-01-03%20-%20classe%20Point%20-%20quadrant.md)
 
 Ajouter une fonction ordinaire `listerPoint<T>` qui liste l'ensemble des points.
 

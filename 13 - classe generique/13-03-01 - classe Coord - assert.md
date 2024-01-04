@@ -1,6 +1,6 @@
-# classe générique Coord - concept 
+# classe générique Coord - assert 
 
-Reprise de l'exercice [13-03-01 - class Coord](13-01-01%20-%20class%20Coord.md)
+Reprise de l'exercice [13-01-01 - classe Coord](13-01-01%20-%20classe%20Coord.md)
 
 🤔 Probablement que votre solution permettait d'écrire ceci ?
 
