@@ -90,14 +90,15 @@ ostream& operator<< (ostream& os, const Screen<T, width, height>& s) {
 <details>
 <summary>Solution</summary>
 
-⚠️ Ces éléments sont trop gros pour être sur la pile.
-
-Nous pourrions utiliser des `vector` mais alors dimmensions seraient faites sur les variables et non les types.<br>En mettant `static` à la déclaration, les variables sont placés sur le `heap` (les tas) comme ce serait le cas pour les parties `data` d'un vecteur qui sont eux réservés dynamiquement.
-
 | Screen  | Definition  | Colors | Depth | Bits          | Bytes       | MB    |
 |---------|-------------|:------:|:-----:|--------------:|------------:|------:|
 | HD      | 1280 x 720  |   3    |   8   |    22,118,400 |   2,764,800 |   2.8 |
 | Full HD | 1920 x 1080 |   3    |  16   |    99,532,800 |  12,441,600 |  12.4 |
 | UHD 4K  | 3840 x 2160 |   3    |  32   |   796,262,400 |  99,532,800 |  99.5 |
 | UHD 8K  | 7680 x 4320 |   3    |  32   | 3,185,049,600 | 398,131,200 | 398.1 |
+
+⚠️ Ces éléments sont trop gros pour être sur la pile.
+
+Nous pourrions utiliser des `vector` mais alors dimmensions seraient faites sur les variables et non les types.<br>En mettant `static` à la déclaration, les variables sont placés sur le `heap` (les tas) comme ce serait le cas pour les parties `data` d'un vecteur qui sont eux réservés dynamiquement.
+
 </details>
