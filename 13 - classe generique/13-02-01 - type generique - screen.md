@@ -19,7 +19,7 @@ Sur la base de ces déclarations, déclarer les écrans suivants
 
 ~~~cpp
 #include <iostream>
-#include <vector>
+#include <array>
 #include <cstdint>
 
 using namespace std;
