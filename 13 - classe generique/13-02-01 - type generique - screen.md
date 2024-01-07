@@ -5,7 +5,7 @@ Déclarer un type de donnée permettant de définir un écran et sa résolution.
 Un écran est composé de `width` x `height` `pixel`, chacun composé des trois couleurs `R` `G` `B`.<br>
 Les couleurs peuvent être codées sur 8, 16 ou 32 bits. 
 
-Sur la base de ces déclarations, déclarer les écrans suivants
+Déclarer des types génériques pour les écrans suivants.
 
 | Screen   | Definition  | Depth   |
 |----------|-------------|--------:|
@@ -14,7 +14,7 @@ Sur la base de ces déclarations, déclarer les écrans suivants
 | UHD 4K   | 3840 x 2160 | 32 bits |
 | UHD 8K   | 7680 x 4320 | 32 bits |
 
-Ajouter le code afin d'afficher les détails d'un écran comme suit.
+Sur ces bases, déclarer des variables utilisant ces différents types et ajouter le code afin d'afficher les détails d'un écran comme suit.
 
 ~~~cpp
 (1280 x 720) / 8bits
