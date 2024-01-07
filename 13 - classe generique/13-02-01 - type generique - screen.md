@@ -112,7 +112,7 @@ ostream& operator<< (ostream& os, const Screen<T, width, height>& s) {
 </details>
 
 <details>
-<summary>Solution no 2 - `vector<T>`</summary>
+<summary>Solution no 2 - vector\<T> </summary>
 
 🤔 Cette solution est certes meilleurs, mais elle implique jusqu'à 400MB contigu en mémoire ce qui sera difficile voire impossible pour l'OS
 
