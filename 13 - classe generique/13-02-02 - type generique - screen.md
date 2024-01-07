@@ -36,9 +36,10 @@ Sur ces bases, déclarer des variables utilisant ces différents types et ajoute
 ⚠️ Ces éléments sont **trop gros (~400MB contigu en mémoire)** pour être sur la pile, plusieurs solutions.
 
 ### Dimentionnement de la pile d'exécution
-Sur les systèmes Unix/Linux, vous pouvez utiliser des commandes telles que ulimit pour voir ou ajuster la taille de la pile d'exécution pour un processus : `ulimit -s`
+Sur les systèmes Unix/Linux, les commandes telles que `ulimit` permet de voir ou d'ajuster la taille de la pile d'exécution pour un processus : `ulimit -s`
 
-Certains compilateurs peuvent vous donner des informations sur la taille de la pile d'exécution allouée par défaut. Par exemple, avec GCC, vous pouvez utiliser l'option -Wstack-usage=n pour obtenir un avertissement sur l'utilisation de la pile : `g++ -Wstack-usage=1024 -o mon_programme mon_programme.cpp`
+Certains compilateurs peuvent donner des informations sur la taille de la pile d'exécution allouée par défaut.<br>
+Par exemple, avec GCC, vous pouvez utiliser l'option `-Wstack-usage=n` pour obtenir un avertissement sur l'utilisation de la pile : `g++ -Wstack-usage=1024 -o main main.cpp`
 
 ### Alternatives
 
