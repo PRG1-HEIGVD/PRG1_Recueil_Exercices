@@ -1,64 +1,30 @@
-# classe générique Stack -  spécialisation
+# classe générique Stack -  type_traits
 
-Reprendre l'exercice [13-01-09 Stack - opérateur](13-01-09%20-%20classe%20Stack%20-%20operateur.md).
+Reprise de l'exercice [13-01-10 - classe Stack - specialisation](13-01-10%20-%20classe%20Stack%20-%20specialisation.md)
 
-Nous souhaitons cette fois manipuler des `int` et des `const int*` dans le même code.
+Pourrions-nous éviter de faire une spécialisation mais à la place de rendre le code spécifique au type reçu.
 
-~~~cpp
-const vector data = {0, 1, 2, 3, 4, 5};
-
-// int
-Stack<int, 10> s1;
-for (int i : data) {
-   s1.push(i);
-}
-cout << s1 << endl;
-
-// const int*
-Stack<const int*, 10> s2;
-for (const int& i : data) {
-   s2.push(&i);
-}
-cout << string(s2) << endl;
-~~~
-
-... qui doit produire ce résultat
-
-~~~
-[0] 0
-[1] 1
-[2] 2
-[3] 3
-[4] 4
-[5] 5
-
-[0] 0
-[1] 1
-[2] 2
-[3] 3
-[4] 4
-[5] 5
-~~~
-
-Que faut-il changer / ajouter ?
+💡Utiliser [`type_traits`](https://cplusplus.com/reference/type_traits/)
 
 <details>
 <summary>Solution</summary>
 
-⚠️ la spécialisation partielle d'une méthode d'une classe générique n'est pas possible en C++
-
-Seul changement, **ajouter une spécialisation** de l'`operator std::string()` dans l'implémentation.<br>
-Cette solution n'est pas satisfaisante dans la mesure où ce sera toujours pour `10` x `const int*`
-
 ~~~cpp
-template <>
-Stack<const int*, 10>::operator std::string() const {
+#include <type_traits>
+
+template <typename T, int n>
+Stack<T, n>::operator std::string() const {
    std::stringstream result;
-   for (size_t i=0; i<this->size(); ++i)
-      result << "[" << i << "] " << *this->data[i] << '\n';
+   for (size_t i = 0; i < this->size(); ++i)
+      if constexpr (std::is_pointer<T>::value)
+         result << "[" << i << "] " << *this->data[i] << '\n';
+      else
+         result << "[" << i << "] " << this->data[i] << '\n';
    return result.str();
 }
 ~~~
+
+</details>
 
 ### Tous les fichiers ...
 
@@ -156,6 +122,7 @@ private:
 
 #include <iostream>
 #include <sstream>
+#include <type_traits>
 
 //---------------------------------------------------------
 // friends
@@ -230,17 +197,11 @@ bool Stack<T, n>::operator== (const Stack<T, n>& other) const {
 template <typename T, int n>
 Stack<T, n>::operator std::string() const {
    std::stringstream result;
-   for (size_t i=0; i<this->size(); ++i)
-      result << "[" << i << "] " << this->data[i] << '\n';
-   return result.str();
-}
-
-//---------------------------------------------------------
-template <>
-Stack<const int*, 10>::operator std::string() const {
-   std::stringstream result;
-   for (size_t i=0; i<this->size(); ++i)
-      result << "[" << i << "] " << *this->data[i] << '\n';
+   for (size_t i = 0; i < this->size(); ++i)
+      if constexpr (std::is_pointer<T>::value)
+         result << "[" << i << "] " << *this->data[i] << '\n';
+      else
+         result << "[" << i << "] " << this->data[i] << '\n';
    return result.str();
 }
 
@@ -249,4 +210,3 @@ Stack<const int*, 10>::operator std::string() const {
 
 </details>
 
-</details>
