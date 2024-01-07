@@ -2,7 +2,7 @@
 
 Déclarer un type de donnée permettant de définir un écran et sa résolution.
 
-Un écran est compposé de `width` x `height` `pixel` de couleur `R``G``B`.
+Un écran est compposé de `width` x `height` `pixel` de couleur `R``G``B`.<br>
 La profondeur `depth` de chacun des `pixel` est de 8bits, 16 bits ou 32bits. 
 
 Sur la base de ces déclarations, déclarer les écrans suivants
