@@ -10,14 +10,12 @@ Déclarer les types de données permettant de définir une surface de jeu
 
 Après avoir fait toutes déclarations, créer un jeu de 8 lignes par 6 colonnes, créer manuellement une situation de jeu et écrire l'opérateur de flux `<<` afin de représenter cette situation à l'écran.
 
-~~~cpp
-~~~~xxB~
-~~~~~~~~
-~~B~~O~~
-~~x~~O~~
-~~B~~O~~
-~~~~~~~~
-~~~
+    ~~~~xxB~
+    ~~~~~~~~
+    ~~B~~O~~
+    ~~x~~O~~
+    ~~B~~O~~
+    ~~~~~~~~
 
 <details>
 <summary> Solution</summary>
