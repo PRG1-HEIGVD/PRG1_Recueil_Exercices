@@ -5,30 +5,35 @@ Nous souhaitons créer une structure pour le développement d'un jeu de bataille
 Déclarer les types de données permettant de définir une surface de jeu
 
 - les cellules peuvent être : `eau`, `bateau`, `touché`, `coulé`
-- les cellules seront représentées respectivement par les caractères `~` `B` `x` `O`
+- les cellules seront représentées respectivement par les caractères `.` `B` `x` `O`
 - les dimension `width` et `height` de la surface seront déterminées à la compilation
 
 Après avoir fait toutes déclarations, créer un jeu de 8 lignes par 6 colonnes, créer manuellement une situation de jeu et écrire l'opérateur de flux `<<` afin de représenter cette situation à l'écran.
 
-    ~~~~xxB~
-    ~~~~~~~~
-    ~~B~~O~~
-    ~~x~~O~~
-    ~~B~~O~~
-    ~~~~~~~~
+~~~
+----------
+|....xxB.|
+|........|
+|..B..O..|
+|..x..O..|
+|..B..O..|
+|........|
+----------
+~~~
 
 <details>
 <summary> Solution</summary>
 
 ~~~cpp
 #include <iostream>
+#include <string>
 #include <array>
 
 using namespace std;
 
 //------------------------------------------------------------
 enum class Cell        {Eau, Bateau, Touche, Coule};
-const array CellChar = {'~', 'B',    'x',    'O'};
+const array CellChar = {'.', 'B',    'x',    'O'};
 
 //------------------------------------------------------------
 template <typename T, size_t width>
@@ -63,11 +68,14 @@ int main() {
 //------------------------------------------------------------
 template <typename T, size_t width, size_t heigth>
 ostream& operator<< (ostream& os, const Grid<T, width, heigth>& g) {
+   os << string(width+2, '-') << endl;
    for (const Row<T, width>& l : g) {
+      os << '|';
       for (Cell c : l)
          cout << CellChar.at((size_t)c);
-      cout << endl;
+      cout << '|' << endl;
    }
+   os << string(width+2, '-') << endl;
    return os;
 }
 ~~~
