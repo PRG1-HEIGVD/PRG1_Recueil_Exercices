@@ -51,7 +51,7 @@ Certains compilateurs peuvent vous donner des informations sur la taille de la p
 </details>
 
 <details>
-<summary> Solution no 1 - array\<T, size\></summary>
+<summary> Solution no 1 - `array<T, size>`</summary>
 
 ~~~cpp
 #include <iostream>
@@ -112,7 +112,7 @@ ostream& operator<< (ostream& os, const Screen<T, width, height>& s) {
 </details>
 
 <details>
-<summary>Solution no 2 - vector\<T\></summary>
+<summary>Solution no 2 - `vector<T>`</summary>
 
 🤔 Cette solution est certes meilleurs, mais elle implique jusqu'à 400MB contigu en mémoire ce qui sera difficile voire impossible pour l'OS
 
@@ -169,7 +169,7 @@ ostream& operator<< (ostream& os, const Screen<T>& s) {
 </details>
 
 <details>
-<summary>Solution no 3 - deque\<T\></summary>
+<summary>Solution no 3 - `deque<T>`</summary>
 
 🤔 Avec une [deque](https://cplusplus.com/reference/deque/deque/), les données sont réparties en plusieurs chunks (sera étudiées en ASD).
 
