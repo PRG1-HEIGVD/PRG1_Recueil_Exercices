@@ -51,7 +51,7 @@ Certains compilateurs peuvent vous donner des informations sur la taille de la p
 </details>
 
 <details>
-<summary> Solution no 1 - `array`</summary>
+<summary> Solution no 1 - array</summary>
 
 ~~~cpp
 #include <iostream>
@@ -169,7 +169,7 @@ ostream& operator<< (ostream& os, const Screen<T>& s) {
 </details>
 
 <details>
-<summary>Solution no 3 - `deque<T>`</summary>
+<summary>Solution no 3 - deque</summary>
 
 🤔 Avec une [deque](https://cplusplus.com/reference/deque/deque/), les données sont réparties en plusieurs chunks (sera étudiées en ASD).
 
