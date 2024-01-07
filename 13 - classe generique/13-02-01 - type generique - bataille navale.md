@@ -62,6 +62,7 @@ int main() {
                  {E, E, T, E, E, C, E, E},
                  {E, E, B, E, E, C, E, E},
                  {E, E, E, E, E, E, E, E}}};
+
    cout << game << endl;
 }
 
