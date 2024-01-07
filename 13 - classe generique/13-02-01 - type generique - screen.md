@@ -36,7 +36,6 @@ struct Pixel {
 template <typename T, int width>
 using Line = std::array<Pixel<T>, width>;
 
-//------------------------------------------------------------
 template <typename T, int width, int height>
 using Screen = std::array< Line<Pixel<T>, width>, height>;
 
