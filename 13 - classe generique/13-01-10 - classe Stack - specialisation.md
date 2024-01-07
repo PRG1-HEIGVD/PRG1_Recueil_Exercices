@@ -60,8 +60,6 @@ Stack<const int*, 10>::operator std::string() const {
 }
 ~~~
 
-</details>
-
 ### Tous les fichiers ...
 
 <details>
@@ -251,3 +249,4 @@ Stack<const int*, 10>::operator std::string() const {
 
 </details>
 
+</details>
