@@ -1,4 +1,4 @@
-# Type generique - screen
+# Type générique - screen
 
 Déclarer un type de donnée permettant de définir un écran et sa résolution.
 
