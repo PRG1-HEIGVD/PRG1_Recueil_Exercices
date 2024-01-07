@@ -1,6 +1,6 @@
 # Type générique - screen
 
-Déclarer un type de donnée permettant de définir un écran et sa résolution.
+Déclarer les types de données permettant de définir un écran et sa résolution.
 
 Un écran est composé de `width` x `height` `pixel`, chacun composé des trois couleurs `R` `G` `B`.<br>
 Les couleurs peuvent être codées sur 8, 16 ou 32 bits. 
