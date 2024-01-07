@@ -101,4 +101,8 @@ ostream& operator<< (ostream& os, const Screen<T, width, height>& s) {
 
 Nous pourrions utiliser des `vector` mais alors le dimensionnement serait fait sur les variables et non sur les types.<br>En mettant `static` à la déclaration des variables, celles-ci sont placées sur le `heap` (tas) comme ce serait le cas pour les parties `data` d'un vecteur qui sont eux réservés dynamiquement.
 
+Sur les systèmes Unix/Linux, vous pouvez utiliser des commandes telles que ulimit pour voir ou ajuster la taille de la pile d'exécution pour un processus : `ulimit -s`
+
+Certains compilateurs peuvent vous donner des informations sur la taille de la pile d'exécution allouée par défaut. Par exemple, avec GCC, vous pouvez utiliser l'option -Wstack-usage=n pour obtenir un avertissement sur l'utilisation de la pile : `g++ -Wstack-usage=1024 -o mon_programme mon_programme.cpp`
+
 </details>
