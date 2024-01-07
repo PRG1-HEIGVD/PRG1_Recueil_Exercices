@@ -17,8 +17,10 @@ Sur la base de ces déclarations, déclarer les écrans suivants
 Ajouter le code afin d'afficher les détails d'un écran comme suit.
 
 ~~~cpp
-HD      screen_HD;
-cout << screen_HD; // (1280 x 720) / 8bits
+(1280 x 720) / 8bits
+(1920 x 1080) / 16bits
+(3840 x 2160) / 32bits
+(3840 x 2160) / 32bits
 ~~~
 
 <details>
@@ -59,12 +61,16 @@ ostream& operator<< (ostream& os, const Screen<T, width, height>& s);
 
 //------------------------------------------------------------
 int main() {
-   HD      screen_HD;
-   Full_HD screen_Full_HD;
-   UHD_4k  screen_UHD_4k;
-   UHD_8k  screen_UHD_8k;
+   // note : stop gros pour la pile => static
+   static HD      screen_HD;
+   static Full_HD screen_Full_HD;
+   static UHD_4k  screen_UHD_4k;
+   static UHD_8k  screen_UHD_8k;
 
-   cout << screen_HD << endl;
+   cout << screen_HD       << endl;
+   cout << screen_Full_HD  << endl;
+   cout << screen_UHD_4k   << endl;
+   cout << screen_UHD_4k   << endl;
 }
 
 //------------------------------------------------------------
@@ -79,10 +85,14 @@ ostream& operator<< (ostream& os, const Screen<T, width, height>& s) {
 
 </details>
 
-Combien de mémoire faut-il pour ces structures ?
+🤔 Combien de mémoire faut-il pour ces structures ?
 
 <details>
 <summary>Solution</summary>
+
+⚠️ Ces éléments sont trop gros pour être sur la pile.
+
+Nous pourrions utiliser des `vector` mais alors dimmensions seraient faites sur les variables et non les types.<br>En mettant `static` à la déclaration, les variables sont placés sur le `heap` (les tas) comme ce serait le cas pour les parties `data` d'un vecteur qui sont eux réservés dynamiquement.
 
 | Screen  | Definition  | Colors | Depth | Bits          | Bytes       | MB    |
 |---------|-------------|:------:|:-----:|--------------:|------------:|------:|
