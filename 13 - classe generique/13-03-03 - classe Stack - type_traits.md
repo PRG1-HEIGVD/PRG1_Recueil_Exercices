@@ -1,4 +1,4 @@
-# classe générique Stack -  spécialisation
+# classe générique Stack -  type_traits
 
 Reprise de l'exercice [13-01-10 - classe Stack - specialisation](13-01-10%20-%20classe%20Stack%20-%20specialisation.md)
 
