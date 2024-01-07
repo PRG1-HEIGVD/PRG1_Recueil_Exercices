@@ -20,7 +20,7 @@ Ajouter le code afin d'afficher les détails d'un écran comme suit.
 (1280 x 720) / 8bits
 (1920 x 1080) / 16bits
 (3840 x 2160) / 32bits
-(3840 x 2160) / 32bits
+(7680 x 4320) / 32bits
 ~~~
 
 <details>
@@ -70,7 +70,7 @@ int main() {
    cout << screen_HD       << endl;
    cout << screen_Full_HD  << endl;
    cout << screen_UHD_4k   << endl;
-   cout << screen_UHD_4k   << endl;
+   cout << screen_UHD_8k   << endl;
 }
 
 //------------------------------------------------------------
