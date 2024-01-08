@@ -36,18 +36,22 @@ Sur ces bases, déclarer des variables utilisant ces différents types et ajoute
 ⚠️ Ces éléments sont **trop gros (~400MB contigu en mémoire)** pour être sur la pile, plusieurs solutions.
 
 ### Dimentionnement de la pile d'exécution
-Sur les systèmes Unix/Linux, les commandes telles que `ulimit` permet de voir ou d'ajuster la taille de la pile d'exécution pour un processus : `ulimit -s`
+Sur les systèmes Unix/Linux, les commandes telles que `ulimit` permet de voir ou d'ajuster la taille de la pile d'exécution pour un processus : `ulimit -s` (typiquement **8MB**, déjà trop peu pour du *Full HD*)
 
 Certains compilateurs peuvent donner des informations sur la taille de la pile d'exécution allouée par défaut.<br>
-Par exemple, avec GCC, vous pouvez utiliser l'option `-Wstack-usage=n` pour obtenir un avertissement sur l'utilisation de la pile : `g++ -Wstack-usage=1024 -o main main.cpp`
+Avec GCC, vous pouvez utiliser l'option `-Wstack-usage=n` pour obtenir un avertissement sur l'utilisation de la pile : `g++ -Wstack-usage=1024 -o main main.cpp`
 
 ### Alternatives
 
-1. Utiliser `static` à la déclaration des variables pour que celles-ci sont placées sur le `heap` (tas) comme ce serait le cas pour les parties `data` d'un vecteur qui sont eux réservés dynamiquement.
+1. Utiliser `static` à la déclaration des variables pour que celles-ci sont placées sur le `heap` (tas).<br>
+Cette solution implique jusqu'à **400MB** contigu en mémoire ce qui sera difficile voire impossible pour l'OS
 
-2. Utiliser des `vector<T>` ce qui implique que le dimentionnement se fait au moment de la déclaration de la variable et non sur le type. Les parties `data` d'un vecteur qui sont eux réservés dynamiquement, donc sur le `heap`.
 
-3. Répartir les données en plusieurs zones avec plusieurs `vector<T>` ou une structure que le fait intrinsèquement, ie une `deque<T>` qui sera vu en ASD.
+2. Utiliser des `vector<vector<T>>` ce qui est naturellement le cas dans ce problème. Le dimentionnement se fera au moment de la déclaration de la variable et non sur le type. Les parties `data` des vecteurs sont réservés dynamiquement, et donc sur le `heap`.<br>
+Dans le cas d'un écran UHD 8k, il y aura 7680 vecteurs de 414KB (4320 x 3 x 32 / 1'000) chacun.
+
+3. Répartir les données en plus petits blocs encore avec une [`deque<T>`](https://cplusplus.com/reference/deque/deque/) (ASD).<br>
+Les données sont réparties en plusieurs `chunks`. La répartition en plusieurs vecteurs (solution no 2) est déjà suffisante.
 
 </details>
 
@@ -115,8 +119,6 @@ ostream& operator<< (ostream& os, const Screen<T, width, height>& s) {
 <details>
 <summary>Solution no 2 - vector</summary>
 
-🤔 Cette solution est certes meilleurs, mais elle implique jusqu'à 400MB contigu en mémoire ce qui sera difficile voire impossible pour l'OS
-
 ~~~cpp
 #include <iostream>
 #include <vector>
@@ -171,8 +173,6 @@ ostream& operator<< (ostream& os, const Screen<T>& s) {
 
 <details>
 <summary>Solution no 3 - deque</summary>
-
-🤔 Avec une [deque](https://cplusplus.com/reference/deque/deque/), les données sont réparties en plusieurs chunks (sera étudiées en ASD).
 
 ~~~cpp
 #include <iostream>
