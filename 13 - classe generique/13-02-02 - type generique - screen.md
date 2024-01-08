@@ -26,17 +26,17 @@ Sur ces bases, déclarer des variables utilisant ces différents types et ajoute
 <details>
 <summary>Solution - mémoire</summary>
 
-| Screen  | Definition  | Colors | Depth | Bits          | Bytes       | MB    |
+| Screen  | Definition  | Colors | Depth | Bits          | Bytes       |M Bytes|
 |---------|-------------|:------:|:-----:|--------------:|------------:|------:|
 | HD      | 1280 x 720  |   3    |   8   |    22'118'400 |   2'764'800 |   2.8 |
 | Full HD | 1920 x 1080 |   3    |  16   |    99'532'800 |  12'441'600 |  12.4 |
 | UHD 4K  | 3840 x 2160 |   3    |  32   |   796'262'400 |  99'532'800 |  99.5 |
 | UHD 8K  | 7680 x 4320 |   3    |  32   | 3'185'049'600 | 398'131'200 | 398.1 |
 
-⚠️ Ces éléments sont **trop gros (~400MB contigu en mémoire)** pour être sur la pile, plusieurs solutions.
+⚠️ Ces éléments sont **trop gros (~400 MB contigu en mémoire)** pour être sur la pile, plusieurs solutions.
 
 ### Dimentionnement de la pile d'exécution
-Sur les systèmes Unix/Linux, les commandes telles que `ulimit` permet de voir ou d'ajuster la taille de la pile d'exécution pour un processus : `ulimit -s` (typiquement **8MB**, déjà trop peu pour du *Full HD*)
+Sur les systèmes Unix/Linux, les commandes telles que `ulimit` permet de voir ou d'ajuster la taille de la pile d'exécution pour un processus : `ulimit -s` (typiquement **8 MB**, déjà trop peu pour du *Full HD*)
 
 Certains compilateurs peuvent donner des informations sur la taille de la pile d'exécution allouée par défaut.<br>
 Avec GCC, vous pouvez utiliser l'option `-Wstack-usage=n` pour obtenir un avertissement sur l'utilisation de la pile : `g++ -Wstack-usage=1024 -o main main.cpp`
@@ -44,11 +44,11 @@ Avec GCC, vous pouvez utiliser l'option `-Wstack-usage=n` pour obtenir un averti
 ### Alternatives
 
 1. Utiliser `static` à la déclaration des variables pour que celles-ci sont placées sur le `heap` (tas).<br>
-Cette solution implique jusqu'à **400MB** contigu en mémoire ce qui sera difficile voire impossible pour l'OS.
+Cette solution implique jusqu'à **400 MB contigu en mémoire** ce qui sera difficile voire impossible pour l'OS.
 
 
-2. Utiliser des `vector<vector<T>>` ce qui est naturellement le cas dans ce problème. Le dimentionnement se fera au moment de la déclaration de la variable et non sur le type. Les parties `data` des vecteurs sont réservés dynamiquement, et donc sur le `heap`.<br>
-Dans le cas d'un écran UHD 8k, il y aura 7680 vecteurs de 414KB (4320 x 3 x 32 / 1'000) chacun.
+2. Utiliser des `vector<vector<T>>` ce qui est naturellement le cas dans ce problème. Le dimentionnement se fera au moment de la déclaration de la variable et non sur le type. Les parties `data` des vecteurs sont réservés dynamiquement et donc sur le `heap`.<br>
+Dans le cas d'un écran *UHD 8k*, il y aura `7680` vecteurs de `414 KB` chacun (4320 x 3 x 32 / 1'000).
 
 3. Répartir les données en plus petits blocs encore avec une [`deque<T>`](https://cplusplus.com/reference/deque/deque/) (ASD).<br>
 Les données sont réparties en plusieurs `chunks`. La répartition en plusieurs vecteurs (solution no 2) est déjà suffisante.
