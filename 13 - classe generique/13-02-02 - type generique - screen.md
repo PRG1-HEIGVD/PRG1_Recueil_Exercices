@@ -26,12 +26,12 @@ Sur ces bases, déclarer des variables utilisant ces différents types et ajoute
 <details>
 <summary>Solution - mémoire</summary>
 
-| Screen  | Definition  | Colors | Depth | Bits          | MB  |
-|---------|-------------|:------:|:-----:|--------------:|----:|
-| HD      | 1280 x  720 |   3    |   8   |    22'118'400 |   3 |
-| Full HD | 1920 x 1080 |   3    |  16   |    99'532'800 |  12 |
-| UHD 4K  | 3840 x 2160 |   3    |  32   |   796'262'400 |  95 |
-| UHD 8K  | 7680 x 4320 |   3    |  32   | 3'185'049'600 | 380 |
+| Screen  | Definition  | Colors | Depth | bits          | MBytes |
+|---------|-------------|:------:|:-----:|--------------:|-------:|
+| HD      | 1280 x  720 |   3    |   8   |    22'118'400 |     3  |
+| Full HD | 1920 x 1080 |   3    |  16   |    99'532'800 |    12  |
+| UHD 4K  | 3840 x 2160 |   3    |  32   |   796'262'400 |    95  |
+| UHD 8K  | 7680 x 4320 |   3    |  32   | 3'185'049'600 |   380  |
 
 ⚠️ Ces éléments sont **trop gros (~380 MB contigu en mémoire)** pour être sur la pile, plusieurs solutions.
 
