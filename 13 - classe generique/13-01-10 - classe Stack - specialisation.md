@@ -50,7 +50,7 @@ Que faut-il changer / ajouter ?
 Seul changement, **ajouter une spécialisation** de l'`operator std::string()` dans l'implémentation.<br>
 Cette solution n'est pas satisfaisante dans la mesure où ce sera toujours pour `10` x `const int*`.
 
-Une meilleure solution sera vue à l'exercice [13-03-03 - classe Stack - type_traits](13-03-03%20-%20classe%20Stack%20-%20type_traits.md).
+💡Une meilleure solution sera vue à l'exercice [13-03-03 - classe Stack - type_traits](13-03-03%20-%20classe%20Stack%20-%20type_traits.md).
 
 ~~~cpp
 template <>
