@@ -8,7 +8,7 @@ Déclarer les types de données permettant de définir une surface de jeu
 - les cellules seront représentées respectivement par les caractères `.` `B` `x` `O`
 - les dimensions `width` et `height` de la surface seront déterminées à la compilation
 
-Après avoir fait toutes déclarations, créer un jeu de 8 lignes par 6 colonnes, créer manuellement une situation de jeu et écrire l'opérateur de flux `<<` afin de représenter cette situation à l'écran.
+Après avoir fait toutes les déclarations, créer un jeu de 8 lignes par 6 colonnes. Sur cette base, créer **manuellement** une situation de jeu et écrire l'opérateur de flux `<<` afin de représenter cette situation à l'écran.
 
 ~~~
 ----------
@@ -69,10 +69,10 @@ int main() {
 //------------------------------------------------------------
 template <typename T, size_t width, size_t heigth>
 ostream& operator<< (ostream& os, const Grid<T, width, heigth>& g) {
-   os << string(width+2, '-') << endl;
-   for (const Row<T, width>& l : g) {
+   os << std::string(width+2, '-') << endl;
+   for (const Row<T, width>& r : g) {
       os << '|';
-      for (Cell c : l)
+      for (Cell c : r)
          cout << CellChar.at((size_t)c);
       cout << '|' << endl;
    }
