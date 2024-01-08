@@ -1,4 +1,4 @@
-# classe générique Coord - distance 
+# classe générique Coord - distance origine
 
 Reprendre l'exercice précédant [11-01-02 - classe Point](13-01-02%20-%20classe%20Point.md) et ajouter à la classe générique `Coord` une méthode générique `distance` qui retourne dans un type choisi la distance d'une coordonnée par rapport à l'origine `(T(), T())`.
 
@@ -17,8 +17,7 @@ Point p4("p4", 2, 3);
 cout << "p4       : ";
 p4.afficher();
 cout << endl;
-cout << "distance : ";
-cout << p4.getCoord().distance<double>() << endl;
+cout << "distance : " << p4.getCoord().distance<double>();
 ~~~
 
 </details>
