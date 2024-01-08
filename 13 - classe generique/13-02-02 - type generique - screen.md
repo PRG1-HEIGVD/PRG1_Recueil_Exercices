@@ -15,7 +15,7 @@ Les couleurs peuvent être codées sur 8, 16 ou 32 bits.
 Sur ces bases, déclarer des variables utilisant ces différents types et ajouter le code afin d'afficher les détails d'un écran comme suit.
 
 ~~~cpp
-(1280 x 720) / 8bits
+(1280 x  720) /  8bits
 (1920 x 1080) / 16bits
 (3840 x 2160) / 32bits
 (7680 x 4320) / 32bits
