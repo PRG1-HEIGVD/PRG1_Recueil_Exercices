@@ -6,7 +6,7 @@ Déclarer les types de données permettant de définir une surface de jeu
 
 - les cellules peuvent être : `eau`, `bateau`, `touché`, `coulé`
 - les cellules seront représentées respectivement par les caractères `.` `B` `x` `O`
-- les dimension `width` et `height` de la surface seront déterminées à la compilation
+- les dimensions `width` et `height` de la surface seront déterminées à la compilation
 
 Après avoir fait toutes déclarations, créer un jeu de 8 lignes par 6 colonnes, créer manuellement une situation de jeu et écrire l'opérateur de flux `<<` afin de représenter cette situation à l'écran.
 
