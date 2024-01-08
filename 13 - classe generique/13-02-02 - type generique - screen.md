@@ -44,7 +44,7 @@ Avec GCC, vous pouvez utiliser l'option `-Wstack-usage=n` pour obtenir un averti
 ### Alternatives
 
 1. Utiliser `static` à la déclaration des variables pour que celles-ci sont placées sur le `heap` (tas).<br>
-Cette solution implique jusqu'à **400MB** contigu en mémoire ce qui sera difficile voire impossible pour l'OS
+Cette solution implique jusqu'à **400MB** contigu en mémoire ce qui sera difficile voire impossible pour l'OS.
 
 
 2. Utiliser des `vector<vector<T>>` ce qui est naturellement le cas dans ce problème. Le dimentionnement se fera au moment de la déclaration de la variable et non sur le type. Les parties `data` des vecteurs sont réservés dynamiquement, et donc sur le `heap`.<br>
