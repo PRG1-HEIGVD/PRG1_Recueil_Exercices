@@ -2,16 +2,6 @@
 
 Reprendre l'exercice précédant [13-01-04 - classe Point - lister points](13-01-04%20-%20classe%20Point%20-%20lister%20points.md)
 
-Ajouter une fonction ordinaire `listerPoint<T>` qui affiche l'ensemble des points.
-
-~~~
-p1(1, 2)
-p2(4, 2)
-p3(9, 8)
-p4(-1, 5)
-p5(3, -1)
-p6(7, 0)
-~~~
 
 Sans écrire une fonction ou une méthode complémentaire, écrire le code permettant de déplacer ce dessin de `dx`, `dy`.<br>
 Donner un exemple d'appel.
