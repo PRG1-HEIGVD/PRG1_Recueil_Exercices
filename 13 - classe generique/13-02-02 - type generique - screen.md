@@ -50,12 +50,16 @@ Cette solution implique jusqu'à **380 MB contigu en mémoire** ce qui sera diff
 2. Utiliser des `vector<vector<T>>` ce qui est naturellement le cas dans ce problème. Le dimentionnement se fera au moment de la déclaration de la variable et non sur le type. Les parties `data` des vecteurs sont réservés dynamiquement et donc sur le `heap`.
 
 
-    Dans le cas d'un écran *UHD 8k*, il y aura
+    Dans le cas d'un écran **UHD 8k**, il y aura
 
-    - 1 vecteur de 7860 vecteurs de 180 KB (7680 x 3 x size_t / 8 / 1'024)
-    - 7680 vecteurs, chacun de 51 KB (4320 x 3 x 32 / 8 / 1'024)
+    - mémoire nécessaire pour gérer les données
+        - 1 vecteur de vecteurs => 3 x 64b = 192 bits
+        - 7860 vecteurs => 7860 x 3 x 64b = 1.5 Mbits
 
-3. Dans des structures plus importantes, nous pourrions encore répartir les données en plus petits blocs avec par exemple une [`deque<T>`](https://cplusplus.com/reference/deque/deque/) (ASD). Les parties `data` sont alors réparties en plusieurs `chunks`. 
+    - mémoire pour les données
+        - 7680 x 4320 x 3 x 32b = 380 Mbytes
+
+3. Dans des structures plus importantes, nous pourrions encore répartir les données en plus petits blocs avec par exemple une [`deque<T>`](https://cplusplus.com/reference/deque/deque/) (ASD / S2). Les parties `data` sont alors réparties en plusieurs `chunks`. 
 
 </details>
 
