@@ -101,6 +101,9 @@ ostream& operator<< (ostream& os, const Screen<T, width, height>& s);
 
 //------------------------------------------------------------
 int main() {
+
+   // static pour que les array soient sur la tas
+   //        ... et non sur la pile d'exécution
    static HD      screen_HD;
    static Full_HD screen_Full_HD;
    static UHD_4k  screen_UHD_4k;
