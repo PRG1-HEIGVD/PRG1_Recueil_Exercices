@@ -79,10 +79,10 @@ private:
 template <typename T>
 class Point {
 public:
-   Point() : nom(), coord(Coord<T>()) {}
-   Point(const string& nom)                        : nom(nom), coord(Coord<T>())       {}
+   Point() : nom(), coord() {}
+   Point(const string& nom)                        : nom(nom), coord()       {}
    Point(const string& nom, const Coord<T>& coord) : nom(nom), coord(coord)            {}
-   Point(const string& nom, T x, T y)              : nom(nom), coord(Coord<T>(x, y))   {}
+   Point(const string& nom, T x, T y)              : nom(nom), coord(x, y)   {}
 
    void setNom   (const string&   nom);
    void setCoord (const Coord<T>& coord);
