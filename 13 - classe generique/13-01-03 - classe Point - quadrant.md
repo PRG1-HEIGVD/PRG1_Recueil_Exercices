@@ -18,7 +18,7 @@ Ecrire le code permettant de compter combien de `point` se trouvent dans l'un de
 Donner un exemple d'appel.
 
 <details>
-<summary>Solution</summary>
+<summary>Solution avec foncteur générique</summary>
 
 ~~~cpp
 enum class Quadrant {I=1, II, III, IV};
@@ -40,3 +40,32 @@ cout << count_if(dessin.begin(), dessin.end(), DansQuadrant<int>{Quadrant::I});
 ~~~
 
 </details>
+
+
+<details>
+<summary>Solution alternative avec fonction générique</summary>
+
+~~~cpp
+enum class Quadrant { I, II, III, IV };
+
+template<typename T, Quadrant q>
+bool est_dans_quadrant (Point<T> const& p) {
+   switch (q) {
+      case Quadrant::I :
+         return p.getCoord().getX() >= 0 and p.getCoord().getY() >= 0;
+      case Quadrant::II :
+         return p.getCoord().getX() <= 0 and p.getCoord().getY() >= 0;
+      case Quadrant::III :
+         return p.getCoord().getX() <= 0 and p.getCoord().getY() <= 0;
+      case Quadrant::IV :
+         return p.getCoord().getX() >= 0 and p.getCoord().getY() <= 0;
+      default:
+         return false;
+   }
+}
+
+cout << count_if(dessin.begin(), dessin.end(),est_dans_quadrant<int,Quadrant::I>);
+~~~
+
+</details>
+
