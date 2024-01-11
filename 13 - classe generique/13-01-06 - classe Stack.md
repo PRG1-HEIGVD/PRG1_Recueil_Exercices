@@ -75,6 +75,7 @@ public:
    bool full() const { return index == n; }
    bool empty() const { return index == 0; }
    size_t size() const { return index; }
+   size_t capacity() const { return n; }
 
 private:
    size_t index;
