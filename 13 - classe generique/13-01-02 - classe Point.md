@@ -81,7 +81,7 @@ class Point {
 public:
    Point() : nom(), coord() {}
    Point(const string& nom)                        : nom(nom), coord()       {}
-   Point(const string& nom, const Coord<T>& coord) : nom(nom), coord(coord)            {}
+   Point(const string& nom, const Coord<T>& coord) : nom(nom), coord(coord)  {}
    Point(const string& nom, T x, T y)              : nom(nom), coord(x, y)   {}
 
    void setNom   (const string&   nom);
@@ -182,7 +182,7 @@ void Point<T>::deplacer(T dx, T dy) {
 template <typename T>
 void Point<T>::afficher() const {
    cout << this->nom;
-   this->coord.afficher();;
+   this->coord.afficher();
 }
 ~~~
 
