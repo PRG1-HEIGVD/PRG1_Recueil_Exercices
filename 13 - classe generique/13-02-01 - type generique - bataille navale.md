@@ -73,8 +73,8 @@ ostream& operator<< (ostream& os, const Grid<T, width, heigth>& g) {
    for (const Row<T, width>& r : g) {
       os << '|';
       for (Cell c : r)
-         cout << CellChar.at((size_t)c);
-      cout << '|' << endl;
+         os << CellChar.at((size_t)c);
+      os << '|' << endl;
    }
    return os << string(width+2, '-') << endl;
 }
