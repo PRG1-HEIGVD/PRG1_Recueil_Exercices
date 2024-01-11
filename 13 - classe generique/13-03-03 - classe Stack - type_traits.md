@@ -2,37 +2,42 @@
 
 Reprise de l'exercice [13-01-10 - classe Stack - specialisation](13-01-10%20-%20classe%20Stack%20-%20specialisation.md)
 
-Pourrions-nous éviter de faire une spécialisation mais à la place de rendre le code spécifique au type reçu.
-
-💡Utiliser [`type_traits`](https://cplusplus.com/reference/type_traits/)
+En utilisant le header [`<type_traits>`](https://cplusplus.com/reference/type_traits/) et un [`constexpr if`](https://en.cppreference.com/w/cpp/language/if#Constexpr_if),
+écrivez un opérateur `<<` qui fonctionne pour les types pointeurs et non pointeurs sans utiliser ni surcharge 
+ni spécialisation. 
 
 <details>
 <summary>Solution</summary>
 
 ~~~cpp
-#include <type_traits>
+#include <type_traits>   // std::is_pointer
 
-template <typename T, int n>
-Stack<T, n>::operator std::string() const {
-   std::stringstream result;
-   for (size_t i = 0; i < this->size(); ++i)
+template <typename T, size_t n>
+std::ostream& operator<< (std::ostream& os, const Stack<T, n>& s) {
+   for (size_t i = 0; i < s.index; ++i) {
       if constexpr (std::is_pointer<T>::value)
-         result << "[" << i << "] " << *this->data[i] << '\n';
+         os << "[" << i << "] " << *s.data[i] << '\n';
       else
-         result << "[" << i << "] " << this->data[i] << '\n';
-   return result.str();
+         os << "[" << i << "] " << s.data[i] << '\n';
+   }
+   return os;
 }
 ~~~
 
-</details>
+Notons qu'il est indispensable ici d'utiliser `if constexpr`. 
+
+Si on oublie le `constexpr`, le code 
+ne compile pas pour les types T qui ne disposent pas de l'opérateur `*` unaire, i.e. pour les 
+types qui en sont pas des pointeurs ou des itérateurs. 
+
+Avec `constexpr`, la branche qui n'est pas exécutée n'est pas non plus compilée.
 
 ### Tous les fichiers ...
 
 <details>
-<summary>Solution - main.cpp</summary>
+<summary>main.cpp</summary>
 
 ~~~cpp
-#include <cstdlib>
 #include <iostream>
 
 #include "Stack.h"
@@ -56,16 +61,13 @@ int main() {
       s2.push(&i);
    }
    cout << string(s2) << endl;
-
-
-   return EXIT_SUCCESS;
 }
 ~~~
 
 </details>
 
 <details>
-<summary>Solution - Stack.h</summary>
+<summary>Stack.h</summary>
 
 ~~~cpp
 #ifndef STACK_H
@@ -74,35 +76,38 @@ int main() {
 #include <array>
 #include <string>
 
-//---------------------------------------------------------
-template <typename T, int n=100>
-class Stack;
+//- Pré-déclarations --------------------------------------
+template <typename T, size_t n> class Stack;
+template <typename T, size_t n> std::ostream& operator<< (std::ostream& os, const Stack<T, n>& s);
+template <typename T, size_t n> bool operator == (const Stack<T, n>& lhs, const Stack<T, n>& rhs);
 
-//---------------------------------------------------------
-template <typename T, int n>
-std::ostream& operator<< (std::ostream& os, const Stack<T, n>& s);
+//--class Stack --------------------------------------------
 
-//---------------------------------------------------------
-template <typename T, int n>
+template <typename T, size_t n = 100>
 class Stack {
 
-   friend std::ostream& operator<< <>(std::ostream& os, const Stack<T, n>& s);
+   friend std::ostream& operator << <>(std::ostream& os, const Stack& s);
+   friend bool operator == <>(const Stack& lhs, const Stack& rhs);
 
 public:
-   Stack () = default;
-   Stack (const Stack& s);
-   bool   push(const T&  v);
-   bool   pop();
-   bool   top(T& v)  const;
-   bool   full()     const;
-   bool   empty()    const;
-   size_t size()     const;
+   Stack() : index{}, data{} {}
+   // Constructeur de copie pas nécessaire. la version par défaut suffit
 
-   bool operator== (const Stack<T, n>& other) const;
+   // méthodes définies dans Stack_Impl.h
+   void push(const T& v);
+   void pop();
+   const T& top() const;
+
+   // méthodes triviales définies en ligne
+   bool full() const { return index == n; }
+   bool empty() const { return index == 0; }
+   size_t size() const { return index; }
+
+   // conversion explicite Stack -> string
    explicit operator std::string() const;
 
 private:
-   size_t index  = 0;
+   size_t index;
    std::array<T, n> data;
 };
 
@@ -114,99 +119,68 @@ private:
 </details>
 
 <details>
-<summary>Solution - Stack_Impl.h</summary>
+<summary>Stack_Impl.h</summary>
 
 ~~~cpp
 #ifndef STACK_IMPL_H
 #define STACK_IMPL_H
 
-#include <iostream>
+#include <ostream>
 #include <sstream>
 #include <type_traits>
+#include "Stack.h"
 
-//---------------------------------------------------------
-// friends
-//---------------------------------------------------------
-template <typename T, int n>
+//-- friends ----------------------------------------------
+
+template <typename T, size_t n>
 std::ostream& operator<< (std::ostream& os, const Stack<T, n>& s) {
-   return os << std::string(s);
-}
-
-//---------------------------------------------------------
-// class Stack
-//---------------------------------------------------------
-template <typename T, int n>
-Stack<T, n>::Stack (const Stack& s) {
-   this->index = s.index;
-   this->data  = s.data;
-}
-
-//---------------------------------------------------------
-template <typename T, int n>
-bool Stack<T, n>::push(const T& v) {
-   if (this->full())
-      return false;
-   this->data[this->index] = v;
-   ++this->index;
-   return true;
-}
-
-//---------------------------------------------------------
-template <typename T, int n>
-bool Stack<T, n>::pop() {
-   if (this->empty())
-      return false;
-   --this->index;
-   return true;
-}
-
-//---------------------------------------------------------
-template <typename T, int n>
-bool Stack<T, n>::top(T& v) const {
-   if (this->empty())
-      return false;
-   v = this->data[this->index - 1];
-   return true;
-}
-
-//---------------------------------------------------------
-template <typename T, int n>
-bool Stack<T, n>::full() const {
-   return this->index == this->data.size();
-}
-
-//---------------------------------------------------------
-template <typename T, int n>
-bool Stack<T, n>::empty() const {
-   return this->index == 0;
-}
-
-//---------------------------------------------------------
-template <typename T, int n>
-size_t Stack<T, n>::size() const {
-   return this->index;
-}
-
-//---------------------------------------------------------
-template <typename T, int n>
-bool Stack<T, n>::operator== (const Stack<T, n>& other) const {
-   return std::equal(this->data.begin(), this->data.end(), other.data.begin());
-}
-
-//---------------------------------------------------------
-template <typename T, int n>
-Stack<T, n>::operator std::string() const {
-   std::stringstream result;
-   for (size_t i = 0; i < this->size(); ++i)
+   for (size_t i = 0; i < s.index; ++i) {
       if constexpr (std::is_pointer<T>::value)
-         result << "[" << i << "] " << *this->data[i] << '\n';
+         os << "[" << i << "] " << *s.data[i] << '\n';
       else
-         result << "[" << i << "] " << this->data[i] << '\n';
-   return result.str();
+         os << "[" << i << "] " << s.data[i] << '\n';
+   }
+   return os;
+}
+
+template <typename T, size_t n>
+bool operator == (const Stack<T, n>& lhs, const Stack<T, n>& rhs) {
+   // deux piles sont égales si elles contiennent le même nombre d'éléments
+   // et que ces éléments sont égaux. Le contenu de data à partir de
+   // l'indice index n'a pas d'importance.
+
+   return lhs.index == rhs.index and
+          std::equal(lhs.data.begin(), lhs.data.begin() + lhs.index, rhs.data.begin());
+}
+
+//- class Stack -------------------------------------------
+
+template <typename T, size_t n>
+void Stack<T, n>::push(const T& v) {
+   data.at(index++) = v;
+}
+
+template <typename T, size_t n>
+void Stack<T, n>::pop() {
+   data.at(--index);
+   // Note : accès à data uniquement pour lever une exception
+   // en cas de pop() sur une stack vide. sinon --index suffit
+}
+
+template <typename T, size_t n>
+const T& Stack<T, n>::top() const {
+   return data.at(index - 1);
+}
+
+template <typename T, size_t n>
+Stack<T, n>::operator std::string() const {
+   return (std::stringstream() << *this).str();
 }
 
 #endif //STACK_IMPL_H
 ~~~
+
+</details>
 
 </details>
 

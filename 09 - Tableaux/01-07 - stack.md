@@ -1,40 +1,42 @@
 # Stack
 
-Ecrire l'implémentation d'une pile de *n* entiers (connu à la compilation) sur la base d'un *array*.
+Ecrire l'implémentation d'une pile de *n* entiers (connu à la compilation) sur la base d'un `array`.
 
 
 Une pile contient
 
-- un sommet *top* qui détermine l'indice dans le tabeau où sera ajouté la prochaine valeur
-- les *data*, ici *array\<int, 10\>*
+- un entier `size` qui indique combien d'éléments sont stockés dans la pile, et donc aussi l'indice de son sommet
+- les `data`, ici `std::array<int, 10>`
 
 Le code ci-après doit produire le résulat indiqué
 
 ~~~cpp
-   Stack s;
+int main() {
 
-   show_stack(s);
+   Stack s;
+   int i = 1;
+
+   display(s);
    cout << endl;
 
-   int i = 1;
-   while (not is_stack_full(s)) {
+   while (not full(s)) {
       push(s, i*=2);
    }
 
-   top(s, i);
-   cout << "top  : " << i << endl;
-   cout << "size : "; cout << stack_size(s) << endl;
+   cout << "top  : " << top(s)  << endl;
+   cout << "size : " << size(s) << endl;
    cout << endl;
 
-   show_stack(s);
+   display(s);
    cout << endl;
 
-   while (not is_stack_empty(s)) {
+   while (not empty(s)) {
       pop(s);
    }
 
-   show_stack(s);
+   display(s);
    cout << endl;
+}
 ~~~
 
 ~~~
@@ -55,106 +57,93 @@ data : []
 <summary>Solution</summary>
 
 ~~~cpp
-#include <cstdlib>
 #include <iostream>
 #include <array>
 
-using namespace std;
-
 //---------------------------------------------------------
-using Data = array<int, 10>;
+using Data = std::array<int, 10>;
 struct Stack {
-   size_t top  = 0;
+   size_t size = 0;
    Data   data = {};
 };
 
 //---------------------------------------------------------
-bool   push            (      Stack& s, int  v);
-bool   pop             (      Stack& s);
-bool   top             (const Stack& s, int& v);
-bool   is_stack_full   (const Stack& s);
-bool   is_stack_empty  (const Stack& s);
-size_t stack_size      (const Stack& s);
-void   show_stack      (const Stack& s);
+
+void   push  (      Stack& s, int  v);
+void   pop   (      Stack& s);
+int    top   (const Stack& s);
+bool   full  (const Stack& s);
+bool   empty (const Stack& s);
+size_t size  (const Stack& s);
+void   display  (const Stack& s);
+
 //---------------------------------------------------------
+
+using namespace std;
 
 int main() {
 
    Stack s;
    int i = 1;
 
-   show_stack(s);
+   display(s);
    cout << endl;
 
-   while (not is_stack_full(s)) {
+   while (not full(s)) {
       push(s, i*=2);
    }
 
-   top(s, i);
-   cout << "top  : " << i             << endl;
-   cout << "size : " << stack_size(s) << endl;
+   cout << "top  : " << top(s) << endl;
+   cout << "size : " << size(s) << endl;
    cout << endl;
 
-   show_stack(s);
+   display(s);
    cout << endl;
 
-   while (not is_stack_empty(s)) {
+   while (not empty(s)) {
       pop(s);
    }
 
-   show_stack(s);
+   display(s);
    cout << endl;
-
-   return EXIT_SUCCESS;
 }
 
 //---------------------------------------------------------
-bool push(Stack& s, int v) {
-   if (is_stack_full(s))
-      return false;
-   s.data[s.top] = v;
-   ++s.top;
-   return true;
+
+void push(Stack& s, int v) {
+//   if (full(s)) return;
+   s.data[s.size] = v;
+   ++s.size;
 }
 
-//---------------------------------------------------------
-bool pop(Stack& s) {
-   if (is_stack_empty(s))
-      return false;
-   --s.top;
-   return true;
+void pop(Stack& s) {
+//   if (empty(s)) return;
+   --s.size;
 }
 
-//---------------------------------------------------------
-bool top(const Stack& s, int& v) {
-   if (is_stack_empty(s))
-      return false;
-   v = s.data[s.top - 1];
-   return true;
+int top(const Stack& s) {
+//   if (empty(s)) return INT_MIN;
+   return s.data[s.size - 1];
 }
 
-//---------------------------------------------------------
-bool is_stack_full(const Stack& s) {
-   return s.top == s.data.size();
+bool full(const Stack& s) {
+   return s.size == s.data.size();
 }
 
-//---------------------------------------------------------
-bool is_stack_empty(const Stack& s) {
-   return s.top == 0;
+bool empty(const Stack& s) {
+   return s.size == 0;
 }
 
-//---------------------------------------------------------
-size_t stack_size(const Stack& s) {
-   return s.top;
+size_t size(const Stack& s) {
+   return s.size;
 }
 
-//---------------------------------------------------------
-void show_stack(const Stack& s) {
-   cout << "size : " << s.top << endl;
+void display(const Stack& s) {
+   cout << "size : " << s.size << endl;
    cout << "data : ";
 
    cout << "[";
-   for (size_t i=0; i<s.top; ++i) {
+   for (size_t i = 0; i < s.size; ++i) {
       if(i) cout << ", ";
       cout << s.data[i];
    }

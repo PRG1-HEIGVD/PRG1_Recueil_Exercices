@@ -10,9 +10,7 @@ Reprendre l'exercice [13-01-06 classe Stack](13-01-06%20-%20classe%20Stack.md) e
 <summary>Solution - main.cpp</summary>
 
 ~~~cpp
-#include <cstdlib>
 #include <iostream>
-
 #include "Stack.h"
 
 using namespace std;
@@ -29,8 +27,7 @@ int main() {
       s.push(i*=2);
    }
 
-   s.top(i);
-   cout << "top  : " << i        << endl;
+   cout << "top  : " << s.top() << endl;
    cout << "size : " << s.size() << endl;
    cout << endl;
 
@@ -43,8 +40,6 @@ int main() {
 
    s.display();
    cout << endl;
-
-   return EXIT_SUCCESS;
 }
 ~~~
 
@@ -59,22 +54,25 @@ int main() {
 
 #include <array>
 
-//---------------------------------------------------------
-template <typename T, int n=100>
+template <typename T, size_t n = 100>
 class Stack {
 
 public:
-   bool   push(const T&  v);
-   bool   pop();
-   bool   top(T& v)  const;
-   bool   full()     const;
-   bool   empty()    const;
-   size_t size()     const;
+   Stack() : index{}, data{} {}
 
-   void   display()  const;
+   // méthodes définies dans Stack_Impl.h
+   void push(const T& v);
+   void pop();
+   const T& top() const;
+   void display() const;
+
+   // méthodes triviales définies en ligne
+   bool full() const { return index == n; }
+   bool empty() const { return index == 0; }
+   size_t size() const { return index; }
 
 private:
-   size_t index  = 0;
+   size_t index;
    std::array<T, n> data;
 };
 
@@ -93,65 +91,42 @@ private:
 #define STACK_IMPL_H
 
 #include <iostream>
+#include "Stack.h" // pour faciliter la vie de l'IDE
 
 //---------------------------------------------------------
-template <typename T, int n>
-bool Stack<T, n>::push(const T& v) {
-   if (this->full())
-      return false;
-   this->data[this->index] = v;
-   ++this->index;
-   return true;
+template <typename T, size_t n>
+void Stack<T, n>::push(const T& v) {
+   data.at(index++) = v;
 }
 
 //---------------------------------------------------------
-template <typename T, int n>
-bool Stack<T, n>::pop() {
-   if (this->empty())
-      return false;
-   --this->index;
-   return true;
+template <typename T, size_t n>
+void Stack<T, n>::pop() {
+   data.at(--index);
+   // Note : accès à data uniquement pour lever une exception
+   // en cas de pop() sur une stack vide
 }
 
 //---------------------------------------------------------
-template <typename T, int n>
-bool Stack<T, n>::top(T& v) const {
-   if (this->empty())
-      return false;
-   v = this->data[this->index - 1];
-   return true;
+template <typename T, size_t n>
+const T& Stack<T, n>::top() const {
+   return data.at(index - 1);
 }
 
 //---------------------------------------------------------
-template <typename T, int n>
-bool Stack<T, n>::full() const {
-   return this->index == this->data.size();
-}
-
-//---------------------------------------------------------
-template <typename T, int n>
-bool Stack<T, n>::empty() const {
-   return this->index == 0;
-}
-
-//---------------------------------------------------------
-template <typename T, int n>
-size_t Stack<T, n>::size() const {
-   return this->index;
-}
-
-//---------------------------------------------------------
-template <typename T, int n>
+template <typename T, size_t n>
 void Stack<T, n>::display() const {
-   std::cout << "size : " << this->index << std::endl;
-   std::cout << "data : ";
+   using std::cout, std::endl; 
+   
+   cout << "size : " << index << endl;
+   cout << "data : ";
 
-   std::cout << "[";
-   for (size_t i=0; i<this->index; ++i) {
-      if(i) std::cout << ", ";
-      std::cout << this->data[i];
+   cout << "[";
+   for (size_t i = 0; i < index; ++i) {
+      if(i) cout << ", ";
+      cout << data[i];
    }
-   std::cout << "]" << std::endl;
+   cout << "]" << endl;
 }
 
 #endif //STACK_IMPL_H
