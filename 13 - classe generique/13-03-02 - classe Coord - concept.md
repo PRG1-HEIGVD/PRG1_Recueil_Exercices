@@ -12,7 +12,7 @@ p3.afficher();  // p3 : (x, y)
 <br>
 Restreinde le type générique utilisé à des valeurs numériques ?
 
-💡Utiliser cette fois la notion de [`concept`](https://en.cppreference.com/w/cpp/language/constraints).
+💡Utiliser cette fois la notion de [`concept`](https://en.cppreference.com/w/cpp/language/constraints)
 
 <details>
 <summary>Solution</summary>

@@ -26,9 +26,7 @@ std::ostream& operator<< (std::ostream& os, const Stack<T, n>& s) {
 
 Notons qu'il est indispensable ici d'utiliser `if constexpr`. 
 
-Si on oublie le `constexpr`, le code 
-ne compile pas pour les types T qui ne disposent pas de l'opérateur `*` unaire, i.e. pour les 
-types qui en sont pas des pointeurs ou des itérateurs. 
+Si on oublie le `constexpr`, le code  ne compile pas pour les types T qui ne disposent pas de l'opérateur `*` unaire, i.e. pour les  types qui en sont pas des pointeurs ou des itérateurs. 
 
 Avec `constexpr`, la branche qui n'est pas exécutée n'est pas non plus compilée.
 
