@@ -13,7 +13,8 @@ vector<Point<int>> dessin {{"p1",  1,  2},
                            {"p6",  7,  0}};
 ~~~
 
-Ecrire le code permettant de compter combien de `point` se trouvent dans l'un des quandrants `I`, `II`, `III`, `IV` choisi.
+Ecrire le code permettant de compter combien de `point` se trouvent dans l'un des quandrants `I`, `II`, `III`, `IV` choisi.<br>
+**NB** : Une coordonnée sur un axe, voire les deux, n'est sur aucun quandrant.
 
 Donner un exemple d'appel.
 
