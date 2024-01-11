@@ -33,6 +33,7 @@ struct DansQuadrant {
          case Quadrant::III : return p.getCoord().getX() < T() and p.getCoord().getY() < T();
          case Quadrant::IV  : return p.getCoord().getX() > T() and p.getCoord().getY() < T();
       }
+      return 0;
    }
 };
 
