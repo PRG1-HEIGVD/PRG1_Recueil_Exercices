@@ -111,6 +111,7 @@ private:
 
 #include <iostream>
 #include <sstream>
+#include <algorithm> // find
 
 //---------------------------------------------------------
 // friends
