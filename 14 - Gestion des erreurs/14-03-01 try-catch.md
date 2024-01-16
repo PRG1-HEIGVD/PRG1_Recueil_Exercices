@@ -103,33 +103,38 @@ Fin du programme
 
 </details>
 
-4.	
+4. 
 ~~~cpp
+void f() {
+   throw std::out_of_range("oops");
+}
+
 int main() {
    try {
       try {
          f();
       } catch (runtime_error& e) {
-         cout << e.what() << endl;
+         cout << "R : " << e.what() << endl;
          throw;
       } catch (exception e) {
-         cout << e.what() << endl;
+         cout << "E1 : " << e.what() << endl;
          throw;
       }
    } catch (logic_error& e) {
-      cout << e.what() << endl;
+      cout << "L : " << e.what() << endl;
    } catch (exception& e) {
-      cout << e.what() << endl;
+      cout << "E2 : " << e.what() << endl;
    }
    
    cout << "Fin du programme" << endl;
-   
-   return EXIT_SUCCESS;
 }
 ~~~
+
+Consultez la documentation de [`std::out_of_range`](https://en.cppreference.com/w/cpp/error/out_of_range)
+
 <details>
 <summary>Solution</summary>
-std::exception
-out of range
+E1 : std::exception
+L : oops
 Fin du programme
 </details>
