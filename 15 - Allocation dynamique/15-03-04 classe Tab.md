@@ -94,7 +94,7 @@ tab1[0]     = 1; tab1[0]     : 1
 
 tab1.at(1)  = 2; tab1.at(1)  : 2
 tab1[3]     : 0
-tab3.at(3)  : exception : T Tab<T, n>::at(size_t pos) const
+tab3.at(3)  : exception : at(size_t pos) const
 
 
 fin de programme
@@ -275,7 +275,7 @@ template <typename T, size_t n>
 T& Tab<T, n>::at(size_t pos) {
 //   cout << "T& Tab<T, n>::at(size_t pos)" << endl;
    if (pos >= n)
-      throw invalid_argument("T& Tab<T, n>::at(size_t pos)");
+      throw invalid_argument("at(size_t pos)");
    return this->data[pos];
 }
 
@@ -284,7 +284,7 @@ template <typename T, size_t n>
 T Tab<T, n>::at(size_t pos) const {
 //   cout << "T Tab<T, n>::at(size_t pos) const" << endl;
    if (pos >= n)
-      throw invalid_argument("T Tab<T, n>::at(size_t pos) const");
+      throw invalid_argument("at(size_t pos) const");
    return this->data[pos];
 }
 ~~~
