@@ -52,7 +52,7 @@ int main() {
          cout << "tab3.at(3)  : " << tab3.at(3) << endl;
       }
       catch (invalid_argument &e) {
-         cout << e.what() << endl;
+         cout << "exception : " << e.what() << endl;
       }
 
       cout << endl;
@@ -96,7 +96,7 @@ tab1[0]     = 1; tab1[0]     : 1
 
 tab1.at(1)  = 2; tab1.at(1)  : 2
 tab1[3]     : 0
-tab3.at(3)  : T Tab<T, n>::at(size_t pos) const
+tab3.at(3)  : exception : T Tab<T, n>::at(size_t pos) const
 
 Tab<T, n>::~Tab()
 Tab<T, n>::~Tab()
@@ -194,7 +194,7 @@ int main() {
          cout << "tab3.at(3)  : " << tab3.at(3) << endl;
       }
       catch (invalid_argument &e) {
-         cout << e.what() << endl;
+         cout << "exception : " << e.what() << endl;
       }
 
       cout << endl;
