@@ -2,7 +2,7 @@
 
 Soit le `main` proposé et le résultat attendu.
 
-Implémenter la classe `Tab` en procédant vous même aux réservations dynamiques nécessaires.
+Implémenter la classe `Tab` qui contient une propriété privée `T* data` sur un espace mémoire réservé dynamiquement.
 
 ~~~cpp
 int main() {
