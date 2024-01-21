@@ -72,22 +72,18 @@ return EXIT_SUCCESS;
 ------------
    tab1     
 ------------
-Tab<T, n>::Tab()
 [0, 1, 2]
 size : 3
 
 ------------
    tab2     
 ------------
-Tab<T, n>::Tab()
-Tab<T, n>& Tab<T, n>::operator= (const Tab& other)
 [0, 1, 2]
 size : 3
 
 ------------
    tab3     
 ------------
-Tab<T, n>::Tab(const Tab& other)
 [0, 1, 2]
 size : 3
 
@@ -100,9 +96,6 @@ tab1.at(1)  = 2; tab1.at(1)  : 2
 tab1[3]     : 0
 tab3.at(3)  : exception : T Tab<T, n>::at(size_t pos) const
 
-Tab<T, n>::~Tab()
-Tab<T, n>::~Tab()
-Tab<T, n>::~Tab()
 
 fin de programme
 ~~~
@@ -232,14 +225,14 @@ ostream& operator<< (ostream& os, const Tab<T, n>& tab) {
 //----------------------------------------------------------
 template <typename T, size_t n>
 Tab<T, n>::Tab() {
-   cout << "Tab<T, n>::Tab()" << endl;
+//   cout << "Tab<T, n>::Tab()" << endl;
    this->data = new T[n];
 }
 
 //----------------------------------------------------------
 template <typename T, size_t n>
 Tab<T, n>::Tab(const Tab& other) {
-   cout << "Tab<T, n>::Tab(const Tab& other)" << endl;
+//   cout << "Tab<T, n>::Tab(const Tab& other)" << endl;
    this->data = new T[n];
    copy(other.data, other.data+n, this->data);
 }
@@ -247,14 +240,14 @@ Tab<T, n>::Tab(const Tab& other) {
 //----------------------------------------------------------
 template <typename T, size_t n>
 Tab<T, n>::~Tab() {
-   cout << "Tab<T, n>::~Tab()" << endl;
+//   cout << "Tab<T, n>::~Tab()" << endl;
    delete[] this->data;
 }
 
 //----------------------------------------------------------
 template <typename T, size_t n>
 Tab<T, n>& Tab<T, n>::operator= (const Tab& other) {
-   cout << "Tab<T, n>& Tab<T, n>::operator= (const Tab& other)" << endl;
+//   cout << "Tab<T, n>& Tab<T, n>::operator= (const Tab& other)" << endl;
 
    if (this == &other)
       return *this;
