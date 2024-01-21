@@ -5,67 +5,69 @@ Soit le `main` proposé et le résultat attendu.
 Implémenter la classe `Tab` qui contient une propriété privée `T* data` sur un espace mémoire réservé dynamiquement.
 
 ~~~cpp
+int main() {
 
-const size_t N = 3;
-
-try {
-   cout << "------------" << endl;
-   cout << "   tab1     " << endl;
-   cout << "------------" << endl;
-   Tab<int, N> tab1;
-   for (size_t i = 0; i < N; ++i) {
-      tab1.at(i) = (int) i;
-   }
-   cout << tab1 << endl;
-   cout << "size : " << tab1.size() << endl;
-   cout << endl;
-
-   cout << "------------" << endl;
-   cout << "   tab2     " << endl;
-   cout << "------------" << endl;
-   Tab<int, N> tab2;
-   tab2 = tab1;
-   cout << tab2 << endl;
-   cout << "size : " << tab2.size() << endl;
-   cout << endl;
-
-   cout << "------------" << endl;
-   cout << "   tab3     " << endl;
-   cout << "------------" << endl;
-   const Tab<int, N> tab3(tab1);
-   cout << tab3 << endl;
-   cout << "size : " << tab3.size() << endl;
-   cout << endl;
-
-   cout << "------------" << endl;
-   cout << "   [] / at  " << endl;
-   cout << "------------" << endl;
-   cout << "tab1[0]     = 1; ";
-   tab1[0] = 1;
-   cout << "tab1[0]     : " << tab1[0] << endl;
-   cout << endl;
-   cout << "tab1.at(1)  = 2; ";
-   tab1.at(2) = 2;
-   cout << "tab1.at(1)  : " << tab1.at(2) << endl;
+   const size_t N = 3;
 
    try {
-      cout << "tab1[3]     : " << tab1[3] << endl;
-      cout << "tab3.at(3)  : " << tab3.at(3) << endl;
+      cout << "------------" << endl;
+      cout << "   tab1     " << endl;
+      cout << "------------" << endl;
+      Tab<int, N> tab1;
+      for (size_t i = 0; i < N; ++i) {
+         tab1.at(i) = (int) i;
+      }
+      cout << tab1 << endl;
+      cout << "size : " << tab1.size() << endl;
+      cout << endl;
+
+      cout << "------------" << endl;
+      cout << "   tab2     " << endl;
+      cout << "------------" << endl;
+      Tab<int, N> tab2;
+      tab2 = tab1;
+      cout << tab2 << endl;
+      cout << "size : " << tab2.size() << endl;
+      cout << endl;
+
+      cout << "------------" << endl;
+      cout << "   tab3     " << endl;
+      cout << "------------" << endl;
+      const Tab<int, N> tab3(tab1);
+      cout << tab3 << endl;
+      cout << "size : " << tab3.size() << endl;
+      cout << endl;
+
+      cout << "------------" << endl;
+      cout << "   [] / at  " << endl;
+      cout << "------------" << endl;
+      cout << "tab1[0]     = 1; ";
+      tab1[0] = 1;
+      cout << "tab1[0]     : " << tab1[0] << endl;
+      cout << endl;
+      cout << "tab1.at(1)  = 2; ";
+      tab1.at(2) = 2;
+      cout << "tab1.at(1)  : " << tab1.at(2) << endl;
+
+      try {
+         cout << "tab1[3]     : " << tab1[3] << endl;
+         cout << "tab3.at(3)  : " << tab3.at(3) << endl;
+      }
+      catch (out_of_range &e) {
+         cout << "exception : " << e.what() << endl;
+      }
+
+      cout << endl;
+
    }
-   catch (invalid_argument &e) {
-      cout << "exception : " << e.what() << endl;
+   catch (bad_alloc& e) {
+      cout << e.what() << endl;
    }
 
    cout << endl;
-
+   cout << "fin de programme" << endl;
+   return EXIT_SUCCESS;
 }
-catch (bad_alloc& e) {
-   cout << e.what() << endl;
-}
-
-cout << endl;
-cout << "fin de programme" << endl;
-return EXIT_SUCCESS;
 ~~~
 
 ~~~
@@ -94,7 +96,7 @@ tab1[0]     = 1; tab1[0]     : 1
 
 tab1.at(1)  = 2; tab1.at(1)  : 2
 tab1[3]     : 0
-tab3.at(3)  : exception : at(size_t pos) const
+tab3.at(3)  : exception : Tab::at(size_t pos) const
 
 
 fin de programme
@@ -190,7 +192,7 @@ int main() {
          cout << "tab1[3]     : " << tab1[3] << endl;
          cout << "tab3.at(3)  : " << tab3.at(3) << endl;
       }
-      catch (invalid_argument &e) {
+      catch (out_of_range &e) {
          cout << "exception : " << e.what() << endl;
       }
 
@@ -275,7 +277,7 @@ template <typename T, size_t n>
 T& Tab<T, n>::at(size_t pos) {
 //   cout << "T& Tab<T, n>::at(size_t pos)" << endl;
    if (pos >= n)
-      throw invalid_argument("at(size_t pos)");
+      throw out_of_range("Tab::at(size_t pos)");
    return this->data[pos];
 }
 
@@ -284,7 +286,7 @@ template <typename T, size_t n>
 T Tab<T, n>::at(size_t pos) const {
 //   cout << "T Tab<T, n>::at(size_t pos) const" << endl;
    if (pos >= n)
-      throw invalid_argument("at(size_t pos) const");
+      throw out_of_range("Tab::at(size_t pos) const");
    return this->data[pos];
 }
 ~~~
