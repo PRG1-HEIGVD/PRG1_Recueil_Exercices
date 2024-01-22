@@ -41,11 +41,11 @@ int main() {
       cout << "------------" << endl;
       cout << "   [] / at  " << endl;
       cout << "------------" << endl;
-      cout << "tab1[0]     = 1; ";
+      cout << "tab1[0]     = 1; " << endl;
       tab1[0] = 1;
       cout << "tab1[0]     : " << tab1[0] << endl;
       cout << endl;
-      cout << "tab1.at(1)  = 2; ";
+      cout << "tab1.at(1)  = 2; " << endl;
       tab1.at(2) = 2;
       cout << "tab1.at(1)  : " << tab1.at(2) << endl;
 
@@ -92,9 +92,11 @@ size : 3
 ------------
    [] / at  
 ------------
-tab1[0]     = 1; tab1[0]     : 1
+tab1[0]     = 1;
+tab1[0]     : 1
 
-tab1.at(1)  = 2; tab1.at(1)  : 2
+tab1.at(1)  = 2;
+tab1.at(1)  : 2
 tab1[3]     : 0
 tab3.at(3)  : exception : Tab::at(size_t pos) const
 
@@ -180,11 +182,11 @@ int main() {
       cout << "------------" << endl;
       cout << "   [] / at  " << endl;
       cout << "------------" << endl;
-      cout << "tab1[0]     = 1; ";
+      cout << "tab1[0]     = 1; " << endl
       tab1[0] = 1;
       cout << "tab1[0]     : " << tab1[0] << endl;
       cout << endl;
-      cout << "tab1.at(1)  = 2; ";
+      cout << "tab1.at(1)  = 2; " << endl;
       tab1.at(2) = 2;
       cout << "tab1.at(1)  : " << tab1.at(2) << endl;
 
