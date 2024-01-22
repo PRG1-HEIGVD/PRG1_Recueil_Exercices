@@ -140,7 +140,7 @@ template <typename T, template <class, class=std::allocator<T>> class Container>
 bool Collection<T, Container>::remove(const T& v) {
    auto it=find(data.begin(), data.end(), v);
    bool is_found = it != data.end();
-   if (it != data.end()) {
+   if (is_found) {
       this->data.erase(it);
    }
    return is_found;
