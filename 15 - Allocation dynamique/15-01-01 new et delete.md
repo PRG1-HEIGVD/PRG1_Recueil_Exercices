@@ -11,7 +11,8 @@ class C {
    int i;
 public:
    C() : i(0) { cout << "CD " << flush; }
-   C(int i) : i(i) { cout << "C" << i << " " << flush; } ~C() { cout << "D" << i << " " << flush; }
+   C(int i) : i(i) { cout << "C" << i << " " << flush; }
+   ~C() { cout << "D" << i << " " << flush; }
 };
 
 int main() {
