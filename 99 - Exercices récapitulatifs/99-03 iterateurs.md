@@ -55,7 +55,7 @@ pair<Iterator, Iterator> plus_long_sequence_croissante(Iterator first, Iterator 
    if(first == last)
       return {first, last};
 
-   pair<Iterator, Iterator> output(first, first);
+   pair<Iterator, Iterator> output(first, next(first));
    Iterator new_first = first;
    while(++first != last) {
       if(comp(*first, *prev(first))) { // pas croissante, on commence une nouvelle séquence
