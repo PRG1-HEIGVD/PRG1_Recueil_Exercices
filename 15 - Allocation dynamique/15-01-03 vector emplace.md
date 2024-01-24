@@ -19,7 +19,7 @@ Qu’affiche le code suivant à chacune de ses lignes
 | Code                 | Affichage                                     |
 |----------------------|-----------------------------------------------|
 | `int main() { `      |  |
-| `vector<C> `v.2);`   |                                               |
+| `vector<C> v.2;`   |                                               |
 | `v.pop_back();`      |                                               |
 | `v.push_back(C(1));` |                                               |
 | `v.clear();`         |                                               |
