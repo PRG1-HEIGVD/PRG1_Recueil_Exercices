@@ -76,7 +76,7 @@ class MonException { };
 class Vec3 {
    array<double, 3> data;
 public:
-   Vec3() : data{} {}
+   Vec3() : data(0,0,0) {}
    template<typename Iterator> Vec3(Iterator first, Iterator last);
    double& operator[](size_t i) { return data[i]; }
    double operator[](size_t i) const { return data[i]; }
