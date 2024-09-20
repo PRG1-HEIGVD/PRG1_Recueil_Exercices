@@ -20,7 +20,7 @@ int main() {
 Le programme devrait compiler, mais crasher à l'exécution en affichant un message similaire à 
 
 ~~~
-libc++abi: terminating due to uncaught exception of type std::out_of_range: array::at
+Process finished with exit code -1073741819 (0xC0000005)
 ~~~
 
 Ce message peut varier d'une machine à l'autre
