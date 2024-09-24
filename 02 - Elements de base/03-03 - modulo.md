@@ -7,8 +7,8 @@ int i = 5, j = 11, n = 10;
 double x = 5, y = 11;
 ~~~
 
-Quel est le résultat d'évaluation des expressions suivantes ? 
-En cas d'erreur, indiquez la raison.
+Quel est le résultat d'évaluation des expressions suivantes ?\
+En cas d'erreur, indiquez la raison.\
 **NB** : les questions sont indépendantes les unes des autres.
 
 | # | Expression | Résultat |
