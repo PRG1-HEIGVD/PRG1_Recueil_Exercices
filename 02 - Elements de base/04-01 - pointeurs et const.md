@@ -42,7 +42,7 @@ int* const ptr_i_2 = &i;
 | 3 | `ptr_j = ptr_i;`      |   oui    | `ptr_j` est modifiable                                                         |   5 |  10 |
 | 4 | `*ptr_i_1 = 25;`      |   non    | un pointeur vers une valeur constante                                          |     |     |
 | 5 | `*ptr_i_2 = 30;`      |   oui    | const pointer vers non const lvalue                                            |  30 |  10 |
-| 6 | `ptr_i_1 = &j;`       |   oui    | `ptr_i_1` est modifiable (non cost)                                            |   5 |  10 |
+| 6 | `ptr_i_1 = &j;`       |   oui    | `ptr_i_1` est modifiable (non const)                                          |   5 |  10 |
 | 7 | `ptr_i_2 = &j;`       |   non    | `ptr_i_2` est un pointeur constant et serait lié à une constante               |     |     |
 
 
