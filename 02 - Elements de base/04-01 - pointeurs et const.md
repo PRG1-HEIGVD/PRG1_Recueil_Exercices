@@ -19,7 +19,7 @@ int* const ptr_i_2 = &i;
 
 
 | # | Instruction         | Correcte ? (oui/non) | Explication |  i  |  j  |
-|---| ------------------- | -------------------- | ----------- |:---:|:---:|
+|---| ------------------- | -------------------- | ----------- | ---:| ---:|
 | 1 | `*ptr_i = 15;`      |                      |             |     |     |
 | 2 | `int *ptr_j_1 = &j;`|                      |             |     |     |
 | 3 | `ptr_j = ptr_i;`    |                      |             |     |     |
@@ -36,7 +36,7 @@ int* const ptr_i_2 = &i;
 <summary>Solution</summary>
 
 | # | Instruction           | Correcte | Explication                                                                  |  i  |  j  |
-|---| --------------------- | ---------| ---------------------------------------------------------------------------- |:---:|:---:|
+|---| --------------------- | ---------| ---------------------------------------------------------------------------- | ---:| ---:|
 | 1 | `*ptr_i = 15;`        |   oui    | i est modifiable                                                             |  15 |  10 |
 | 2 | `int *ptr_j_1 = &j;`  |   non    | on ne peux pas initialiser un pointeur int avec un rvalue de type const int  |     |     |
 | 3 | `ptr_j = ptr_i;`      |   oui    | ptr_j est modifiable                                                         |   5 |  10 |
