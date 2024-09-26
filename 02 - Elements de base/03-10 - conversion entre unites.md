@@ -39,7 +39,7 @@ int main() {
 
     cout << nb_metres << " [m]" << endl
          << "= " << nb_metres * metres_en_miles << " [mile]" << endl
-         << "= " << nb_metres * metres_en_ft    << " [ft]" << endl
+         << "= " << nb_metres * metres_en_ft    << " [ft]"   << endl
          << "= " << nb_metres * metres_en_inch  << " [inch]" << endl;
 
     return EXIT_SUCCESS;
