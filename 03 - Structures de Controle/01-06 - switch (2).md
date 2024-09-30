@@ -19,10 +19,10 @@ if (a == 1) {
 
 ~~~cpp 
 switch (a) {
-   default : cout << "B"; 
    case 1 : cout << "A"; break;
    case 4 : cout << "C"; break;
    case 2 : cout << "E"; break;
+   default : cout << "BA";
 }   
 ~~~
 
