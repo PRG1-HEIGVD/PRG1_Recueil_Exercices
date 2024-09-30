@@ -72,7 +72,7 @@ Pas possible, une référence est toujours initialisée
 <details>
 <summary>Réponse</summary>
 
-`int* const ref1 = &var1`
+`int* const ref1 = &var1;`
 
 </details>
 
@@ -81,7 +81,7 @@ Pas possible, une référence est toujours initialisée
 <details>
 <summary>Réponse</summary>
 
-`const int* const refCste = &var1`
+`const int* const refCste = &var1;`
 
 </details>
 
