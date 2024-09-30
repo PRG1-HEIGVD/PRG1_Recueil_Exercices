@@ -39,8 +39,8 @@ int main() {
    const double cm3_en_litre = 1E-3; // 1 litre = 1000 cm3
 
    double r1, h1, // rayon [cm] et hauteur [cm] du cylindre 1
-   r2, h2, // rayon [cm] et hauteur [cm] du cylindre 2
-   h3;     // hauteur [cm] du tronc de cône
+          r2, h2, // rayon [cm] et hauteur [cm] du cylindre 2
+          h3;     // hauteur [cm] du tronc de cône
 
    // Saisies utilisateur (supposées correctes)
    cout << "Entrez le rayon du cylindre 1 [cm]      : ";
