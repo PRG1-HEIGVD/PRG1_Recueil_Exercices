@@ -88,3 +88,18 @@ do {
 20
 ~~~
 </details>
+
+~~~cpp
+// 6
+int i = 20;
+do
+   cout << i << " ";
+   i /= 2;
+while (i < 0); 
+~~~
+
+<details>
+<summary>Solution</summary>
+
+manque les `{` `}` => ne compile pas
+</details>
