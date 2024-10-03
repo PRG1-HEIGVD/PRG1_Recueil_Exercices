@@ -54,7 +54,7 @@ int main() {
    cin >> nb_annees;
 
    double montant = montant_initial;
-   for (int i = 0; i < nb_annees; ++i) {
+   for (int annee = 0; annee < nb_annees; ++annee) {
       montant *= (1. + taux_interet_annuel / 100.);
    }
 
