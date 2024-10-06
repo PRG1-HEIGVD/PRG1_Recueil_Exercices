@@ -2,12 +2,11 @@
 
 La suite de Fibonacci est décrite comme suit
 
-`Fn = Fn-1 + Fn-2` avec `F0 = 0` et `F1 = 1`
+$$F_n = F_{n-1} + F_{n-2} \text{ avec } F_0 = 0 \text{ et }  F_1 = 1$$
 
-
-|F0 |F1 |F2 |F3 |F4 |F5 |F6 |F7 |F8 |F9 |F10|...|
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| 0 | 1 | 1 | 2 | 3 | 5 | 8 | 13| 21| 34| 55|...|
+|$F_0$|$F_1$|$F_2$|$F_3$|$F_4$|$F_5$|$F_6$|$F_7$|$F_n$|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|  0  |  1  |  1  |  2  |  3  |  5  |  8  | 13  | ... |
 
 Ecrire une fonction récursive *fibo* qui retourne la valeur de `Fn` pour `n` reçu en paramètre.<br>
 
