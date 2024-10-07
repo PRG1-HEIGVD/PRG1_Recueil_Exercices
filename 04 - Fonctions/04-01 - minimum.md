@@ -27,3 +27,20 @@ int& min(int& a, int& b, int& c) {
 ~~~
 
 </details>
+
+<details>
+<summary>Solution plus propre</summary>
+
+~~~cpp
+
+int& min(int& a, int& b) {
+   return a < b ? a : b;
+}
+
+int& min(int& a, int& b, int& c) {
+   return min(a, min(b,c));
+}
+
+~~~
+
+</details>
