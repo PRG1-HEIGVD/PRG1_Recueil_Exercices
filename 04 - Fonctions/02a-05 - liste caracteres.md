@@ -16,7 +16,6 @@ La fonction retourne un booléen indiquant si des caractères ont été affiché
 <summary>Solution</summary>
 
 ~~~cpp
-#include <cstdlib>
 #include <iostream>
 
 using namespace std;
@@ -25,19 +24,19 @@ bool listerCaracteres(char debut,
                       char fin);
 
 int main() {
-   int n;
+   bool b;
 
    cout << "1) 'A' => 'A' : ";
-   n = listerCaracteres('A', 'A');
-   cout << endl;
+   b = listerCaracteres('A', 'A');
+   cout << boolalpha << '\t' << b << endl;
 
    cout << "2) 'A' => 'C' : ";
-   n = listerCaracteres('A', 'C');
-   cout << endl;
+   b = listerCaracteres('A', 'C');
+   cout << '\t' << b << endl;
 
    cout << "3) 'B' => 'A' : ";
-   listerCaracteres('B', 'A');
-   cout << endl;
+   b = listerCaracteres('B', 'A');
+   cout << '\t' << b << endl;
 
    cout << "4) '0' => '9' : ";
    listerCaracteres('0', '9');
@@ -56,8 +55,8 @@ int main() {
    cout << endl;
 
    cout << "8) 120 => 140 : ";
-   listerCaracteres(120, 140);
-   cout << endl;
+   b = listerCaracteres(120, 140);
+   cout << '\t' << b << endl;
 
    cout << endl;
    cout << "/!\\ DANGER" << endl;
@@ -68,17 +67,22 @@ int main() {
 
    cout << endl;
    cout << "Fin des tests" << endl;
-   return EXIT_SUCCESS;
 }
 
 //------------------------------------------------------------
+
 bool listerCaracteres(char debut,
                       char fin) {
+  for (char c = debut; c <= fin; ++c) {
+    cout << c;
+    if (c == fin) break; // Traitement du cas où fin est le dernier des char
+  }
+  return debut <= fin;
+}
 
-   // /!\ boucle infinie si signed char et fin=127
-//   for (char c = debut; c <= fin; ++c)
-//      cout << c;
-
+/* Autre solution plus compliquée
+bool listerCaracteres(char debut,
+                      char fin) {
    if(debut > fin)
       return false;
 
@@ -89,6 +93,7 @@ bool listerCaracteres(char debut,
 
    return true;
 }
+*/
 
 //
 //      1) 'A' => 'A' : A
@@ -97,7 +102,7 @@ bool listerCaracteres(char debut,
 //      4) '0' => '9' : 0123456789
 //      5) 65  => 66  : AB
 //      6) 147 => 155 : ���������
-//      7) 120 => 127 : xyz{|}~
+//      7) 120 => 127 : xyz{|}~�
 //      8) 120 => 140 :
 //
 //      /!\ DANGER
