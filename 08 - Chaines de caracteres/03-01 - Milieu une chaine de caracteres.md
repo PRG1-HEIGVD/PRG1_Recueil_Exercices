@@ -16,6 +16,14 @@ Exemples
 #include <string_view>
 using namespace std;
 
+string milieu(const string & str) {
+    if (str.size() < 3)
+      return str;
+    else
+      return str.substr((str.size() - 1) / 2 , 2 - str.size() % 2); 
+}
+
+/* Solution plus verbeuse
 string milieu(string_view str) {
     const size_t str_taille = str.length();
 
@@ -29,6 +37,7 @@ string milieu(string_view str) {
     }
     return str_milieu;
 }
+*/
 
 int main() {
     cout << "Merci de saisir une chaîne de caractères : \n";
