@@ -1,6 +1,6 @@
 # Formattage cout, Gestionnaire d'étudiants
 
-Écrivez un programme en C++ qui permet à l'utilisateur de saisir les données d'un.e étudiant.e, de calculer sa moyenne, et d'afficher un résumé de l'étudiant.e avec un formatage propre.
+Écrire un programme en C++ qui permet à l'utilisateur de saisir les données d'un.e étudiant.e, de calculer sa moyenne, et d'afficher un résumé de l'étudiant.e avec un formatage propre.
 
 Le programme doit :
 
@@ -28,7 +28,7 @@ Moyenne : 5.25
 Résultat : Admis
 ~~~
 
-Ps. Utilisez les fonctions de formatage et privilégiez l'utilisation des fonctions pour organiser votre code.  
+Note: utiliser les fonctions de formatage et privilégier l'utilisation des fonctions pour organiser le code.  
 
 
 
