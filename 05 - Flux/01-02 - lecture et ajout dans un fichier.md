@@ -4,9 +4,9 @@ Modifiez le programme en C++ de l'exercice 01-01 pour faire ce qui suit :
 
 - Demander à l'utilisateur de saisir le nom du fichier de sortie.
 - Lire le contenu du fichier de sortie, s'il existe et l'afficher sur la console.
-- Demandez à l'utilisateur de saisir du text et ajouter (append) le texte saisi dans le fichier de sortie. Si le fichier existe déjà, il ne doit pas être écrasé.
-- Assurez-vous que le programme gère les erreurs d'ouverture de fichier.
-- pour terminer la saisie, l'utilisateur pourra tapez #exit# dans une ligne séprée ou utiliser Ctrl+D.
+- Demander à l'utilisateur de saisir du text et ajouter (append) le texte saisi dans le fichier de sortie. Si le fichier existe déjà, il ne doit pas être écrasé.
+- S'assurer que le programme gère les erreurs d'ouverture de fichier.
+- Pour terminer la saisie, l'utilisateur pourra taper #exit# dans une ligne séprée ou utiliser Ctrl+D.
 
 Ps. Ctrl+D et Ctrl+Z simule le EOF pour les systèmes Unix et Windows, respectivement.   
 
@@ -21,7 +21,7 @@ Ps. Ctrl+D et Ctrl+Z simule le EOF pour les systèmes Unix et Windows, respectiv
 bool lire_fichier(const std::string& nom_fichier){
     std::ifstream fichier_entree(nom_fichier);
 
-    // Vérifiez si l'ouverture du fichier a réussi
+    // Vérifier si l'ouverture du fichier a réussi
     if (!fichier_entree) {
         return false;
     }
@@ -39,10 +39,10 @@ bool lire_fichier(const std::string& nom_fichier){
 
 bool ecrire_fichier(const std::string& nom_fichier) {
 
-    // Ouvrez le fichier en mode append
+    // Ouvrir le fichier en mode append
     std::ofstream fichier_sortie(nom_fichier, std::ios::app);
 
-    // Vérifiez si l'ouverture du fichier a réussi
+    // Vérifier si l'ouverture du fichier a réussi
     if (!fichier_sortie) {
         std::cerr << "Erreur : Impossible d'ouvrir le fichier. \n";
         return false;
@@ -59,7 +59,7 @@ bool ecrire_fichier(const std::string& nom_fichier) {
         fichier_sortie << texte << std::endl;
     }
 
-    // Fermez le fichier
+    // Fermer le fichier
     fichier_sortie.close();
 
     std::cout << "Le texte a été enregistré avec succès dans le fichier." << std::endl;
@@ -70,7 +70,7 @@ bool ecrire_fichier(const std::string& nom_fichier) {
 int main() {
     std::string nom_fichier;
 
-    // Demandez à l'utilisateur le nom du fichier où enregistrer le texte
+    // Demander à l'utilisateur le nom du fichier où enregistrer le texte
     std::cout << "Entrez le nom du fichier où enregistrer le texte : ";
     std::getline(std::cin, nom_fichier);
 
