@@ -2,7 +2,7 @@
 
 Modifier le programme de l'exercice précédent, 03-02 "Gestionnaire d'étudiants" afin d'y ajouter un contrôle de l'état du flux cin et les valeurs saisies par l'utilisateur.
 
-L'age de l'étuidant est un entier compris entre 1 et 100.
+L'age de l'étudiant est un entier compris entre 1 et 100.
 La note est une valeure réelle comprise entre 1 et 6.
 
 Un exemple de l'exécution  du programme avec les nouvelles fonctionnalités :
@@ -32,7 +32,7 @@ Moyenne : 5.25
 Résultat : Admis
 ~~~
 
-Ps. Privilégiez l'utilisation des fonctions pour organiser votre code.  
+Note: privilégier l'utilisation des fonctions pour organiser le code.  
 
 
 
