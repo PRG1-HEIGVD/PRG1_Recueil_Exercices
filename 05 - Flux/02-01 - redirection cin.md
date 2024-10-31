@@ -1,6 +1,6 @@
 # Redirection de cin, copier un fichier dans un autre
 
-Modifiez le programme en C++ de l'exercice 01-02 pour ajouter les fonctionnalités suivantes :
+Modifier le programme en C++ de l'exercice 01-02 pour ajouter les fonctionnalités suivantes :
 
 - Demander à l'utilisateur de saisir le nom d'un fichier source.
 - Au lieu de saisir le texte, utiliser cin pour lire depuis le fichier source et ajouter (append) le texte dans le fichier de sortie. Si le fichier de sortie existe déjà, il ne doit pas être écrasé.
@@ -19,7 +19,7 @@ Ps. Le code utilisé pour l'écriture ne doit pas changer, comparé à l'exercic
 bool lire_fichier(const std::string& nom_fichier){
     std::ifstream fichier_entree(nom_fichier);
 
-    // Vérifiez si l'ouverture du fichier a réussi
+    // Vérifier si l'ouverture du fichier a réussi
     if (!fichier_entree) {
         return false;
     }
@@ -37,10 +37,10 @@ bool lire_fichier(const std::string& nom_fichier){
 
 bool ecrire_fichier(const std::string& nom_fichier) {
 
-    // Ouvrez le fichier en mode append
+    // Ouvrir le fichier en mode append
     std::ofstream fichier_sortie(nom_fichier, std::ios::app);
 
-    // Vérifiez si l'ouverture du fichier a réussi
+    // Vérifier si l'ouverture du fichier a réussi
     if (!fichier_sortie) {
         std::cerr << "Erreur : Impossible d'ouvrir le fichier. \n";
         return false;
@@ -49,15 +49,15 @@ bool ecrire_fichier(const std::string& nom_fichier) {
     std::string texte;
     const std::string terminer = "#exit#";
 
-    // Demandez à l'utilisateur de saisir du texte
+    // Demander à l'utilisateur de saisir du texte
     std::cout << "Entrez le texte à enregistrer dans le fichier (Ctrl+D ou #exit# pour terminer la saisie) :\n";
     while (std::getline(std::cin, texte)) {
         if (texte == terminer) break;
-        // Écrivez le texte dans le fichier
+        // Écrire le texte dans le fichier
         fichier_sortie << texte << std::endl;
     }
 
-    // Fermez le fichier
+    // Fermer le fichier
     fichier_sortie.close();
 
     std::cout << "Le texte a été enregistré avec succès dans le fichier." << std::endl;
@@ -68,20 +68,20 @@ bool ecrire_fichier(const std::string& nom_fichier) {
 int main() {
     std::string nom_fichier;
 
-    // Demandez à l'utilisateur le nom du fichier où enregistrer le texte
+    // Demander à l'utilisateur le nom du fichier où enregistrer le texte
     std::cout << "Entrez le nom du fichier où enregistrer le texte : ";
     std::getline(std::cin, nom_fichier);
 
     lire_fichier(nom_fichier);
 
     std::string nom_fichier_src;
-    // Demandez à l'utilisateur le nom du fichier source
+    // Demander à l'utilisateur le nom du fichier source
     std::cout << "Entrez le nom du fichier source : ";
     std::getline(std::cin, nom_fichier_src);
 
     std::ifstream fichier_entree(nom_fichier_src);
 
-    // Vérifiez si l'ouverture du fichier a réussi
+    // Vérifier si l'ouverture du fichier a réussi
     if (!fichier_entree) {
         std::cerr << "Erreur : Impossible d'ouvrir le fichier. \n";
         return EXIT_FAILURE;
