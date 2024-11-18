@@ -181,4 +181,15 @@ bool operator== (const HeureMinute& lhs, const HeureMinute& rhs) {
 }
 ~~~
 
+Nous verrons dans le chapitre consacré aux classes que l'on peut encore plus simplifier l'écriture des opérateurs de comparaison par l'utilisation de l'opérateur à 3 voies:
+
+~~~cpp
+struct HeureMinute {
+   int8_t heure;
+   int8_t minute;
+   auto operator<=>(const HeureMinute& rhs) const = default;
+};
+~~~
+
+
 </details>
