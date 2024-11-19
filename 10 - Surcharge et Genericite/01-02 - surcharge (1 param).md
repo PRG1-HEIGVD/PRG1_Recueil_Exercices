@@ -162,10 +162,10 @@ f('2') ? f(2.0) : f(-2.0);
 <details>
 <summary>Solution</summary>
 
-Comme vu précédemment, `f('2')` appelle la Fonction no 3 (sur une machine avec `unsigned char`).<br>
-La fonction retournant `false`, `f(-2.0)` est appelé ce qui correspond à la Fonction no 5
+Comme vu précédemment, `f('2')` appelle la fonction no 1 ou la fonction no 3 (sur une machine avec `unsigned char`).<br>
+Ces deux fonctions retournant `false`, `f(-2.0)` est appelé ce qui correspond à la Fonction no 5
 
-- `Fonction no 3` et `Fonction no 5`
+- `Fonction no 1` et `Fonction no 5` ou `Fonction no 3` et `Fonction no 5`
 
 ----------------------------------------
 
