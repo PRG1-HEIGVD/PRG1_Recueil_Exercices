@@ -28,6 +28,7 @@ Les tableaux seront affichés avant et après le tri par le programme principal.
 ~~~cpp
 #include <iostream>
 #include <vector>
+#include <array>
 #include <span>
 
 using namespace std;
