@@ -40,14 +40,13 @@ T somme1(const Matrice<T, nb_ligne, nb_colonne>& matrice) {
 // avec la boucle for ( : )
 template<typename T, size_t nb_ligne, size_t nb_colonne>
 T somme2(const Matrice<T, nb_ligne, nb_colonne>& matrice) {
-   T resultat = T();
-   for (const Ligne<T, nb_colonne>& ligne: matrice) {
-      for (const T& elem: ligne) {
+    T resultat = T();
+    for (const auto & ligne : matrice)  // auto: Ligne<T, nb_colonne>
+      for (const auto & elem : ligne)   // auto: T
          resultat += elem;
-      }
-   }
    return resultat;
 }
+
 
 //---------------------------------------------------------
 int main() {
@@ -55,12 +54,12 @@ int main() {
    using Matrice_int_2x3      = Matrice<int,    2, 3>;
    using Matrice_double_3x2   = Matrice<double, 3, 2>;
 
-   Matrice_int_2x3 m1      {{{ 0,  1,  2},
-                             {10, 11, 12}}};
+   Matrice_int_2x3 m1      {{{{ 0,  1,  2}},
+                             {{10, 11, 12}}}};
 
-   Matrice_double_3x2 m2   {{{0.0, 1.1},
-                             {1.0, 1.1},
-                             {2.0, 2.1}}};
+   Matrice_double_3x2 m2    {{{{0.0, 1.1}},
+                              {{1.0, 1.1}},
+                              {{2.0, 2.1}}}};
 
    cout << somme1(m1) << " " << somme2(m1) << endl;
    cout << somme1(m2) << " " << somme2(m2) << endl;
