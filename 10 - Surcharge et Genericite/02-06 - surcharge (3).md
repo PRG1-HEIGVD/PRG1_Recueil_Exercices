@@ -20,30 +20,25 @@ char*   pc = &c;     // ptr sur c
 float*  pf = &f;     // ptr sur f
 double* pd = &d;     // ptr sur d
 ~~~
-
 **Méthode**<br>
+1. *Cas simplifié* Si une fonction non générique est appelable par type exact pour tous ses arguments, il n'est pas nécessaire de considérer les alternatives génériques. 
 
-1. déduire les arguments génériques pour toutes les fonctions génériques, et établir la liste des fonctions appelables, y compris par conversion pour les paramètres non génériques
+2. Déduire les arguments génériques pour toutes les fonctions génériques, et établir la liste des fonctions appelables, y compris par conversion pour les paramètres non génériques
 	1. si elle est vide, il y a erreur de compilation 	
-2. Parmi ces fonctions appelables, pour chacun des paramètres, établir celles qui sont appelables le plus simplement, i.e. 
+3. Parmi ces fonctions appelables, pour chacun des paramètres, établir celles qui sont appelables le plus simplement, i.e. 
 	1. par type exact
 	2. sinon par conversion simple (ajout d'un `const`) 
 	3. sinon par promotion numérique
 	4. sinon par conversion de type 
-3. Faire l'intersection des ensembles sélectionnés par chaque paramètre
+4. Faire l'intersection des ensembles sélectionnés par chaque paramètre
 	1. s'il est vide, il y a ambiguité
 	2. s'il a 1 élément, cette fonction est appelée
-4. S'il reste plusieurs fonctions
+5. S'il reste plusieurs fonctions
 	1. si une est plus spécialisée que toutes les autres, elle est appelée
 	2. sinon, il y a ambiguité
 	
 <br>
 
-**Cas simplifié**<br>
-Si une fonction non générique est appelable par type exact pour tous ses arguments, il n'est pas nécessaire de 
-considérer les alternatives génériques. 
-
-<br>
 
 ~~~cpp
 // no 1
@@ -121,16 +116,7 @@ fct(pi, f);
 
 <details>
 <summary>Solution</summary>
-
-1. $S = \left\\{1, 2, 4, 6\right\\}$ sont appelables. 
-   - 3 : types différents déduits pour `T` (`int*` et `float`)
-   - 5 : pas de conversion `int*` vers `int`
-2. Paramètres 
-   - $P_{1} = \left\\{1, 2, 4, 6\right\\}$ par type exact
-   - $P_{2} = \left\\{1, 2, 6\right\\}$ par type exact 
-     - 6 par conversion `float` vers `int`
-3. $P_{1} \cap P_{2} = \left\\{1, 2, 6\right\\}$
-4. fct no 6 : **fonction non générique toujours plus spécialisée** que les fonctions générique
+Cas simplifié: il existe une fonction ordinaire avec exactement les bons types pour tous les paramètres (n°6); c'est elle qui est appelée.
 </details>
 
 ~~~cpp
@@ -211,16 +197,7 @@ fct(i, i);
 
 <details>
 <summary>Solution</summary>
-
-1. $S = \left\\{1, 3, 4, 5\right\\}$ sont appelables. 
-   - 2 : `int` n'est pas compatible pour `T*`
-   - 6 : pas de conversion de `int` vers `int*`
-2. Paramètres 
-   - $P_{1} = \left\\{1, 3, 4, 5\right\\}$ par type exact
-   - $P_{2} = \left\\{1, 3, 4, 5\right\\}$ par type exact
-3. $P_{1} \cap P_{2} = \left\\{1, 3, 4, 5\right\\}$
-4. fct no 5 : **non-générique** => plus spécialisée que toutes autres génériques => **la fct no 5 est appelée**
-
+Cas simplifié: il existe une fonction ordinaire avec exactement les bons types pour tous les paramètres (n°5); c'est elle qui est appelée.
 --------------------
 
 </details>
@@ -234,7 +211,7 @@ fct(d, i);
 <summary>Solution</summary>
 
 1. $S = \left\\{1, 4, 5\right\\}$ sont appelables. 
-   - 2 : `double` n'est pas copatible pour `T*`
+   - 2 : `double` n'est pas compatible pour `T*`
    - 3 : types différents déduits pour `T` (`double` et `int`)
    - 6 : pas de conversion de `double` vers `int*`
 2. Paramètres 
@@ -397,16 +374,8 @@ fct(s+1, i);
 <summary>Solution</summary>
 
 Pour l'expression `s+1`, le `short` est promu en `int` pour l'opération.<br>
-Au final, nous avons un appel `f(int, int)`
-
-1. $S = \left\\{1, 3, 4, 5\right\\}$ sont appelables. 
-   - 2 : pas de déduction pour `T* = int`
-   - 6 : pas de conversion `int` vers `int*`
-2. Paramètres
-   - $P_{1} = \left\\{1, 3, 4, 5\right\\}$ par type exact
-   - $P_{2} = \left\\{1, 3, 4, 5\right\\}$ par type exact
-3. $P_{1} \cap P_{2} = \left\\{1, 3, 4, 5\right\\}$
-4. fct no 5 : **non-générique** => **cas simplifié** => **la fct no 5 est appelée**.
+Au final, nous avons un appel `f(int, int)`.
+Cas simplifié: il existe une fonction ordinaire avec exactement les bons types pour tous les paramètres (n°5); c'est elle qui est appelée.
 
 --------------------
 
