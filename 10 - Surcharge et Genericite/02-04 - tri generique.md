@@ -282,6 +282,7 @@ la solution la plus propre et moderne (C++20 minimum) serait sans doute
 #include <span>
 #include <array>
 #include <vector>
+#include <concepts>
 
 template<typename T>
 concept Container = requires(const T& c, size_t i) {
