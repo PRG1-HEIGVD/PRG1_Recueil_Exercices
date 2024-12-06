@@ -32,43 +32,31 @@ Les tableaux seront affichés avant et après le tri par le programme principal.
 ~~~cpp
 #include <iostream>
 #include <vector>
+#include <array>
 #include <span>
-
 #include "Tri.h"
 
 using namespace std;
 
-template <typename T>
-void afficher(span<const T> s) {
+template<typename T, size_t N>
+void afficher(span<T, N> s) {
    cout << "[";
    for (size_t i = 0; i < s.size(); ++i) {
       if (i) cout << ", ";
       cout << s[i];
    }
-   cout << "]";
+   cout << "]" << endl;
 }
 
 int main() {
-   vector v     {6, 2, 8, 7, 1, 3};
-   array  a     {"chien"s, "chat"s, "souris"s, "poisson"s};
-   double t[] = {6.1, 2.2, 8.3, 7.4, 1.5, 3.6};
+   vector v      {6, 2, 8, 7, 1, 3};
+   afficher(span(v)); tri(span(v)); afficher(span(v));
 
-   afficher<const int>(v);
-   tri_par_selection<int>(v);
-   cout << endl;
-   afficher<const int>(v);
-   cout << endl << endl;
+   array  a      {"chien"s, "chat"s, "souris"s, "poisson"s};
+   afficher(span(a)); tri(span(a)); afficher(span(a));
 
-   afficher<const string>(a);
-   tri_par_selection<string>(a);
-   cout << endl;
-   afficher<const string>(a);
-   cout << endl << endl;
-
-   afficher<const double>(t);
-   tri_par_selection<double>(t);
-   cout << endl;
-   afficher<const double>(t);
+   double t[6] = {6.1, 2.2, 8.3, 7.4, 1.5, 3.6};
+   afficher(span(t)); tri(span(t)); afficher(span(t));
 }
 ~~~
 
@@ -79,25 +67,30 @@ int main() {
 <summary>Solution - Tri.h</summary>
 
 ~~~cpp
-#include <cstdlib>   // size_t
-#include <utility>   // swap
+#ifndef TRI_H
+#define TRI_H
 
-template <typename T>
-size_t indice_min(std::span<const T> s) {
-   size_t iMin = 0;
+#include <span>     // std::span , std::size_t 
+#include <utility>  // std::swap
+
+template <typename T, size_t N>
+size_t indice_min(std::span<T, N> s) {
+   size_t i_min = 0;
    for (size_t i = 1; i < s.size(); ++i)
-      if (s[i] < s[iMin])
-         iMin = i;
-   return iMin;
+      if (s[i] < s[i_min])
+         i_min = i;
+   return i_min;
 }
 
-template <typename T>
-void tri_par_selection(std::span<T> v) {
-   for (size_t i = 0; i < v.size()-1 ; ++i) {
-      size_t imin = i + indice_min<T>(v.subspan(i));
-      std::swap(v[i], v[imin]);
+template<typename T, size_t N>
+void tri(std::span<T, N> v) {
+   using std::swap;
+   for(size_t i = 0; i < v.size()-1; ++i) {
+      size_t i_min = i + indice_min(v.subspan(i));
+      swap(v[i], v[i_min]);
    }
 }
+#endif
 ~~~
 
 </details>
