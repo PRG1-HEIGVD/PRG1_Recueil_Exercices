@@ -36,8 +36,8 @@ moyenne : [5.0, 4.7, 3.8, 4.5]
 
 using namespace std;
 
-template <typename T>
-void afficher(span<const T> s) {
+template <typename T, size_t N>
+void afficher(span<T, N> s) {
    cout << "[";
    for (size_t i=0; i<s.size(); ++i) {
       if (i) cout << ", ";
@@ -46,30 +46,29 @@ void afficher(span<const T> s) {
    cout << "]";
 }
 
-template <typename T>
-T somme(span<const T> v) {
-   T result = T();
+template <typename T, size_t N>
+T somme(span<T, N> v) {
+   auto result = T{};
    for (const T& t : v)
       result += t;
    return result;
 }
 
-template <typename T>
-T moyenne(span<const T> v) {
+template <typename T, size_t N>
+T moyenne(span<T, N> v) {
    if (v.empty())
-      return T();
-   return somme<T>(v) / v.size();
+      return T{};
+   return somme(v) / v.size();
 }
 
 template <typename T, typename Fct>
 vector<T> vectStats(const vector<vector<T>>& v, Fct fct) {
    vector<T> stats;
    stats.reserve(v.size());
-   for (const vector<T>& ligne : v)
+   for (auto& ligne : v)
       stats.push_back(fct(ligne));
    return stats;
 }
-
 
 using Data    = double;
 using Ligne   = vector<Data>;
@@ -85,14 +84,14 @@ int main() {
    cout << fixed << setprecision(1);
 
    cout << "somme   : ";
-   afficher<Data>(vectStats<Data>(notes, somme<Data>));
+   vector sommes = vectStats(notes, somme<const Data, std::dynamic_extent>);
+   afficher(span(sommes));
    cout << endl;
 
    cout << "moyenne : ";
-   afficher<Data>(vectStats<Data>(notes, moyenne<Data>));
-
+   vector moyennes = vectStats(notes, moyenne<const Data, std::dynamic_extent>);
+   afficher(span(moyennes));
    cout << endl;
-   return EXIT_SUCCESS;
 }
 ~~~
 
