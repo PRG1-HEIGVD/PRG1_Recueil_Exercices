@@ -7,8 +7,6 @@ Complétez le code suivant afin qu'il s'exécute correctement et affiche le rés
 
 ~~~cpp
 #include <iostream>
-#include <cstdlib>
-#include <utility>
 
 using namespace std;
 
@@ -41,8 +39,6 @@ int main() {
 
 ~~~cpp
 #include <iostream>
-#include <cstdlib>
-#include <utility>
 
 using namespace std;
 
