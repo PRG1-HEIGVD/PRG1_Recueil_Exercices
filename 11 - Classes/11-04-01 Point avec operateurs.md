@@ -3,9 +3,6 @@ Reprenez la classe Point de l'exercice [03-01](11-03-01%20Point%20avec%20constru
 
 ~~~cpp
 #include <iostream>
-#include <cstdlib>
-#include <utility>
-#include <iomanip>
 
 using namespace std;
 
@@ -43,7 +40,6 @@ p1 == p3
 
 ~~~cpp
 #include <iostream>
-#include <utility>
 
 using namespace std;
 
