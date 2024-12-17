@@ -1,6 +1,6 @@
 # Mêmes éléments
 
-Ecrire une fonction `meme_elements` qui reçoit deux tabéeaux en paramètre de type `<T>` et retourne `true` si les deux tableaux contiennent les même éléments et `false` dans le cas contraire.
+Ecrire une fonction `meme_elements` qui reçoit deux tableaux en paramètre de type `<T>` et retourne `true` si les deux tableaux contiennent les même éléments et `false` dans le cas contraire.
 
 - l'ordre n'a pas d'importance
 - les valeurs à double sont possibles
