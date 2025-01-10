@@ -53,23 +53,6 @@ int main() {
 
 ~~~
 
-<details>
-<summary>la valeur 1</summary>
-
-~~~text
-Donnez un entier : 1
-Debut du premier bloc try
-catch 1 : n = 1
-... suite du programme
-Debut du second bloc try
-catch 2 : n = 1
-Fin du programme
-Appel de exit
-Appuyez sur une touche pour continuer...
-~~~
-
-</details>
-
 **Rappel** Hiérarchie des exceptions
 
 ~~~mermaid
@@ -93,6 +76,23 @@ graph TD
   runtime_error --> overflow_error
   runtime_error --> range_error
 ~~~
+
+<details>
+<summary>la valeur 1</summary>
+
+~~~text
+Donnez un entier : 1
+Debut du premier bloc try
+catch 1 : n = 1
+... suite du programme
+Debut du second bloc try
+catch 2 : n = 1
+Fin du programme
+Appel de exit
+Appuyez sur une touche pour continuer...
+~~~
+
+</details>
 
 <details>
 <summary>la valeur 0</summary>
