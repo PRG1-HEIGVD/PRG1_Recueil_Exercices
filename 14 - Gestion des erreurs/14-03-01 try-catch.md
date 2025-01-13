@@ -2,6 +2,29 @@
 
 Indiquer ce que va afficher chacune des séquences d'instructions suivantes : 
 
+**Rappel** Hiérarchie des exceptions
+
+~~~mermaid
+graph TD
+  exception(Exception)
+  
+  bad_alloc(Bad Alloc)
+  logic_error(Logic Error)
+  invalid_argument(Invalid Argument)
+  out_of_range(Out of Range)
+
+  runtime_error(Runtime Error)
+  overflow_error(Overflow Error)
+  range_error(Range Error)
+
+  exception     --> bad_alloc
+  exception     --> logic_error
+  logic_error   --> invalid_argument
+  logic_error   --> out_of_range
+  exception     --> runtime_error
+  runtime_error --> overflow_error
+  runtime_error --> range_error
+~~~
 
 1.
 ~~~cpp
@@ -25,9 +48,9 @@ int main() {
 <details>
 <summary>Solution</summary>
 
-Dans catch (int) : valeur recue = 1
-terminate called after throwing an instance of 'double'
- 
+Dans catch (int) : valeur recue = 1<br>
+terminate called after throwing an instance of 'double'<br>
+<br> 
 This application has requested the Runtime to terminate it in an unusual way.
 Please contact the application's support team for more information.
 
@@ -56,9 +79,9 @@ int main() {
 <details>
 <summary>Solution</summary>
 
-Dans catch (int) : valeur recue = 1
-Dans catch (double) : valeur recue = 2
-Fin du programme
+Dans catch (int) : valeur recue = 1<br>
+Dans catch (double) : valeur recue = 2<br>
+Fin du programme<br>
 
 </details>
 
@@ -97,9 +120,9 @@ int main() {
 <details>
 <summary>Solution</summary>
 
-Dans catch (...) 1
-Dans catch (int&)
-Fin du programme
+Dans catch (...) 1<br>
+Dans catch (int&)<br>
+Fin du programme<br>
 
 </details>
 
@@ -134,7 +157,7 @@ Consultez la documentation de [`std::out_of_range`](https://en.cppreference.com/
 
 <details>
 <summary>Solution</summary>
-E1 : std::exception
-L : oops
-Fin du programme
+E1 : std::exception<br>
+L : oops<br>
+Fin du programme<br>
 </details>
