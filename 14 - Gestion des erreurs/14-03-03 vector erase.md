@@ -8,6 +8,29 @@ void removeFromVector(std::vector<int>& vec, size_t pos);
 
 _NB_ L'exercice doit être résolu en utilisant exclusivement une(des) exception(s) prédéfinie(s).
 
+**Rappel** Hiérarchie des exceptions
+
+~~~mermaid
+graph TD
+  exception(Exception)
+  
+  bad_alloc(Bad Alloc)
+  logic_error(Logic Error)
+  invalid_argument(Invalid Argument)
+  out_of_range(Out of Range)
+
+  runtime_error(Runtime Error)
+  overflow_error(Overflow Error)
+  range_error(Range Error)
+
+  exception     --> bad_alloc
+  exception     --> logic_error
+  logic_error   --> invalid_argument
+  logic_error   --> out_of_range
+  exception     --> runtime_error
+  runtime_error --> overflow_error
+  runtime_error --> range_error
+~~~
 
 <details>
 <summary>Solution</summary>
@@ -46,9 +69,6 @@ int main() {
 
     return 0;
 }
-
 ~~~
-
-
 
 </details>
