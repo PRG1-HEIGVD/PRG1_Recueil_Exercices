@@ -1,5 +1,5 @@
 # Point avec opérateurs
-Reprenez la classe Point de l'exercice [03-01](11-03-01%20Point%20avec%20constructeurs.md) et faites les modifications / ajouts / suppressions nécessaires afin que le code ci-dessous s'exécute correctement et affiche le résultat ci-après.
+Reprenez la classe Point de l'exercice [03-01](03-01%20Point%20avec%20constructeurs.md) et faites les modifications / ajouts / suppressions nécessaires afin que le code ci-dessous s'exécute correctement et affiche le résultat ci-après.
 
 ~~~cpp
 #include <iostream>

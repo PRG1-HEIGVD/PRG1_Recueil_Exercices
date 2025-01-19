@@ -1,7 +1,8 @@
-# Point avec constructeurs
+# Point
 
-Modifiez la classe Point de l'exercice [02-01](11-02-01%20Point.md) 
-pour pouvoir donner une valeur initiale aux points
+Modifiez la structure Point de l'exercice [01-01](01-01%20Structure%20Point.md) 
+pour mettre en oeuvre une classe Point qui stocke les coordonnées x,y dans des 
+attributs privés. 
 
 Complétez le code suivant afin qu'il s'exécute correctement et affiche le résultat ci-après.
 
@@ -12,9 +13,13 @@ using namespace std;
 
 int main() {
     Point centre;
+    centre.setX(0);
+    centre.setY(0);
     centre.afficher();
 
-    Point p(1.2,2.4);
+    Point p;
+    p.setX(1.2);
+    p.setY(2.4);
     p.afficher();
     
     p.deplacer(0.8, 0.6);
@@ -39,14 +44,13 @@ int main() {
 
 ~~~cpp
 #include <iostream>
+#include <cstdlib>
+#include <utility>
 
 using namespace std;
 
 class Point {
 public:
-    Point();
-    Point(double x, double y);
-    
     void setX(double x);
     void setY(double y);
     
@@ -58,10 +62,6 @@ public:
 private:
     double x, y;
 };
-
-Point::Point() : Point(0.,0.) { }
-
-Point::Point(double x, double y) : x(x), y(y) { }
 
 void Point::setX(double x){
     this->x = x;
@@ -90,9 +90,13 @@ void Point::afficher() const {
 
 int main() {
     Point centre;
+    centre.setX(0);
+    centre.setY(0);
     centre.afficher();
 
-    Point p(1.2,2.4);
+    Point p;
+    p.setX(1.2);
+    p.setY(2.4);
     p.afficher();
     
     p.deplacer(0.8, 0.6);

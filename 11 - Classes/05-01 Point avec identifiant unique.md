@@ -1,5 +1,5 @@
 # Point avec un identifiant unique et un compteur
-Reprenez la classe Point de l'exercice [03-02](11-03-02%20Point%20avec%20limites%20de%20deplacement.md) et faites les modifications / ajouts nécessaires afin d'y intégrer les fonctionnalités suivantes :
+Reprenez la classe Point de l'exercice [03-02](03-02%20Point%20avec%20limites%20de%20deplacement.md) et faites les modifications / ajouts nécessaires afin d'y intégrer les fonctionnalités suivantes :
 
 - Attribuer automatiquement un numéro unique à chaque nouveau point créé (1 au premier, 2 au second…). On ne cherchera pas à réutiliser les numéros d'objets éventuellement détruits. Utilisez un attribut constant pour ce numéro. 
 - Maintenir à jour le nombre de points qui existent à un instant donné.

@@ -1,6 +1,6 @@
 # Point avec des limites de déplacement
 
-Reprenez la classe Point de l'exercice [03-01](11-03-01%20Point%20avec%20constructeurs.md) et faites les modifications / ajouts nécessaires afin d'y intégrer les fonctionnalités suivantes :
+Reprenez la classe Point de l'exercice [03-01](03-01%20Point%20avec%20constructeurs.md) et faites les modifications / ajouts nécessaires afin d'y intégrer les fonctionnalités suivantes :
 
 - Chaque point a des coordonnées comprises entre 0 et xMax pour x, et entre 0 et yMax pour y
 - Ces limites ne peuvent pas être modifiées après la création d'un point et peuvent être différentes d'un point à l'autre. Par defaut, xMax = yMax = 100

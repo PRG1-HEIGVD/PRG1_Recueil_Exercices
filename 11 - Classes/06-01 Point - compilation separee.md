@@ -1,5 +1,5 @@
 # Point avec opérateur en compilation séparée
-Reprenez le code de l'exercice [11-04-01](11-04-01%20Point%20avec%20operateurs.md) et réorganisez-le en compilation séparée.
+Reprenez le code de l'exercice [04-01](04-01%20Point%20avec%20operateurs.md) et réorganisez-le en compilation séparée.
 
 ~~~text
 Point.h
