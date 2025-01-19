@@ -5,7 +5,7 @@ exercices qui s'y trouvent visent à avoir une longueur et
 une difficulté  similaire aux exercices d'écriture de code de 
 l'examen final.
 
-Exercices conseillés pour la préparation à l'examen
+### Exercices conseillés pour la préparation à l'examen
 - 02 - Elements de base
     - 03-01 - operateurs
     - 03-04 - evaluation expressions
@@ -73,5 +73,8 @@ Exercices conseillés pour la préparation à l'examen
     - 05-01 terminaison de programme 1
     - 05-02 terminaison de programme 2
     - 05-03 terminaison de programme 3
-- 
+- 15 - Allocation dynamique
+    - 01-01 new et delete
+    - 01-02 operator new
+    - 03-04 classe Tab
     
