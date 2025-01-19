@@ -62,5 +62,11 @@ Exercices conseillés pour la préparation à l'examen
     - 03-01 - algorithm - sans modification
     - 03-02 - nbre valeurs dans intervalle
     - 03-05 - algorithm - avec modification
+- 13 - classe generique
+    - 01-02 - classe Point
+    - 01-06 - classe Stack
+    - 01-10 - classe Stack - specialisation
+    - 02-02 - type generique - screen
+    - 03-02 - classe Coord - concept
 - 
     
