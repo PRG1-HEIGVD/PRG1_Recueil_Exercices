@@ -1,6 +1,6 @@
 # classe générique Stack -  opérateurs
 
-Reprendre l'exercice [13-01-07 Stack](13-01-07%20-%20classe%20Stack%20-%20header%20et%20impl.md) pour les instructions suivantes
+Reprendre l'exercice [01-07 Stack](01-07%20-%20classe%20Stack%20-%20header%20et%20impl.md) pour les instructions suivantes
 
 ~~~cpp
 Stack<int, 10> s;

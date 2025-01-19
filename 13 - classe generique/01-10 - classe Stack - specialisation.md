@@ -1,39 +1,100 @@
-# classe générique Stack -  type_traits
+# classe générique Stack -  spécialisation
 
-Reprise de l'exercice [13-01-10 - classe Stack - specialisation](13-01-10%20-%20classe%20Stack%20-%20specialisation.md)
+Reprendre l'exercice [01-09 Stack - opérateur](01-09%20-%20classe%20Stack%20-%20operateur.md).
 
-En utilisant le header [`<type_traits>`](https://cplusplus.com/reference/type_traits/) et un [`constexpr if`](https://en.cppreference.com/w/cpp/language/if#Constexpr_if),
-écrivez un opérateur `<<` qui fonctionne pour les types pointeurs et non pointeurs sans utiliser ni surcharge 
-ni spécialisation. 
-
-<details>
-<summary>Solution</summary>
+Nous souhaitons cette fois manipuler des `int` et des `const int*` dans le même code.
 
 ~~~cpp
-#include <type_traits>   // std::is_pointer
+const vector data = {0, 1, 2, 3, 4, 5};
 
-template <typename T, size_t n>
-std::ostream& operator<< (std::ostream& os, const Stack<T, n>& s) {
+// int
+Stack<int, 10> s1;
+for (int i : data) {
+   s1.push(i);
+}
+cout << s1 << endl;
+
+// const int*
+Stack<const int*, 10> s2;
+for (const int& i : data) {
+   s2.push(&i);
+}
+cout << string(s2) << endl;
+~~~
+
+... qui doit produire ce résultat
+
+~~~
+[0] 0
+[1] 1
+[2] 2
+[3] 3
+[4] 4
+[5] 5
+
+[0] 0
+[1] 1
+[2] 2
+[3] 3
+[4] 4
+[5] 5
+~~~
+
+Que faut-il changer / ajouter ?
+
+<details>
+<summary>Solution par spécialisation</summary>
+
+⚠️ la spécialisation partielle d'une méthode d'une classe générique n'est pas possible en C++
+
+Seul changement, **ajouter une spécialisation** de l'`operator <<` dans l'implémentation.
+Cette solution n'est pas satisfaisante dans la mesure où ce sera toujours pour `10` x `const int*`.
+
+~~~cpp
+template <>
+std::ostream& operator<< (std::ostream& os, const Stack<const int*, 10>& s) {
    for (size_t i = 0; i < s.index; ++i) {
-      if constexpr (std::is_pointer<T>::value)
-         os << "[" << i << "] " << *s.data[i] << '\n';
-      else
-         os << "[" << i << "] " << s.data[i] << '\n';
+      os << "[" << i << "] "<< *s.data[i] << '\n';
    }
    return os;
 }
 ~~~
 
-Notons qu'il est indispensable ici d'utiliser `if constexpr`. 
+</details>
 
-Si on oublie le `constexpr`, le code  ne compile pas pour les types T qui ne disposent pas de l'opérateur `*` unaire, i.e. pour les  types qui en sont pas des pointeurs ou des itérateurs. 
+<details>
+<summary>Solution par surcharge</summary>
 
-Avec `constexpr`, la branche qui n'est pas exécutée n'est pas non plus compilée.
+Une meilleure solution consiste à ne faire différer le code que pour l'affichage d'un élément. 
+Plutôt que d'utiliser l'opérateur `<<` pour les afficher, on crée une fonction `__display_stack_element`
+que l'on surcharge pour les types pointeurs. 
+
+~~~cpp 
+template <typename T>
+std::ostream& __display_stack_element(std::ostream& os, T t) {
+   return os << t;
+}
+
+template <typename T>
+std::ostream& __display_stack_element(std::ostream& os, T* t) {
+   return os << *t;
+};
+
+template <typename T, size_t n>
+std::ostream& operator<< (std::ostream& os, const Stack<T, n>& s) {
+   for (size_t i = 0; i < s.index; ++i) {
+      os << "[" << i << "] ";
+      __display_stack_element(os, s.data[i]);
+      os << '\n';
+   }
+   return os;
+}
+~~~
 
 ### Tous les fichiers ...
 
 <details>
-<summary>main.cpp</summary>
+<summary>Solution - main.cpp</summary>
 
 ~~~cpp
 #include <iostream>
@@ -65,7 +126,7 @@ int main() {
 </details>
 
 <details>
-<summary>Stack.h</summary>
+<summary>Solution - Stack.h</summary>
 
 ~~~cpp
 #ifndef STACK_H
@@ -83,7 +144,7 @@ template <typename T, size_t n> bool operator == (const Stack<T, n>& lhs, const 
 
 template <typename T, size_t n = 100>
 class Stack {
-
+   
    friend std::ostream& operator << <>(std::ostream& os, const Stack& s);
    friend bool operator == <>(const Stack& lhs, const Stack& rhs);
 
@@ -118,7 +179,7 @@ private:
 </details>
 
 <details>
-<summary>Stack_Impl.h</summary>
+<summary>Solution - Stack_Impl.h</summary>
 
 ~~~cpp
 #ifndef STACK_IMPL_H
@@ -126,18 +187,26 @@ private:
 
 #include <ostream>
 #include <sstream>
-#include <type_traits>
 #include "Stack.h"
 
 //-- friends ----------------------------------------------
 
+template <typename T>
+std::ostream& __display_stack_element(std::ostream& os, T t) {
+   return os << t;
+}
+
+template <typename T>
+std::ostream& __display_stack_element(std::ostream& os, T* t) {
+   return os << *t;
+};
+
 template <typename T, size_t n>
 std::ostream& operator<< (std::ostream& os, const Stack<T, n>& s) {
    for (size_t i = 0; i < s.index; ++i) {
-      if constexpr (std::is_pointer<T>::value)
-         os << "[" << i << "] " << *s.data[i] << '\n';
-      else
-         os << "[" << i << "] " << s.data[i] << '\n';
+      os << "[" << i << "] ";
+      __display_stack_element(os, s.data[i]);
+      os << '\n';
    }
    return os;
 }
@@ -183,3 +252,4 @@ Stack<T, n>::operator std::string() const {
 
 </details>
 
+💡Une meilleure solution sera vue à l'exercice [13-03-03 - classe Stack - type_traits](13-03-03%20-%20classe%20Stack%20-%20type_traits.md).

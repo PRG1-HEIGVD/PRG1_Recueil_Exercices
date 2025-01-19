@@ -1,6 +1,6 @@
 # classe générique Stack
 
-Reprendre l'exercice [09-01-07 stack](../09%20-%20Tableaux/01-07%20-%20stack.md) et l'écrire cette fois de manière générique.
+Reprendre l'exercice [01-07 stack](../09%20-%20Tableaux/01-07%20-%20stack.md) et l'écrire cette fois de manière générique.
 
 A la compilation, l'utilisateur doit pouvoir choisir le type de données à manipuler `<T>` et la capacité `n` de la pile.<br>
 Cette valeur est fixée par défaut à 100. Le code ci-après doit donner le résultat indiqué. 

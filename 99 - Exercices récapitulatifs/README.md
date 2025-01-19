@@ -56,5 +56,11 @@ Exercices conseillés pour la préparation à l'examen
 - 11 - Classes
     - 03-02 Point avec limites de deplacement
     - 03-05 Trace
-    - 
+    - 04-02 Surchage des operateurs
+    - 06-03 Voitures - compilation separee
+- 12 - iterator - algorithm - numeric
+    - 03-01 - algorithm - sans modification
+    - 03-02 - nbre valeurs dans intervalle
+    - 03-05 - algorithm - avec modification
+- 
     

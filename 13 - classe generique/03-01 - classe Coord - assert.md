@@ -1,6 +1,6 @@
-# classe générique Coord - concept 
+# classe générique Coord - assert 
 
-Reprise de l'exercice [13-03-01 - classe Coord - assert](13-03-01%20-%20classe%20Coord%20-%20assert.md)
+Reprise de l'exercice [01-01 - classe Coord](01-01%20-%20classe%20Coord.md)
 
 🤔 Probablement que votre solution permettait d'écrire ceci ?
 
@@ -12,7 +12,7 @@ p3.afficher();  // p3 : (x, y)
 <br>
 Restreinde le type générique utilisé à des valeurs numériques ?
 
-💡Utiliser cette fois la notion de [`concept`](https://en.cppreference.com/w/cpp/language/constraints)
+💡Utiliser [`type_traits`](https://cplusplus.com/reference/type_traits/) et [`static_assert`](https://en.cppreference.com/w/cpp/language/static_assert)
 
 <details>
 <summary>Solution</summary>
@@ -20,14 +20,11 @@ Restreinde le type générique utilisé à des valeurs numériques ?
 ~~~cpp
 #include <iostream>
 #include <type_traits>
-#include <vector>
+
 using namespace std;
 
 //------------------------------------------------------------
 template <typename T>
-concept Arithmetic = std::is_arithmetic<T>::value;
-
-template <Arithmetic T>
 class Coord {
 public:
    Coord()           : Coord(T(), T()) {};
@@ -41,6 +38,7 @@ public:
    void afficher() const;
 
 private:
+   static_assert(std::is_arithmetic<T>::value, "T is not an arithmetic value");
    T x;
    T y;
    T z;
@@ -77,21 +75,21 @@ int main() {
 }
 
 //------------------------------------------------------------
-template <Arithmetic T>
+template <typename T>
 void Coord<T>::setCoord(T x, T y) {
    this->x = x;
    this->y = y;
 }
 
 //------------------------------------------------------------
-template <Arithmetic T>
+template <typename T>
 void Coord<T>::deplacer(T dx, T dy) {
    this->x += dx;
    this->y += dy;
 }
 
 //------------------------------------------------------------
-template <Arithmetic T>
+template <typename T>
 void Coord<T>::afficher() const {
    cout << "(" << this->x << ", " << this->y << ")";
 }
