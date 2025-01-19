@@ -68,5 +68,10 @@ Exercices conseillés pour la préparation à l'examen
     - 01-10 - classe Stack - specialisation
     - 02-02 - type generique - screen
     - 03-02 - classe Coord - concept
+- 14 - Gestion des erreurs
+    - 03-01 try-catch
+    - 05-01 terminaison de programme 1
+    - 05-02 terminaison de programme 2
+    - 05-03 terminaison de programme 3
 - 
     
