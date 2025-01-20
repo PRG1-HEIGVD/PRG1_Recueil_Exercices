@@ -25,7 +25,7 @@ int main() {
 }
 ~~~
 
-Ecrivez les fonctions f, g et éventuelles surcharges de sorte que le programme affiche ce qui suit à l’exécution
+Ecrivez les fonctions `f`, `g` et éventuelles surcharges de sorte que le programme affiche ce qui suit à l’exécution
 
 ~~~text
 CD C2 D2 C3 D0 D3
@@ -36,11 +36,9 @@ CD C2 D2 C3 D0 D3
 <summary>Solution</summary>
 
 ~~~cpp
-C* f() { return new C(); }
-
-C* f(int i) { return new C(i); }
-
-void g(C* p) { delete p; }
+C*   f()      { return new C();  }
+C*   f(int i) { return new C(i); }
+void g(C* p)  { delete p;        }
 ~~~
 
 </details>
