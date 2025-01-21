@@ -182,7 +182,7 @@ int main() {
       cout << "------------" << endl;
       cout << "   [] / at  " << endl;
       cout << "------------" << endl;
-      cout << "tab1[0]     = 1; " << endl
+      cout << "tab1[0]     = 1; " << endl;
       tab1[0] = 1;
       cout << "tab1[0]     : " << tab1[0] << endl;
       cout << endl;
