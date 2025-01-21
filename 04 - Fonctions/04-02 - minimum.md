@@ -17,7 +17,7 @@ using namespace std;
 
 int& min(int& a, int& b, int& c) {
       return a < c ?
-         a < c ? a : c :
+         a < b ? a : b :
          b < c ? b : c ;
 }
 
