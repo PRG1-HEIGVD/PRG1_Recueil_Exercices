@@ -2,19 +2,24 @@
 
 Soit le `main` proposé et le résultat attendu.
 
-Implémenter la classe `Tab` qui contient une propriété privée `T* data` sur un espace mémoire réservé dynamiquement.
+Implémenter la classe `Tab` qui contient les propriétés privées suivantes
+
+| Propriété | Details                                                 |
+|:----------|:--------------------------------------------------------|
+| `T* data` | Un pointeur sur une zone mémoire réservée dynamiquement |
+| `_size`   | La taille de la zone mémoire réservée dynamiquement     |
 
 ~~~cpp
 int main() {
 
-   const size_t N = 3;
+   const size_t n = 3;
 
    try {
       cout << "------------" << endl;
       cout << "   tab1     " << endl;
       cout << "------------" << endl;
-      Tab<int, N> tab1;
-      for (size_t i = 0; i < N; ++i) {
+      Tab<int> tab1(n);
+      for (size_t i = 0; i < n; ++i) {
          tab1.at(i) = (int) i;
       }
       cout << tab1 << endl;
@@ -24,7 +29,7 @@ int main() {
       cout << "------------" << endl;
       cout << "   tab2     " << endl;
       cout << "------------" << endl;
-      Tab<int, N> tab2;
+      Tab<int> tab2(n);
       tab2 = tab1;
       cout << tab2 << endl;
       cout << "size : " << tab2.size() << endl;
@@ -33,7 +38,7 @@ int main() {
       cout << "------------" << endl;
       cout << "   tab3     " << endl;
       cout << "------------" << endl;
-      const Tab<int, N> tab3(tab1);
+      const Tab<int> tab3(tab1);
       cout << tab3 << endl;
       cout << "size : " << tab3.size() << endl;
       cout << endl;
@@ -92,13 +97,13 @@ size : 3
 ------------
    [] / at  
 ------------
-tab1[0]     = 1;
+tab1[0]     = 1; 
 tab1[0]     : 1
 
-tab1.at(1)  = 2;
+tab1.at(1)  = 2; 
 tab1.at(1)  : 2
 tab1[3]     : 0
-tab3.at(3)  : exception : Tab::at
+tab3.at(3)  : exception : Tab::at(size_t pos) const
 
 
 fin de programme
@@ -114,24 +119,24 @@ fin de programme
 using namespace std;
 
 //----------------------------------------------------------
-template <typename T, size_t n>
+template <typename T>
 class Tab;
 
 //----------------------------------------------------------
-template <typename T, size_t n>
-ostream& operator<< (ostream& os, const Tab<T, n>& tab);
+template <typename T>
+ostream& operator<< (ostream& os, const Tab<T>& tab);
 
 //----------------------------------------------------------
-template <typename T, size_t n>
+template <typename T>
 class Tab {
-   friend ostream& operator<< <>(ostream& os, const Tab<T, n>& tab);
+   friend ostream& operator<< <>(ostream& os, const Tab<T>& tab);
 
-public:
-   Tab();
+   public:
+   Tab(size_t n);
    Tab(const Tab& other);
    ~Tab();
 
-   Tab<T, n>& operator= (const Tab& other);
+   Tab<T>& operator= (const Tab& other);
 
    T& operator[] (size_t pos);
    T  operator[] (size_t pos) const;
@@ -139,23 +144,24 @@ public:
    T& at(size_t pos);
    T  at(size_t pos) const;
 
-   size_t size() const { return n; };
+   size_t size() const { return _size; };
 
-private:
-   T* data = nullptr;
+   private:
+   size_t _size;
+   T*     data   = nullptr;
 };
 
 //----------------------------------------------------------
 int main() {
 
-   const size_t N = 3;
+   const size_t n = 3;
 
    try {
       cout << "------------" << endl;
       cout << "   tab1     " << endl;
       cout << "------------" << endl;
-      Tab<int, N> tab1;
-      for (size_t i = 0; i < N; ++i) {
+      Tab<int> tab1(n);
+      for (size_t i = 0; i < n; ++i) {
          tab1.at(i) = (int) i;
       }
       cout << tab1 << endl;
@@ -165,7 +171,7 @@ int main() {
       cout << "------------" << endl;
       cout << "   tab2     " << endl;
       cout << "------------" << endl;
-      Tab<int, N> tab2;
+      Tab<int> tab2(n);
       tab2 = tab1;
       cout << tab2 << endl;
       cout << "size : " << tab2.size() << endl;
@@ -174,7 +180,7 @@ int main() {
       cout << "------------" << endl;
       cout << "   tab3     " << endl;
       cout << "------------" << endl;
-      const Tab<int, N> tab3(tab1);
+      const Tab<int> tab3(tab1);
       cout << tab3 << endl;
       cout << "size : " << tab3.size() << endl;
       cout << endl;
@@ -213,10 +219,10 @@ int main() {
 //----------------------------------------------------------
 //    friend
 //----------------------------------------------------------
-template <typename T, size_t n>
-ostream& operator<< (ostream& os, const Tab<T, n>& tab) {
+template <typename T>
+ostream& operator<< (ostream& os, const Tab<T>& tab) {
    os << "[";
-   for (size_t i=0; i<n; ++i) {
+   for (size_t i=0; i<tab.size(); ++i) {
       if (i) os << ", ";
       os << tab[i];
    }
@@ -227,67 +233,76 @@ ostream& operator<< (ostream& os, const Tab<T, n>& tab) {
 //----------------------------------------------------------
 //    class Tab
 //----------------------------------------------------------
-template <typename T, size_t n>
-Tab<T, n>::Tab() {
-//   cout << "Tab::Tab()" << endl;
+template <typename T>
+Tab<T>::Tab(size_t n) {
+//   cout << "Tab::Tab(n)" << endl;
+   _size = n;
    this->data = new T[n];
 }
 
 //----------------------------------------------------------
-template <typename T, size_t n>
-Tab<T, n>::Tab(const Tab& other) {
+template <typename T>
+Tab<T>::Tab(const Tab& other) {
 //   cout << "Tab::Tab(const Tab& other)" << endl;
-   this->data = new T[n];
-   copy(other.data, other.data+n, this->data);
+   this->_size = other.size();
+   this->data = new T[_size];
+   copy(other.data, other.data + _size, this->data);
 }
 
 //----------------------------------------------------------
-template <typename T, size_t n>
-Tab<T, n>::~Tab() {
+template <typename T>
+Tab<T>::~Tab() {
 //   cout << "Tab::~Tab()" << endl;
    delete[] this->data;
 }
 
 //----------------------------------------------------------
-template <typename T, size_t n>
-Tab<T, n>& Tab<T, n>::operator= (const Tab& other) {
+template <typename T>
+Tab<T>& Tab<T>::operator= (const Tab& other) {
 //   cout << "Tab::operator= (const Tab& other)" << endl;
 
    if (this == &other)
       return *this;
 
-   copy(other.data, other.data+n, this->data);
+   if ( _size != (size_t o_size = other.size()) ) {
+      T* tmp = new T[o_size];
+      delete[] data;
+      data = tmp;
+      _size = o_size;
+   }
+
+   copy(other.data, other.data + _size, this->data);
    return *this;
 }
 
 //----------------------------------------------------------
-template <typename T, size_t n>
-T& Tab<T, n>::operator[] (size_t pos) {
+template <typename T>
+T& Tab<T>::operator[] (size_t pos) {
 //   cout << "Tab::operator[]" << endl;
    return this->data[pos];
 }
 
 //----------------------------------------------------------
-template <typename T, size_t n>
-T Tab<T, n>::operator[] (size_t pos) const {
+template <typename T>
+T Tab<T>::operator[] (size_t pos) const {
 //   cout << "Tab::operator[] (size_t pos) const" << endl;
    return this->data[pos];
 }
 
 //----------------------------------------------------------
-template <typename T, size_t n>
-T& Tab<T, n>::at(size_t pos) {
+template <typename T>
+T& Tab<T>::at(size_t pos) {
 //   cout << "Tab::at(size_t pos)" << endl;
-   if (pos >= n)
+   if (pos >= _size)
       throw out_of_range("Tab::at(size_t pos)");
    return this->data[pos];
 }
 
 //----------------------------------------------------------
-template <typename T, size_t n>
-T Tab<T, n>::at(size_t pos) const {
+template <typename T>
+T Tab<T>::at(size_t pos) const {
 //   cout << "Tab::at(size_t pos) const" << endl;
-   if (pos >= n)
+   if (pos >= _size)
       throw out_of_range("Tab::at(size_t pos) const");
    return this->data[pos];
 }
