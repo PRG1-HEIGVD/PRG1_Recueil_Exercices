@@ -310,7 +310,12 @@ const T& Tab<T>::at(size_t pos) const {
 </details>
 
 <details>
-<summary>Syntaxe alternative avec "auto ->" pour les méthodes de Tab</summary>
+<summary>Syntaxe alternative</summary>
+
+Cette solution est fonctionellement identique à la précédente, mais utilise une syntaxe alternative avec 
+
+- des alias de type dans le style de la STL pour `value_type`, `reference`, `const_reference`, ...
+- la syntaxe `auto fn(...) -> return_type` au lieu de `return_type fn(...)` pour la déclaration des méthodes de `Tab<T>`. 
 
 ~~~cpp
 #include <iostream>
@@ -334,20 +339,26 @@ class Tab {
    friend void swap<>(Tab& a, Tab& b);
 
 public:
+   using value_type = T;
+   using reference = value_type&;
+   using const_reference = const value_type&;
+   using pointer = value_type*;
+   using size_type = size_t;
+
    Tab(size_t n);
    ~Tab();
 
    Tab(const Tab& other);
    auto operator= (const Tab& other) -> Tab&;
-   auto operator[] (size_t pos) -> T&;
-   auto operator[] (size_t pos) const -> const T&;
-   auto at(size_t pos) -> T&;
-   auto at(size_t pos) const -> const T&;
-   auto size() const -> size_t { return _size; };
+   auto operator[] (size_t pos) -> reference;
+   auto operator[] (size_t pos) const -> const_reference;
+   auto at(size_t pos) -> reference;
+   auto at(size_t pos) const -> const_reference;
+   auto size() const -> size_type { return _size; };
 
 private:
-   size_t _size;
-   T* _data;
+   size_type _size;
+   pointer _data;
 };
 
 //----------------------------------------------------------
@@ -476,19 +487,19 @@ auto Tab<T>::operator= (const Tab& other) -> Tab& {
 
 //----------------------------------------------------------
 template <typename T>
-auto Tab<T>::operator[] (size_t pos) -> T& {
+auto Tab<T>::operator[] (size_t pos) -> reference {
    return _data[pos];
 }
 
 //----------------------------------------------------------
 template <typename T>
-auto Tab<T>::operator[] (size_t pos) const -> const T& {
+auto Tab<T>::operator[] (size_t pos) const -> const_reference {
    return _data[pos];
 }
 
 //----------------------------------------------------------
 template <typename T>
-auto Tab<T>::at(size_t pos) -> T& {
+auto Tab<T>::at(size_t pos) -> reference {
    if (pos >= _size)
       throw std::out_of_range("Tab::at(size_t pos)");
    return _data[pos];
@@ -496,11 +507,12 @@ auto Tab<T>::at(size_t pos) -> T& {
 
 //----------------------------------------------------------
 template <typename T>
-auto Tab<T>::at(size_t pos) const -> const T& {
+auto Tab<T>::at(size_t pos) const -> const_reference {
    if (pos >= _size)
       throw std::out_of_range("Tab::at(size_t pos) const");
    return _data[pos];
 }
+
 ~~~
 
 </details>
