@@ -6,7 +6,7 @@ Implémenter la classe `Tab` qui contient les propriétés privées suivantes
 
 | Propriété | Details                                                 |
 |:----------|:--------------------------------------------------------|
-| `T* data` | Un pointeur sur une zone mémoire réservée dynamiquement |
+| `T* _data` | Un pointeur sur une zone mémoire réservée dynamiquement |
 | `_size`   | La taille de la zone mémoire réservée dynamiquement     |
 
 ~~~cpp
