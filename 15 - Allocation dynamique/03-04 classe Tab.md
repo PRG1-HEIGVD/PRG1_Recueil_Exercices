@@ -345,15 +345,15 @@ public:
    using pointer = value_type*;
    using size_type = size_t;
 
-   Tab(size_t n);
+   Tab(size_type n);
    ~Tab();
 
    Tab(const Tab& other);
    auto operator= (const Tab& other) -> Tab&;
-   auto operator[] (size_t pos) -> reference;
-   auto operator[] (size_t pos) const -> const_reference;
-   auto at(size_t pos) -> reference;
-   auto at(size_t pos) const -> const_reference;
+   auto operator[] (size_type pos) -> reference;
+   auto operator[] (size_type pos) const -> const_reference;
+   auto at(size_type pos) -> reference;
+   auto at(size_type pos) const -> const_reference;
    auto size() const -> size_type { return _size; };
 
 private:
@@ -452,7 +452,7 @@ void swap(Tab<T>& a, Tab<T>& b) {
 //    class Tab
 //----------------------------------------------------------
 template <typename T>
-Tab<T>::Tab(size_t n) : _size(n), _data(new T[n])
+Tab<T>::Tab(size_type n) : _size(n), _data(new T[n])
 {
 }
 
@@ -487,19 +487,19 @@ auto Tab<T>::operator= (const Tab& other) -> Tab& {
 
 //----------------------------------------------------------
 template <typename T>
-auto Tab<T>::operator[] (size_t pos) -> reference {
+auto Tab<T>::operator[] (size_type pos) -> reference {
    return _data[pos];
 }
 
 //----------------------------------------------------------
 template <typename T>
-auto Tab<T>::operator[] (size_t pos) const -> const_reference {
+auto Tab<T>::operator[] (size_type pos) const -> const_reference {
    return _data[pos];
 }
 
 //----------------------------------------------------------
 template <typename T>
-auto Tab<T>::at(size_t pos) -> reference {
+auto Tab<T>::at(size_type pos) -> reference {
    if (pos >= _size)
       throw std::out_of_range("Tab::at(size_t pos)");
    return _data[pos];
@@ -507,7 +507,7 @@ auto Tab<T>::at(size_t pos) -> reference {
 
 //----------------------------------------------------------
 template <typename T>
-auto Tab<T>::at(size_t pos) const -> const_reference {
+auto Tab<T>::at(size_type pos) const -> const_reference {
    if (pos >= _size)
       throw std::out_of_range("Tab::at(size_t pos) const");
    return _data[pos];
