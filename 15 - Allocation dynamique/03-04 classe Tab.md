@@ -110,7 +110,7 @@ fin de programme
 ~~~
 
 <details>
-<summary>Solution</summary>
+<summary>Solution - sans swap</summary>
 
 ~~~cpp
 #include <iostream>
@@ -305,6 +305,213 @@ T Tab<T>::at(size_t pos) const {
    if (pos >= _size)
       throw out_of_range("Tab::at(size_t pos) const");
    return this->data[pos];
+}
+~~~
+
+</details>
+
+<details>
+<summary>Solution - avec swap</summary>
+
+~~~cpp
+#include <iostream>
+#include <algorithm>    // copy and swap
+#include <cstddef>      // size_t
+
+using namespace std;
+
+//----------------------------------------------------------
+template <typename T>
+class Tab;
+
+//----------------------------------------------------------
+template <typename T>
+ostream& operator<< (ostream& os, const Tab<T>& tab);
+
+//----------------------------------------------------------
+template <typename T>
+class Tab {
+   friend ostream& operator<< <>(ostream& os, const Tab<T>& tab);
+
+public:
+   Tab(size_t n);
+   Tab(const Tab& other);
+   ~Tab();
+
+   Tab<T>& operator= (const Tab& other);
+
+   T& operator[] (size_t pos);
+   T  operator[] (size_t pos) const;
+
+   T& at(size_t pos);
+   T  at(size_t pos) const;
+
+   size_t size() const { return _size; };
+
+   void swap(Tab<T>& other) noexcept;
+
+private:
+   size_t _size;
+   T*     data   = nullptr;
+};
+
+//----------------------------------------------------------
+int main() {
+
+   const size_t n = 3;
+
+   try {
+      cout << "------------" << endl;
+      cout << "   tab1     " << endl;
+      cout << "------------" << endl;
+      Tab<int> tab1(n);
+      for (size_t i = 0; i < n; ++i) {
+         tab1.at(i) = (int) i;
+      }
+      cout << tab1 << endl;
+      cout << "size : " << tab1.size() << endl;
+      cout << endl;
+
+      cout << "------------" << endl;
+      cout << "   tab2     " << endl;
+      cout << "------------" << endl;
+      Tab<int> tab2(n);
+      tab2 = tab1;
+      cout << tab2 << endl;
+      cout << "size : " << tab2.size() << endl;
+      cout << endl;
+
+      cout << "------------" << endl;
+      cout << "   tab3     " << endl;
+      cout << "------------" << endl;
+      const Tab<int> tab3(tab1);
+      cout << tab3 << endl;
+      cout << "size : " << tab3.size() << endl;
+      cout << endl;
+
+      cout << "------------" << endl;
+      cout << "   [] / at  " << endl;
+      cout << "------------" << endl;
+      cout << "tab1[0]     = 1; " << endl;
+      tab1[0] = 1;
+      cout << "tab1[0]     : " << tab1[0] << endl;
+      cout << endl;
+      cout << "tab1.at(1)  = 2; " << endl;
+      tab1.at(2) = 2;
+      cout << "tab1.at(1)  : " << tab1.at(2) << endl;
+
+      try {
+         cout << "tab1[3]     : " << tab1[3] << endl;
+         cout << "tab3.at(3)  : " << tab3.at(3) << endl;
+      }
+      catch (out_of_range &e) {
+         cout << "exception : " << e.what() << endl;
+      }
+
+      cout << endl;
+
+   }
+   catch (bad_alloc& e) {
+      cout << e.what() << endl;
+   }
+
+   cout << endl;
+   cout << "fin de programme" << endl;
+   return EXIT_SUCCESS;
+}
+
+//----------------------------------------------------------
+//    friend
+//----------------------------------------------------------
+template <typename T>
+ostream& operator<< (ostream& os, const Tab<T>& tab) {
+   os << "[";
+   for (size_t i=0; i<tab.size(); ++i) {
+      if (i) os << ", ";
+      os << tab[i];
+   }
+   os << "]";
+   return os;
+}
+
+//----------------------------------------------------------
+//    class Tab
+//----------------------------------------------------------
+template <typename T>
+Tab<T>::Tab(size_t n) {
+//   cout << "Tab::Tab(n)" << endl;
+   _size = n;
+   this->data = new T[n];
+}
+
+//----------------------------------------------------------
+template <typename T>
+Tab<T>::Tab(const Tab& other) {
+//   cout << "Tab::Tab(const Tab& other)" << endl;
+   this->_size = other.size();
+   this->data = new T[_size];
+   copy(other.data, other.data + _size, this->data);
+}
+
+//----------------------------------------------------------
+template <typename T>
+Tab<T>::~Tab() {
+//   cout << "Tab::~Tab()" << endl;
+   delete[] this->data;
+}
+
+//----------------------------------------------------------
+template <typename T>
+Tab<T>& Tab<T>::operator= (const Tab& other) {
+//   cout << "Tab::operator= (const Tab& other)" << endl;
+
+   if (this == &other)
+      return *this;
+
+   Tab<T> tmp{other};
+   swap(tmp);
+
+   return *this;
+}
+
+//----------------------------------------------------------
+template <typename T>
+T& Tab<T>::operator[] (size_t pos) {
+//   cout << "Tab::operator[]" << endl;
+   return this->data[pos];
+}
+
+//----------------------------------------------------------
+template <typename T>
+T Tab<T>::operator[] (size_t pos) const {
+//   cout << "Tab::operator[] (size_t pos) const" << endl;
+   return this->data[pos];
+}
+
+//----------------------------------------------------------
+template <typename T>
+T& Tab<T>::at(size_t pos) {
+//   cout << "Tab::at(size_t pos)" << endl;
+   if (pos >= _size)
+      throw out_of_range("Tab::at(size_t pos)");
+   return this->data[pos];
+}
+
+//----------------------------------------------------------
+template <typename T>
+T Tab<T>::at(size_t pos) const {
+//   cout << "Tab::at(size_t pos) const" << endl;
+   if (pos >= _size)
+      throw out_of_range("Tab::at(size_t pos) const");
+   return this->data[pos];
+}
+
+//----------------------------------------------------------
+template <typename T>
+void Tab<T>::swap(Tab& other) noexcept {
+   using std::swap;
+   swap(this->_size, other._size);
+   swap(this->data,  other.data);
 }
 ~~~
 
