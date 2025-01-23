@@ -110,7 +110,7 @@ fin de programme
 ~~~
 
 <details>
-<summary>Solution - sans swap</summary>
+<summary>Solution</summary>
 
 ~~~cpp
 #include <iostream>
@@ -315,10 +315,7 @@ T Tab<T>::at(size_t pos) const {
 
 ~~~cpp
 #include <iostream>
-#include <algorithm>    // copy and swap
-#include <cstddef>      // size_t
-
-using namespace std;
+#include <algorithm>
 
 //----------------------------------------------------------
 template <typename T>
@@ -326,19 +323,23 @@ class Tab;
 
 //----------------------------------------------------------
 template <typename T>
-ostream& operator<< (ostream& os, const Tab<T>& tab);
+std::ostream& operator<< (std::ostream& os, const Tab<T>& tab);
+
+template <typename T>
+void swap(Tab<T>& a, Tab<T>& b);
 
 //----------------------------------------------------------
 template <typename T>
 class Tab {
-   friend ostream& operator<< <>(ostream& os, const Tab<T>& tab);
+   friend std::ostream& operator<< <>(std::ostream& os, const Tab<T>& tab);
+   friend void swap<>(Tab& a, Tab& b);
 
 public:
    Tab(size_t n);
-   Tab(const Tab& other);
    ~Tab();
 
-   Tab<T>& operator= (const Tab& other);
+   Tab(const Tab& other);
+   Tab& operator= (const Tab& other);
 
    T& operator[] (size_t pos);
    T  operator[] (size_t pos) const;
@@ -348,15 +349,14 @@ public:
 
    size_t size() const { return _size; };
 
-   void swap(Tab<T>& other) noexcept;
-
 private:
    size_t _size;
-   T*     data   = nullptr;
+   T* _data;
 };
 
 //----------------------------------------------------------
 int main() {
+   using namespace std;
 
    const size_t n = 3;
 
@@ -421,10 +421,10 @@ int main() {
 }
 
 //----------------------------------------------------------
-//    friend
+//    friends
 //----------------------------------------------------------
 template <typename T>
-ostream& operator<< (ostream& os, const Tab<T>& tab) {
+std::ostream& operator<< (std::ostream& os, const Tab<T>& tab) {
    os << "[";
    for (size_t i=0; i<tab.size(); ++i) {
       if (i) os << ", ";
@@ -434,84 +434,76 @@ ostream& operator<< (ostream& os, const Tab<T>& tab) {
    return os;
 }
 
+template <typename T>
+void swap(Tab<T>& a, Tab<T>& b) {
+   using std::swap;
+   swap(a._size, b._size);
+   swap(a._data, b._data);
+}
+
 //----------------------------------------------------------
 //    class Tab
 //----------------------------------------------------------
 template <typename T>
-Tab<T>::Tab(size_t n) {
-//   cout << "Tab::Tab(n)" << endl;
-   _size = n;
-   this->data = new T[n];
+Tab<T>::Tab(size_t n) : _size(n), _data(new T[n])
+{
 }
 
 //----------------------------------------------------------
 template <typename T>
-Tab<T>::Tab(const Tab& other) {
-//   cout << "Tab::Tab(const Tab& other)" << endl;
-   this->_size = other.size();
-   this->data = new T[_size];
-   copy(other.data, other.data + _size, this->data);
+Tab<T>::Tab(const Tab& other) : Tab(other._size) {
+   std::copy_n(other._data, _size, _data);
 }
 
 //----------------------------------------------------------
 template <typename T>
 Tab<T>::~Tab() {
-//   cout << "Tab::~Tab()" << endl;
-   delete[] this->data;
+   delete[] _data;
 }
 
 //----------------------------------------------------------
 template <typename T>
 Tab<T>& Tab<T>::operator= (const Tab& other) {
-//   cout << "Tab::operator= (const Tab& other)" << endl;
-
-   if (this == &other)
-      return *this;
-
-   Tab<T> tmp{other};
-   swap(tmp);
-
+   if ( _size != other._size ) {
+      // la taille change, on utilise la technique "copy and swap"
+      Tab tmp(other);
+      swap(tmp, *this);
+   } else if ( _data != other._data ) {
+      // la taille ne change pas, il suffit de
+      // copier les données.
+      // attention, seulement garantie faible si
+      // std::copy_n lève une exception
+      std::copy_n(other._data, _size, _data);
+   }
    return *this;
 }
 
 //----------------------------------------------------------
 template <typename T>
 T& Tab<T>::operator[] (size_t pos) {
-//   cout << "Tab::operator[]" << endl;
-   return this->data[pos];
+   return _data[pos];
 }
 
 //----------------------------------------------------------
 template <typename T>
 T Tab<T>::operator[] (size_t pos) const {
-//   cout << "Tab::operator[] (size_t pos) const" << endl;
-   return this->data[pos];
+   return _data[pos];
 }
 
 //----------------------------------------------------------
 template <typename T>
 T& Tab<T>::at(size_t pos) {
-//   cout << "Tab::at(size_t pos)" << endl;
    if (pos >= _size)
-      throw out_of_range("Tab::at(size_t pos)");
-   return this->data[pos];
+      throw std::out_of_range("Tab::at(size_t pos)");
+   return _data[pos];
 }
 
 //----------------------------------------------------------
 template <typename T>
 T Tab<T>::at(size_t pos) const {
-//   cout << "Tab::at(size_t pos) const" << endl;
    if (pos >= _size)
-      throw out_of_range("Tab::at(size_t pos) const");
-   return this->data[pos];
-}
-
-//----------------------------------------------------------
-template <typename T>
-void Tab<T>::swap(Tab& other) noexcept {
-   using std::swap;
-   swap(this->_size, other._size);
-   swap(this->data,  other.data);
+      throw std::out_of_range("Tab::at(size_t pos) const");
+   return _data[pos];
 }
 ~~~
 
