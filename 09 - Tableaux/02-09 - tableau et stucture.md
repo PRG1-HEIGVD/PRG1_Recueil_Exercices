@@ -20,97 +20,101 @@ array carnet {Personne{"Jean"s,   "Veuxplus"s, Date{ 7,  4, 1975}},
               Personne{"Justin"s, "Ptipeu"s,   Date{ 1,  8, 2023}},
               Personne{"Rémi"s,   "Fasol"s,    Date{17,  5, 1957}}};
 
-Personne* ptr;
-Personne& ref = carnet.at(0);
+Personne* ptr_personne;
+Personne& ref_personne = carnet.at(0);
+
+ostream& operator<< (ostream& os, const Date& date) {
+   return os << (int)date.jour << "." << (int)date.mois << "." << date.annee;
+}
 ~~~
 
 Ecrire les instructions demandées
 <br>
 
-1) En utilisant `ref`, afficher la date de Jean
+1) En utilisant `ref_personne`, afficher la date de Jean
 
 <details>
 <summary>Solution</summary>
 
 ~~~cpp
-cout << ref.date;
+cout << ref_personne.date;
 ~~~
 
 ----------------------------------------
 
 </details>
 
-2) En utilisant `ptr`, afficher la date de Jean
+2) En utilisant `ptr_personne`, afficher la date de Jean
 
 <details>
 <summary>Solution</summary>
 
 ~~~cpp
 // ces 3 affectations sont identiques
-ptr = &carnet.at(0);
-ptr = &carnet[0];
-ptr = carnet.data();
+ptr_personne = &carnet.at(0);
+ptr_personne = &carnet[0];
+ptr_personne = carnet.data();
 
-cout << ptr->date;
+cout << ptr_personne->date;
 ~~~
 
 ----------------------------------------
 
 </details>
 
-3) En utilisant `ref`, remplacer l'année de la date de Jean par 1976
+3) En utilisant `ref_personne`, remplacer l'année de la date de Jean par 1976
 
 <details>
 <summary>Solution</summary>
 
 ~~~cpp
-ref.date.annee = 1976;
+ref_personne.date.annee = 1976;
 ~~~
 
 ----------------------------------------
 
 </details>
 
-4) En utilisant `ptr`, remplacer l'année de la date de Jean par 1976
+4) En utilisant `ptr_personne`, remplacer l'année de la date de Jean par 1976
 
 <details>
 <summary>Solution</summary>
 
 ~~~cpp
-ptr->date.annee = 1976;
+ptr_personne->date.annee = 1976;
 ~~~
 
 ----------------------------------------
 
 </details>
 
-5) En utilisant `ref`, afficher les initiales de Alain => "VA"
+5) En utilisant `ref_personne`, afficher les initiales de Alain => "VA"
 
 <details>
 <summary>Solution</summary>
 
 ~~~cpp
 // difficile, une référence ne peut pas être ré-affectée
-cout << (&ref + 1)->prenom[0] << (&ref + 1)->nom[0] << endl;
+cout << (&ref_personne + 1)->prenom[0] << (&ref_personne + 1)->nom[0] << endl;
 ~~~
 
 ----------------------------------------
 
 </details>
 
-6) En utilisant `ptr`, afficher les initiales de Alain => "VA"
+6) En utilisant `ptr_personne`, afficher les initiales de Alain => "VA"
 
 <details>
 <summary>Solution</summary>
 
 ~~~cpp
 // ces 4 affectations sont identiques
-++ptr;
-ptr = &carnet.at(1);
-ptr = &carnet[1];
-ptr = carnet.data() + 1;
+++ptr_personne;
+ptr_personne = &carnet.at(1);
+ptr_personne = &carnet[1];
+ptr_personne = carnet.data() + 1;
 
-cout << ptr->prenom[0] << ptr->nom[0] << endl;
+cout << ptr_personne->prenom[0] << ptr_personne->nom[0] << endl;
 ~~~
 
 ----------------------------------------
